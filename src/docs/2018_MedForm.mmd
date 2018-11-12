@@ -1,0 +1,97 @@
+---
+title:  'Semantic medation: from alignment relations to data transcriptions'  
+subtitle:   
+author:  
+- name: Paul Brandt  
+  affiliation: Eindhoven University of Technology; Netherlands Organization of Applied Scientific Research TNO, Den Haag, The Netherlands   
+- name: Marten van Sinderen  
+  affiliation: University of Twente, Enschede, The Netherlands  
+- name: Twan Basten  
+  affiliation: Eindhoven University of Technology, Eindhoven, The Netherlands 
+version:   
+category:   
+ack: This work was supported by TNO through the MSoBD program.    
+tags: semantic interoperability, semantic mediation, ontology alignment, term rewriting, cTRS, data transcription   
+bibliography: src/bib/CitedByMe-2018_MedForm.bib  
+csl: templates/my-basic-reference-style.csl  
+abstract: |  
+   
+    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships, e.g., *subset*, *superset*, *overlap*, and more, to hold between a pair of concepts. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. Without solving this semantic discrepancy between alignment correspondences and transcription, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing fake semantics. 
+
+    *Motivation:* In the nineties, scalable performance was resolved on a case by case basis and only after agreements were made on the generic approach to its design, infrastructural services relieved the application software from these concerns. Semantic interoperability can be considered the issue of this decade, resolved on a case by case basis. Only after we can provide generic designs to accurately convey the meaning of our data, infrastructural standards and services can emerge that relieve software applications from this burden.
+
+    *Objective:* We provide for a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
+
+    *Results/Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents while maintaining their original semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implementing* case-specific data wrappers. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+
+...
+
+# Introduction #
+\scrivSynopsis{}
+1 page
+100 readers
+
+1: Describe the Problem.
+* not formal but an intuition 
+* not everything but 
+* .. hard enough to be interesting, and
+* .. simple enough to be solvable
+
+2: State you claims
+* as bullit list with 
+* forward references to sections where you substantiate them.
+* Claims should be described such that you can fail their deliverance: "Gosh, if they really can, exciting, I must read on"
+* Contributions are the properties of the solution.
+* This list *drives* the paper
+
+
+\scrivText{}
+Assume two collaborating software agents. Each agent addresses a part of reality, here denoted the agent’s *application domain*. Collaboration implies that the agents’ application domains overlap. In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based *Domain of Interpretation* (DoI), denoted \concept{D}. We assume that each agent decides on its own conceptualisation and its own ontological representation which is built from a unique alphabet $\Sigma$. For example, consider ...\todo{ brandtp, 12-11-2018 Voorbeeld toevoegen} 
+
+Hence, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$ whereas $\concept{D} \cap \concept{D}’ \neq \varnothing$. Our objective is to facilitate any pair of collaborating agents by providing a generic semantic mediation: a syntactic replacement between terms from two distinct alphabets, which is valid (does not induce phantom semantics), always terminating, and independent on the order with which the terms are replaced.
+
+The main idea of the paper is to identify, for all logical contexts that originate from the source and target ontological concepts, their relations and all alignment correspondences that are allowed between source and target ontological concepts, the most accurate valid transcription possible, or NULL if none is present. These so-called transcription contexts are then introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a semantic mediator. Our contributions to the semantic mediation process are then:
+
+1. An *inductive model* that describes any logical context that might occur between collaborating agents, in terms of classes, relationships and correspondences (\cref{an-inductive-transcription-model});
+1. A *valid transcription* for each (class-based) transcription context that have been investigated and resolved. Due to space limitations we only present a few examples here -- the full set of valid transcriptions are available at [some web address | a “data” set] (\cref{valid-transcriptions});
+1. A *mathematical specification of a mediator*, founded on a conditional term rewriting system (\cref{a-ctrs-as-mediator});
+1. An investigation into the *confluence property* of the inductive model, to assure that the mediator is properly terminating (\cref{the-confluence-property-of-the-mediator});
+1. (Finally\todo{ brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.} , an *evaluation* of the mediator by providing an implementation that is based on a generic rewriting logic framework, the Maude 2.0 System [@Clavel2003a], (\cref{mediator validation})). 
+
+<!-- einde lijst -->
+
+The *concepts* in the ontologies are of certain type, denoted $\varepsilon$, and is considered one of the following:
+\begin{equation}
+\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{\iota}
+\end{equation}
+where:
+
+* \token{C} denotes the Class concept type, the interpretation of which results in a set $\concept{C} \subseteq \concept{D}$ of individuals, $\forall \token{c} \sqsubseteq \token{C}: \intn(\token{c}) \subseteq \concept{C}$, where ~~$\lhd$ denotes the instance-of relation between an individual concept (left-hand side, here a particular class) and its type $\varepsilon$ (right-hand side, here a Class type)~~;
+* \token{R}, \token{P} and \token{\iota} denote the Relation concept type, the Property concept type, and the Instance concept type, respectively, with their own interpretation in \concept{D}. For the sake of simplicity, we will here limit ourselves to transcribing a Class concept, only. 
+
+Concepts are thus atomic elements in an ontology, and here only of type Class. 
+
+
+
+
+# An inductive transcription model #
+\scrivSynopsis{}
+1 page
+10 readers
+# Valid transcriptions #
+\scrivSynopsis{}
+2 pages
+10 readers
+# A cTRS as mediator #
+\scrivSynopsis{}
+5 pages
+3 readers
+# The confluence property of the mediator #
+# Related work #
+\scrivSynopsis{}
+1-2 pages
+10 readers
+# Conclusions and further work #
+\scrivSynopsis{}
+1/2 page
+# References {-} 

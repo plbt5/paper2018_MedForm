@@ -20,14 +20,20 @@ author:
   affiliation: Eindhoven University of Technology, Eindhoven, The Netherlands 
 version:   
 category:   
-ack: &lt;!-- This work was supported by the EC, through the RECAP project, part of the Interreg IVB NWE Programme. --&gt;    
-tags: &lt;!-- semantic interoperability, semantic mediations, semantic conflicts, semantic concerns, semantic protocols, remote patient monitoring --&gt;  
-bibliography: src/bib/bibliography.bib  
+ack: This work was supported by TNO through the MSoBD program.    
+tags: semantic interoperability, semantic mediation, ontology alignment, term rewriting, cTRS, data transcription   
+bibliography: src/bib/CitedByMe-2018_MedForm.bib  
 csl: templates/my-basic-reference-style.csl  
-abstract: |  The abstract may 
-    include several lines, separated by a return.
-  As long as the abstract ends with 3 dots on a new line and nothing further!
+abstract: |  
    
+    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships, e.g., *subset*, *superset*, *overlap*, and more, to hold between a pair of concepts. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. Without solving this semantic discrepancy between alignment correspondences and transcription, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing fake semantics. 
+
+    *Motivation:* In the nineties, scalable performance was resolved on a case by case basis and only after agreements were made on the generic approach to its design, infrastructural services relieved the application software from these concerns. Semantic interoperability can be considered the issue of this decade, resolved on a case by case basis. Only after we can provide generic designs to accurately convey the meaning of our data, infrastructural standards and services can emerge that relieve software applications from this burden.
+
+    *Objective:* We provide for a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
+
+    *Results/Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents while maintaining their original semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implementing* case-specific data wrappers. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+
 ...</Text>
         </Document>
         <Document ID="4">
@@ -53,51 +59,31 @@ abstract: |  The abstract may
 
 &lt;State you claims&gt;
 
-The main idea of the paper is .... . Our contributions to &lt;subject&gt; are the following:
+The main idea of the paper is to identify, for all logical contexts that originate from (i) the source and (ii) target ontological concepts (and their relations) at the one hand and (iii) all possible alignment correspondences at the other hand, the most accurate valid transcription possible, or NULL if none is present. These situations are then introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a semantic mediator. Our contributions to the semantic mediation process are then:
 
-* ... \cref{first-section}
-* ... \cref{second-section}
+1. An inductive model that describes any logical context that might occur between collaborating agents, in terms of classes, relationships and correspondences (\cref{an-inductive-transcription-model});
+1. A few characteristic examples for valid transcriptions, as a subset of the XX situations that have been investigated and resolved and which are available at [some web address | a “data” set] (\cref{valid-transcriptions});
+1. A mathematical specification of a mediator, founded on a conditional term rewriting system (\cref{a-ctrs-as-mediator});
+1. An investigation into the confluence property of the inductive model, to assure that the mediator is properly terminating (\cref{the-confluence-property-of-the-mediator});
+1. (Finally, an evaluation of the mediator by providing an implementation that is based on a generic Python cTRS impementation (\cref{mediator validation})). 
+
+The following section introduces the problem  
+&lt;!-- einde lijst --&gt;
 
 </Text>
+            <Comments>brandtp, 9/17/2018 Alleen als ik daar een passende Python Lib voor vinden kan, of java lib de ik als service kan aanspreken.</Comments>
         </Document>
         <Document ID="30">
             <Title>Abstract</Title>
-            <Synopsis>4 sentences
-100 readers
-
-I changed this into the shown structure:
-+ drives your thinking/writing
-- too many sentences
-
-In 4 sentences (from Kent Beck):
-1: State the problem
-2: Tell why it's an interesting problem
-3: Tell what your solution achieves (NOT what it is)
-4: Tell the consequences of using your solution</Synopsis>
-            <Text>*Background:* 3 sentences
-  
-*Objective:* 1 sentence
-
-*Method:* 3 sentences
-
-*Results:* 3-4 sentences
+            <Text>    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships, e.g., *subset*, *superset*, *overlap*, and more, to hold between a pair of concepts. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
  
-*Conclusions:* 1 sentence
+    *Motivation:* Without solving this semantic discrepancy between specified alignment correspondences and applied transcription, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component represents the keystone to the sIOP bridge between collaborating agents.  
 
+    *Objective:* We provide for a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
 
-OR (better for design science):
-
-*Background/Problem:* (2 sentences)
-    State the problem
-
-*Motivation:* (2 sentences)
-    Tell why it's an interesting problem
-
-*Objective:* (1 sentence)
-    Tell what your solution achieves (NOT what it is)
-
-*Results/Consequences:* (3-4 sentences)
-    Tell the consequences of using your solution</Text>
+    *Results/Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implementing* case-specific data wrappers. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+</Text>
+            <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
         <Document ID="31">
             <Title>Readme</Title>
@@ -152,17 +138,17 @@ Your text should support the reader. DO NOT LEAVE YOUR USERS TO GUESS:
 Be 100% explicit: “The main idea of the paper is ....”</Text>
         </Document>
         <Document ID="32">
-            <Title>The Problem</Title>
+            <Title>An inductive transcription model</Title>
             <Synopsis>1 page
 10 readers</Synopsis>
         </Document>
         <Document ID="33">
-            <Title>My Idea</Title>
+            <Title>Valid transcriptions</Title>
             <Synopsis>2 pages
 10 readers</Synopsis>
         </Document>
         <Document ID="34">
-            <Title>The Bloody Details</Title>
+            <Title>A cTRS as mediator</Title>
             <Synopsis>5 pages
 3 readers</Synopsis>
         </Document>
@@ -567,6 +553,12 @@ Pronouns do not need apostrophes because they inherently show possession.
 * It’s is a contraction for “it is” and its is the possessive pronoun that signifies “belonging to it”. 
 
 &lt;!-- einde opsomming --&gt;</Text>
+        </Document>
+        <Document ID="52">
+            <Title>References {-}</Title>
+        </Document>
+        <Document ID="53">
+            <Title>The confluence property of the mediator</Title>
         </Document>
     </Documents>
 </SearchIndexes>
