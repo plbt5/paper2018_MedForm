@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2018-12-23 15:46:13 +0100" ModID="25D422D9-D45D-4864-8090-279A1792B964">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2018-12-23 16:09:33 +0100" ModID="31B44F97-9E04-4ECC-A0E4-D902FB7B8A2D">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 13:06:28 +0100" Modified="2018-08-24 13:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -205,22 +205,22 @@
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>6661,0</TextSelection>
+                        <TextSelection Caret="5343">5326,17</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 12:00:45 +0100" Modified="2018-12-23 15:46:11 +0100" Type="Text">
+                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 12:00:45 +0100" Modified="2018-12-23 16:05:15 +0100" Type="Text">
                     <Title>An inductive transcription model</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>206,0</TextSelection>
+                        <TextSelection>4977,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="33" UUID="DA969D78-5F74-46A0-BC4D-8BBBD8C70545" Created="2018-05-20 12:00:56 +0100" Modified="2018-12-23 15:04:51 +0100" Type="Text">
+                <BinderItem ID="33" UUID="DA969D78-5F74-46A0-BC4D-8BBBD8C70545" Created="2018-05-20 12:00:56 +0100" Modified="2018-12-23 16:09:31 +0100" Type="Text">
                     <Title>Valid transcriptions</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
@@ -315,7 +315,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="2287" Characters="15407" Date="2018-12-09 15:47:26 +0100"/>
+        <PreviousSession Words="2299" Characters="15498" Date="2018-12-09 15:47:26 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">

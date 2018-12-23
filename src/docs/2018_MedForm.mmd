@@ -76,19 +76,14 @@ with $\theta \in \Theta$ specifying the *correspondence relation* that holds bet
 
 
 # An inductive transcription model #
-\begin{synopsis}1 page
-10 readers
-
-\end{synopsis}
-
 When considering ontologies that are based on description logic, the concepts that are identified are dependent on their type, denoted $\varepsilon$, and is considered one of the following:
-\begin{equation}label{eq:concept-type}
-\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{\iota}
+\begin{equation}\label{eq:concept-type}
+\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{T} \; | \; \token{\iota}
 \end{equation}
 where:
 
 * \token{C} denotes the *Class* concept type, the interpretation of which results in a set $\concept{C} \subseteq \concept{D}$ of individuals: $\forall \token{c} \lhd \token{C}: \intn(\token{c}) \subseteq \concept{C}$, where $\lhd$ denotes the type-of relation between an individual concept (left-hand side, here a particular class) and its type $\varepsilon$ (right-hand side, here a Class type);
-* \token{R}, \token{P} and \token{\iota} denote the *Relation* concept type, the *Property* concept type, and the *Instance* concept type, respectively, with their own interpretation in \concept{D}. For reasons of space and simplicity we do not further elaborate on these concepts.
+* \token{R}, \token{P}, \token{T} and \token{\iota} denote the *Relation* concept type, the *Property* concept type, the *value type* concept type, and the *Instance* concept type, respectively, with their own interpretation in \concept{D}. For reasons of space and simplicity we do not further elaborate on these concepts.
 
 The above concepts all represent atomic concepts, and are part of correspondence $\mu = \langle e, e’, \theta \rangle$ as formulated by \cref{eq:correspondence}. The atomic patterns of this particular atomic context is depicted in \cref{fig:basic-correspondence} (a) to (f). 
 
@@ -109,11 +104,11 @@ We introduce the local contexts of the transcriptum and transcribendum in their 
 * $\theta_n \in \Theta$, the correspondence relation that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level. 
 
-We first consider the ontological relationships $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$. Then, the transcription context is fully described by $c_n, r, c_{n-1} \in \ont{O}$ and $c_n’, r’, c_{n-1’} \in \ont{O’}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, we conclude that the completeness part of the relations demands a subsuming class concept that can act as reference for it. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$ relate the reference concept $c_n$ with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$ that bear an (in)completeness relation $\hat{r}$. 
+We first consider the ontological relationships $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$. Then, the transcription context is fully described by $\theta_n$, $c_n, r, c_{n-1} \in \ont{O}$ and $c_n’, r’, c_{n-1’} \in \ont{O’}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, we conclude that the completeness part of the relations demands a subsuming class concept that can act as reference for completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$ relate the reference concept $c_n$ with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$ that bear an (in)completeness relation $\hat{r}$. 
 
 ![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
 
-Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \equiv$. As a result, we consider the generic case (b) only when investigating a transcription that involves $r \text{ or } r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
+Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \equiv$. As a result, we consider the generic case (b) only when investigating a transcription that involves $\hat{r} \text{ or } \hat{r}’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
 
 
 
@@ -122,11 +117,6 @@ Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of sit
 [def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}
 [def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}
 # Valid transcriptions #
-\begin{synopsis}2 pages
-10 readers
-
-\end{synopsis}
-
 The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or none or $\token{null}$ when phantom semantics are induced. The semantic validity of a transcription is the result of two cooperating mechanisms:
 
 1. Firstly, the transcription relies on transcription context $\ctx$ that is formed by:
@@ -137,11 +127,11 @@ The main demand for the mediation is to guarantee that it either produces a sema
 
 Since the above transcription context provides for all potential logical circumstances that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand is whether $\intn(e) \supseteq \intn’(e’)$ holds or not. In case of the former, the transcription is allowed and the mediation will return the transcriptum $e’$; in case of the latter, the mediation will return $\token{null}$. Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider whether $\intn(e) \supseteq \intn’(e’)$ holds. 
 
-We first consider the transcription of an atomic correspondence $\mu = \tuple{ c, c’, \theta }$. This is simple: since no other concepts are present in the atomic context of the correspondence, the transcribendum $c’$ represents the only potential transcription result $t’$ for transcriptum $c$. This shows an important characteristic of a transcription: With no more information available, a transcription implies a binary choice: either transcribe transcriptum $c$ into the transcribendum $c’$, denoted as $c \vldtranscript{\theta} c’$, or not. This choice depends on whether phantom semantics are induced by the transcription. The result of this strategy is shown in \cref{tab:atomic-class-transcriptions}, where each column specifies the possible correspondence relation that applies. The table presents the transcription results $t’$ as either (i) the transcribendum, which, by absence of induced phantom semantics is necessarily valid, or (ii) no transcription, denoted by \ntsa, because the transcription into the transcribendum would induce phantom semantics.
+We first consider the transcription of an atomic correspondence $\mu = \tuple{ c, c’, \theta }$. This is simple: since no other concepts are present in the atomic context of the correspondence, the transcriptum $c’$ represents the only potential transcription result $t’$ for transcribendum $c$. This shows an important characteristic of a transcription: With no more information available, a transcription implies a binary choice: either transcribe transcribendum $c$ into the transcriptum $c’$, denoted as $c \vldtranscript{\theta} c’$, or not. This choice depends on whether phantom semantics are induced by the transcription. The result of this strategy is shown in \cref{tab:atomic-class-transcriptions}, where each column specifies the possible correspondence relation that applies. The table presents the transcription results $t’$ as either (i) the transcriptum, which, by absence of induced phantom semantics is necessarily valid, or (ii) no transcription, denoted by \ntsa, because the transcription into the transcriptum would induce phantom semantics.
 
 \begin{table}[h]
   \centering
-  \caption{Transcription results $t’$ for the atomic correspondences $\tuple{e, e’, \theta}$: atomic concept $e$ represents the transcriptum and is transcribed under relation $\theta$, taking into consideration that no other concepts are present. The value of the transcription result $t’$ is presented in the table. As indicated, we only address class concepts, resulting in a table with one single row only.}
+  \caption{Transcription results $t’$ for the atomic correspondences $\tuple{e, e’, \theta}$: atomic concept $e$ represents the transcribendum and is transcribed under relation $\theta$, taking into consideration that no other concepts are present. The value of the transcription result $t’$ is presented in the table. As indicated, we only address class concepts, resulting in a table with one single row only.}
   \label{tab:atomic-class-transcriptions}
   \begin{tabular}{cc@{\qquad}ccccc}
     \toprule
