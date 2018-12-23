@@ -69,21 +69,58 @@ The main idea of the paper is to identify, for (i) all logical contexts that ori
 Before turning to the first of these sections, we will introduce some terminology, as follows.
 
 A *correspondence* denotes a single particular inter-ontological relation, denoted as 
-\begin{equation}
+\begin{equation}\label{eq:correspondence}
 \mu = \tuple{ e, e’, \theta }
 \end{equation}
-with $\theta \in \Theta$ specifying the *correspondence relation* that holds between source concept $\token{e} \in \ont{O}$, denoted the *transcriptum*, and the target concept $\token{e’} \in \ont{O}’$, denoted the *transcriptum*. We consider $\Theta \; = \; \{\equiv, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equivalence, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantically valid relation between both concepts. We denote an *atomic correspondence *a correspondence where $e$ and $e’$ are atomic elements, i.e., a single concept without considering any (logical or ontological) relation with another concept from its own ontology. The *concepts* in the ontologies are of certain type, denoted $\varepsilon$, and is considered one of the following:
-\begin{equation}
+with $\theta \in \Theta$ specifying the *correspondence relation* that holds between source concept $\token{e} \in \ont{O}$, denoted the *transcribendum*, and the target concept $\token{e’} \in \ont{O}’$, denoted the *transcriptum*. We consider $\Theta \; = \; \{\equiv, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equivalence, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantically valid relation between both concepts. We denote an *atomic correspondence *a correspondence where $e$ and $e’$ are atomic elements, i.e., a single concept without considering any (logical or ontological) relation with another concept from its own ontology. The *concepts* in the ontologies are the elements that apply in the ontology. These are of certain type, dependent on the type of logic that is used to formulate the ontology. Although we limit ourselves to description logic, and, for sake of simplicity and available space, to only the classes therein, the principles that we present here are applicable to the other types of elements in description logic, i.e., relations, properties and instances, as well as other type of logic. In the remainder of this paper, *atomic concepts* are then atomic classes from an ontology, whereas *complex concepts* are a logical combination of classes. 
+
+
+# An inductive transcription model #
+\begin{synopsis}1 page
+10 readers
+
+\end{synopsis}
+
+When considering ontologies that are based on description logic, the concepts that are identified are dependent on their type, denoted $\varepsilon$, and is considered one of the following:
+\begin{equation}label{eq:concept-type}
 \varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{\iota}
 \end{equation}
 where:
 
 * \token{C} denotes the *Class* concept type, the interpretation of which results in a set $\concept{C} \subseteq \concept{D}$ of individuals: $\forall \token{c} \lhd \token{C}: \intn(\token{c}) \subseteq \concept{C}$, where $\lhd$ denotes the type-of relation between an individual concept (left-hand side, here a particular class) and its type $\varepsilon$ (right-hand side, here a Class type);
-* \token{R}, \token{P} and \token{\iota} denote the *Relation* concept type, the *Property* concept type, and the *Instance* concept type, respectively, with their own interpretation in \concept{D}. For the sake of simplicity, we will here limit ourselves to transcribing a Class concept, only. 
+* \token{R}, \token{P} and \token{\iota} denote the *Relation* concept type, the *Property* concept type, and the *Instance* concept type, respectively, with their own interpretation in \concept{D}. For reasons of space and simplicity we do not further elaborate on these concepts.
 
-In the remainder of this paper, *atomic concepts* are thus atomic classes from an ontology, whereas *complex concepts* are a logical combination of classes. We will first elaborate on what we mean with a valid transcription.
+The above concepts all represent atomic concepts, and are part of correspondence $\mu = \langle e, e’, \theta \rangle$ as formulated by \cref{eq:correspondence}. The atomic patterns of this particular atomic context is depicted in \cref{fig:basic-correspondence} (a) to (f). 
+
+![Atomic contexts, i.e., two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \in \{c, r, p, \iota, t\}$, with correspondence relation $\theta \in \Theta$ to specify how concept $e$ corresponds with its peer $e’$. Note that $\theta$ is a directed relation. Case (a) represents the generic atomic correspondence for classes, types and individuals, depicted by case (d), (e) and (f), respectively. Cases (b) and (c) represent the generic atomic contexts for object relations and property relations, respectively, which are not investigated here.][def:BasicCorrespondence]
+
+Intuitively, in \cref{fig:basic-correspondence}, the atomic context $\ctx_a$ represents the generic atomic correspondence: two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e$, with $e \in \{c, r, p, \iota, t\}$, and one correspondence relation $\theta \in \Theta$ to relate concept $e$ with its peer $e’$. In case (a), however, concept $e$ can only be one of $c$, $\iota$ or $t$: when considering concepts that express relations, i.e., case (b) on object relations and case (c) on property relations, a class concept $c$ becomes a necessary part of the atomic context to represent the domain of the relations; similarly, range concepts are necessarily included to the atomic context as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic context as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_c$ and $\theta_t$ from cases (b) and (c) it becomes clear that these are, in fact, atomic correspondences. From this it follows that:
+
+1. indeed case (a) represents the generic atomic correspondence but only for classes, $\tuple{ c, c’, \theta_c}$ as depicted in case (d), types, $\tuple{t, t’, \theta_t}$ as depicted in case (e), and individuals, $\tuple{\iota, c’, \theta_\iota}$ as depicted in case (f);
+1. cases (b) and (c) represent what we would like to call the generic atomic context for relations, since apart from the primary atomic correspondence also two secondary atomic correspondences are involved, i.e., three atomic correspondences in total;
+1. the generic atomic context of a relation can only be addressed once the transcriptions for the atomic correspondences of cases (d) and (e) are resolved. 
+
+We introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the *transcription context* that we define inductively as $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, with:
+
+* $r, r’ \in \set{\sqsubset, \equiv, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, representing a logical relationship between a class pair, with:
+    * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively, and 
+    * $\displete, \disjoinc$ denote *disjoint and complete*, and *disjoint and incomplete*, whereas 
+    * $\overlete, \overlinc$ denote *not disjoint but complete* and *not disjoint and incomplete*, respectively;
+* $\theta_n \in \Theta$, the correspondence relation that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
+* $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level. 
+
+We first consider the ontological relationships $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$. Then, the transcription context is fully described by $c_n, r, c_{n-1} \in \ont{O}$ and $c_n’, r’, c_{n-1’} \in \ont{O’}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, we conclude that the completeness part of the relations demands a subsuming class concept that can act as reference for it. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$ relate the reference concept $c_n$ with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$ that bear an (in)completeness relation $\hat{r}$. 
+
+![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
+
+Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \equiv$. As a result, we consider the generic case (b) only when investigating a transcription that involves $r \text{ or } r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
 
 
+
+
+<!-- Page definitions -->
+[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}
+[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}
 # Valid transcriptions #
 \begin{synopsis}2 pages
 10 readers
@@ -93,10 +130,10 @@ In the remainder of this paper, *atomic concepts* are thus atomic classes from a
 The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or none or $\token{null}$ when phantom semantics are induced. The semantic validity of a transcription is the result of two cooperating mechanisms:
 
 1. Firstly, the transcription relies on transcription context $\ctx$ that is formed by:
-    1. The specific context of the source entity $e$ in its source ontology $\ont{O}$;
-    1. The specific context of the target entity $e’$ in its source ontology $\ont{O}’$;
-    1. The correspondence $\mu = \tuple{ e, e’, \theta }$, with $\theta \in \Theta$ specifying the correspondence relation that holds between $e \in \ont{O}$ and $e’ \in \ont{O}’$. We consider $\Theta \; = \; \{\equiv, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equivalence, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
-1. Secondly, the transcriptum $e’$ represents a new theory that is added to $\ont{O}’$. This theory will be evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether $\intn(e)$ addresses the same individuals in the DoI as $\intn’(e’)$. 
+    1. The local context of the source entity $e$ in its source ontology $\ont{O}$;
+    1. The local context of the target entity $e’$ in its source ontology $\ont{O}’$;
+    1. The correspondence $\mu = \tuple{ e, e’, \theta }$ as defined in \cref{eq:correspondence}. The correspondence is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
+1. Secondly, the transcriptum $e’$ represents a new theory that is added to $\ont{O}’$. This theory is evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether the transcribendum $\intn(e)$ addresses the same individuals in the DoI as the transcriptum $\intn’(e’)$. 
 
 Since the above transcription context provides for all potential logical circumstances that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand is whether $\intn(e) \supseteq \intn’(e’)$ holds or not. In case of the former, the transcription is allowed and the mediation will return the transcriptum $e’$; in case of the latter, the mediation will return $\token{null}$. Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider whether $\intn(e) \supseteq \intn’(e’)$ holds. 
 
@@ -139,32 +176,6 @@ Assume transcribendum $e_n \in \ont{O}$, transcriptum $e_n’ \in \ont{O}’$, c
 In other words, a transcription is valid if all individuals that potentially belong to the set represented by $e_n$ also belong to the set that can be represented by some logical combination of $e_n’$, $e{n-1}’$ and $\hat{e}_{n-1}’$.
 
 
-# An inductive transcription model #
-\begin{synopsis}1 page
-10 readers
-
-\end{synopsis}
-
-We therefore introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the *transcription context* that we define inductively as $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, with:
-
-* $r, r’ \in \set{\sqsubset, \equiv, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, representing a logical relationship between a class pair, with:
-    * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively, and 
-    * $\displete, \disjoinc$ denote *disjoint and complete*, and *disjoint and incomplete*, whereas 
-    * $\overlete, \overlinc$ denote *not disjoint but complete* and *not disjoint and incomplete*, respectively;
-* $\theta_n \in \Theta$, the correspondence relation that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
-* $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level. 
-
-We first consider the ontological relationships $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$. Then, the transcription context is fully described by $c_n, r, c_{n-1} \in \ont{O}$ and $c_n’, r’, c_{n-1’} \in \ont{O’}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, we conclude that the completeness part of the relations demands a subsuming class concept that can act as reference for it. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$ relate the reference concept $c_n$ with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$ that bear an (in)completeness relation $\hat{r}$. 
-
-![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
-
-Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \equiv$. As a result, we consider the generic case (b) only when investigating a transcription that involves $r \text{ or } r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
-
-
-
-
-<!-- Page definitions -->
-[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}
 # A cTRS as mediator #
 \begin{synopsis}5 pages
 3 readers
