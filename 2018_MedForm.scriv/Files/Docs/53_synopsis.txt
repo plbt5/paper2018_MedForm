@@ -1,0 +1,15 @@
+Confluence draagt ervoor zorg dat de cTRS termineert, onafhankelijk van het pad dat de rewriting uiteindelijk volgt. Confluence is voor transcripties eenvoudig te bewijzen:
+
+\begin{itemize}
+\item Op het laagste inductienivo, het atomische nivo, bestaat er óf wel, óf geen vertaling. Dat termineert dus altijd
+\item op inductienivo n zijn voor alle contexten een vertaling gegeven, óf op basis van het eigen nivo n, óf op basis van nivo n-1. Daaruit kan worden geconcludeerd dat de vertaling op nivo n termineert als voor elke context geldt dat:
+ \begin{itemize}
+  \item er op nivo n een vertaling is gespecificeerd zonder gebruik te maken van nivo n-1;
+  \item er op nivo n een vertaling is gespecificeerd gebruik makend van de vertaling nivo n-1, én de vertaling op nivo n-1 termineert;
+  \item er op nivo n een verbod bestaat voor vertaling in deze context.
+ \end{itemize}
+ \item De eerste en derde conditie zijn hetzelfde als op het atomaire nivo, en termineren. 
+ \item De tweede conditie termineert omdat er geen andere contexten en nivo's bestaan dan hier geschetst die niet termineren.
+\end{itemize}
+
+\end{synopsis}

@@ -1,15 +1,23 @@
 1 page
 100 readers
 
-1: Describe the Problem.
-* not formal but an intuition 
-* not everything but 
-* .. hard enough to be interesting, and
-* .. simple enough to be solvable
+\begin{enumerate}
+ \item Describe the Problem.
+ \begin{itemize}
+ \item not formal but an intuition 
+ \item not everything but 
+ \item .. hard enough to be interesting, and
+ \item .. simple enough to be solvable
+ \end{itemize}
+ \item State you claims
+ \begin{itemize}
+ \item as bullit list with 
+ \item forward references to sections where you substantiate them.
+ \item Claims should be described such that you can fail their deliverance: "Gosh, if they really can, exciting, I must read on"
+ \item Contributions are the properties of the solution.
+ \end{itemize}
+\end{enumerate}
 
-2: State you claims
-* as bullit list with 
-* forward references to sections where you substantiate them.
-* Claims should be described such that you can fail their deliverance: "Gosh, if they really can, exciting, I must read on"
-* Contributions are the properties of the solution.
-* This list *drives* the paper
+This list *drives* the paper
+
+\end{synopsis}

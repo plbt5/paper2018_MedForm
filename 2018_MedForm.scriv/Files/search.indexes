@@ -26,13 +26,14 @@ bibliography: src/bib/CitedByMe-2018_MedForm.bib
 csl: templates/my-basic-reference-style.csl  
 abstract: |  
    
-    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships, e.g., *subset*, *superset*, *overlap*, and more, to hold between a pair of concepts. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. Without solving this semantic discrepancy between alignment correspondences and transcription, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing fake semantics. 
+    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+ 
+    *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the correspondence that results from the applied transcription, viz. equivalence, alignment based mediation will always fail to achieve its purpose, that is, translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, represents the keystone to the sIOP bridge between collaborating agents.  
 
-    *Motivation:* In the nineties, scalable performance was resolved on a case by case basis and only after agreements were made on the generic approach to its design, infrastructural services relieved the application software from these concerns. Semantic interoperability can be considered the issue of this decade, resolved on a case by case basis. Only after we can provide generic designs to accurately convey the meaning of our data, infrastructural standards and services can emerge that relieve software applications from this burden.
+    *Objective:* We present a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
 
-    *Objective:* We provide for a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
+    *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
 
-    *Results/Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents while maintaining their original semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implementing* case-specific data wrappers. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
 
 ...</Text>
         </Document>
@@ -41,47 +42,66 @@ abstract: |
             <Synopsis>1 page
 100 readers
 
-1: Describe the Problem.
-* not formal but an intuition 
-* not everything but 
-* .. hard enough to be interesting, and
-* .. simple enough to be solvable
+\begin{enumerate}
+ \item Describe the Problem.
+ \begin{itemize}
+ \item not formal but an intuition 
+ \item not everything but 
+ \item .. hard enough to be interesting, and
+ \item .. simple enough to be solvable
+ \end{itemize}
+ \item State you claims
+ \begin{itemize}
+ \item as bullit list with 
+ \item forward references to sections where you substantiate them.
+ \item Claims should be described such that you can fail their deliverance: &quot;Gosh, if they really can, exciting, I must read on&quot;
+ \item Contributions are the properties of the solution.
+ \end{itemize}
+\end{enumerate}
 
-2: State you claims
-* as bullit list with 
-* forward references to sections where you substantiate them.
-* Claims should be described such that you can fail their deliverance: &quot;Gosh, if they really can, exciting, I must read on&quot;
-* Contributions are the properties of the solution.
-* This list *drives* the paper
-</Synopsis>
-            <Text>!!Readers will fall like flies here, so use your precious, gold-plated words here where they can hang on to!!
-&lt;Describe the Problem&gt;
+This list *drives* the paper
 
-&lt;State you claims&gt;
+\end{synopsis}</Synopsis>
+            <Text>Assume two collaborating software agents, exchanging data about their common interest. Each agent addresses a part of reality, here denoted the agent’s application domain. Collaboration implies that the agents’ application domains overlap. In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based Domain of Interpretation (DoI), denoted \concept{D}. Furthermore, a conceptualisation is represented in tokens which, together, form an ontology, denoted \ont{O}. Finally, an interpretation function $\intn$ exists from the ontology to the conceptualisation. We assume that each agent decides on its own conceptualisation and its own ontological representation, the latter being built from a unique alphabet $\Sigma$. For example, consider ...
 
-The main idea of the paper is to identify, for all logical contexts that originate from (i) the source and (ii) target ontological concepts (and their relations) at the one hand and (iii) all possible alignment correspondences at the other hand, the most accurate valid transcription possible, or NULL if none is present. These situations are then introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a semantic mediator. Our contributions to the semantic mediation process are then:
+Since each agent decides on its own conceptualisation, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$^[Even worse, it can be the case that both ontologies share a particular token which refer to different concepts in each conceptualisation.] whereas, since the DoI’s overlap, $\concept{D} \cap \concept{D}’ \neq \varnothing$. We assume the existence of (inter-ontological) alignment correspondences that are allowed between source and target ontological concepts. We make no assumptions on how the alignment correspondences come into existence but we do assume their semantic validity. Now consider that a transcription essentially implements a replacement of terms. From a semantic perspective term replacement enforces an equivalence to hold between both terms, which is in clear contrast with the prescribed correspondence relations (except for an equivalence correspondence). Consequently, the result of the transcription will induce a difference between how it is actually being interpreted and how it was intended to be interpreted according to its correspondence relation. Whether this difference actually results in invalid semantics depends on how the domain of interest have been conceptualised by both agents, and the correspondence relation that is prescribed between them. With invalid semantics we refer to a valuation of a theory that contradicts the state of affairs in the domain of interest. Invalid semantics that are induced by the transcription will be denoted as phantom semantics. Note that due to the open world assumption this includes unfaithful valuations that remain open because conclusive data (or source data for their derivation) have vaporised, and vice versa, those that became closed because definitive data (or source data for their derivation) have transpired. In short, phantom semantics are semantics that are transcription-induced and contradict the state of affairs in the domain of interest. 
 
-1. An inductive model that describes any logical context that might occur between collaborating agents, in terms of classes, relationships and correspondences (\cref{an-inductive-transcription-model});
-1. A few characteristic examples for valid transcriptions, as a subset of the XX situations that have been investigated and resolved and which are available at [some web address | a “data” set] (\cref{valid-transcriptions});
+Our objective is to facilitate for any pair of collaborating agents a generic semantic mediation: a syntactic replacement between theories from two distinct alphabets, which does not induce phantom semantics, is always terminating, and remains independent on the order with which the terms are replaced.
+
+The main idea of the paper is to identify, for all (i) logical contexts that originate from the source and target ontological concepts, (ii) including their (intra-ontological) relations, and (iii) (inter-ontological) alignment correspondences that are allowed between source and target ontological concepts, the most accurate valid transcription possible or $\token{NULL}$ if none is present. We call aspects (i)-(iii) the transcription contexts, and these are introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a semantic mediator. Our contributions to the semantic mediation process are then:
+
+1. An inductive model of the transcription context, describing any logical context that might occur between collaborating agents, in terms of classes, relationships and correspondences (\cref{an-inductive-transcription-model});
+1. A set of valid transcriptions for each transcription context that has been investigated and resolved. Due to space limitations we only present a few examples here -- the full set of valid transcriptions are available at [some web address | a “data” set] (\cref{valid-transcriptions});
 1. A mathematical specification of a mediator, founded on a conditional term rewriting system (\cref{a-ctrs-as-mediator});
 1. An investigation into the confluence property of the inductive model, to assure that the mediator is properly terminating (\cref{the-confluence-property-of-the-mediator});
-1. (Finally, an evaluation of the mediator by providing an implementation that is based on a generic Python cTRS impementation (\cref{mediator validation})). 
+1. (Finally, an evaluation of the mediator by providing an implementation that is based on a generic rewriting logic framework, the Maude 2.0 System [@Clavel2003a], (\cref{mediator validation})). 
 
-The following section introduces the problem  
-&lt;!-- einde lijst --&gt;
+Before turning to the first of these sections, we will introduce some terminology, as follows.
+
+A correspondence denotes a single particular inter-ontological relation, denoted as $\mu = \tuple{ e, e’, \theta }$, with $\theta \in \Theta$ specifying the correspondence relation that holds between source concept $\token{e} \in \ont{O}$, denoted the transcriptum, and the target concept $\token{e’} \in \ont{O}’$, denoted the transcriptum. We consider $\Theta \; = \; \{\equiv, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equivalence, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantically valid relation between both concepts. We denote an atomic correspondence a correspondence where $e$ and $e’$ are atomic elements, i.e., a single concept without considering any relation with another concept from its own ontology. The concepts in the ontologies are of certain type, denoted $\varepsilon$, and is considered one of the following:
+\begin{equation}
+\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{\iota}
+\end{equation}
+where:
+
+* \token{C} denotes the Class concept type, the interpretation of which results in a set $\concept{C} \subseteq \concept{D}$ of individuals: $\forall \token{c} \lhd \token{C}: \intn(\token{c}) \subseteq \concept{C}$, where $\lhd$ denotes the type-of relation between an individual concept (left-hand side, here a particular class) and its type $\varepsilon$ (right-hand side, here a Class type);
+* \token{R}, \token{P} and \token{\iota} denote the Relation concept type, the Property concept type, and the Instance concept type, respectively, with their own interpretation in \concept{D}. For the sake of simplicity, we will here limit ourselves to transcribing a Class concept, only. 
+
+In the remainder of this paper, concepts are thus atomic classes from an ontology, whereas complex concepts are a logical combination of classes.
 
 </Text>
-            <Comments>brandtp, 9/17/2018 Alleen als ik daar een passende Python Lib voor vinden kan, of java lib de ik als service kan aanspreken.</Comments>
+            <Comments>brandtp, 12-11-2018 Voorbeeld toevoegen
+brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.</Comments>
         </Document>
         <Document ID="30">
             <Title>Abstract</Title>
-            <Text>    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships, e.g., *subset*, *superset*, *overlap*, and more, to hold between a pair of concepts. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+            <Text>    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
  
-    *Motivation:* Without solving this semantic discrepancy between specified alignment correspondences and applied transcription, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component represents the keystone to the sIOP bridge between collaborating agents.  
+    *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the correspondence that results from the applied transcription, viz. equivalence, alignment based mediation will always fail to achieve its purpose, that is, translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, represents the keystone to the sIOP bridge between collaborating agents.  
 
-    *Objective:* We provide for a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
+    *Objective:* We present a mathematical foundation for a faithful semantic mediation that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore show how a generic mediator can be efficiently implemented as conditional term rewriting system.  
 
-    *Results/Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implementing* case-specific data wrappers. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+    *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
 </Text>
             <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
@@ -140,26 +160,99 @@ Be 100% explicit: “The main idea of the paper is ....”</Text>
         <Document ID="32">
             <Title>An inductive transcription model</Title>
             <Synopsis>1 page
-10 readers</Synopsis>
+10 readers
+
+\end{synopsis}</Synopsis>
+            <Text>Transcribing an atomic correspondence $\mu = \tuple{ c, c’, \theta }$ is simple: Since no other concepts are present in the atomic context of the correspondence, the transcribendum $c’$ represents the only potential transcription result $t’$ for transcriptum $c$. This shows an important characteristic of a transcription: With no more information available, a transcription implies a binary choice: either transcribe transcriptum $c$ into the transcribendum $c’$, denoted as $c \vldtranscript{\theta} c’$, or not. This choice depends on whether phantom semantics are induced by the transcription. The result of this strategy is shown in \cref{tab:atomic-class-transcriptions}, where each column specifies the possible correspondence relation that applies. The table presents the transcription results $t’$ as either (i) the transcribendum, which, by absence of induced phantom semantics is necessarily valid, or (ii) no transcription, denoted by \ntsa, because the transcription into the transcribendum would induce phantom semantics.
+
+\begin{table}[h]
+  \centering
+  \caption{Transcription results $t’$ for the atomic correspondences $\tuple{e, e’, \theta}$: atomic concept $e$ represents the transcriptum and is transcribed under relation $\theta$, taking into consideration that no other concepts are present. The value of the transcription result $t’$ is presented in the table. As indicated, we only address class concepts, resulting in a table with one single row only.}
+  \label{tab:atomic-class-transcriptions}
+  \begin{tabular}{cc@{\qquad}ccccc}
+    \toprule
+    \multicolumn{2}{c}{$e \vldtranscript{\theta} e’$} &amp; \multicolumn{5}{c}{Correspondence relation $\theta$} \\ \cmidrule{3-7}
+     &amp;&amp; $\sqsubset$ 
+      &amp; $\equiv$
+      &amp; $\sqsupset$
+      &amp; $\overlap$ 
+      &amp; $\disj$ \\
+     \multicolumn{2}{c}{Concept $e$}
+      &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Sb.png}
+      &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Eq.png}
+      &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Sp.png}
+      &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-nD.png}
+      &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Dj.png} \\ \cmidrule(r){1-2} \cmidrule{3-7}
+      &amp; $c$     &amp; $c’$        &amp; $c’$     &amp; \ntsa     &amp; \ntsa     &amp; $\neg c’$  \\ \bottomrule
+  \end{tabular}
+\end{table}
+
+In conclusion, \cref{tab:atomic-class-transcriptions} specifies valid class transcriptions for all atomic correspondences between atomic classes. Unfortunately, two out of five cases prohibit a transcription, a third is rather broad in its transcription, and last but not least, a concept seldom live alone in its ontology. We therefore introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the transcription context that we define inductively as $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, with:
+
+* $r, r’ \in \set{\sqsubset, \equiv, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, representing a logical relationship between a class pair, with:
+    * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively, and 
+    * $\displete, \disjoinc$ denote disjoint and complete, and disjoint and incomplete, whereas 
+    * $\overlete, \overlinc$ denote not disjoint but complete and not disjoint and incomplete, respectively;
+* $\theta_n \in \Theta$, the correspondence relation that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
+* $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level. 
+
+We first consider the ontological relationships $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$. Then, the transcription context is fully described by $c_n, r, c_{n-1} \in \ont{O}$ and $c_n’, r’, c_{n-1’} \in \ont{O’}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, we conclude that the completeness part of the relations demands a subsuming class concept that can act as reference for it. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, \equiv, \sqsupset}$ relate the reference concept $c_n$ with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$ that bear an (in)completeness relation $\hat{r}$. 
+
+![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
+
+Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \equiv$. As a result, we consider the generic case (b) only when investigating a transcription that involves $r \text{ or } r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
+
+
+
+
+&lt;!-- Page definitions --&gt;
+[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}</Text>
         </Document>
         <Document ID="33">
             <Title>Valid transcriptions</Title>
             <Synopsis>2 pages
-10 readers</Synopsis>
+10 readers
+
+\end{synopsis}</Synopsis>
+            <Text>The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or none when phantom semantics are induced. A semantic valid transcription is the result of two cooperating mechanisms:
+
+1. Firstly, the transcription relies on transcription context $\ctx$ that is formed by:
+    1. The specific context of the source entity $e$ in its source ontology $\ont{O}$;
+    1. The specific context of the target entity $e’$ in its source ontology $\ont{O}’$;
+    1. The correspondence $\mu = \tuple{ e, e’, \theta }$, with $\theta \in \Theta$ specifying the correspondence relation that holds between $e \in \ont{O}$ and $e’ \in \ont{O}’$. We consider $\Theta \; = \; \{\equiv, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equivalence, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
+1. Secondly, the transcriptum $e’$ represents a new theory that is added to $\ont{O}’$. This theory will be evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether $\intn(e)$ addresses the same individuals in the DoI as $\intn’(e’)$. 
+
+Since the above transcription context provides for all potential logical circumstances that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand is whether $\intn(e) \supseteq \intn’(e’)$ holds or not. In case of the former, the transcription is allowed and the mediation will return the transcriptum $e’$; in case of the latter, the mediation will return $\token{NULL}$. Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider whether $\intn(e) \supseteq \intn’(e’)$ holds. Due to the inductive characteristic of transcription context, we formulate the question also inductively, as follows:
+
+\begin{mmdef}[Semantic validity of a transcription]\label{def:valid-transcription}
+Assume transcribendum $e_n \in \ont{O}}, transcriptum $e_n’ \in \ont{O}’}, correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$, transcription context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$ and a semantic valid transcription at one lower level, $\vldtranscript{\theta_{n-1}}$. We denote the transcription result as $t_n’$, and express it inductively as a logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$. Then, we call the transcription \emph{semantically valid} iff:\[
+\intn’(t_n’) \subseteq \intn(e_n)
+\]
+\end{mmdef}
+
+In other words, a transcription is valid if all individuals that potentially belong to the set represented by $e_n$ also belong to the set that can be represented by some logical combination of $e_n’$, $e{n-1}’$ and $\hat{e}_{n-1}’$.
+
+</Text>
         </Document>
         <Document ID="34">
             <Title>A cTRS as mediator</Title>
             <Synopsis>5 pages
-3 readers</Synopsis>
+3 readers
+
+\end{synopsis}</Synopsis>
         </Document>
         <Document ID="35">
             <Title>Related work</Title>
             <Synopsis>1-2 pages
-10 readers</Synopsis>
+10 readers
+
+\end{synopsis}</Synopsis>
         </Document>
         <Document ID="36">
             <Title>Conclusions and further work</Title>
-            <Synopsis>1/2 page</Synopsis>
+            <Synopsis>1/2 page
+
+\end{synopsis}</Synopsis>
         </Document>
         <Document ID="37">
             <Title>MMD cheat sheet</Title>
@@ -559,6 +652,21 @@ Pronouns do not need apostrophes because they inherently show possession.
         </Document>
         <Document ID="53">
             <Title>The confluence property of the mediator</Title>
+            <Synopsis>Confluence draagt ervoor zorg dat de cTRS termineert, onafhankelijk van het pad dat de rewriting uiteindelijk volgt. Confluence is voor transcripties eenvoudig te bewijzen:
+
+\begin{itemize}
+\item Op het laagste inductienivo, het atomische nivo, bestaat er óf wel, óf geen vertaling. Dat termineert dus altijd
+\item op inductienivo n zijn voor alle contexten een vertaling gegeven, óf op basis van het eigen nivo n, óf op basis van nivo n-1. Daaruit kan worden geconcludeerd dat de vertaling op nivo n termineert als voor elke context geldt dat:
+ \begin{itemize}
+  \item er op nivo n een vertaling is gespecificeerd zonder gebruik te maken van nivo n-1;
+  \item er op nivo n een vertaling is gespecificeerd gebruik makend van de vertaling nivo n-1, én de vertaling op nivo n-1 termineert;
+  \item er op nivo n een verbod bestaat voor vertaling in deze context.
+ \end{itemize}
+ \item De eerste en derde conditie zijn hetzelfde als op het atomaire nivo, en termineren. 
+ \item De tweede conditie termineert omdat er geen andere contexten en nivo's bestaan dan hier geschetst die niet termineren.
+\end{itemize}
+
+\end{synopsis}</Synopsis>
         </Document>
     </Documents>
 </SearchIndexes>
