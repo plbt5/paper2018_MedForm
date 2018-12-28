@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2018-12-28 14:33:23 +0100" ModID="50DB4E20-60A3-49D1-B76E-95B27F21C197">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2018-12-28 15:05:49 +0100" ModID="6E102AFE-B7E3-4DCA-B294-28FA71A3431C">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 13:06:28 +0100" Modified="2018-08-24 13:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -198,25 +198,24 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 13:23:05 +0100" Modified="2018-12-28 14:04:51 +0100" Type="Text">
+                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 13:23:05 +0100" Modified="2018-12-28 15:02:50 +0100" Type="Text">
                     <Title>Introduction</Title>
                     <MetaData>
                         <LabelID>3</LabelID>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>7142,0</TextSelection>
+                        <TextSelection>5639,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 12:00:45 +0100" Modified="2018-12-27 15:04:40 +0100" Type="Text">
+                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 12:00:45 +0100" Modified="2018-12-28 15:04:09 +0100" Type="Text">
                     <Title>An inductive transcription model</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>5422,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
@@ -227,29 +226,27 @@
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>2740,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="55" UUID="C8B817CB-0F6F-4B74-9026-BC4C06C7DA16" Created="2018-12-27 15:41:45 +0100" Modified="2018-12-28 11:09:40 +0100" Type="Text">
+                        <BinderItem ID="55" UUID="C8B817CB-0F6F-4B74-9026-BC4C06C7DA16" Created="2018-12-27 15:41:45 +0100" Modified="2018-12-28 15:04:43 +0100" Type="Text">
                             <Title>Transcribing over atomic class context</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>552,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0100" Modified="2018-12-28 14:29:27 +0100" Type="Text">
+                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0100" Modified="2018-12-28 15:05:47 +0100" Type="Text">
                             <Title>Transcribing over an implied class context</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>6472,0</TextSelection>
+                                <TextSelection>6458,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -348,7 +345,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="4736" Characters="34031" Date="2018-12-09 15:47:26 +0100"/>
+        <PreviousSession Words="4709" Characters="33893" Date="2018-12-09 15:47:26 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
