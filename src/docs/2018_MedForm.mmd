@@ -115,19 +115,19 @@ Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of sit
 The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or $\token{null}$ when phantom semantics are induced. We formulate a transcription as a function $T_{\theta} : \ont{O} \to \ont{O}’$, and denote a valid transcription as $e \vldtranscript{\theta} e’$, indicating that concept $e \in \ont{O}$ can be replaced by concept $e’ \in \ont{O}’$ under context $\theta$ without inducing phantom semantics. The semantic validity of a transcription is the result of two cooperating mechanisms:
 
 1. Firstly, the transcription depends on transcription context $\ctx_n$, the correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$ as defined in \cref{eq:correspondence}, and the (valid) transcription result $e_{n-1} \vldtranscript{\theta_{n-1}} e_{n-1}’$. The correspondence $\mu_n$ is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
-1. Secondly, the transcription result $T_\theta_n (e_n)$ represents a new theory that is added to $\ont{O}’$. This theory is evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether the transcribendum $\intn(e_n)$ addresses the same individuals in the DoI as the transcription result $\intn’(T_\theta_n(e_n))$. 
+1. Secondly, the transcription result $T_{\theta_n}(e_n)$ represents a new theory that is added to $\ont{O}’$. This theory is evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether the transcribendum $\intn(e_n)$ addresses the same individuals in the DoI as the transcription result $\intn’(T_{\theta_n}(e_n))$. 
 
 Since the transcription context provides for all potential logical circumstances that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents, as follows:
 
 \begin{mmdef}[Semantic validity of a transcription]\label{def:valid-transcription}
-Assume transcribendum $e_n \in \ont{O}$, transcriptum $e_n’ \in \ont{O}’$, correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$, transcription context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$ and a semantic valid transcription at one lower level, $\vldtranscript{\theta_{n-1}}$. We denote the transcription result as $T_\theta(e_n)$, and express it inductively as a logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$. Then, we call the transcription \emph{semantically valid} iff:\[
-\intn’(T_\theta(e_n)) \subseteq \intn(e_n)
+Assume transcribendum $e_n \in \ont{O}$, transcriptum $e_n’ \in \ont{O}’$, correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$, transcription context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$ and a semantic valid transcription at one lower level, $\vldtranscript{\theta_{n-1}}$. We denote the transcription result as $T_{\theta_n}(e_n)$, and express it inductively as a logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$. Then, we call the transcription \emph{semantically valid} iff:\[
+\intn’(T_{\theta_n}(e_n)) \subseteq \intn(e_n)
 \]
 \end{mmdef}
 
 In other words, a transcription is valid if all individuals that potentially belong to the set represented by $e_n$ also belong to the set that can be represented by some logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$.
 
-Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider whether $\intn(e_n) \supseteq \intn’(T_\theta(e_n))$ holds. We consider in the first subsection transcriptions for atomic correspondences, and in the following subsections we extend it to cover several examples of the full transcription context.
+Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider whether $\intn(e_n) \supseteq \intn’(T_{\theta_n}(e_n))$ holds. We consider in the first subsection transcriptions for atomic correspondences, and in the following subsections we extend it to cover several examples of the full transcription context.
 ## Transcribing over atomic class context ##
 We first consider the transcription of case (d) in \cref{fig:basic-correspondence}, the atomic correspondence $\mu = \tuple{ c, c’, \theta }$. This is straightforward: since no other concepts are present in the transcription context, the transcriptum $c’$ represents the only potential transcription result for transcribendum $c$. This shows an important characteristic of a transcription: With no more information available, a transcription implies a binary choice: either transcribe transcribendum $c$ into the transcriptum $c’$, denoted as $T_\theta(c) = c’$, or not, denoted as $T_\theta(c) = \ntsa$. This choice depends on whether phantom semantics are induced by the transcription. The result of this strategy is shown in \cref{tab:atomic-class-transcriptions}, where each column specifies the possible correspondence relation that applies. The table presents the transcription results $T_\theta(c)$ as either (i) the transcriptum when $\intn’(T_\theta(c)) \subseteq \intn(c)$ holds, i.e., for columns 1, 2 and 5 ($\theta \in \set{\sqsubset, \equiv, \disj}$, or (ii) no transcription, denoted by \ntsa, when $\intn’(T_\theta(c)) \nsubseteq \intn(c)$ would result in phantom semantics.
 
@@ -195,7 +195,7 @@ In conclusion, introducing new information brings about cases that *do* facilita
 The last two rows, (s1) and (s2), of \cref{tab:transcr_cn-1_ctxn_sup_a}, summarise the 5 rows above and express semantic equivalence. This can be formulated as:
 
 \begin{equation}\label{eq:class_identity_cn-1_ctxn_sup_a}
-  T_\ctx_n(c_{n-1}) \; = \; 
+  T_{\ctx_n}(c_{n-1}) \; = \; 
   \begin{cases}
     c_n’ \sqcap c_{n-1}’ \vldtranscript{\ctx_{n-1}} 
                                        & : \theta_{n-1} \in \set{\sqsubset, \equiv, \bot} \land \theta_n = \sqsubset \\
