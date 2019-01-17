@@ -1,0 +1,5 @@
+Provide for a short primer on term rewriting; be sure to include references to the basic literature.
+
+Keep it short. This is not about explaining but about showing the terminology that we are to use.
+
+\end{synopsis}

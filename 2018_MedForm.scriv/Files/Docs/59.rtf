@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}}
+{\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
+\paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
+\pgnrestart\pgnstarts0
+\pard\plain \ltrch\loch {\f0\fs24\b0\i0 We consider a transcription a specific application of conditional term rewriting systems. The following table shows how the characteristics of a transcription can be turned into requirements for the cTRS.}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 --------------------------------------------------------------------------------------------------------------------------------}
+\par\plain {\f0\fs24\b0\i0 Characteristic of a transcription                     Aspect of a CTRS}
+\par\plain {\f0\fs24\b0\i0 ----------------------------------------------------- --------------------------------------------------------------------------}
+\par\plain {\f0\fs24\b0\i0 A transcription is a syntactic replacement of terms   A TRS rewrites terms over a specific alphabet, and is oriented towards }
+\par\plain {\f0\fs24\b0\i0 and values.                                           syntax only.}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 A transcription transcribes between two distinct      Show that each normal form for the particular TRS belongs to $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$.}
+\par\plain {\f0\fs24\b0\i0 alphabets.}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 Every transcription should terminate.                 Show that for the particular CTRS the termination property holds.}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 Despite the strategy used about which correspondence  Show that for the particular CTRS the confluence property holds.}
+\par\plain {\f0\fs24\b0\i0 to apply first during transcribing a theory, every    }
+\par\plain {\f0\fs24\b0\i0 strategy should yield the same transcription result.}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 A transcription should not introduce phantom          Since the validity of a transcription depends on the context }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 semantics, i.e., only valid transcriptions should be  $\\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ from the transcription model }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 allowed for correspondences that apply.               (\\cref\{fig:prov-class-transc-model\}), any rewrite rule that follows from}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0                                                       a correspondence $\\mu = \\tuple\{e, e\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta_n\}$ should be guarded by a }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0                                                       condition $\\Gamma$ that implements the transcription context.}
+\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0 --------------------------------------------------------------------------------------------------------------------------------}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 What is left to do is to proof that for $\\sigma(c_n) \\, \\vldtranscript\{\\ctx_n\} \\, \\sigma(t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92)$:}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 1. $t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ is ground normal form with respect to the unconditional system, and}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 1. $c_n \\trsrtc t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 We have already formulated, in many tables, the transcription rules to apply in terms of the context $\\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ that comes about the inductive transcription model. This Section determines how such context can be specified as the conditional rewrite relation from \\cref\{def:conditional-rewrite-relation\}. The purpose of the rewrite relation is to provide for a transcription between a transcriptum from $\\ont\{O\}$ to a transcribendum from $\\ont\{O\u8217\'92\}$. In other words, the rewrite rule will rewrite according to the specified correspondence $\\mu = \\tuple\{c, c\u8217\'92, \\theta\}$. The unconditional rewrite relation $\\to_\{\\rho_0\}$ for any transcription stem from \\cref\{tab:atomic-class-transcriptions\}, therefore, read as follows:}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignat\}\{2\}}
+\par\plain {\f0\fs24\b0\i0   \\rho_\{0,1\}   &: \\; c_n \\sqsubset c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_n\u8217\'92 \\\\}
+\par\plain {\f0\fs24\b0\i0   \\rho_\{0,2\}   &: \\; c_n \\equiv c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    &&\\to \\; c_n\u8217\'92 \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{0,3\}   &: \\; c_n \\sqsupset c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; \\ntsa_n \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{0,4\}   &: \\; c_n \\overlap c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92  &&\\to \\; \\ntsa_n \\\\}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{0,5\}   &: \\; c_n \\disj c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92     &&\\to \\; \\neg c_n\u8217\'92 }
+\par\plain {\f0\fs24\b0\i0 \\end\{alignat\}}
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 It is clear that these unconditional rewrite rules do not induce phantom semantics.}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For the conditional rewrite rules, we will use the example from Case \\ref\{fig:medcxt-sup\}(a). The transcription context $\\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ for this case reads $\\ctx_n = \\pair\{\\equiv, \\theta_n, \\sqsupset, \\ctx_\{n-1\}\}$. Note that in the context of CTRS we will write that $\\to_\{n+1\}$ is expressed in terms of $\\to_n$, as opposed to the transcription context where $\\ctx_n$ is expressed in terms of $\\ctx_\{n-1\}$. }
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignat\}\{5\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,1\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_\{n+1\}\u8217\'92  &\\quad \\text\{if\} \\quad }
+\par\plain {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\label\{eq:transcription-rho1\}\\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,2\} &: \\quad c_\{n+1\} \\equiv c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    &&\\to \\; c_\{n+1\}\u8217\'92  &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\; \\land \\;}
+\par\plain {\f0\fs24\b0\i0     \\theta_n = \\, \\sqsupset  \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,3\} &: \\quad c_\{n+1\} \\overlap c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92  &&\\to \\; \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,4\} &: \\quad c_\{n+1\} \\disj c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92     &&\\to \\; \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,5\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,6\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_\{n+1\}\u8217\'92 \\sqcap \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
+\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,7\} &: \\quad c_\{n+1\} \\overlap c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92  &&\\to \\; \\ntsa_\{n+1\} &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,8\} &: \\quad c_\{n+1\} \\sqsupset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; \\ntsa_\{n+1\} &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\label\{eq:transcription-rho8\}  }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{alignat\}}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We explain equations \\crefrange\{eq:transcription-rho1\}\{eq:transcription-rho8\} collectively with the following generic pattern:}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 1. The (conditional) rewrite rules $\\rho_\{n+1\}$, too, will apply the correspondence $\\mu_\{n+1\} = \\tuple\{c_\{n+1\}, c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta_\{n+1\}\}$. This means that each correspondence will be reflected in a (conditional) rewrite rule; the rule\u8217\'92s LHS will reflect the transcriptum, whilst its RHS will reflect the transcribendum;}
+\par\plain {\f0\fs24\b0\i0 1. Following \\cref\{def:conditional-rewrite-relation\}, the conditional rewrite rules are defined inductively, meaning that the condition $\\Gamma$ should express elements from a lower hierarchy. This demand matches nicely with the inductive definition for the transcription model. The condition $\\Gamma_n$ for the rewrite rule $\\rho_\{n+1\}$ primarily applies the valid transcription from the lower hierarchical level, viz. $\\vldtranscript\{\\ctx_n\}$; }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 1. Finally, as indicated in \\cref\{def:conditions-in-ctrs\}, the condition $\\Gamma$ may also express fixed predicates. For Case \\ref\{fig:medcxt-sup\}(a), its transcription context reads $\\ctx_n = \\pair\{\\equiv, \\theta_n, \\sqsupset, \\ctx_\{n-1\}\}$. The terms $\\theta_n$ and $\\ctx_\{n-1\}$ have already be addressed in the previous two parts of this pattern, leaving terms $r_\{n+1\} = \\equiv$ and $r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 = \\sqsupset$. Although these terms are defined on hierarchical level $n+1$, they are not dependent on any rewriting and can therefore be considered fixed propositions that can be added to the condition.  }
+\par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 From this explanation it becomes clear that we can define the conditional part of a transcription as follows:}
+\par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription]\\label\{def:transcription\}}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{alignat\}\{5\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\rho_\{n+1\} &: \\quad \\sigma\\pair\{c_\{n+1\} \\theta_\{n+1\} c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} &&\\to \\; \\sigma(t_\{n+1\}\u8217\'92)  &\\quad \\text\{if\} \\quad }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       \\sigma(c_n) \\,   &\\vldtranscript\{\\ctx_n\} \\, \\sigma(t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92) \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       r_\{n+1\}  &= \\, r  \\; &\\land \\;}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, r\u8217\'92 \\; \\land \\;}
+\par\plain {\f0\fs24\b0\i0       \\theta_n = \\, \\theta  }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{alignat\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 where $t_k\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ denotes the transcribendum that follows from the table that specifies the valid transcriptions for transcription context $\\ctx_\{k+1\} = \\pair\{r, \\theta_\{k+1\}, r\u8217\'92, \\ctx_k\}$.}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0}

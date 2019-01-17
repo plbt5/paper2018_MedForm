@@ -103,7 +103,7 @@ On considering $\set{\overlete, \overlinc, \displete, \disjoinc}$, the completen
 
 ![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
 
-In the remainder of this paper we will refer to a specific context as *case. *Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} = \text{“$=$”}$. As a result, case (b) represents the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
+In the remainder of this paper we will refer to a specific context as *case. *Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} \equiv$ “$=$”. As a result, case (b) represents the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
 
 
 
@@ -162,7 +162,7 @@ The following two cases are a minimal extension of the original atomic class tra
 
 Both cases are founded on case \ref{fig:basic-correspondence}(d) since the transcription of the latter (specified in \cref{tab:atomic-class-transcriptions}) has been incorporated inductively as the underlying transcription, i.e., as $T_{\ctx_{n-1}}(c_{n-1})$. Since this is a valid transcription (as we have seen in the previous section) we can denote this as $c_{n-1}\vldtranscript{\ctx_{n-1}}$. Context $\ctx_{n-1}$ is fully defined by correlation relation $\theta_{n-1}$, i.e., $\ctx_{n-1} = \pair{\theta_{n-1}}$. In contrast, the current context $\ctx_n$ for case \ref{fig:medcxt-sup}(a) is defined by (i) the ontological relationship between $c_n$ and $c_{n-1}$, i.e., equivalence, (ii) the correlation relation $\theta_n$ between $c_n$ and $c_n’$, (iii) the ontological relationship between $c_n’$ and $c_{n-1}’$, viz. subsumption, and finally (iv) the previous context $\ctx_{n-1}$. Hence, $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$. Similarly, for case \ref{fig:medcxt-sup}(b), its context is defined by $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$.
 
-One way to establish $T_{\ctx_n}(c_{n-1})$ is to draw the Venn-diagrams for $c_n$, $c_{n-1}$, $c_n’$ and $c_{n-1}’$ conform each instance of context $\ctx_n$, viz. each point in the table, and investigate how $c_{n-1}$ can be transcribed best. ‘Best’ here refers to the as small as possible subset, represented by a logical combination of $c_n’$ and $c_{n-1}’$, that fully encompasses $c_{n-1}$. Another way is to apply first order logic to derive the best transcription. Either way, the results are (i) a valid transcription result, (ii) the absence of a valid transcription under context $\ctx_n$, denoted as $\ntsa_n$, or (iii) a logical contradiction in the context and therefore not applicable, denoted by `-`.      
+One way to establish $T_{\ctx_n}(c_{n-1})$ is to draw the Venn-diagrams for $c_n$, $c_{n-1}$, $c_n’$ and $c_{n-1}’$ conform each instance of context $\ctx_n$, viz. each point in the table, and investigate how $c_{n-1}$ can be transcribed best. ‘Best’ here refers to the as small as possible subset, represented by a logical combination of $c_n’$ and $c_{n-1}’$, that fully encompasses $c_{n-1}$. Another way is to apply first order logic to derive the best transcription. Either way, the results are either (i) a valid transcription result, (ii) the absence of a valid transcription under context $\ctx_n$, denoted as $\ntsa_n$, or (iii) a logical contradiction in the context and therefore not applicable, denoted by `-`.      
 
 Since context $\ctx_n$ is constructed from classes $c_n$ and $c_{n-1}$ that both entail a correspondence, both transcriptions $T_{\ctx_n}(c_n)$ and $T_{\ctx_n}(c_{n-1})$ are to be considered per case. We start with the transcriptions for class $c_{n-1}$, shown in \cref{tab:transcr_cn-1_ctxn_sup_a,tab:transcr_cn-1_ctxn_sup_b}, where $c_{n-1}$ refers to the very same class that is denoted as class $c$ in \cref{tab:atomic-class-transcriptions}. In contrast to \cref{tab:atomic-class-transcriptions} where an atomic context was considered only, here the implied class context from cases \ref{fig:medcxt-sup} (a) and (b) are taken into consideration, as specified in the first column in \cref{tab:transcr_cn-1_ctxn_sup_a,tab:transcr_cn-1_ctxn_sup_b}, entitled *Context* $\ctx_{n-1}$. This column specifies, therefore, the atomic transcriptions from \cref{tab:atomic-class-transcriptions} as presupposition: rows 3 and 4 of this column show $\ntsa_{n-1}$, indicating that class $c_{n-1}$ could not be transcribed under $\theta_{n-1} \in \{ \sqsupset, \overlap \}$.
 
@@ -207,13 +207,13 @@ Since context $\ctx_n$ is constructed from classes $c_n$ and $c_{n-1}$ that both
   \end{tabular}
 \end{table}
 \begin{mmrmk}\label{rmk:inh1}
-Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. In contrast, when context $\ctx_n$ is considered, the transcription of context $\ctx_{n-1}$ can be taken into account. Since transcribendum $c_{n-1}$ has been given a transcriptum under context $\ctx_{n-1}$, i.e., $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c’_{n-1}$, and since context $\ctx_n$ does not imply an invalid logical construct, the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
+Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. In contrast, when context $\ctx_n$ is considered, the transcription of context $\ctx_{n-1}$ can be taken into account. Since (i) transcribendum $c_{n-1}$ has been given a valid transcription under context $\ctx_{n-1}$, viz. $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c’_{n-1}$, and (ii) context $\ctx_n$ does not imply an invalid logical construct, and (iii) $c_n’ \sqsupset c’_{n-1}$, therefore the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
 \end{mmrmk}
 \begin{mmrmk}\label{rmk:seq}
 Solely based on correspondence relation $\theta_n$, a valid transcription $c_{n-1} \vldtranscript{\sqsubset} c_n’$ applies. However, by token of the underlying context $\ctx_{n-1}$, it had already been established that $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c_{n-1}’$. Since the former transcription further constrains the latter, both transcriptions should be applied, rendering the double constraint as shown. 
 \end{mmrmk}
 \begin{mmrmk}\label{rmk:inh2}
-Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. In contrast, when context $\ctx_n$ is considered, the transcription of context $\ctx_{n-1}$ can be taken into account. Since transcribendum $c_{n-1}$ has been given a transcriptum under context $\ctx_{n-1}$, i.e., $c_{n-1} \vldtranscript{\ctx_{n-1}} c’_{n-1}$, and since context $\ctx_n$ does not imply an invalid logical construct, the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
+Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. Based on $\ctx_n$, however, the transcription of context $\ctx_{n-1}$ can be taken into account. Since (i) transcribendum $c_{n-1}$ has been given a transcription result under context $\ctx_{n-1}$, viz. $c_{n-1} \vldtranscript{\ctx_{n-1}} c’_{n-1}$, and (ii) context $\ctx_n$ does not imply an invalid logical construct, the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
 \end{mmrmk}
 \begin{mmrmk}\label{rmk:anc}
 Solely based on context $\ctx_n$, insufficient information is present to support a transcription for $c_{n-1}$. However, since $c_{n-1} \cong_{c’} c_n$, it follows that $c_{n-1} \vldtranscript{\ctx_n} = c_n \vldtranscript{\ctx_n}$. At this point, $c_n \vldtranscript{\ctx_n}$ remains undetermined. Whenever transcribendum $c_n$ can be transcribed under any future context $\ctx{}$, $c_{n-1}$ can be transcribed identically under the current context $\ctx_n$ as well.
@@ -251,7 +251,7 @@ In conclusion, introducing new information brings about cases that *do* facilita
 ## Transcribing over a disjoint class context ##
 ![A correspondence over a \emph{disjoint class context}. Case (a): class $c_n’$ is disjoint with class $c_{n-1}’$; case (b): class $c_n$ is disjoint with class $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$ as specified in \cref{tab:atomic-class-transcriptions}. Both cases include a new correspondence relation, $\theta_n$, that defines the correspondence between the new class $c_n’$ resp. $c_n$ and the original class $c_{n-1}$ resp. $c_{n-1}’$ that we introduced with an equivalent class $c_n$ resp. $c_n’$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\equiv, \theta_n, \disj, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\disj, \theta_n, \ctx_{n-1}, \equiv}$][def:MedcxtDjt]
 
-We will perform the same exercise as before: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-d}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. 
+We will perform the same exercise as before: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. 
 
 \begin{table}[h]
   \centering
@@ -302,8 +302,8 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
 
 \begin{table}[h]
   \centering
-  \caption{Transcribing $c_n$ for case \ref{fig:medcxt-djt} (b), i.e., under context $\ctx_n = \pair{\disj, \ctx_{n-1}, \theta_n}$. }
-  \label{tab:transcr_cn_ctxn_sub_b}
+  \caption{Transcribing $c_n$ for case \ref{fig:medcxt-djt} (b), i.e., under context $\ctx_n = \pair{\disj, \theta_n, =, \ctx_{n-1}}$. }
+  \label{tab:transcr_cn_ctxn_djt_b}
   \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
     \toprule
     & \multicolumn{2}{c}{Context $\ctx_{n-1}$} & & \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
@@ -324,9 +324,8 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
 
 <!-- Page definitions -->
 [def:MedcxtDjt]: src\images\MedCxt-djt.png {#fig:medcxt-djt width=50%}
-# A cTRS as mediator #
-\begin{synopsis}5 pages
-3 readers
+## Summary ##
+\begin{synopsis}Show that the tables can be rewritten as rules; this is necessary for the conditional part of the cTRS in the following section.
 
 \end{synopsis}
 
@@ -429,6 +428,205 @@ The last two rows, (s1) and (s2), of \cref{tab:transcr_cn-1_ctxn_sup_a}, summari
                                            & & -           & -          & $\ntsa_n$   & $\ntsa_n$  & -               \\ \bottomrule
   \end{tabular}
 \end{table}
+
+
+
+# A cTRS as mediator #
+Before we show how a transcription can be formulated as a conditional Term Rewriting System (cTRS), we will first provide for a small summary on term rewriting systems.
+## (conditional) Term Rewriting Systems ##
+\begin{synopsis}Provide for a short primer on term rewriting; be sure to include references to the basic literature.
+
+Keep it short. This is not about explaining but about showing the terminology that we are to use.
+
+\end{synopsis}
+
+We will first define some terminology that is used in the definition on a term rewriting system (TRS). This is basic material taken from [@Baader1998; and @Bezem2003]. We finish this section with a notion on the use of context $\ctx_n$ in a conditional term rewriting system (cTRS).
+
+\begin{mmdef}[Terms]\label{def:terms}
+Consider a signature $\Sigma$ of admitted symbols, and a countable, possibly infinite set of \emph{variables} $V$ with $V \cap \Sigma = \; \emptyset$. The set of \emph{terms} over $\Sigma$, denoted as $T(\Sigma, V)$, contains strings over $\Sigma \cup V$. More specifically:
+\begin{align*}
+  \Sigma^0    &= \; \text{denotes the set of functions with arity 0, i.e., atomic constant symbols,} \\
+  \Sigma^n    &= \; \set{f^n}, n \geq 1, \text{ denotes the set of $n$-ary functions, and}\\
+  V           &= \; \set{x_i \; | \; 0 \geq i \geq n}, \text{ denotes the set of variables $x_i$.} 
+\end{align*}
+Then, the set of terms $T(\Sigma, V)$ is defined inductively as:
+\begin{align}
+  \forall x_i \in V      \; &: \; x_i \in T(\Sigma, V) \\
+  \forall a \in \Sigma^0 \; &: \; a \in T(\Sigma, V) \\
+  \forall f \in \Sigma^n \; &: \; t_1, \ldots, t_n \in T(\Sigma, V) \; \Rightarrow \; f(t_1, \ldots, t_n) \in T(\Sigma, V) 
+\end{align}
+\end{mmdef}
+
+Furthermore:
+\begin{itemize}[label={--}]
+  \item $\var(t) \subseteq V$ denotes the set of variables that occur in term $t$
+  \item A term $t$ is called a \emph{closed term}, or \emph{ground}, if it does not contain variables, i.e., when $\var(t) = \emptyset$. The set of closed terms are collectively denoted as $T_0(\Sigma, V)$, or $T(\Sigma, \emptyset)$, or simply $T(\Sigma)$. 
+  \item $|t|$ denotes the \emph{length} of term $t$, i.e., 
+  \begin{itemize}[label={-}]
+    \item $x_i \in V, \; a \in \Sigma^0: \; |x_i| = |a| = 1$, and
+    \item $|f^n(t_1, \ldots, t_n)| = |t_1| + \ldots |t_n| + 1$
+  \end{itemize} 
+\end{itemize}
+
+\begin{mmdef}[$\Sigma$-identity]\label{def:sigma-identity}
+A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\pair{s, t} \in T(\Sigma, V) \times T(\Sigma, V)$, denoted as $s \approx t$, expressing an \emph{a priori} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \approx t$.
+\end{mmdef}
+
+>The term *identity* is used for a pair $s \approx t$ to express that the equality between $s$ and $t$ holds *a-priori*, distinguishing it from the term *equation* that is used to express that the equality must be *solved* or *proven*.
+ 
+\begin{mmdef}[Rewrite rule]\label{def:rewrite-rule}
+A \emph{term rewriting rule} is a pair of terms $l, r \in T(\Sigma, V)$, such that:
+\begin{align}
+  l       &\not\in V \\
+  \var(l) &\supseteq \var(r)
+\end{align}
+Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\rho$, and we write $\rho : l \to r$.
+\end{mmdef}
+
+>Since a rewrite rule is directed, the second restriction is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction assures that rewriting and variable substitution remain distinct.
+\begin{mmdef}[Term rewriting]\label{def:term-rewriting}
+Consider a signature $\Sigma$ and a set of variables $V$ disjoint from $\Sigma$. Assume terms $s, t \in T(\Sigma, V)$, represented as a term tree (\cref{def:term-tree}).
+
+A rewrite rule $\rho : l \to r$ can be \emph{applied} to a term $s$ iff $\exists p \in \pos(s): s|_p \equiv \sigma(l)$:
+\begin{align}
+  s|_p         &: \; \text{denotes a subterm of $s$ that starts at position $p$ in $s$} \nonumber \\
+  \sigma(l)    &: \; \text{denotes the result obtained by applying the variable substitution $\sigma$ to the term $l$} \nonumber 
+\intertext{The \emph{result} term $t$ of applying a rewrite rule $\rho$ to a term $s$ is obtained as $t \equiv s[\sigma(r)]_p$:} 
+  s[ \cdot ]_p &: \; \text{denotes a replacement of the subterm of $s$ that starts at position $p$ in $s$} \nonumber \\
+\intertext{Then, a \emph{one-step rewrite} from $s$ to $t$ by $\rho$ is defined as: }
+  s \to_\rho t &: \; s|_p \equiv \sigma(l) \to_\rho s[\sigma(r)]_p \equiv t 
+\end{align}
+\end{mmdef}
+ 
+\begin{mmdef}[Term rewriting system]\label{def:TRS}
+A \emph{term rewriting system} (TRS) is an ARS with $\EuScript{R} = \pair{\Sigma, R}$, where:
+\begin{itemize}[label={--}]
+  \item $\Sigma$, the set of objects, denoting a signature according to \cref{def:signature}, and 
+  \item $R$ denotes a set of rewrite rules according to \cref{def:rewrite-rule}. 
+\end{itemize} 
+\end{mmdef}
+
+>Consequently, a TRS is a combination of set of terms (\cref{def:terms}), which can be represented as a term tree (\cref{def:term-tree}), with a set of rewrite rules (\cref{def:rewrite-rule}).
+ 
+The following provides for a list of the more relevant properties of an ARS:
+
+1. **Termination**: If it is always the case that after applying a finite number of rewriting steps some object is reached for which no more rules apply, the ARS is called *terminating*.
+1. **Normalising**: If an object $o$ can be rewritten into an object $o’$ for which no more rules apply, such final object is called the *normal form*. If $o’$ is the unique normal form of $o$, then this is denoted as $\unf{o}$. If every object $o \in A$ has a normal form, the ARS is called *normalising*.
+1. **Confluence**: Assume that object $o$ can be rewritten to $o_1$ as well as $o_2$ by application of different rules from $\set{ \to }$. Then, if we can always find an object $o’$ that is a successor of $o_1$ as well as $o_2$, this implies that rewriting of $o$ always leads to $o’$, independent of the strategy for applying rules. This confluence property of an ARS is a very favourable property, since it simplifies the rewriting process significantly.
+1. **Convergence**: An ARS is called *convergent* if it is both terminating and confluent.
+
+In order to apply a TRS as foundation for semantic mediation, we need to introduce the notion of *context* in a TRS, defined as follows.
+
+\begin{mmdef}[Term context]\label{def:term-context}
+Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where the constant symbol $\Box$, called a hole, represents an empty position in a term. Such hole can be replaced with a term $t \in T(\Sigma, V)$. The term $C \in T(\Sigma \cup \set{\Box}, V)$, consisting of $n$ holes ($n \geq 0$) is called a \emph{term context}, or simply \emph{context} if no confusion arises. The special case where $n = 1$ is called an \emph{one-hole context} and denoted by $C[\;]$. On replacing the $n$ holes from $C$ with terms $t_1, \ldots, t_n \in T(\Sigma, V)$, the resulting term is denoted as $C[t_1, \ldots, t_n]$. 
+\end{mmdef}
+## Transcription as cTRS ##
+\begin{synopsis}Show how the characteristics of a transcription map to what characteristics of a cTRS.
+
+Define a trancription in terms of a cTRS.
+
+\end{synopsis}
+
+We consider a transcription a specific application of conditional term rewriting systems. The following table shows how the characteristics of a transcription can be turned into requirements for the cTRS.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Characteristic of a transcription                     Aspect of a CTRS
+----------------------------------------------------- --------------------------------------------------------------------------
+A transcription is a syntactic replacement of terms   A TRS rewrites terms over a specific alphabet, and is oriented towards 
+and values.                                           syntax only.
+
+A transcription transcribes between two distinct      Show that each normal form for the particular TRS belongs to $\ont{O}’$.
+alphabets.
+
+Every transcription should terminate.                 Show that for the particular CTRS the termination property holds.
+
+Despite the strategy used about which correspondence  Show that for the particular CTRS the confluence property holds.
+to apply first during transcribing a theory, every    
+strategy should yield the same transcription result.
+
+A transcription should not introduce phantom          Since the validity of a transcription depends on the context 
+semantics, i.e., only valid transcriptions should be  $\pair{r, \theta_n, r’, \ctx_{n-1}}$ from the transcription model 
+allowed for correspondences that apply.               (\cref{fig:prov-class-transc-model}), any rewrite rule that follows from
+                                                      a correspondence $\mu = \tuple{e, e’, \theta_n}$ should be guarded by a 
+                                                      condition $\Gamma$ that implements the transcription context.
+--------------------------------------------------------------------------------------------------------------------------------
+
+   : Requirements for implementing transcriptions as conditional term rewriting systems.
+
+
+
+What is left to do is to proof that for $\sigma(c_n) \, \vldtranscript{\ctx_n} \, \sigma(t_n’)$:
+
+1. $t_n’$ is ground normal form with respect to the unconditional system, and
+1. $c_n \trsrtc t_n’$
+
+
+We have already formulated, in many tables, the transcription rules to apply in terms of the context $\pair{r, \theta_n, r’, \ctx_{n-1}}$ that comes about the inductive transcription model. This Section determines how such context can be specified as the conditional rewrite relation from \cref{def:conditional-rewrite-relation}. The purpose of the rewrite relation is to provide for a transcription between a transcriptum from $\ont{O}$ to a transcribendum from $\ont{O’}$. In other words, the rewrite rule will rewrite according to the specified correspondence $\mu = \tuple{c, c’, \theta}$. The unconditional rewrite relation $\to_{\rho_0}$ for any transcription stem from \cref{tab:atomic-class-transcriptions}, therefore, read as follows:
+\begin{alignat}{2}
+  \rho_{0,1}   &: \; c_n \sqsubset c_n’ &&\to \; c_n’ \\
+  \rho_{0,2}   &: \; c_n \equiv c_n’    &&\to \; c_n’ \\
+  \rho_{0,3}   &: \; c_n \sqsupset c_n’ &&\to \; \ntsa_n \\
+  \rho_{0,4}   &: \; c_n \overlap c_n’  &&\to \; \ntsa_n \\
+  \rho_{0,5}   &: \; c_n \disj c_n’     &&\to \; \neg c_n’ 
+\end{alignat}
+
+It is clear that these unconditional rewrite rules do not induce phantom semantics.
+
+For the conditional rewrite rules, we will use the example from Case \ref{fig:medcxt-sup}(a). The transcription context $\pair{r, \theta_n, r’, \ctx_{n-1}}$ for this case reads $\ctx_n = \pair{\equiv, \theta_n, \sqsupset, \ctx_{n-1}}$. Note that in the context of CTRS we will write that $\to_{n+1}$ is expressed in terms of $\to_n$, as opposed to the transcription context where $\ctx_n$ is expressed in terms of $\ctx_{n-1}$. 
+
+\begin{alignat}{5}
+  \rho_{n+1,1} &: \quad c_{n+1} \sqsubset c_{n+1}’ &&\to \; c_{n+1}’  &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \ntsa_n \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \label{eq:transcription-rho1}\\
+  \rho_{n+1,2} &: \quad c_{n+1} \equiv c_{n+1}’    &&\to \; c_{n+1}’  &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \ntsa_n \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \; \land \;
+    \theta_n = \, \sqsupset  \\
+  \rho_{n+1,3} &: \quad c_{n+1} \overlap c_{n+1}’  &&\to \; \neg c_n’ &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \neg c_n’ \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \\
+  \rho_{n+1,4} &: \quad c_{n+1} \disj c_{n+1}’     &&\to \; \neg c_n’ &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \neg c_n’ \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \\
+  \rho_{n+1,5} &: \quad c_{n+1} \sqsubset c_{n+1}’ &&\to \; c_n’ &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \neg c_n’ \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \\
+  \rho_{n+1,6} &: \quad c_{n+1} \sqsubset c_{n+1}’ &&\to \; c_{n+1}’ \sqcap \neg c_n’ &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \neg c_n’ \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \\
+  \rho_{n+1,7} &: \quad c_{n+1} \overlap c_{n+1}’  &&\to \; \ntsa_{n+1} &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \ntsa_n \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \\
+  \rho_{n+1,8} &: \quad c_{n+1} \sqsupset c_{n+1}’ &&\to \; \ntsa_{n+1} &\quad \text{if} \quad 
+    c_n \,   &\to_n \, \ntsa_n \; &\land \;
+    r_{n+1}  &= \, \equiv \; &\land \;
+    r_{n+1}’ &= \, \sqsupset \label{eq:transcription-rho8}  
+\end{alignat}
+
+We explain equations \crefrange{eq:transcription-rho1}{eq:transcription-rho8} collectively with the following generic pattern:
+
+1. The (conditional) rewrite rules $\rho_{n+1}$, too, will apply the correspondence $\mu_{n+1} = \tuple{c_{n+1}, c_{n+1}’, \theta_{n+1}}$. This means that each correspondence will be reflected in a (conditional) rewrite rule; the rule’s LHS will reflect the transcriptum, whilst its RHS will reflect the transcribendum;
+1. Following \cref{def:conditional-rewrite-relation}, the conditional rewrite rules are defined inductively, meaning that the condition $\Gamma$ should express elements from a lower hierarchy. This demand matches nicely with the inductive definition for the transcription model. The condition $\Gamma_n$ for the rewrite rule $\rho_{n+1}$ primarily applies the valid transcription from the lower hierarchical level, viz. $\vldtranscript{\ctx_n}$; 
+1. Finally, as indicated in \cref{def:conditions-in-ctrs}, the condition $\Gamma$ may also express fixed predicates. For Case \ref{fig:medcxt-sup}(a), its transcription context reads $\ctx_n = \pair{\equiv, \theta_n, \sqsupset, \ctx_{n-1}}$. The terms $\theta_n$ and $\ctx_{n-1}$ have already be addressed in the previous two parts of this pattern, leaving terms $r_{n+1} = \equiv$ and $r_{n+1}’ = \sqsupset$. Although these terms are defined on hierarchical level $n+1$, they are not dependent on any rewriting and can therefore be considered fixed propositions that can be added to the condition.  
+
+From this explanation it becomes clear that we can define the conditional part of a transcription as follows:
+\begin{mmdef}[Transcription]\label{def:transcription}
+  \begin{alignat}{5}
+    \rho_{n+1} &: \quad \sigma\pair{c_{n+1} \theta_{n+1} c_{n+1}’} &&\to \; \sigma(t_{n+1}’)  &\quad \text{if} \quad 
+      \sigma(c_n) \,   &\vldtranscript{\ctx_n} \, \sigma(t_n’) \; &\land \;
+      r_{n+1}  &= \, r  \; &\land \;
+      r_{n+1}’ &= \, r’ \; \land \;
+      \theta_n = \, \theta  
+  \end{alignat}
+where $t_k’$ denotes the transcribendum that follows from the table that specifies the valid transcriptions for transcription context $\ctx_{k+1} = \pair{r, \theta_{k+1}, r’, \ctx_k}$.
+\end{mmdef}
 
 # The confluence property of the mediator #
 \begin{synopsis}Confluence draagt ervoor zorg dat de cTRS termineert, onafhankelijk van het pad dat de rewriting uiteindelijk volgt. Confluence is voor transcripties eenvoudig te bewijzen:
