@@ -109,7 +109,7 @@ In the remainder of this paper we will refer to a specific context as *case. *Cl
 
 
 <!-- Page definitions -->
-[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}
+[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=70%}
 [def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}
 # Valid transcriptions #
 The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or $\token{null}$ when phantom semantics are induced. We formulate a generic transcription as a function $T_{\ctx} : \ont{O} \to \ont{O}’$, and denote a valid transcription as $e \vldtranscript{\ctx} e’$, indicating that concept $e \in \ont{O}$ can be replaced by concept $e’ \in \ont{O}’$ under the specified transcription context $\ctx$ without inducing phantom semantics. When the context is reduced to the correspondence relation $\theta$ only, we write $T_{(\theta)}$ and $e \vldtranscript{(\theta)} e’$. The semantic validity of a transcription is the result of two cooperating mechanisms:
@@ -249,13 +249,33 @@ In conclusion, introducing new information brings about cases that *do* facilita
 
 
 ## Transcribing over a disjoint class context ##
-![A correspondence over a \emph{disjoint class context}. Case (a): class $c_n’$ is disjoint with class $c_{n-1}’$; case (b): class $c_n$ is disjoint with class $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$ as specified in \cref{tab:atomic-class-transcriptions}. Both cases include a new correspondence relation, $\theta_n$, that defines the correspondence between the new class $c_n’$ resp. $c_n$ and the original class $c_{n-1}$ resp. $c_{n-1}’$ that we introduced with an equivalent class $c_n$ resp. $c_n’$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\equiv, \theta_n, \disj, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\disj, \theta_n, \ctx_{n-1}, \equiv}$][def:MedcxtDjt]
+Consider the context as generically depicted in \cref{fig:gen-class-transc-models}(b). The most simple disjunct class context is achieved by assuming disjointness on one side only, viz. $\hat{r} = “=”$ (case (a)) or $\hat{r}’ = “=”$ (case (b)), and assuming subsumption for $r’$ or $r$, respectively. This has been depicted in \cref{fig:medcxt-djt}. By introducing the disjoint relation with respect to $r \in \set{\sqsubset, =, \sqsupset}$, it is necessary to consider (in)completeness of the concepts at level $(n-1)$ towards the concept at level $n$. Here incompleteness is specified, indicated by a dashed alternative relation that spring from the concept at level $n$. 
+   
+![A correspondence over a \emph{disjoint class context}. Case (a): class $c_{n-1}’$ is disjoint with class $\hat{c}_{n-1}’$; case (b): class $c_{n-1}$ is disjoint with class $\hat{c}_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\equiv, \theta_n, \sqsubset, \disjoinc, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\sqsubset, \disjoinc, \theta_n, \ctx_{n-1}, \equiv}$][def:MedcxtDjt]
 
-We will perform the same exercise as before: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. 
+Before we can draw the transcription table, we must elaborate on the exact meaning of $\vldtranscript{\ctx_{n-1}}$ for it now represents a combination of two transcription results. In fact, for case (a), it combines the transcription result of $c_{n-1)$ under two different contexts, $c_{n-1} \vldtranscript{\ctx_{n-1}’}$ with $c_{n-1} \vldtranscript{\hat{\ctx}_{n-1}’}$, one for each correspondence relation $<c_{n-1}, c_{n-1}’, \theta_{n-1}’>$ and $<c_{n-1}, \hat{c}_{n-1}’, \hat{\theta}_{n-1}’>$. Since $\vldtranscript{\ctx}$ is defined as a valid transcription, $c_{n-1} \vldtranscript{\ctx_{n-1}} \equiv c_{n-1} \vldtranscript{\ctx_{n-1}’} \sqcap c_{n-1} \vldtranscript{\hat{\ctx}_{n-1}’}$. Since a valid transcription has only three outcomes, the following truth-table applies.
 
 \begin{table}[h]
   \centering
-  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-sub} (a), i.e., under context $\ctx_n = \pair{\ctx_{n-1}, \sqsubset, \theta_n}$.}
+  \caption{Truth table for combining valid transcriptions}
+  \label{tab:truth-table-transcriptions}
+  \begin{tabular}{cl@{\hspace{10px}}ccc}
+    \toprule
+                                               & & \multicolumn{3}{c}{$c_{n-1} \vldtranscript{\ctx_{n-1}’$} \\ \cmidrule{1} \cmidrule{3-5}
+    $c_{n-1} \vldtranscript{\hat{\ctx}_{n-1}’$ & & - & $\ntsa_{n-1}$              & $T_{\theta_{n-1}’}$ \\ \cmidrule{1} \cmidrule{3-5}
+                                             - & & - & -                          & -                   \\
+                                 $\ntsa_{n-1}$ & & - & $\ntsa_{n-1}$              & $T_{\theta_{n-1}’}$ \\
+                     $T_{\hat{\theta}_{n-1}’}$ & & - &  $T_{\hat{\theta}_{n-1}’}$ & $T_{\theta_{n-1}’} \sqcap T_{\hat{\theta}_{n-1}’}$ \\ \bottomrule
+  \end{tabular}
+\end{table}
+
+>The outcomes of the $3x3$ truth table are obvious for row 1 and column 1: where one of the terms cannot exist logically, that particular combination cannot exist either. For row 2 and column 2, whenever both terms do not produce a valid transcription, neither can their combination. However, when one terms does produce a valid transcription and the other one doesn’t, their combination will inhere the produced transcription. This can be seen best on considering that the production of an invalid transcription is identical to producing a logical `True`, and the logical ÀND` of a term with `True` will produce the same term.
+
+We now can perform the same exercise as before: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. 
+
+\begin{table}[h]
+  \centering
+  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-djt} (a), i.e., under context $\ctx_n = \pair{\ctx_{n-1}, \sqsubset, \theta_n}$.}
   \label{tab:transcr_cn-1_ctxn_djt_a}
   \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
     \toprule
@@ -323,7 +343,7 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
 \end{table}
 
 <!-- Page definitions -->
-[def:MedcxtDjt]: src\images\MedCxt-equ-theta-subinc-djt-vv.png {#fig:medcxt-djt width=80%}
+[def:MedcxtDjt]: src\images\MedCxt-equ-theta-subinc-djt-vv.png {#fig:medcxt-djt width=70%}
 ## Summary ##
 \begin{synopsis}Show that the tables can be rewritten as rules; this is necessary for the conditional part of the cTRS in the following section.
 
