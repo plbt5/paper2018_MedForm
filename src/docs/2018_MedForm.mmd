@@ -323,7 +323,7 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
 \end{table}
 
 <!-- Page definitions -->
-[def:MedcxtDjt]: src\images\MedCxt-djt.png {#fig:medcxt-djt width=50%}
+[def:MedcxtDjt]: src\images\MedCxt-equ-theta-subinc-djt.png {#fig:medcxt-djt width=50%}
 ## Summary ##
 \begin{synopsis}Show that the tables can be rewritten as rules; this is necessary for the conditional part of the cTRS in the following section.
 
@@ -477,13 +477,13 @@ A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\p
 \begin{mmdef}[Rewrite rule]\label{def:rewrite-rule}
 A \emph{term rewriting rule} is a pair of terms $l, r \in T(\Sigma, V)$, such that:
 \begin{align}
-  l       &\not\in V \\
-  \var(l) &\supseteq \var(r)
+  l       &\not\in V \\ \label{eq:distinctness}
+  \var(l) &\supseteq \var(r) \label{eq:novarintro} 
 \end{align}
 Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\rho$, and we write $\rho : l \to r$.
 \end{mmdef}
 
->Since a rewrite rule is directed, the second restriction is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction assures that rewriting and variable substitution remain distinct.
+>Since a rewrite rule is directed, the second restriction (ref{eq:novarintro}) is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction (ref{eq:distinctness}) assures that rewriting and variable substitution remain distinct.
 \begin{mmdef}[Term rewriting]\label{def:term-rewriting}
 Consider a signature $\Sigma$ and a set of variables $V$ disjoint from $\Sigma$. Assume terms $s, t \in T(\Sigma, V)$, represented as a term tree (\cref{def:term-tree}).
 
@@ -497,7 +497,7 @@ A rewrite rule $\rho : l \to r$ can be \emph{applied} to a term $s$ iff $\exists
   s \to_\rho t &: \; s|_p \equiv \sigma(l) \to_\rho s[\sigma(r)]_p \equiv t 
 \end{align}
 \end{mmdef}
- 
+
 \begin{mmdef}[Term rewriting system]\label{def:TRS}
 A \emph{term rewriting system} (TRS) is an ARS with $\EuScript{R} = \pair{\Sigma, R}$, where:
 \begin{itemize}[label={--}]
