@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2019-01-18 14:43:53 +0100" ModID="90B5D0B9-33E0-4144-899A-B43416A313CA">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2019-01-18 14:54:15 +0100" ModID="34F5B41D-4A2D-491E-8249-FA553E635DA8">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 13:06:28 +0100" Modified="2018-08-24 13:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -253,7 +253,7 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0100" Modified="2019-01-18 14:43:51 +0100" Type="Text">
+                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0100" Modified="2019-01-18 14:54:13 +0100" Type="Text">
                             <Title>Transcribing over a disjoint class context</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
@@ -396,7 +396,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="2712" Characters="17591" Date="2019-01-16 17:48:26 +0100"/>
+        <PreviousSession Words="2712" Characters="17592" Date="2019-01-16 17:48:26 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
