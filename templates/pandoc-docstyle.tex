@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt,oneside,oldfontcommands]{memoir}
-\setcounter{errorcontextlines}{100}
-\usepackage{mystyle2015}
+\usepackage{../templates/mystyle2015}			% Indeed, my project styles
+\usepackage{../templates/mySpecialTokens}		% Definition of tokens used in modal logic, formal semantics and term rewriting
+\usepackage{../templates/myarrows}				% Some few specific arrow symbols used throughout the document, based on extpfeil
 \usepackage[en-GB,datesep={-}]{datetime2}
 \usepackage{longtable}
 
@@ -44,7 +45,7 @@
 %%%%%%%%%%%%%%%
 
 \usepackage{xcolor}
-\usepackage{myarrows}				% Some few specific arrow symbols used throughout the document, based on extpfeil
+
 %%\usepackage{MnSymbol}				% Levert foutmelding: Too many math alphabets used in version normal. 
 \usepackage[xindy,toc]{glossaries}	%%%% The glossaries environment. Refer to: http://en.wikibooks.org/wiki/LaTeX/Glossary
 %%%\usepackage{pst-plot}				%%%% The ps trick environment. Zie ook: http://tug.org/PSTricks/main.cgi?file=examples REQUIRES --latex-engine=xelatex
@@ -137,6 +138,13 @@
 
 %%% ------- mijn configs: --------- %%%
 %
+%% shortcuts and abbrevs
+%
+
+\def\bc#1{\multicolumn{2}{c}{#1}}		% shorter, hence easier to fit the table
+\def\br#1{\multirow{2}{*}{#1}}			% shorter, hence easier to fit the table
+
+
 %% test stuff
 
 % Redefining the paragraph level into a case - see https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
@@ -181,6 +189,7 @@
 \newtheorem{mmasmptn}{Assumption}[chapter]
 % Definitions & theorems	-- are numbered by chapter, and carry a black square as closing symbol
 \theoremsymbol{\ensuremath{_\blacksquare}}
+\theorembodyfont{\slshape}
 \newtheorem{mmdef}{Definition}[chapter]
 \newtheorem{mmtrm}{Theorem}[chapter]
 % Design Principles, proofs	-- are numbered by chapter, and carry an open diamond as closing symbol
@@ -207,7 +216,7 @@
 \crefname{section}{Section}{Sections}
 \crefname{figure}{Figure}{Figures}
 \crefname{table}{Table}{Tables}
-%\crefname{equation}{Eq.}{Eqs.}
+\crefname{equation}{Eq.}{Eqs.}
 
 % Definition of List of Theorems (\listtheorems{<name>})
 \theoremlisttype{opt}

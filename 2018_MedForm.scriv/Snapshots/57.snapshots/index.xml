@@ -2,6 +2,10 @@
 <Snapshots Version="1.0">
     <Snapshot>
         <Title>finding latex fout</Title>
-        <Date>2019-01-19 12:20:33 +0100</Date>
+        <Date>2019-01-19 12:20:33 +0200</Date>
+    </Snapshot>
+    <Snapshot>
+        <Title>Overgaan naar inductiemodel met 1 \ctx_{n-1} ipv gecombineerde context.</Title>
+        <Date>2019-01-28 14:44:34 +0200</Date>
     </Snapshot>
 </Snapshots>

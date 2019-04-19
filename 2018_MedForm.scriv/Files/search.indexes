@@ -179,17 +179,17 @@ where:
 
 We can depict the inductive transcription context as follows. We first consider the ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ then is fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
 
-On considering $\set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ \in \set{\sqsubset, =, \sqsupset}$ relate the reference concept $c_n$, resp. $c_n’$, with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$, resp. $c_{n-1}’$ and $\hat{c}_{n-1}’$ that bear an (in)completeness relation $\hat{r} \text{ resp. } \hat{r}’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
+On considering $\set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ = \sqsupset$ relate the reference concept $c_n$, resp. $c_n’$, with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$, resp. $c_{n-1}’$ and $\hat{c}_{n-1}’$ that bear an (in)completeness relation $\hat{r} \text{ resp. } \hat{r}’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
 
-![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\longmapsto$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
+![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
 
-In the remainder of this paper we will refer to a specific context as case. Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} \equiv$ “$=$”. As a result, case (b) represents the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
+In the remainder of this paper we will refer to a specific context as a particular case. Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} \equiv$ “$=$”. As a result, case (b) represents the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
 
 
 
 
 &lt;!-- Page definitions --&gt;
-[def:GenClassTranscModels]: src\images\GenClassTranscModels.png {#fig:gen-class-transc-models width=80%}
+[def:GenClassTranscModels]: src\images\GenericPattern2OntosClassDisjoints.png {#fig:gen-class-transc-models width=90%}
 [def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}</Text>
         </Document>
         <Document ID="33">
@@ -673,10 +673,10 @@ This is straightforward for this case: since no other concepts are present in co
 
 In conclusion, \cref{tab:atomic-class-transcriptions} specifies all transcriptions under the one single atomic transcription context for all correspondences, collectively. We therefore denote such transcription table as $T_\ctx$, and this particular one as $T_{(\theta)}$.
 
-Unfortunately, two out of five correspondence relations prohibit a transcription, and a third is rather broad in its transcription. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.</Text>
+Unfortunately, two out of five correspondence relations prohibit a transcription. This essentially implies that neither $c’$ nor $\neg c’$ do sufficiently constrain the individuals in $\ont{O}’$ that are implied by $c$. In other words, $T_{(\theta \in \set{\sqsupset, \overlap})}(c) = c’ \sqcup \neg c’$ or $\top$ for short, where $\intn’(\top) = \concept{D}$. Not as broad as $\top$ but still broad in its transcription is $T_{(\disj)}(c) = \neg c’$. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.</Text>
         </Document>
         <Document ID="56">
-            <Title>Transcribing over an implied class context</Title>
+            <Title>Transcribing over a $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
             <Text>The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new class that is implied (subsumed) by the existing class: $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-sup} case (a), and case (b) introduces the same class implication but now into $\ont{O}$. 
 
 ![Correspondences over an \emph{implied class context}. Case (a): class $c_n’$ subsumes class $c_{n-1}’$. Case (b): class $c_n$ subsumes class $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1} = \pair{\theta_{n-1}}$, as specified in \cref{tab:atomic-class-transcriptions}. The current context, $\ctx_n$, specifies case (a) as $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$, and case (b) as $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$][def:MedcxtSup]
@@ -771,30 +771,22 @@ In conclusion, introducing new information brings about cases that *do* facilita
 </Text>
         </Document>
         <Document ID="57">
-            <Title>Transcribing over a disjoint class context</Title>
-            <Text>![A correspondence over a \emph{disjoint class context}. Case (a): class $c_n’$ is disjoint with class $c_{n-1}’$; case (b): class $c_n$ is disjoint with class $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$ as specified in \cref{tab:atomic-class-transcriptions}. Both cases include a new correspondence relation, $\theta_n$, that defines the correspondence between the new class $c_n’$ resp. $c_n$ and the original class $c_{n-1}$ resp. $c_{n-1}’$ that we introduced with an equivalent class $c_n$ resp. $c_n’$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\equiv, \theta_n, \disj, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\disj, \theta_n, \ctx_{n-1}, \equiv}$][def:MedcxtDjt]
+            <Title>Transcribing over $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$ class contexts</Title>
+            <Text>Consider the context as generically depicted in \cref{fig:gen-class-transc-models}(b). This context emerges by the introduction of $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$ and, consequently, the necessary subsuming class $c \sqsupset c_n, c_{n-1}$ and $c’ \sqsupset c_n’, c_{n-1}’$, respectively. We assume this time for cases (a) and (b) different simple contexts, i.e., $r = \sqsupset$ for case (a) and $r’ = \text{”=”}$ for case (b). In other words, case (a) considers context $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$ whereas case (b) considers $\ctx_n = \pair{\pair{\sqsupset, r}, \theta_n, \ctx_{n-1}, =}$. This has been depicted in \cref{fig:medcxt-djt}. Despite the necessity to include new subsuming classes $c$ and $c’$, these will only function as reference for the (in)completeness of the relations $r’$ and $r$, respecively, and are not used as potential transcripta.   
 
-We will perform the same exercise as before: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. 
+![A correspondence over a \emph{multiple implied classes context}. Case (a): class $c’$ subsumes both classes $c_{n-1}’$ and $c_n’$; case (b): class $c$ subsumes both classes $c_n$ and $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\pair{\sqsupset, r}, \theta_n, \ctx_{n-1}, =}$][def:MedcxtDjt]
+
+We now perform the same exercise as in the previous section: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. Different to the previous section and tables, though, we now include all four relations $\set{\overlete, \overlinc, \displete, \disjoinc}$ and their valid transcriptions, as an additional column. Each cell then becomes a $2 \times 2$ quadrant, each one denoting the valid transcription for one of the four relations.  
 
 \begin{table}[h]
   \centering
-  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-sub} (a), i.e., under context $\ctx_n = \pair{\ctx_{n-1}, \sqsubset, \theta_n}$.}
+  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-djt} (a), i.e., under context $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$.}
   \label{tab:transcr_cn-1_ctxn_djt_a}
-  \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
+  \begin{tabular}{cr@{, }ccl@{\hspace{10px}}lcccccccccc}
     \toprule
-    &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
-    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ 
-                        &amp; $\theta_{n-1}$ &amp; &amp; $\sqsubset$ &amp; $\equiv$   &amp; $\sqsupset$ &amp; $\overlap$  &amp; $\disj$ \\  \cmidrule(r){2-3} \cmidrule{5-9} 
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_n’$      &amp; $c_n’$     &amp; $c_{n-1}’$  &amp; $c_{n-1}’$  &amp; $\neg c_n’ \sqcap c_{n-1}’$ \\ 
-    2 &amp; $c_{n-1}’$      &amp; $\equiv$         &amp; &amp; -           &amp; -          &amp; $c_{n-1}’$  &amp; -           &amp; -                           \\ 
-    3 &amp; $\ntsa_{n-1}$   &amp; $\sqsupset$      &amp; &amp; -           &amp; -          &amp; $\ntsa_n$   &amp; -           &amp; -                           \\ 
-    4 &amp; $\ntsa_{n-1}$   &amp; $\overlap$       &amp; &amp; -           &amp; -          &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\neg c_n’$                 \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -           &amp; -          &amp; -           &amp; -           &amp; $\neg c_{n-1}’$             \\ \cmidrule{2-9}
-      &amp; \multicolumn{3}{r}{Concluding: $c_{n-1} \vldtranscript{\ctx_n}$} &amp; \multicolumn{5}{c}{} \\
-    a &amp; \multicolumn{1}{r}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; $c_n’$      &amp; $c_n’$     &amp; $c_{n-1}’$  &amp; $c_{n-1}’$  &amp; $\neg c_n’ \sqcap c_{n-1}’$ \\ 
-    b &amp; \multicolumn{1}{r}{$\ntsa_{n-1}$}  &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; -           &amp; -          &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\ntsa_n$                   \\ \bottomrule
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
+    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ &amp; $\theta_{n-1}$ &amp; \bc{$r’$} 
+      &amp; &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ \bottomrule
   \end{tabular}
 \end{table}
 
@@ -805,7 +797,7 @@ We will perform the same exercise as before: firstly, we transcribe $c_{n-1}$ un
   \label{tab:transcr_cn-1_ctxn_djt_b}
   \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
     \toprule
-    &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
     &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ 
                         &amp; $\theta_{n-1}$ &amp; &amp; $\sqsubset$ &amp; $\equiv$   &amp; $\sqsupset$ &amp; $\overlap$  &amp; $\disj$ \\  \cmidrule(r){2-3} \cmidrule{5-9}
     1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
@@ -829,7 +821,7 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
   \label{tab:transcr_cn_ctxn_djt_b}
   \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
     \toprule
-    &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
     &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ 
                         &amp; $\theta_{n-1}$ &amp; &amp; $\sqsubset$ &amp; $\equiv$   &amp; $\sqsupset$ &amp; $\overlap$  &amp; $\disj$ \\  \cmidrule(r){2-3} \cmidrule{5-9}
     1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
@@ -846,7 +838,7 @@ Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b
 \end{table}
 
 &lt;!-- Page definitions --&gt;
-[def:MedcxtDjt]: src\images\MedCxt-equ-theta-subinc-djt.png {#fig:medcxt-djt width=50%}</Text>
+[def:MedcxtDjt]: src\images\MedCxt-djt.png {#fig:medcxt-djt width=70%}</Text>
         </Document>
         <Document ID="58">
             <Title>Summary</Title>
@@ -1115,6 +1107,7 @@ Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite
 \end{mmdef}
 
 &gt;Since a rewrite rule is directed, the second restriction (\ref{eq:novarintro}) is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction (\ref{eq:distinctness}) assures that rewriting and variable substitution remain distinct.
+
 \begin{mmdef}[Term rewriting]\label{def:term-rewriting}
 Consider a signature $\Sigma$ and a set of variables $V$ disjoint from $\Sigma$. Assume terms $s, t \in T(\Sigma, V)$, represented as a term tree (\cref{def:term-tree}).
 
