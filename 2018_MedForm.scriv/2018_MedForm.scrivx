@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2019-04-19 17:36:06 +0200" ModID="658F4597-D499-4B47-8662-F4FB2F7E2432">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.9.0" Device="PC-17875" Modified="2019-04-22 10:18:02 +0200" ModID="C3FCE2B2-6AF1-41B9-A88B-12B3BC27D462">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 14:06:28 +0200" Modified="2018-08-24 14:06:28 +0200" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -180,7 +180,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="31" UUID="8100C839-F6CC-4134-B106-FC4933ECA6B9" Created="2018-05-20 12:15:52 +0200" Modified="2019-04-19 15:23:35 +0200" Type="Text">
+                <BinderItem ID="31" UUID="8100C839-F6CC-4134-B106-FC4933ECA6B9" Created="2018-05-20 12:15:52 +0200" Modified="2019-04-19 20:35:06 +0200" Type="Text">
                     <Title>Readme</Title>
                     <MetaData/>
                     <TextSettings>
@@ -188,7 +188,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="30" UUID="D087A801-6A88-4FF8-BBCD-494DC170BD00" Created="2018-05-20 12:08:38 +0200" Modified="2019-04-19 15:23:35 +0200" Type="Text">
+                <BinderItem ID="30" UUID="D087A801-6A88-4FF8-BBCD-494DC170BD00" Created="2018-05-20 12:08:38 +0200" Modified="2019-04-19 20:35:07 +0200" Type="Text">
                     <Title>Abstract</Title>
                     <MetaData>
                         <LabelID>3</LabelID>
@@ -198,19 +198,21 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 13:23:05 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 13:23:05 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>Introduction</Title>
                     <MetaData>
                         <LabelID>3</LabelID>
+                        <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
                     <TextSettings>
                         <TextSelection>5901,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 13:00:45 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 13:00:45 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>An inductive transcription model</Title>
                     <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
@@ -218,7 +220,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="33" UUID="DA969D78-5F74-46A0-BC4D-8BBBD8C70545" Created="2018-05-20 13:00:56 +0200" Modified="2019-04-19 15:25:52 +0200" Type="Text">
+                <BinderItem ID="33" UUID="DA969D78-5F74-46A0-BC4D-8BBBD8C70545" Created="2018-05-20 13:00:56 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>Valid transcriptions</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
@@ -229,9 +231,10 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="55" UUID="C8B817CB-0F6F-4B74-9026-BC4C06C7DA16" Created="2018-12-27 15:41:45 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                        <BinderItem ID="55" UUID="C8B817CB-0F6F-4B74-9026-BC4C06C7DA16" Created="2018-12-27 15:41:45 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                             <Title>Transcribing over atomic class context</Title>
                             <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
@@ -239,9 +242,10 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                             <Title>Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
                             <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
@@ -249,29 +253,22 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0200" Modified="2019-04-22 10:18:00 +0200" Type="Text">
                             <Title>Transcribing over an $r, r'\in \set{ overlete, overlinc, displete, disjoinc }$  class contexts</Title>
                             <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection Caret="3638">3631,7</TextSelection>
+                                <TextSelection>4907,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="61" UUID="430BF9F2-7228-40B4-9A1B-DC107244F30F" Created="2019-04-19 14:42:17 +0200" Modified="2019-04-19 17:36:04 +0200" Type="Text">
-                            <Title>table in table test</Title>
+                        <BinderItem ID="58" UUID="F0CB96BC-9D25-4504-B5D0-1AA82A7B8CE9" Created="2019-01-17 08:45:43 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
+                            <Title>Summary</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
-                            <TextSettings>
-                                <TextSelection>1774,0</TextSelection>
-                                <Target Type="Words">0</Target>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem ID="58" UUID="F0CB96BC-9D25-4504-B5D0-1AA82A7B8CE9" Created="2019-01-17 08:45:43 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
-                            <Title>Summary</Title>
-                            <MetaData/>
                             <TextSettings>
                                 <TextSelection>41,0</TextSelection>
                                 <Target Type="Words">0</Target>
@@ -279,26 +276,31 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem ID="34" UUID="975664EC-E100-4EC0-9A10-E052000D5627" Created="2018-05-20 13:01:07 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="34" UUID="975664EC-E100-4EC0-9A10-E052000D5627" Created="2018-05-20 13:01:07 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>A cTRS as mediator</Title>
-                    <MetaData/>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
                     <TextSettings>
                         <TextSelection>168,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="60" UUID="168EDA41-EB5E-477A-B80B-7B52134B2C02" Created="2019-01-17 09:00:36 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                        <BinderItem ID="60" UUID="168EDA41-EB5E-477A-B80B-7B52134B2C02" Created="2019-01-17 09:00:36 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                             <Title>(conditional) Term Rewriting Systems</Title>
-                            <MetaData/>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
                             <TextSettings>
                                 <TextSelection>3252,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="59" UUID="D24C1CF4-EAF2-41B3-AD74-D3BBE939767E" Created="2019-01-17 08:50:11 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                        <BinderItem ID="59" UUID="D24C1CF4-EAF2-41B3-AD74-D3BBE939767E" Created="2019-01-17 08:50:11 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                             <Title>Transcription as cTRS</Title>
                             <MetaData>
                                 <LabelID>0</LabelID>
+                                <IncludeInCompile>Yes</IncludeInCompile>
                                 <FileExtension>rtf</FileExtension>
                                 <IconFileName>Eye.tiff</IconFileName>
                             </MetaData>
@@ -309,30 +311,38 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem ID="53" UUID="FAE76FBB-3DF7-4EA2-9985-D2033FE9308E" Created="2018-09-17 13:12:05 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="53" UUID="FAE76FBB-3DF7-4EA2-9985-D2033FE9308E" Created="2018-09-17 13:12:05 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>The confluence property of the mediator</Title>
-                    <MetaData/>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
                     <TextSettings>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="54" UUID="F544D7BE-91A9-43D3-BC5F-D46BAC7DB159" Created="2018-12-27 14:31:57 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="54" UUID="F544D7BE-91A9-43D3-BC5F-D46BAC7DB159" Created="2018-12-27 14:31:57 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>Validation</Title>
-                    <MetaData/>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
                     <TextSettings>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="35" UUID="9CFDCFBB-FB19-48EC-9041-030F78C4777F" Created="2018-05-20 13:01:22 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="35" UUID="9CFDCFBB-FB19-48EC-9041-030F78C4777F" Created="2018-05-20 13:01:22 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>Related work</Title>
-                    <MetaData/>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
                     <TextSettings>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="36" UUID="48647913-E0F1-40CC-9795-475602FBD965" Created="2018-05-20 13:01:41 +0200" Modified="2019-04-19 15:59:06 +0200" Type="Text">
+                <BinderItem ID="36" UUID="48647913-E0F1-40CC-9795-475602FBD965" Created="2018-05-20 13:01:41 +0200" Modified="2019-04-19 20:35:02 +0200" Type="Text">
                     <Title>Conclusions and further work</Title>
-                    <MetaData/>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
                     <TextSettings>
                         <Target Type="Words">0</Target>
                     </TextSettings>
@@ -359,6 +369,15 @@
             <MetaData>
                 <IncludeInCompile>Yes</IncludeInCompile>
             </MetaData>
+            <Children>
+                <BinderItem ID="61" UUID="430BF9F2-7228-40B4-9A1B-DC107244F30F" Created="2019-04-19 14:42:17 +0200" Modified="2019-04-19 20:35:39 +0200" Type="Text">
+                    <Title>table in table test</Title>
+                    <MetaData/>
+                    <TextSettings>
+                        <Target Type="Words">0</Target>
+                    </TextSettings>
+                </BinderItem>
+            </Children>
         </BinderItem>
     </Binder>
     <LabelSettings>
@@ -386,7 +405,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="0" Characters="1904" Date="2019-04-19 11:19:05 +0200"/>
+        <PreviousSession Words="0" Characters="1925" Date="2019-04-19 11:19:05 +0200"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
