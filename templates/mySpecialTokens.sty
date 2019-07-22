@@ -15,6 +15,10 @@
 \let^^c7=\wdiamant								% White diamond, "it is possible that"
 \let^^fb=\wvierkant								% White square, "it is necessarily so that"
 
+% Math domains
+\def\domB{%
+  \mathbb{B}
+}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Charactersfor FormalSemantics.
@@ -94,6 +98,7 @@
 \DeclareMathOperator{\sub}{\CMcal{S}ub}
 \DeclareMathOperator{\pos}{\CMcal{P}os}
 \DeclareMathOperator{\var}{\CMcal{V}ar}
+\DeclareMathOperator{\ter}{\CMcal{T}}
  
 % Define the square element-of character, as a superimpose of \sqsubset and - . See: http://tex.stackexchange.com/questions/148051/how-do-you-make-a-square-element-symbol-in-to-show-that-an-element-belongs-t
 % Square element-of (\sqin) character, as a superimpose of \sqsubset and - .
@@ -170,7 +175,7 @@
  
 % Overlap & incomplete (\overlinc) character, as a superimpose of \overlete and a small / .
 \newcommand{\overlinc}{%
-  \mathrel{\vphantom{overlete}\text{%
+  \mathrel{\vphantom{\overlete}\text{%
     \mathsurround=0pt%
 %    \ooalign{$\mid$\cr$\neq$\cr}%
     \ooalign{$\overlete$\cr\hidewidth{\tiny\raisebox{-0.9ex}{$\diagup$}}\hidewidth\cr}%

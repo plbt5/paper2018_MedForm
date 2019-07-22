@@ -6,24 +6,24 @@
 \pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 We will first define some terminology that is used in the definition on a term rewriting system (TRS). This is basic material taken from [@Baader1998; and @Bezem2003]. We finish this section with a notion on the use of context $\\ctx_n$ in a conditional term rewriting system (cTRS).}
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Terms]\\label\{def:terms\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Consider a signature $\\Sigma$ of admitted symbols, and a countable, possibly infinite set of \\emph\{variables\} $V$ with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{terms\} over $\\Sigma$, denoted as $T(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Consider a signature $\\Sigma$ of admitted symbols, and a countable, possibly infinite set of \\emph\{variables\} $V$ with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{terms\} over $\\Sigma$, denoted as $\\ter(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\text\{denotes the set of functions with arity 0, i.e., atomic constant symbols,\} \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^n    &= \\; \\set\{f^n\}, n \\geq 1, \\text\{ denotes the set of $n$-ary functions, and\}\\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   V           &= \\; \\set\{x_i \\; | \\; 0 \\geq i \\geq n\}, \\text\{ denotes the set of variables $x_i$.\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of terms $T(\\Sigma, V)$ is defined inductively as:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of terms $\\ter(\\Sigma, V)$ is defined inductively as:}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in T(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in T(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall f \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in T(\\Sigma, V) \\; \\Rightarrow \\; f(t_1, \\ldots, t_n) \\in T(\\Sigma, V) }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\ter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\ter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall f \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in \\ter(\\Sigma, V) \\; \\Rightarrow \\; f(t_1, \\ldots, t_n) \\in \\ter(\\Sigma, V) }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Furthermore:}
 \par\plain {\f0\fs24\b0\i0 \\begin\{itemize\}[label=\{--\}]}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $\\var(t) \\subseteq V$ denotes the set of variables that occur in term $t$}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item A term $t$ is called a \\emph\{closed term\}, or \\emph\{ground\}, if it does not contain variables, i.e., when $\\var(t) = \\emptyset$. The set of closed terms are collectively denoted as $T_0(\\Sigma, V)$, or $T(\\Sigma, \\emptyset)$, or simply $T(\\Sigma)$. }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item A term $t$ is called a \\emph\{closed term\}, or \\emph\{ground\}, if it does not contain variables, i.e., when $\\var(t) = \\emptyset$. The set of closed terms are collectively denoted as $\\ter_0(\\Sigma, V)$, or $\\ter(\\Sigma, \\emptyset)$, or simply $\\ter(\\Sigma)$. }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $|t|$ denotes the \\emph\{length\} of term $t$, i.e., }
 \par\plain {\f0\fs24\b0\i0   \\begin\{itemize\}[label=\{-\}]}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0     \\item $x_i \\in V, \\; a \\in \\Sigma^0: \\; |x_i| = |a| = 1$, and}
@@ -32,24 +32,26 @@
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{itemize\}}
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[$\\Sigma$-identity]\\label\{def:sigma-identity\}}
-\par\plain {\f0\fs24\b0\i0 A \\emph\{$\\Sigma$-identity\}}{\f0\fs24\b0\i0 , or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in T(\\Sigma, V) \\times T(\\Sigma, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \\approx t$.}
+\par\plain {\f0\fs24\b0\i0 A \\emph\{$\\Sigma$-identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \\approx t$.}
 \par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \ltrch\loch \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 >The term *identity* is used for a pair $s \\approx t$ to express that the equality between $s$ and $t$ holds *a-priori*, distinguishing it from the term *equation* that is used to express that the equality must be *solved* or *proven*.}
-\par\plain {\f0\fs24\b0\i0  }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Rewrite rule]\\label\{def:rewrite-rule\}}
-\par\plain {\f0\fs24\b0\i0 A \\emph\{term rewriting rule\} is a pair of terms $l, r \\in T(\\Sigma, V)$, such that:}
-\par\plain {\f0\fs24\b0\i0 \\begin\{align\}}
+\par\plain {\f0\fs24\b0\i0 >The term *identity* is used for a pair $s \\approx t$ to express that the equivalence $s = t$ holds *a-priori*, distinguishing it from the term *equation* that is used to express that the equivalence must be *solved* or *proven*.}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Rewrite rule]\\}
+\par\plain {\f0\fs24\b0\i0 A \\emph\{term rewriting rule\} is a pair of terms $l, r \\in \\ter(\\Sigma, V)$, such that:}
+\par\plain {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{def:rewrite-rule\}}
+\par\plain {\f0\fs24\b0\i0   \\begin\{align\}}
 \par\plain {\f0\fs24\b0\i0   l       &\\not\\in V         \\label\{eq:distinctness\} \\\\}
 \par\plain {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\label\{eq:novarintro\} }
-\par\plain {\f0\fs24\b0\i0 \\end\{align\}}
+\par\plain {\f0\fs24\b0\i0   \\end\{align\}}
+\par\plain {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, we denote $l \\to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\\rho$, and we write $\\rho : l \\to r$.}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 >Since a rewrite rule is directed, the second restriction (\\ref\{eq:novarintro\}) is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction (\\ref\{eq:distinctness\}) assures that rewriting and variable substitution remain distinct.}
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term rewriting]\\label\{def:term-rewriting\}}
-\par\plain {\f0\fs24\b0\i0 Consider a signature $\\Sigma$ and a set of variables $V$ disjoint from $\\Sigma$. Assume terms $s, t \\in T(\\Sigma, V)$, represented as a term tree (\\cref\{def:term-tree\}).}
+\par\plain {\f0\fs24\b0\i0 Consider a signature $\\Sigma$ and a set of variables $V$ disjoint from $\\Sigma$. Assume terms $s, t \\in \\ter(\\Sigma, V)$, represented as a term tree.}
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A rewrite rule $\\rho : l \\to r$ can be \\emph\{applied\} to a term $s$ iff $\\exists p \\in \\pos(s): s|_p \\equiv \\sigma(l)$:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
@@ -65,14 +67,14 @@
 \par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term rewriting system]\\label\{def:TRS\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term rewriting system\} (TRS) is an ARS with $\\EuScript\{R\} = \\pair\{\\Sigma, R\}$, where:}
 \par\plain {\f0\fs24\b0\i0 \\begin\{itemize\}[label=\{--\}]}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $\\Sigma$, the set of objects, denoting a signature according to \\cref\{def:signature\}, and }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $\\Sigma$, the set of objects, denoting a signature according to \\cref\{def:terms\}, and }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $R$ denotes a set of rewrite rules according to \\cref\{def:rewrite-rule\}. }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{itemize\} }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \ql\ltrch\loch \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 >Consequently, a TRS is a combination of set of terms (\\cref\{def:terms\}), which can be represented as a term tree (\\cref\{def:term-tree\}), with a set of rewrite rules (\\cref\{def:rewrite-rule\}).}
+\par\plain {\f0\fs24\b0\i0 >Consequently, a TRS is a combination of set of terms (\\cref\{def:terms\}), which can be represented as a term tree, with a set of rewrite rules (\\cref\{def:rewrite-rule\}).}
 \par\plain {\f0\fs24\b0\i0  }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The following provides for a list of the }{\f0\fs24\b0\i0 more relevant properties}{\f0\fs24\b0\i0  of an ARS:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The following provides for a list of the more relevant properties of an ARS:}
 \par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 1. **Termination**: If it is always the case that after applying a finite number of rewriting steps some object is reached for which no more rules apply, the ARS is called *terminating*.}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 1. **Normalising**: If an object $o$ can be rewritten into an object $o\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ for which no more rules apply, such final object is called the *normal form*. If $o\u8217\'92$ is the unique normal form of $o$, then this is denoted as $\\unf\{o\}$. If every object $o \\in A$ has a normal form, the ARS is called *normalising*.}
@@ -82,5 +84,44 @@
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 In order to apply a TRS as foundation for semantic mediation, we need to introduce the notion of *context* in a TRS, defined as follows.}
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term context]\\label\{def:term-context\}}
-\par\plain {\f0\fs24\b0\i0 Consider a term $C$ over an extended signature $\\Sigma \\cup \\set\{\\Box\}$, where the constant symbol $\\Box$, called a hole, represents an empty position in a term. Such hole can be replaced with a term $t \\in T(\\Sigma, V)$. The term $C \\in T(\\Sigma \\cup \\set\{\\Box\}, V)$, consisting of $n$ holes ($n \\geq 0$) is called a \\emph\{term context\}, or simply \\emph\{context\} if no confusion arises. The special case where $n = 1$ is called an \\emph\{one-hole context\} and denoted by $C[\\;]$. On replacing the $n$ holes from $C$ with terms $t_1, \\ldots, t_n \\in T(\\Sigma, V)$, the resulting term is denoted as $C[t_1, \\ldots, t_n]$. }
-\par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}}
+\par\plain {\f0\fs24\b0\i0 Consider a term $C$ over an extended signature $\\Sigma \\cup \\set\{\\Box\}$, where the constant symbol $\\Box$, called a hole, represents an empty position in a term. Such hole can be replaced with a term $t \\in \\ter(\\Sigma, V)$. The term $C \\in \\ter(\\Sigma \\cup \\set\{\\Box\}, V)$, consisting of $n$ holes ($n \\geq 0$) is called a \\emph\{term context\}, or simply \\emph\{context\} if no confusion arises. The special case where $n = 1$ is called an \\emph\{one-hole context\} and denoted by $C[\\;]$. On replacing the $n$ holes from $C$ with terms $t_1, \\ldots, t_n \\in \\ter(\\Sigma, V)$, the resulting term is denoted as $C[t_1, \\ldots, t_n]$. }
+\par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A further specialisation of a TRS introduces conditions to the effect that a given rule can be applied only if its condition, instantiated by the matching substitution, is satisfied. These are called conditional TRSs (CTRS), and are based on a set of conditional rewrite rules. Depending on the definition of the conditional rules, their evaluation may become undecidable. The following definition is adapted from \\cite\{Kirchner2006, def. 7.23\}: }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite rule]\\label\{def:conditional-rewrite-rule\}}
+\par\plain {\f0\fs24\b0\i0 A \\emph\{conditional rewrite rule\} is a rewrite rule (\\cref\{def:rewrite-rule\}) of the form}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}\\renewcommand\{\\qedsymbol\}\{\} \\tag\{\\ref\{def:conditional-rewrite-rule\}\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l &\\to r \\text\{ if \} \\Gamma \\label\{eq:crr\} \\\\}
+\par\plain {\f0\fs24\b0\i0 %  \\Gamma &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) \\label\{eq:rrc\}\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma)}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
+\par\pard\plain \tx1899\ri-10862\ql\ltrch\loch {\f0\fs24\b0\i0 The $\\Gamma$-part of the rule is called the \\emph\{condition\}, and it expresses exactly that: zero or more conditions that should all hold. Collectively, a set of conditional rewrite rules is denoted as $R \\subseteq \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$.}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 In order to avoid an infinite recursion and therefore one form of undecidability, an hierarchy on the rules is enforced that demands that for each rule its condition is evaluated at a lower hierarchical level. A hierarchy on the rules emerges when for a CTRS its conditional rewrite relation $\\to_R$ is defined inductively, as follows (adapted from \\cite\{Kirchner2006, def. 7.25\} and \\cite\{Bezem2003, def. 3.4.5\}):}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite relation]\\label\{def:conditional-rewrite-relation\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A conditional rewrite relation $\\to_R$ is defined as the collective conditional rewrite rules (\\cref\{def:conditional-rewrite-rule\}) $\\rho_n$ that apply, as follows:}
+\par\plain {\f0\fs24\b0\i0 \\begin\{align\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_0     &: \\set\{ l \\to_0 r \\; | \\; (l, r) \\in R_0 \} \\label\{eq:crr-r_0\} \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{i+1\} &: \\left\\\{ \\sigma(l) \\to_\{i+1\} \\sigma(r) \\; | \\; \\Gamma_i: (l, r) \\in \\rho_i \\text\{ and \} \\sigma(\\Gamma_i) \\text\{ holds\} \\right\\\} \\label\{eq:crr-r_i\} \\\\}
+\par\plain {\f0\fs24\b0\i0 \\intertext\{Then, the conditional rewrite relation $\\to_R$ emerges as the collective of the conditional rewrite rules as:\}}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\to_R      &= \\bigcup_\{i>0\} \\to_i}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\} }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 >An inductive definition requires a starting condition, here defined in \\cref\{eq:crr-r_0\} and specified by $\\rho_0$ as a set of unconditional rewrite rules (\\cref\{def:rewrite-rule\}). The essence on the inductive part of the definition, \\cref\{eq:crr-r_i\}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\\sigma(\\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. }
+\par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 It is not clear yet how the conditions can be defined. We therefore turn to the conditions. The focus of conditional rewriting systems is to find restrictions on the conditional rules, such that a decidable rewriting relation emerges. In both [@Kirchner2006] and [@Bezem2003], three strategies for constraining the rules are given that originate from [@Dershowitz1988], from which we will use only one, viz. normal conditional rewriting. Besides these three strategies, in *generalized* CTRS the conditions are constrained to fixed predicates on terms. We therefore consider conditions of the following types:}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditions in CTRS]\\label\{def:conditions-in-ctrs\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 In a \\emph\{generalised\} CTRS, the conditions $\\Gamma_i$ are of the form (\\cite\{Bezem2003, def.3.4.4(i)\}): }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma_i     &: \\pair\{P_1^k(t_\{a_1\}, \\ldots, t_\{a_k\}), \\ldots, P_n^l(t_\{b_1\}, \\ldots, t_\{b_l\})\} \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{where $P_m^k$ are any fixed k-ary predicates on terms.\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{In a \\emph\{normal\} CTRS, the conditions $\\Gamma_i$ are of the form (\\cite\{Bezem2003, def.3.4.5(i)\}):\}}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma_i     &: \\pair\{t_\{j,1\} \\trsrtc_i t_\{j,1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ldots, t_\{j,k\} \\trsrtc_i t_\{j,k\}\u8217\'92\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\} }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 where $t_k\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ are \\emph\{normal forms\} of $t_k$. Then, for normal CTRS it is demanded that $\\sigma(\\Gamma_i)$ results in $\\sigma(t_i\u8217\'92)$ being the normal form of $\\sigma(t_i)$ for all equivalences in the condition of the rewrite rule definition of \\cref\{eq:crr-r_i\}. }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0}

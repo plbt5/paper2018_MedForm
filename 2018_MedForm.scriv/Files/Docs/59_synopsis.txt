@@ -1,4 +1,4 @@
-Show how the characteristics of a transcription map to what characteristics of a cTRS.
+Show how the characteristics of a transcription map to the characteristics of a cTRS.
 
 Define a trancription in terms of a cTRS.
 

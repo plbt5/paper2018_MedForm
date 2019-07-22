@@ -9,7 +9,7 @@ The meta-data is formatted and used as YAML-block. This results in variables tha
 
 I'm not sure that a combination of both appraches will work, except, possibly, by compling this meta-data document into a separate side document and not taking it into consideration anymore when compiling the Draft (Include in Compile: off). Then, define your metadata variables and take them into account during the Draft compile.</Synopsis>
             <Text>---
-title:  'Semantic medation: from alignment relations to data transcriptions'  
+title:  'Semantic mediation: from alignment relations to data transcriptions'  
 subtitle:   
 author:  
 - name: Paul Brandt  
@@ -25,16 +25,17 @@ tags: semantic interoperability, semantic mediation, ontology alignment, term re
 bibliography: src/bib/CitedByMe-2018_MedForm.bib  
 csl: templates/my-basic-reference-style.csl  
 abstract: |  
-   
-    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+  
+  *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
  
-    *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, viz. equivalence, alignment based mediation will always fail to achieve its purpose, that is, translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, represents the keystone to the sIOP bridge between collaborating agents.  
+  *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
 
-    *Objective:* We present a mathematical foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore formulate the generic mediator as a conditional term rewriting system.  
+  *Objective:* To investigate the contexts under which the applied transcription, despite its clear discrepancy with the intended correspondence, *does* represent a faithful semantic mediation between software agents.
 
-    *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept and (ii) the aligned target concept, and (iii) the specified inter-ontological correspondence between these concepts. For each context we investigate whether the suggested target concept represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic mediator.  
 
-
+  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+  
 ...</Text>
             <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
@@ -42,9 +43,9 @@ abstract: |
             <Title>Introduction</Title>
             <Text>Assume two collaborating software agents, exchanging data about their common interest. Each agent addresses a part of reality, here denoted the agent’s application domain. Collaboration implies that the agents’ application domains overlap. In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based Domain of Interpretation (DoI), denoted \concept{D}. Furthermore, a conceptualisation is represented in tokens which, together, form an ontology, denoted \ont{O}. Finally, an interpretation function $\intn$ exists from the ontology to the conceptualisation. We assume that each agent decides on its own conceptualisation and its own ontological representation, the latter being built from a unique alphabet $\Sigma$. For example, consider ...
 
-Since each agent decides on its own conceptualisation, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$^[Even worse, it can be the case that both ontologies share identical tokens which refer to different concepts in each conceptualisation.] whereas, since the DoI’s overlap, $\concept{D} \cap \concept{D}’ \neq \varnothing$. We assume the existence of (inter-ontological) alignment correspondences that hold between source and target ontological concepts, such as subsumption, disjointness or overlap. We make no assumptions on how the alignment correspondences are established but we do assume their semantic validity. Now consider that a transcription essentially implements a replacement of terms. From a semantic perspective term replacement enforces an equivalence to hold between both terms, which is in clear contrast with the prescribed correspondence relations (except for an equivalence correspondence). Consequently, the result of the transcription will induce a difference between how it is actually being interpreted by the target agent and how it was intended to be interpreted according to its correspondence relation. Whether this difference actually results in invalid semantics depends on how the domain of interest have been conceptualised by both agents, and the correspondence relation that is prescribed between them. With invalid semantics we refer to a valuation of a theory that contradicts the state of affairs in the domain of interest. Invalid semantics that are induced by the transcription will be denoted as phantom semantics. Note that due to the open world assumption this includes unfaithful valuations that remain open because conclusive data (or source data for their derivation) have vaporised, and vice versa, those that became closed because definitive data (or source data for their derivation) have transpired. In short, phantom semantics are semantics that are transcription-induced and contradict the state of affairs in the domain of interest. 
+Since each agent decides on its own conceptualisation, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$^[Even worse, it can be the case that both ontologies share identical tokens which refer to different concepts in each conceptualisation.] whereas, since the DoI’s overlap, $\concept{D} \cap \concept{D}’ \neq \varnothing$. We assume the existence of (inter-ontological) alignment correspondences that hold between source and target ontological concepts, such as subsumption, disjointness or overlap. We make no assumptions on how the alignment correspondences are established but we do assume their semantic validity. Besides data exchange, collaboration thus demands for data transcription between both ontologies. Now consider that a transcription essentially implements a replacement of terms. From a semantic perspective term replacement enforces an equivalence to hold between both terms, which is in clear contrast with the prescribed correspondence relations (except for an equivalence correspondence). Consequently, the result of the transcription will induce a difference between how it is actually being interpreted by the target agent and how it was intended to be interpreted according to its correspondence relation. Clearly, this difference might very well result in invalid semantics, with dramatic consequences for the agents’ collaboration. With invalid semantics we refer to a valuation of a theory that contradicts the state of affairs in the domain of interest. Invalid semantics that are induced by the transcription will be denoted as phantom semantics. Due to the open world assumption this includes unfaithful valuations that remain open because conclusive data (or source data for their derivation) have vaporised by the transcription, and vice versa, those that became closed because definitive data (or source data for their derivation) have transpired. In short, phantom semantics are semantics that are transcription-induced and contradict the state of affairs in the domain of interest. 
 
-Our first objective is to facilitate for any pair of collaborating agents a generic semantic mediation: a syntactic replacement between theories from two distinct alphabets, which does not induce phantom semantics, despite the difference between the stated correspondence relation and the actual transcription. Our second objective is to provide for an implementation of such generic semantic mediation, which is always terminating, and remains independent on the order with which the terms are replaced.
+Our first objective towards sIOP is to facilitate for any pair of collaborating agents a generic semantic mediation: a syntactic replacement between theories from two distinct alphabets, which does not induce phantom semantics, despite the difference between the stated correspondence relation and the actual transcription. Our second objective is to provide for an implementation of such generic semantic mediation, which is always terminating, and remains independent on the order with which the terms are replaced.
 
 The main idea of the paper is to identify, for (i) all logical contexts that originate from the source and target ontological concepts, (ii) including their (intra-ontological) relations, and (iii) all (inter-ontological) alignment correspondences that are possible between source and target ontological concepts, the most accurate valid transcription possible or $\token{null}$ if none is present. We call aspects (i)-(iii) the transcription contexts, and these are introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a semantic mediator. Our contributions to the semantic mediation process are then:
 
@@ -56,23 +57,34 @@ The main idea of the paper is to identify, for (i) all logical contexts that ori
 
 Before turning to the first of these sections, we will introduce some terminology, as follows.
 
-A correspondence denotes a single particular inter-ontological relation, denoted as
+A correspondence denotes a single particular inter-ontological relation, prescribed, and assumed to represent a semantically valid relation between both concepts. The correspondence is denoted as
 \begin{equation}\label{eq:correspondence}
 \mu = \tuple{ e, e’, \theta }
 \end{equation}
-with $\theta \in \Theta$ specifying the correspondence relation that holds between source concept $\token{e} \in \ont{O}$, denoted the transcribendum, and the target concept $\token{e’} \in \ont{O}’$, denoted the transcriptum. We consider $\Theta \; = \; \{=, \sqsubset, \sqsupset, \disj, \overlap \}$, denoting semantic equality, subsumption of, subsumes, disjointness, and overlap, respectively. The correspondence is prescribed and assumed to represent a semantically valid relation between both concepts. 
+with $\theta \in \Theta$ specifying the correspondence relation that holds between source concept $e \in \ont{O}$, denoted the transcribendum, and the target concept $e’ \in \ont{O}’$, denoted the transcriptum. The correspondence relations $\Theta$ that we consider are:
+
+\begin{align}
+  \Theta &amp;= \{=, \sqsubset, \sqsupset, \disj, \overlap \} \\
+\intertext{denoting} \nonumber \\ 
+  =         &amp;: \text{semantic equality}         \nonumber \\
+  \sqsubset &amp;: \text{subsumption of}            \nonumber \\
+  \sqsupset &amp;: \text{subsumes}                  \nonumber \\
+  \disj     &amp;: \text{disjointness, and}         \nonumber \\
+  \overlap  &amp;: \text{overlap.}                  \nonumber 
+\end{align}
+Despite the fact that we have limited ourselves to these particular relations, the method that we propose will cope with other correspondence relations as well. 
 
 The concepts in the ontologies are the elements that apply in the ontology. These are of certain type, dependent on the type of logic that is used to formulate the ontology. Although we limit ourselves to description logic, and, for sake of simplicity and available space, to only the classes therein, the principles that we present here are applicable to the other types of elements in description logic, i.e., relations, properties and instances, as well as other type of logic. 
 
 We denote as atomic correspondence a correspondence where $e$ and $e’$ are atomic concepts, i.e., a single concept without considering any (logical or ontological) relation with another concept from its own ontology. 
 
-A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different type are denoted as heterogeneous. We assume homogeneous correspondences only. 
+A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different types are denoted as heterogeneous. We assume homogeneous correspondences only. 
 
-Finally, some notation to distinguish various matters of equivalences:
+Finally, some notation to distinguish various forms of equivalences:
 \begin{align*}
   \equiv \;  &amp;\text{: denotes \emph{syntactical identity}, and } \\
   = \;       &amp;\text{: denotes \emph{semantic equality}.} \\
-  \approx \; &amp;\text{: a semantic equality that holds \emph{a priori} is called a \emph{($\Sigma$-)identity}}
+  \approx \; &amp;\text{: a semantic equality that holds \emph{a priori}, called a \emph{($\Sigma$-)identity}}
 \end{align*}
 </Text>
             <Comments>brandtp, 12-11-2018 Voorbeeld toevoegen
@@ -80,13 +92,15 @@ brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.</Comments>
         </Document>
         <Document ID="30">
             <Title>Abstract</Title>
-            <Text>    *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+            <Text>  *Background/Problem:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
  
-    *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, viz. equivalence, alignment based mediation will always fail to achieve its purpose, that is, translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, represents the keystone to the sIOP bridge between collaborating agents.  
+  *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
 
-    *Objective:* We present a mathematical foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We furthermore formulate the generic mediator as a conditional term rewriting system.  
+  *Objective:* To investigate the contexts under which the applied transcription, despite its clear discrepancy with the intended correspondence, *does* represent a faithful semantic mediation between software agents.
 
-    *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
+  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept and (ii) the aligned target concept, and (iii) the specified inter-ontological correspondence between these concepts. For each context we investigate whether the suggested target concept represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic mediator.  
+
+  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. The generic characteristic of the mediator will allow to engineer infrastructural semantic standards and services to achieve sIOP.
 </Text>
             <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
@@ -144,20 +158,20 @@ Be 100% explicit: “The main idea of the paper is ....”</Text>
         </Document>
         <Document ID="32">
             <Title>An inductive transcription model</Title>
-            <Text>When considering ontologies that are based on description logic, the concepts that are identified are dependent on their type, denoted $\varepsilon$, and is considered one of the following:
+            <Text>Atomic concepts are of certain *type*, denoted $\varepsilon$. This type is dependent on the underlying logic, and since we consider ontologies that are based on description logics the following types apply:
 \begin{equation}\label{eq:concept-type}
-\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{T} \; | \; \token{\iota}
+\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{T} \; | \; \token{$\iota$}
 \end{equation}
 where:
 
 * \token{C} denotes the Class concept type, the interpretation of which results in a set $\concept{C} \subseteq \concept{D}$ of individuals: $\forall \token{c} \lhd \token{C}: \intn(\token{c}) \subseteq \concept{C}$, where $\lhd$ denotes the type-of relation between an individual concept (left-hand side, here a particular class) and its type $\varepsilon$ (right-hand side, here a Class type);
-* \token{R}, \token{P}, \token{T} and \token{\iota} denote the Relation concept type, the Property concept type, the value type concept type, and the Instance concept type, respectively, with their own interpretation in \concept{D}. For reasons of space and simplicity we do not further elaborate on these concepts.
+* \token{R}, \token{P}, \token{T} and \token{$\iota$} denote the Relation concept type, the Property concept type, the value type concept type, and the Instance concept type, respectively, with their own interpretation in \concept{D}. For reasons of space and simplicity we do not further elaborate on these concepts.
 
-The above concepts all represent atomic concepts, and are part of correspondence $\mu = \langle e, e’, \theta \rangle$ as formulated by \cref{eq:correspondence}. The patterns that emerge for each homogeneous and atomic correspondence are depicted in \cref{fig:basic-correspondence} (b) to (f). 
+Whenever the type of the concept or its atomicity is irrelevant, we denote the concept as $e$, whereas $c, p, r, t$ and $\iota$ denote an atomic class, property, relation, value type or instance concept, respectively. The homogeneous, non-atomic correspondence relation from \cref{eq:correspondence} is depicted in \cref{fig:basic-correspondence} (a). The patterns that emerge for each homogeneous and atomic correspondence are depicted in \cref{fig:basic-correspondence} (b) to (f). 
 
-![Atomic homogeneous correspondences, i.e., two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \in \{c, r, p, \iota, t\}$, with correspondence relation $\theta \in \Theta$ that specify how transcribendum $e$ corresponds with its peer transcriptum $e’$. Note that $\theta$ is a directed relation. Correspondence (a) represents the generic atomic correspondence for classes, types and individuals, depicted by correspondences (d), (e) and (f), respectively. orrespondences (b) and (c) represent the generic atomic correspondences for object relations and property relations, respectively.][def:BasicCorrespondence]
+![Atomic homogeneous correspondences, i.e., two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \lhd \varepsilon$ with correspondence relation $\theta \in \Theta$ that specify how transcribendum $e$ corresponds with its peer transcriptum $e’$. Note that $\theta$ is a directed relation. Correspondence (a) collectively represents the atomic correspondence for classes, types and individuals, depicted by correspondences (d), (e) and (f), respectively. Correspondences (b) and (c) represent the generic atomic correspondences for object relations and property relations, respectively.][def:BasicCorrespondence]
 
-\Cref{fig:basic-correspondence} represent all potential atomic correspondence: two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e$, with $e \in \{c, r, p, \iota, t\}$, and one correspondence relation $\theta \in \Theta$ to relate transcribendum $e$ with its peer transcriptum $e’$. In correspondence (a), however, concept $e$ can only be one of $c$, $\iota$ or $t$: when considering concepts that express relations, i.e., correspondence (b) on object relations and correspondence (c) on property relations, a class concept $c$ becomes a necessary part of the pattern to represent the domain of the relations; similarly, range concepts are necessarily included to the patterns as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic correspondence as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_c$ and $\theta_t$ from correspondences (b) and (c) it becomes clear that these are, in fact, atomic correspondences. From this it follows that:
+\Cref{fig:basic-correspondence} (b) to (f) represent all potential atomic correspondences: two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept \token{e}, with $\token{e} \lhd \varepsilon$, and one correspondence relation $\theta \in \Theta$ to relate transcribendum $e$ with its peer transcriptum $e’$. In correspondence (a), however, concept $e$ can only be one of type \token{C}, \token{$\iota$} or \token{T}: when considering concepts that express relations, i.e., correspondence (b) on object relations and correspondence (c) on property relations, a class concept $c$ becomes a necessary part of the pattern to represent the domain of the relations; similarly, range concepts are necessarily included to the patterns as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic correspondence as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_c$ and $\theta_t$ from correspondences (b) and (c) it becomes clear that these are, in fact, atomic correspondences. From this it follows that:
 
 1. indeed correspondence (a) represents the generic atomic correspondence but only for classes, $\tuple{ c, c’, \theta_c}$ as depicted in correspondence (d), types, $\tuple{t, t’, \theta_t}$ as depicted in correspondence (e), and individuals, $\tuple{\iota, c’, \theta_\iota}$ as depicted in correspondence (f);
 1. correspondences (b) and (c) represent the generic atomic correspondences for relations, since apart from the primary atomic correspondence also two secondary atomic correspondences are involved, i.e., three atomic correspondences in total;
@@ -174,29 +188,29 @@ where:
     * $\sqsubset, =, \sqsupset$ denote subsumption of, semantic equivalence, and subsumes, and
     * $\displete, \disjoinc$ denote disjoint and complete, and disjoint and incomplete, whereas 
     * $\overlete, \overlinc$ denote not disjoint but complete and not disjoint and incomplete, respectively;
-* $\theta_n \in \Theta$, the correspondence relation that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
+* $\theta_n \in \Theta$, the correspondence relation from \cref{eq:correspondence} that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level. 
 
-We can depict the inductive transcription context as follows. We first consider the ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ then is fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
+We can depict the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
 
-On considering $\set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), where $r, r’ = \sqsupset$ relate the reference concept $c_n$, resp. $c_n’$, with subclasses $c_{n-1}$ and $\hat{c}_{n-1}$, resp. $c_{n-1}’$ and $\hat{c}_{n-1}’$ that bear an (in)completeness relation $\hat{r} \text{ resp. } \hat{r}’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$. 
+![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c$ and $c'$ are implied by class relations $c_n \, r \, c_{n-1}$ and $c_n' \, r' \, c_{n-1}'$, respectively.][def:GenClassTranscModels]
 
-![The class transcription models that support all seven ontological relations. $\theta_n$ denotes the correspondence relation that applies for the current context $\ctx_n = \pair{\hat{r}, \theta_n, \hat{r}', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Classes $c_n$ and $c_n'$ are implied by class relations $c_{n-1} \hat{r} \hat{c}_{n-1}$ and $c_{n-1}' \hat{r}' \hat{c}_{n-1}'$, respectively.][def:GenClassTranscModels]
+On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. 
 
-In the remainder of this paper we will refer to a specific context as a particular case. Clearly, situation \ref{fig:gen-class-transc-models}(a) is a special case of situation \ref{fig:gen-class-transc-models}(b) since (b) morphs into (a) for $\hat{r} \equiv$ “$=$”. As a result, case (b) represents the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
+In the remainder of this paper we will refer to a specific context as a particular case. Clearly, models \ref{fig:gen-class-transc-models}(a) and \ref{fig:gen-class-transc-models}(b) are complementary to each other, depending on the particular choice for $r$ or $r’$. Together they represent the generic, inductive transcription context with which we can describe each and every correspondence in every context that might apply. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next Section. 
 
 
 
 
 &lt;!-- Page definitions --&gt;
-[def:GenClassTranscModels]: src\images\GenericPattern2OntosClassDisjoints.png {#fig:gen-class-transc-models width=90%}
-[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}</Text>
+[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=100%}
+[def:GenClassTranscModels]: src\images\GenClassTranscrModelAAndB.png {#fig:gen-class-transc-models width=80%}</Text>
         </Document>
         <Document ID="33">
             <Title>Valid transcriptions</Title>
             <Text>The main demand for the mediation is to guarantee that it either produces a semantic valid transcription, or $\token{null}$ when phantom semantics are induced. We formulate a generic transcription as a function $T_{\ctx} : \ont{O} \to \ont{O}’$, and denote a valid transcription as $e \vldtranscript{\ctx} e’$, indicating that concept $e \in \ont{O}$ can be replaced by concept $e’ \in \ont{O}’$ under the specified transcription context $\ctx$ without inducing phantom semantics. When the context is reduced to the correspondence relation $\theta$ only, we write $T_{(\theta)}$ and $e \vldtranscript{(\theta)} e’$. The semantic validity of a transcription is the result of two cooperating mechanisms:
 
-1. Firstly, the transcription depends on transcription context $\ctx_n$, the correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$ as defined in \cref{eq:correspondence}, and the (valid) transcription result $e_{n-1} \vldtranscript{(\theta_{n-1})} e_{n-1}’$. The correspondence $\mu_n$ is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
+1. Firstly, as indicated in \cref{eq:transcription-context}, the transcription depends on transcription context $\ctx_n$, the correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$ as defined in \cref{eq:correspondence}, and the (valid) transcription result $e_{n-1} \vldtranscript{(\theta_{n-1})} e_{n-1}’$. The correspondence $\mu_n$ is prescribed and assumed to represent a semantic valid correspondence relation between both concepts;
 1. Secondly, the transcription result $T_{\ctx_n}(e_n)$ represents a new theory that is added to $\ont{O}’$. This theory is evaluated by use of the target’s agent interpretation function $\intn’: \ont{O}’ \to \concept{D}’$. The semantic validity of the transcription, therefore, is dependent on whether the transcribendum $\intn(e_n)$ addresses the same individuals in the DoI as the transcription result $\intn’(T_{\ctx_n}(e_n))$. 
 
 Since the transcription context provides for all potential logical circumstances that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents, as follows:
@@ -206,7 +220,7 @@ Assume transcribendum $e_n \in \ont{O}$, transcriptum $e_n’ \in \ont{O}’$, c
 \intn’(T_{\ctx_n}(e_n)) \subseteq \intn(e_n)
 \]
 \end{mmdef}
-In other words, a transcription is valid if all individuals that potentially belong to the set represented by $e_n$ also belong to the set that is constructed by $T_{\ctx_n}(e_n)$. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$. Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn(e_n) \supseteq \intn’(T_{\ctx_n}(e_n))$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$ implies the set that maximally equals $\intn(e_n)$. In the worst case this is not possible and the result is the empty set, denoted $\ntsa$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.</Text>
+In other words, a transcription is valid if all individuals that potentially belong to the set represented by $e_n$ also belong to the set that is constructed by $T_{\ctx_n}(e_n)$. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$. Our task is then to traverse the multidimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn’(T_{\ctx_n}(e_n)) \subseteq \intn(e_n)$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $\hat{e}_{n-1}’$ implies the set that maximally equals $\intn(e_n)$. In the worst case this is not possible and the result is the empty set, denoted $\ntsa$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.</Text>
         </Document>
         <Document ID="34">
             <Title>A cTRS as mediator</Title>
@@ -651,11 +665,11 @@ This is straightforward for this case: since no other concepts are present in co
 
 \begin{table}[h]
   \centering
-  \caption{Transcription results $T_{(\theta)}(c)$ for the atomic transcription context $\ctx = (\theta)$ and correspondences $\tuple{c, c’, \theta}$: atomic class $c$ represents the transcribendum and is transcribed under relation $\theta$, taking into consideration that no other concepts are present. The transcription result is semantically valid by token of not inducing phantom semantics under this specific context, denoted as $c \vldtranscript{(\theta)} c’$. }
+  \caption{Transcription results $T_{(\theta)}(c)$ for the atomic transcription context $\ctx = (\theta)$ and correspondences $\tuple{c, c’, \theta}$: atomic class $c$ represents the transcribendum and is transcribed under relation $\theta$, taking no other concepts into consideration. The transcription result is semantically valid, denoted as $c \vldtranscript{(\theta)} T_{(\theta)}(c)$, by token of not inducing phantom semantics under this specific context. }
   \label{tab:atomic-class-transcriptions}
   \begin{tabular}{cc@{\qquad}ccccc}
     \toprule
-    \multicolumn{2}{c}{$c \vldtranscript{(\theta)}$} &amp; \multicolumn{5}{c}{Correspondence relation $\theta$} \\ \cmidrule{3-7}
+    \multicolumn{2}{c}{$c \vldtranscript{(\theta)}T_{(\theta)}(c)$} &amp; \multicolumn{5}{c}{Correspondence relation $\theta$} \\ \cmidrule{3-7}
      &amp;&amp; $\sqsubset$ 
       &amp; $=$
       &amp; $\sqsupset$
@@ -676,8 +690,8 @@ In conclusion, \cref{tab:atomic-class-transcriptions} specifies all transcriptio
 Unfortunately, two out of five correspondence relations prohibit a transcription. This essentially implies that neither $c’$ nor $\neg c’$ do sufficiently constrain the individuals in $\ont{O}’$ that are implied by $c$. In other words, $T_{(\theta \in \set{\sqsupset, \overlap})}(c) = c’ \sqcup \neg c’$ or $\top$ for short, where $\intn’(\top) = \concept{D}$. Not as broad as $\top$ but still broad in its transcription is $T_{(\disj)}(c) = \neg c’$. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.</Text>
         </Document>
         <Document ID="56">
-            <Title>Transcribing over a $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
-            <Text>The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new class that is implied (subsumed) by the existing class: $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-sup} case (a), and case (b) introduces the same class implication but now into $\ont{O}$. 
+            <Title>Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
+            <Text>The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new class that is subsumed by the existing class: $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-sup} case (a), and case (b) introduces the same class subsumption but now into $\ont{O}$. 
 
 ![Correspondences over an \emph{implied class context}. Case (a): class $c_n’$ subsumes class $c_{n-1}’$. Case (b): class $c_n$ subsumes class $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1} = \pair{\theta_{n-1}}$, as specified in \cref{tab:atomic-class-transcriptions}. The current context, $\ctx_n$, specifies case (a) as $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$, and case (b) as $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$][def:MedcxtSup]
 
@@ -728,10 +742,10 @@ Since context $\ctx_n$ is constructed from classes $c_n$ and $c_{n-1}$ that both
   \end{tabular}
 \end{table}
 \begin{mmrmk}\label{rmk:inh1}
-Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. In contrast, when context $\ctx_n$ is considered, the transcription of context $\ctx_{n-1}$ can be taken into account. Since (i) transcribendum $c_{n-1}$ has been given a valid transcription under context $\ctx_{n-1}$, viz. $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c’_{n-1}$, and (ii) context $\ctx_n$ does not imply an invalid logical construct, and (iii) $c_n’ \sqsupset c’_{n-1}$, therefore the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
+Solely based on correspondence relation $\theta_n = \overlap$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. In contrast, when context $\ctx_n$ is considered, the transcription of context $\ctx_{n-1}$ can be taken into account. Since (i) transcribendum $c_{n-1}$ has been given a valid transcription under context $\ctx_{n-1}$, viz. $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c’_{n-1}$, and (ii) context $\ctx_n$ does not imply an invalid logical construct, and (iii) $c_n’ \sqsupset c’_{n-1}$, therefore the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
 \end{mmrmk}
 \begin{mmrmk}\label{rmk:seq}
-Solely based on correspondence relation $\theta_n$, a valid transcription $c_{n-1} \vldtranscript{\sqsubset} c_n’$ applies. However, by token of the underlying context $\ctx_{n-1}$, it had already been established that $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c_{n-1}’$. Since the former transcription further constrains the latter, both transcriptions should be applied, rendering the double constraint as shown. 
+Solely based on correspondence relation $\theta_n = \sqsubset$, a valid transcription $c_{n-1} \vldtranscript{\sqsubset} c_n’$ applies. However, by token of the underlying context $\ctx_{n-1}$, it had already been established that $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c_{n-1}’$. Since the former transcription further constrains the latter, both transcriptions should be applied, rendering the double constraint as shown and making the transcription semantically more accurate. 
 \end{mmrmk}
 \begin{mmrmk}\label{rmk:inh2}
 Solely based on correspondence relation $\theta_n$, insufficient information is present to support a transcription of transcribendum $c_{n-1}$. Based on $\ctx_n$, however, the transcription of context $\ctx_{n-1}$ can be taken into account. Since (i) transcribendum $c_{n-1}$ has been given a transcription result under context $\ctx_{n-1}$, viz. $c_{n-1} \vldtranscript{\ctx_{n-1}} c’_{n-1}$, and (ii) context $\ctx_n$ does not imply an invalid logical construct, the transcription $c_{n-1} \vldtranscript{\ctx_n}$ will inherit the transcriptum from $c_{n-1} \vldtranscript{\ctx_{n-1}}$.
@@ -763,7 +777,9 @@ Now that we have addressed the transcriptions for class $c_{n-1}$, let’s turn 
 
 For this case there is no substantial difference whether context $\ctx_n$ is taken into account (\cref{tab:transcr_cn_ctxn_sup_b}) or not (\cref{tab:atomic-class-transcriptions}): For the columns where the original shortcomings occurred, i.e., $\theta_n \in \{\sqsupset, \overlap \}$, no transcription could be added. This is not surprising since the information that has been added into context $\ctx_n$, i.e., $c_n \sqsupset c_{n-1}$, does not constrain in any way correspondence $\mu = \tuple{c_n, c_{n-1}’, \theta_n}$. 
 
-In conclusion, introducing new information brings about cases that *do* facilitate a valid transcription for $c_{n-1}$ where, originally, a valid transcription was not possible. Not for *all* cases, unfortunately. Let’s introduce a more constraining relation in the next section by excluding equivalence in context $\ctx_n$.
+In conclusion, introducing new information brings about cases that *do* facilitate a valid transcription for $c_{n-1}$ where, originally, a valid transcription was not possible. Not for *all* cases, unfortunately. 
+
+So far we only have used examples from the transcription model \ref{fig:gen-class-transc-models}(a). We show in the next section the reasoning that applies for part (b) of the transcription model.
 
 &lt;!-- Page definitions --&gt;
 [def:MedcxtSup]: src\images\MedCxt-sup.png {#fig:medcxt-sup width=50%}
@@ -771,77 +787,174 @@ In conclusion, introducing new information brings about cases that *do* facilita
 </Text>
         </Document>
         <Document ID="57">
-            <Title>Transcribing over $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$ class contexts</Title>
-            <Text>Consider the context as generically depicted in \cref{fig:gen-class-transc-models}(b). This context emerges by the introduction of $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$ and, consequently, the necessary subsuming class $c \sqsupset c_n, c_{n-1}$ and $c’ \sqsupset c_n’, c_{n-1}’$, respectively. We assume this time for cases (a) and (b) different simple contexts, i.e., $r = \sqsupset$ for case (a) and $r’ = \text{”=”}$ for case (b). In other words, case (a) considers context $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$ whereas case (b) considers $\ctx_n = \pair{\pair{\sqsupset, r}, \theta_n, \ctx_{n-1}, =}$. This has been depicted in \cref{fig:medcxt-djt}. Despite the necessity to include new subsuming classes $c$ and $c’$, these will only function as reference for the (in)completeness of the relations $r’$ and $r$, respecively, and are not used as potential transcripta.   
+            <Title>Transcribing over an $r, r'\in \set{ overlete, overlinc, displete, disjoinc }$  class contexts</Title>
+            <Text>In this Section we consider the contexts that emerges from the transition model that is in between \cref{fig:gen-class-transc-models} (a) and (b). This transition model emerges by the introduction of $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, viz. conform \cref{fig:gen-class-transc-models} (b), while continuing $r \in \set{\sqsubset, =, \sqsupset}$, viz. conform \cref{fig:gen-class-transc-models} (a). Consequently, to provide reference for the (in)completeness aspect of the intra-ontological relation $r’$ the subsuming class $c’$ emerges. This has been depicted in \cref{fig:medcxt-r}, representing 3 cases, (a)-(c), one for each intra-ontological relationship $r \in \set{\sqsubset, =, \sqsupset}$, respectively. In other words, case (a) considers context $\ctx_n = \pair{\sqsubset, \theta_n, r’, \ctx_{n-1}}$, case (b) represents $\ctx_n = \pair{=, \theta_n, r’, \ctx_{n-1}}$, and case (c) represents $\ctx_n = \pair{\sqsupset, \theta_n, r’, \ctx_{n-1}}$.
 
-![A correspondence over a \emph{multiple implied classes context}. Case (a): class $c’$ subsumes both classes $c_{n-1}’$ and $c_n’$; case (b): class $c$ subsumes both classes $c_n$ and $c_{n-1}$. Both cases (a) and (b) build upon the valid transcription under context $\ctx_{n-1}$. The current context, $\ctx_n$, is defined for case (a) as $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$ and for case (b) as $\ctx_n = \pair{\pair{\sqsupset, r}, \theta_n, \ctx_{n-1}, =}$][def:MedcxtDjt]
+![A correspondence over an \emph{implied class context}, conforming to the model in between \cref{fig:gen-class-transc-models} (a) and (b). Class $c’$ subsumes both classes $c_{n-1}’$ and $c_n’$ and forms the reference for the (in)completeness relation $r’$. Case (a): $r = \sqsubset$, case (b): $r = `=’$, case (c): $r = \sqsupset$. All cases (a)-(c) build upon the valid transcription under context $\ctx_{n-1}$, whilst their current context $\ctx_n = \pair{r, \theta_n, r’, \ctx_{n-1}}$ only vary in $r$ and $r’$.][def:MedcxtR]
 
-We now perform the same exercise as in the previous section: firstly, we transcribe $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-djt}(a) and (b), presented in \cref{tab:transcr_cn-1_ctxn_djt_a,tab:transcr_cn-1_ctxn_djt_b} respectively. Subsequently, we present the transcription of $c_n$ for case (b) in \cref{tab:transcr_cn_ctxn_djt_b}. Different to the previous section and tables, though, we now include all four relations $\set{\overlete, \overlinc, \displete, \disjoinc}$ and their valid transcriptions, as an additional column. Each cell then becomes a $2 \times 2$ quadrant, each one denoting the valid transcription for one of the four relations.  
+The transcription of $c_{n-1}$ under context $\ctx_n$, i.e., cases \ref{fig:medcxt-r}(a) through (c), is presented in \crefrange{tab:transcr_cn-1_ctxn_pair-sup_a}{tab:transcr_cn-1_ctxn_pair-sup_c} respectively. Subsequently, we present the transcription of $c_n$ under context $\ctx_n$ in \cref{tab:transcr_cn_ctxn_pair-sup_a}. Additionally to the previous section and tables, though, we now include all four relations $r’\in \set{\overlete, \overlinc, \displete, \disjoinc }$ and their valid transcriptions. Each transcription cell then becomes a $2 \times 2$ quadrant, denoting the valid transcriptions for each of the four relations $r’$.  
 
 \begin{table}[h]
   \centering
-  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-djt} (a), i.e., under context $\ctx_n = \pair{\sqsupset, \theta_n, \pair{\sqsupset, r’}, \ctx_{n-1}}$.}
-  \label{tab:transcr_cn-1_ctxn_djt_a}
-  \begin{tabular}{cr@{, }ccl@{\hspace{10px}}lcccccccccc}
+  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-r} (a), i.e., under context $\ctx_n = \pair{\sqsubset, \theta_n, r’, \ctx_{n-1}}$.}
+  \label{tab:transcr_cn-1_ctxn_pair-sup_a}
+  \begin{tabular}{cccrlcrlrlrlrlrl}
     \toprule
-    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
-    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ &amp; $\theta_{n-1}$ &amp; \bc{$r’$} 
-      &amp; &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ \bottomrule
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; \bc{$r’$} &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
+    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$  &amp; $\theta_{n-1}$ &amp; &amp; &amp; 
+        &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ 
+    \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14} \cmidrule(lr){15-16}     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$\sqsubset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$=$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\sqsupset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\overlap$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\neg c_{n-1}’$} &amp; \br{$\disj$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-r} (b), i.e., under context $\ctx_n = \pair{=, \theta_n, r’, \ctx_{n-1}}$.}
+  \label{tab:transcr_cn-1_ctxn_pair-sup_b}
+  \begin{tabular}{cccrlcrlrlrlrlrl}
+    \toprule
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; \bc{$r’$} &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
+    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$  &amp; $\theta_{n-1}$ &amp; &amp; &amp; 
+        &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ 
+    \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14} \cmidrule(lr){15-16}     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$\sqsubset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; -           &amp; -            &amp; - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; \bc{$c_{n-1}’$} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_{n-1}’\sqcap c_n’$} &amp; - &amp; - &amp; - &amp; - &amp; \bc{$c_{n-1}’$} &amp; \bc{$c_{n-1}’\sqcap c_n’$}  \\
+\\     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$=$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; -               &amp; - &amp; \bc{$c_{n-1}’$} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; \bc{$c_{n-1}’$} &amp; - &amp; -  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\sqsupset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{\br{$c’$}} &amp; \bc{\br{$c_{n-1}’\sqcup c_n’$}} &amp; \br{-} &amp; $c’\sqcap \neg c_n’$ \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{}          &amp; \bc{}                           &amp;        &amp; - \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\overlap$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; -    &amp; -    &amp; -    &amp; -    &amp; \bc{\br{$c_n’\sqcup c_{n-1}’$}} &amp; \bc{\br{$c_{n-1}’\sqcup c_n’$}} &amp; \br{-} &amp; \br{$\neg c_n’ \sqcap c’$} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_n’$} &amp; \bc{$c_n’$} &amp; \bc{} &amp; \bc{} &amp;   &amp;   \\
+\\     
+    &amp; \br{$\neg c_{n-1}’$} &amp; \br{$\disj$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; \bc{$c_n’$} &amp; \bc{$c_n’$} &amp; - &amp; $\neg c_{n-1}’ \sqcap c’$ &amp; \br{-} &amp; \br{$\neg c_{n-1}’ \sqcap c’$} &amp; \br{-} &amp; \br{$\neg c_{n-1}’\sqcap \neg c_n’$} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_n’\sqcap c_{n-1}’$} &amp; - &amp; - &amp; - &amp; - &amp; - &amp;   &amp;   \\ \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-r} (c), i.e., under context $\ctx_n = \pair{\sqsupset, \theta_n, r’, \ctx_{n-1}}$.}
+  \label{tab:transcr_cn-1_ctxn_pair-sup_c}
+  \begin{tabular}{cccrlcrlrlrlrlrl}
+    \toprule
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; \bc{$r’$} &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
+    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$  &amp; $\theta_{n-1}$ &amp; &amp; &amp; 
+        &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ 
+    \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14} \cmidrule(lr){15-16}     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$\sqsubset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{\br{$c_{n-1}’$}} &amp; \bc{\br{$c_{n-1}’$}} &amp; \bc{\br{$c_{n-1}’$}} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_{n-1}’\sqcap c_n’$} &amp; - &amp; - &amp; \bc{} &amp; \bc{} &amp; \bc{}  \\
+\\     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$=$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{\br{$c_{n-1}’$}} &amp; \bc{\br{$c_{n-1}’$}} &amp; \bc{\br{$c_{n-1}’$}} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{} &amp; \bc{} &amp; \bc{}  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\sqsupset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{\br{$\ntsa_n$}} &amp; \bc{\br{$\ntsa_n$}} &amp; $\ntsa_n$ &amp; $\ntsa_n$ \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{} &amp; \bc{} &amp; - &amp; -  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\overlap$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; - &amp; - &amp; - &amp; - &amp; \bc{\br{$\ntsa_n$}} &amp; \bc{\br{$\ntsa_n$}} &amp; $\ntsa_n$ &amp; $\ntsa_n$ \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_{n-1}’\sqcup c_n’$} &amp; \bc{$c_{n-1}’\sqcup c_n’$} &amp; \bc{} &amp; \bc{} &amp; - &amp; -  \\
+\\     
+    &amp; \br{$\neg c_{n-1}’$} &amp; \br{$\disj$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp; \bc{$c_n’$} &amp; \bc{$c_n’$} &amp; \bc{\br{$\neg c_{n-1}’$}} &amp; \bc{\br{$\neg c_{n-1}’$}} &amp; \bc{\br{$\neg c_{n-1}’\sqcup \neg c_n’$}} \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp; \bc{$c_{n-1}’\sqcup c_n’$} &amp; \bc{$c_{n-1}’\sqcup c_n’$} &amp; \bc{} &amp; \bc{} &amp; \bc{}  \\ \bottomrule
   \end{tabular}
 \end{table}
 
 
-\begin{table}[h]
-  \centering
-  \caption{Transcribing $c_{n-1}$ for case \ref{fig:medcxt-djt} (b), i.e., under context $\ctx_n = \pair{\disj, \ctx_{n-1}, \theta_n}$.}
-  \label{tab:transcr_cn-1_ctxn_djt_b}
-  \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
-    \toprule
-    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
-    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ 
-                        &amp; $\theta_{n-1}$ &amp; &amp; $\sqsubset$ &amp; $\equiv$   &amp; $\sqsupset$ &amp; $\overlap$  &amp; $\disj$ \\  \cmidrule(r){2-3} \cmidrule{5-9}
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
-    2 &amp; $c_{n-1}’$      &amp; $\equiv$         &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
-    3 &amp; $\ntsa_{n-1}$   &amp; $\sqsupset$      &amp; &amp; $\ntsa_n$   &amp; $\ntsa_n$  &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\ntsa_n$       \\ 
-    4 &amp; $\ntsa_{n-1}$   &amp; $\overlap$       &amp; &amp; $\ntsa_n$   &amp; -          &amp; -           &amp; $\ntsa_n$   &amp; $\ntsa_n$       \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -           &amp; -          &amp; -           &amp; -           &amp; $\neg c_{n-1}’$ \\ \cmidrule{2-9}
-      &amp; \multicolumn{3}{r}{Concluding: $c_{n-1} \vldtranscript{\ctx_n}$} &amp; \multicolumn{5}{c}{} \\
-    a &amp; \multicolumn{1}{r}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; $\neg c_{n-1}’$ \\ 
-    b &amp; \multicolumn{1}{r}{$\ntsa_{n-1}$}  &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; $\ntsa_n$   &amp; $\ntsa_n$  &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\ntsa_n$       \\ \bottomrule
-  \end{tabular}
-\end{table}
+Finally, consider the transcription for $c_n$ for case \ref{fig:fig:medcxt-r}(b), summarised in \cref{tab:transcr_cn_ctxn_pair-sup_a}.
 
-Let’s now consider the transcription for $c_n$ for case \ref{fig:medcxt-djt}(b), summarised in \cref{tab:transcr_cn_ctxn_djt_b}.
 
 \begin{table}[h]
   \centering
-  \caption{Transcribing $c_n$ for case \ref{fig:medcxt-djt} (b), i.e., under context $\ctx_n = \pair{\disj, \theta_n, =, \ctx_{n-1}}$. }
-  \label{tab:transcr_cn_ctxn_djt_b}
-  \begin{tabular}{cr@{, }l@{\hspace{10px}}lccccc}
+  \caption{Transcribing $c_n$ for case \ref{fig:medcxt-r} (a), i.e., under context $\ctx_n = \pair{\sqsubset, \theta_n, r’, \ctx_{n-1}}$.}
+  \label{tab:transcr_cn_ctxn_pair-sup_a}
+  \begin{tabular}{cccrlcrlrlrlrlrl}
     \toprule
-    &amp; \bc{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9} 
-    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$ 
-                        &amp; $\theta_{n-1}$ &amp; &amp; $\sqsubset$ &amp; $\equiv$   &amp; $\sqsupset$ &amp; $\overlap$  &amp; $\disj$ \\  \cmidrule(r){2-3} \cmidrule{5-9}
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
-    2 &amp; $c_{n-1}’$      &amp; $\equiv$         &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; -               \\ 
-    3 &amp; $\ntsa_{n-1}$   &amp; $\sqsupset$      &amp; &amp; $c_{n-1}’$  &amp; $c_{n-1}’$ &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\neg c_{n-1}’$ \\ 
-    4 &amp; $\ntsa_{n-1}$   &amp; $\overlap$       &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; $\ntsa_n$   &amp; $\neg c_{n-1}’$ \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -           &amp; -          &amp; -           &amp; -           &amp; $\neg c_{n-1}’$ \\ \cmidrule{2-9}
-      &amp; \multicolumn{3}{r}{Concluding: $c_n \vldtranscript{\ctx_n}$} &amp; \multicolumn{5}{c}{} \\
-    a &amp; \multicolumn{1}{r}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -           &amp; $\neg c_{n-1}’$ \\ 
-    b &amp; \multicolumn{1}{r}{$\ntsa_{n-1}$}  &amp; \multicolumn{1}{c}{}
-                                           &amp; &amp; $c_{n-1}’$  &amp; $c_{n-1}’$ &amp; $\ntsa_n$   &amp; $\ntsa_n$   &amp; $\neg c_{n-1}’$ \\ \bottomrule
+    &amp; \bc{Context $\ctx_{n-1}$} &amp; \bc{$r’$} &amp; &amp; \multicolumn{10}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{7-16} 
+    &amp; $c_{n-1} \vldtranscript{\ctx_{n-1}}$  &amp; $\theta_{n-1}$ &amp; &amp; &amp; 
+        &amp; \bc{$\sqsubset$} &amp; \bc{$\equiv$}   &amp; \bc{$\sqsupset$} &amp; \bc{$\overlap$}  &amp; \bc{$\disj$} \\ 
+    \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12} \cmidrule(lr){13-14} \cmidrule(lr){15-16}     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$\sqsubset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$c_{n-1}’$} &amp; \br{$=$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\sqsupset$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\ntsa_n$} &amp; \br{$\overlap$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\
+\\     
+    &amp; \br{$\neg c_{n-1}’$} &amp; \br{$\disj$} &amp; $\displete$ &amp; $\disjoinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ 
+    &amp;                 &amp;                  &amp; $\overlete$ &amp; $\overlinc$ &amp; 
+        &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   &amp;  \\ \bottomrule
   \end{tabular}
 \end{table}
+
+In conclusion, and similar to the results of the previous section, given the occurrence of several $\ntsa_n$ results in the tables, we cannot guarantee all correspondences to result in valid transcriptions. However, we have shown that taking the context of the transcription into account, many correspondences *do* provide for valid transcriptions, despite the semantic difference between a formal correspondence and the pragmatic transcription. Additionally, by returning a $\ntsa_n$ result, an *invalid* transcription and, hence, the emergence of phantom semantics, have been prevented. Finally, since the transcription results are independent on the particular ontologies and their alignment, this method shows that a genuine generic mediation process exists. What is left to do is to provide for a generic implementation of this mediation process, which is the subject of the next section. 
 
 &lt;!-- Page definitions --&gt;
-[def:MedcxtDjt]: src\images\MedCxt-djt.png {#fig:medcxt-djt width=70%}</Text>
+[def:MedcxtR]: src\images\MedCxt-r-theta-cprime_sup_cpn_rp_cpn-1-chi.png {#fig:medcxt-r width=35%}</Text>
+            <Comments>brandtp, 30-4-2019 Tabel case (a) nog invullen
+brandtp, 30-4-2019 Table nog Invullen</Comments>
         </Document>
         <Document ID="58">
-            <Title>Summary</Title>
+            <Title>Transcription tables as rules</Title>
             <Synopsis>Show that the tables can be rewritten as rules; this is necessary for the conditional part of the cTRS in the following section.
 
 \end{synopsis}</Synopsis>
@@ -949,55 +1062,88 @@ The last two rows, (s1) and (s2), of \cref{tab:transcr_cn-1_ctxn_sup_a}, summari
         </Document>
         <Document ID="59">
             <Title>Transcription as cTRS</Title>
-            <Synopsis>Show how the characteristics of a transcription map to what characteristics of a cTRS.
+            <Synopsis>Show how the characteristics of a transcription map to the characteristics of a cTRS.
 
 Define a trancription in terms of a cTRS.
 
 \end{synopsis}</Synopsis>
-            <Text>We consider a transcription a specific application of conditional term rewriting systems. The following table shows how the characteristics of a transcription can be turned into requirements for the cTRS.
+            <Text>Indeed, being a syntactic replacement of terms and values, we consider a transcription a specific application of a TRS which, after all, provides for a syntactic rewrite of terms over a specific alphabet. The following table shows how the necessary characteristics of a transcription can be turned into sufficient requirements that we set on the TRS in order for its application as a mediator.
 
---------------------------------------------------------------------------------------------------------------------------------
-Characteristic of a transcription                     Aspect of a CTRS
------------------------------------------------------ --------------------------------------------------------------------------
-A transcription is a syntactic replacement of terms   A TRS rewrites terms over a specific alphabet, and is oriented towards 
-and values.                                           syntax only.
+---------------------------------------------------------------------------------------------------------------------------------
+ Req  Characteristic of a transcription                          Aspect of a TRS
+----- ---------------------------------------------------------- ----------------------------------------------------------------
+1     An atomic transcription $T_{(\theta)}(c)$ is defined by    A TRS rewrites terms by application of particular rewrite rules
+      a correspondence $\mu$.                                    as formulated by \cref{rewrite-rule}.
 
-A transcription transcribes between two distinct      Show that each normal form for the particular TRS belongs to $\ont{O}’$.
-alphabets.
+                                                                 \vspace{-1pt}\space
 
-Every transcription should terminate.                 Show that for the particular CTRS the termination property holds.
+2     A transcription transcribes between two distinct           Show that each normal form for the particular TRS belongs to
+      alphabets.                                                 $\ont{O}’$.
 
-Despite the strategy used about which correspondence  Show that for the particular CTRS the confluence property holds.
-to apply first during transcribing a theory, every    
-strategy should yield the same transcription result.
+                                                                 \space
 
-A transcription should not introduce phantom          Since the validity of a transcription depends on the context 
-semantics, i.e., only valid transcriptions should be  $\pair{r, \theta_n, r’, \ctx_{n-1}}$ from the transcription model 
-allowed for correspondences that apply.               (\cref{fig:prov-class-transc-model}), any rewrite rule that follows from
-                                                      a correspondence $\mu = \tuple{e, e’, \theta_n}$ should be guarded by a 
-                                                      condition $\Gamma$ that implements the transcription context.
---------------------------------------------------------------------------------------------------------------------------------
+3     Every transcription should terminate.                      Show that for the particular CTRS the termination property
+                                                                 holds.
+
+                                                                 \space
+
+4     Despite the strategy used about which correspondence to    Show that for the particular CTRS the confluence property
+      apply first during transcribing a theory, every strategy   holds.
+      should yield the same transcription result.
+
+                                                                 \space
+
+5     A transcription should not introduce phantom semantics,    Since the validity of a transcription depends on the context
+      i.e., only valid transcriptions should be allowed for      $\pair{r, \theta_n, r’, \ctx_{n-1}}$ from the transcription
+      correspondences that apply.                                model (\cref{fig:gen-class-transc-models}), any rewrite rule
+                                                                 that follows from a correspondence
+                                                                 $\mu = \tuple{e, e’, \theta_n}$ should be guarded by a
+                                                                 condition $\Gamma$ that implements the transcription context.
+---------------------------------------------------------------------------------------------------------------------------------
 
    : Requirements for implementing transcriptions as conditional term rewriting systems.
 
+We now have to proof that every transcription result $T_{\ctx}$ can be formulated as the result of a CTRS. Following \cref{def:rewrite-rule} and Req.2 above, we consider:
+\begin{equation}
+\Sigma = \ont{O} \cup \ont{O}’
+\end{equation}
 
 
-What is left to do is to proof that for $\sigma(c_n) \, \vldtranscript{\ctx_n} \, \sigma(t_n’)$:
 
-1. $t_n’$ is ground normal form with respect to the unconditional system, and
-1. $c_n \trsrtc t_n’$
+We have already formulated, in many tables, the transcription rules to apply in terms of the context $\ctx_n = \pair{r, \theta_n, r’, \ctx_{n-1}}$ that comes about the inductive transcription model. The purpose of the rewrite relation from \cref{def:conditional-rewrite-relation} is to provide for a transcription between a transcriptum from $\ont{O}$ to a transcribendum from $\ont{O’}$. In other words, the rewrite rule will rewrite according to the specified correspondence $\mu = \tuple{c, c’, \theta}$, as follows: 
+\begin{align}\label{def:req1}
+T_{\ctx}(c) \quad &amp;\Longleftrightarrow \quad \rho_\ctx: \, l \, \to\, r \; \text{if } \Gamma \\
+\intertext{where} 
+\Gamma &amp;= \ctx \, \land \, c,T_{\ctx}(c) \lhd \token{C} \\
+r &amp;= T_{\ctx}(c) \\
+l &amp;= c    
+\end{align}
+With $\rho_\ctx$ we emphasise that the particular rewrite rule is completely defined by context $\ctx$. Furthermore, since every rewrite rule implements an atomic transcription we demand that $l \in \ont{O}$ and $r \in \ont{O}’$. 
+
+The unconditional rewrite relations for any transcription stem from $\ctx = \pair{\theta}$, specified as $T_{(\theta)}$ in \cref{tab:atomic-class-transcriptions} and read as follows:
+\begin{align}\label{def:req2}
+T_{(\theta)}(c) \quad &amp;\Longleftrightarrow \quad \rho_{(\theta)}: \, l \, \to\, r \; \\
+\intertext{and specifically} \nonumber
+\begin{alignedat}{2}
+  \rho_{(\sqsubset)} &amp;: \; c &amp;&amp;\to c’ \\
+  \rho_{(\equiv)}    &amp;: \; c &amp;&amp;\to c’ \\
+  \rho_{(\sqsupset)} &amp;: \; c &amp;&amp;\to \ntsa \\
+  \rho_{(\overlap)}  &amp;: \; c &amp;&amp;\to \ntsa \\
+  \rho_{(\disj)}     &amp;: \; c &amp;&amp;\to \neg c’ 
+\end{alignedat} 
+\end{align}
+Note that these unconditional rewrite rules apply to the most specific classes in ontology $\ont{O}$ only, viz. $\forall b, c \in \ont{O} : \; b \sqsubset c \; \implies \; b \equiv \bot$. It is clear that these unconditional rewrite rules do not induce phantom semantics.
+
+\begin{align}
+  &amp;s|_p \equiv \sigma(l) \equiv c_n \\ 
+  &amp;\sigma(r) \equiv c_n s[\sigma(r)]_p \equiv t \\
+  &amp;\rho \text{ is uniquely defined by } \ctx_n \\
+  &amp;t_n’ \text{ is ground normal form with respect to the unconditional system, and} \\
+  &amp;c_n \trsrtc t_n’
+\end{align}
 
 
-We have already formulated, in many tables, the transcription rules to apply in terms of the context $\pair{r, \theta_n, r’, \ctx_{n-1}}$ that comes about the inductive transcription model. This Section determines how such context can be specified as the conditional rewrite relation from \cref{def:conditional-rewrite-relation}. The purpose of the rewrite relation is to provide for a transcription between a transcriptum from $\ont{O}$ to a transcribendum from $\ont{O’}$. In other words, the rewrite rule will rewrite according to the specified correspondence $\mu = \tuple{c, c’, \theta}$. The unconditional rewrite relation $\to_{\rho_0}$ for any transcription stem from \cref{tab:atomic-class-transcriptions}, therefore, read as follows:
-\begin{alignat}{2}
-  \rho_{0,1}   &amp;: \; c_n \sqsubset c_n’ &amp;&amp;\to \; c_n’ \\
-  \rho_{0,2}   &amp;: \; c_n \equiv c_n’    &amp;&amp;\to \; c_n’ \\
-  \rho_{0,3}   &amp;: \; c_n \sqsupset c_n’ &amp;&amp;\to \; \ntsa_n \\
-  \rho_{0,4}   &amp;: \; c_n \overlap c_n’  &amp;&amp;\to \; \ntsa_n \\
-  \rho_{0,5}   &amp;: \; c_n \disj c_n’     &amp;&amp;\to \; \neg c_n’ 
-\end{alignat}
-
-It is clear that these unconditional rewrite rules do not induce phantom semantics.
+$\sigma(c_n) \, \to_\rho \, \sigma(t_n’)$
 
 For the conditional rewrite rules, we will use the example from Case \ref{fig:medcxt-sup}(a). The transcription context $\pair{r, \theta_n, r’, \ctx_{n-1}}$ for this case reads $\ctx_n = \pair{\equiv, \theta_n, \sqsupset, \ctx_{n-1}}$. Note that in the context of CTRS we will write that $\to_{n+1}$ is expressed in terms of $\to_n$, as opposed to the transcription context where $\ctx_n$ is expressed in terms of $\ctx_{n-1}$. 
 
@@ -1066,24 +1212,24 @@ Keep it short. This is not about explaining but about showing the terminology th
             <Text>We will first define some terminology that is used in the definition on a term rewriting system (TRS). This is basic material taken from [@Baader1998; and @Bezem2003]. We finish this section with a notion on the use of context $\ctx_n$ in a conditional term rewriting system (cTRS).
 
 \begin{mmdef}[Terms]\label{def:terms}
-Consider a signature $\Sigma$ of admitted symbols, and a countable, possibly infinite set of \emph{variables} $V$ with $V \cap \Sigma = \; \emptyset$. The set of \emph{terms} over $\Sigma$, denoted as $T(\Sigma, V)$, contains strings over $\Sigma \cup V$. More specifically:
+Consider a signature $\Sigma$ of admitted symbols, and a countable, possibly infinite set of \emph{variables} $V$ with $V \cap \Sigma = \; \emptyset$. The set of \emph{terms} over $\Sigma$, denoted as $\ter(\Sigma, V)$, contains strings over $\Sigma \cup V$. More specifically:
 \begin{align*}
   \Sigma^0    &amp;= \; \text{denotes the set of functions with arity 0, i.e., atomic constant symbols,} \\
   \Sigma^n    &amp;= \; \set{f^n}, n \geq 1, \text{ denotes the set of $n$-ary functions, and}\\
   V           &amp;= \; \set{x_i \; | \; 0 \geq i \geq n}, \text{ denotes the set of variables $x_i$.} 
 \end{align*}
-Then, the set of terms $T(\Sigma, V)$ is defined inductively as:
+Then, the set of terms $\ter(\Sigma, V)$ is defined inductively as:
 \begin{align}
-  \forall x_i \in V      \; &amp;: \; x_i \in T(\Sigma, V) \\
-  \forall a \in \Sigma^0 \; &amp;: \; a \in T(\Sigma, V) \\
-  \forall f \in \Sigma^n \; &amp;: \; t_1, \ldots, t_n \in T(\Sigma, V) \; \Rightarrow \; f(t_1, \ldots, t_n) \in T(\Sigma, V) 
+  \forall x_i \in V      \; &amp;: \; x_i \in \ter(\Sigma, V) \\
+  \forall a \in \Sigma^0 \; &amp;: \; a \in \ter(\Sigma, V) \\
+  \forall f \in \Sigma^n \; &amp;: \; t_1, \ldots, t_n \in \ter(\Sigma, V) \; \Rightarrow \; f(t_1, \ldots, t_n) \in \ter(\Sigma, V) 
 \end{align}
 \end{mmdef}
 
 Furthermore:
 \begin{itemize}[label={--}]
   \item $\var(t) \subseteq V$ denotes the set of variables that occur in term $t$
-  \item A term $t$ is called a \emph{closed term}, or \emph{ground}, if it does not contain variables, i.e., when $\var(t) = \emptyset$. The set of closed terms are collectively denoted as $T_0(\Sigma, V)$, or $T(\Sigma, \emptyset)$, or simply $T(\Sigma)$. 
+  \item A term $t$ is called a \emph{closed term}, or \emph{ground}, if it does not contain variables, i.e., when $\var(t) = \emptyset$. The set of closed terms are collectively denoted as $\ter_0(\Sigma, V)$, or $\ter(\Sigma, \emptyset)$, or simply $\ter(\Sigma)$. 
   \item $|t|$ denotes the \emph{length} of term $t$, i.e., 
   \begin{itemize}[label={-}]
     \item $x_i \in V, \; a \in \Sigma^0: \; |x_i| = |a| = 1$, and
@@ -1092,24 +1238,26 @@ Furthermore:
 \end{itemize}
 
 \begin{mmdef}[$\Sigma$-identity]\label{def:sigma-identity}
-A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\pair{s, t} \in T(\Sigma, V) \times T(\Sigma, V)$, denoted as $s \approx t$, expressing an \emph{a priori} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \approx t$.
+A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\pair{s, t} \in \ter(\Sigma, V) \times \ter(\Sigma, V)$, denoted as $s \approx t$, expressing an \emph{a priori} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \approx t$.
 \end{mmdef}
 
-&gt;The term *identity* is used for a pair $s \approx t$ to express that the equality between $s$ and $t$ holds *a-priori*, distinguishing it from the term *equation* that is used to express that the equality must be *solved* or *proven*.
- 
-\begin{mmdef}[Rewrite rule]\label{def:rewrite-rule}
-A \emph{term rewriting rule} is a pair of terms $l, r \in T(\Sigma, V)$, such that:
-\begin{align}
+&gt;The term *identity* is used for a pair $s \approx t$ to express that the equivalence $s = t$ holds *a-priori*, distinguishing it from the term *equation* that is used to express that the equivalence must be *solved* or *proven*.
+
+\begin{mmdef}[Rewrite rule]\
+A \emph{term rewriting rule} is a pair of terms $l, r \in \ter(\Sigma, V)$, such that:
+\begin{subequations}\label{def:rewrite-rule}
+  \begin{align}
   l       &amp;\not\in V         \label{eq:distinctness} \\
   \var(l) &amp;\supseteq \var(r) \label{eq:novarintro} 
-\end{align}
+  \end{align}
+\end{subequations}
 Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\rho$, and we write $\rho : l \to r$.
 \end{mmdef}
 
 &gt;Since a rewrite rule is directed, the second restriction (\ref{eq:novarintro}) is necessary to avoid the pathological case where variables are introduced by the process of rewriting. The first restriction (\ref{eq:distinctness}) assures that rewriting and variable substitution remain distinct.
 
 \begin{mmdef}[Term rewriting]\label{def:term-rewriting}
-Consider a signature $\Sigma$ and a set of variables $V$ disjoint from $\Sigma$. Assume terms $s, t \in T(\Sigma, V)$, represented as a term tree (\cref{def:term-tree}).
+Consider a signature $\Sigma$ and a set of variables $V$ disjoint from $\Sigma$. Assume terms $s, t \in \ter(\Sigma, V)$, represented as a term tree.
 
 A rewrite rule $\rho : l \to r$ can be \emph{applied} to a term $s$ iff $\exists p \in \pos(s): s|_p \equiv \sigma(l)$:
 \begin{align}
@@ -1125,12 +1273,12 @@ A rewrite rule $\rho : l \to r$ can be \emph{applied} to a term $s$ iff $\exists
 \begin{mmdef}[Term rewriting system]\label{def:TRS}
 A \emph{term rewriting system} (TRS) is an ARS with $\EuScript{R} = \pair{\Sigma, R}$, where:
 \begin{itemize}[label={--}]
-  \item $\Sigma$, the set of objects, denoting a signature according to \cref{def:signature}, and 
+  \item $\Sigma$, the set of objects, denoting a signature according to \cref{def:terms}, and 
   \item $R$ denotes a set of rewrite rules according to \cref{def:rewrite-rule}. 
 \end{itemize} 
 \end{mmdef}
 
-&gt;Consequently, a TRS is a combination of set of terms (\cref{def:terms}), which can be represented as a term tree (\cref{def:term-tree}), with a set of rewrite rules (\cref{def:rewrite-rule}).
+&gt;Consequently, a TRS is a combination of set of terms (\cref{def:terms}), which can be represented as a term tree, with a set of rewrite rules (\cref{def:rewrite-rule}).
  
 The following provides for a list of the more relevant properties of an ARS:
 
@@ -1142,8 +1290,50 @@ The following provides for a list of the more relevant properties of an ARS:
 In order to apply a TRS as foundation for semantic mediation, we need to introduce the notion of *context* in a TRS, defined as follows.
 
 \begin{mmdef}[Term context]\label{def:term-context}
-Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where the constant symbol $\Box$, called a hole, represents an empty position in a term. Such hole can be replaced with a term $t \in T(\Sigma, V)$. The term $C \in T(\Sigma \cup \set{\Box}, V)$, consisting of $n$ holes ($n \geq 0$) is called a \emph{term context}, or simply \emph{context} if no confusion arises. The special case where $n = 1$ is called an \emph{one-hole context} and denoted by $C[\;]$. On replacing the $n$ holes from $C$ with terms $t_1, \ldots, t_n \in T(\Sigma, V)$, the resulting term is denoted as $C[t_1, \ldots, t_n]$. 
-\end{mmdef}</Text>
+Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where the constant symbol $\Box$, called a hole, represents an empty position in a term. Such hole can be replaced with a term $t \in \ter(\Sigma, V)$. The term $C \in \ter(\Sigma \cup \set{\Box}, V)$, consisting of $n$ holes ($n \geq 0$) is called a \emph{term context}, or simply \emph{context} if no confusion arises. The special case where $n = 1$ is called an \emph{one-hole context} and denoted by $C[\;]$. On replacing the $n$ holes from $C$ with terms $t_1, \ldots, t_n \in \ter(\Sigma, V)$, the resulting term is denoted as $C[t_1, \ldots, t_n]$. 
+\end{mmdef}
+
+A further specialisation of a TRS introduces conditions to the effect that a given rule can be applied only if its condition, instantiated by the matching substitution, is satisfied. These are called conditional TRSs (CTRS), and are based on a set of conditional rewrite rules. Depending on the definition of the conditional rules, their evaluation may become undecidable. The following definition is adapted from \cite{Kirchner2006, def. 7.23}: 
+\begin{mmdef}[Conditional rewrite rule]\label{def:conditional-rewrite-rule}
+A \emph{conditional rewrite rule} is a rewrite rule (\cref{def:rewrite-rule}) of the form
+\begin{align}\renewcommand{\qedsymbol}{} \tag{\ref{def:conditional-rewrite-rule}}
+  l &amp;\to r \text{ if } \Gamma \label{eq:crr} \\
+%  \Gamma &amp;= (s_1 = t_1 \land s_2 = t_2 \land \cdots s_n = t_n) \label{eq:rrc}\\
+\intertext{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:}
+  \var(l) &amp;\supseteq \var(r) \cup \var(\Gamma)
+\end{align}
+The $\Gamma$-part of the rule is called the \emph{condition}, and it expresses exactly that: zero or more conditions that should all hold. Collectively, a set of conditional rewrite rules is denoted as $R \subseteq \ter(\Sigma, V) \times \ter(\Sigma, V)$.
+\end{mmdef}
+
+In order to avoid an infinite recursion and therefore one form of undecidability, an hierarchy on the rules is enforced that demands that for each rule its condition is evaluated at a lower hierarchical level. A hierarchy on the rules emerges when for a CTRS its conditional rewrite relation $\to_R$ is defined inductively, as follows (adapted from \cite{Kirchner2006, def. 7.25} and \cite{Bezem2003, def. 3.4.5}):
+\begin{mmdef}[Conditional rewrite relation]\label{def:conditional-rewrite-relation}
+A conditional rewrite relation $\to_R$ is defined as the collective conditional rewrite rules (\cref{def:conditional-rewrite-rule}) $\rho_n$ that apply, as follows:
+\begin{align}
+  \rho_0     &amp;: \set{ l \to_0 r \; | \; (l, r) \in R_0 } \label{eq:crr-r_0} \\
+  \rho_{i+1} &amp;: \left\{ \sigma(l) \to_{i+1} \sigma(r) \; | \; \Gamma_i: (l, r) \in \rho_i \text{ and } \sigma(\Gamma_i) \text{ holds} \right\} \label{eq:crr-r_i} \\
+\intertext{Then, the conditional rewrite relation $\to_R$ emerges as the collective of the conditional rewrite rules as:}
+  \to_R      &amp;= \bigcup_{i&gt;0} \to_i
+\end{align} 
+\end{mmdef}
+
+&gt;An inductive definition requires a starting condition, here defined in \cref{eq:crr-r_0} and specified by $\rho_0$ as a set of unconditional rewrite rules (\cref{def:rewrite-rule}). The essence on the inductive part of the definition, \cref{eq:crr-r_i}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\sigma(\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. 
+
+It is not clear yet how the conditions can be defined. We therefore turn to the conditions. The focus of conditional rewriting systems is to find restrictions on the conditional rules, such that a decidable rewriting relation emerges. In both [@Kirchner2006] and [@Bezem2003], three strategies for constraining the rules are given that originate from [@Dershowitz1988], from which we will use only one, viz. normal conditional rewriting. Besides these three strategies, in *generalized* CTRS the conditions are constrained to fixed predicates on terms. We therefore consider conditions of the following types:
+\begin{mmdef}[Conditions in CTRS]\label{def:conditions-in-ctrs}
+In a \emph{generalised} CTRS, the conditions $\Gamma_i$ are of the form (\cite{Bezem2003, def.3.4.4(i)}): 
+\begin{align}
+  \Gamma_i     &amp;: \pair{P_1^k(t_{a_1}, \ldots, t_{a_k}), \ldots, P_n^l(t_{b_1}, \ldots, t_{b_l})} \\
+\intertext{where $P_m^k$ are any fixed k-ary predicates on terms.}
+\intertext{In a \emph{normal} CTRS, the conditions $\Gamma_i$ are of the form (\cite{Bezem2003, def.3.4.5(i)}):}
+  \Gamma_i     &amp;: \pair{t_{j,1} \trsrtc_i t_{j,1}’, \ldots, t_{j,k} \trsrtc_i t_{j,k}’}
+\end{align} 
+where $t_k’$ are \emph{normal forms} of $t_k$. Then, for normal CTRS it is demanded that $\sigma(\Gamma_i)$ results in $\sigma(t_i’)$ being the normal form of $\sigma(t_i)$ for all equivalences in the condition of the rewrite rule definition of \cref{eq:crr-r_i}. 
+\end{mmdef}
+
+</Text>
+        </Document>
+        <Document ID="61">
+            <Title>table in table test</Title>
         </Document>
     </Documents>
 </SearchIndexes>
