@@ -39,34 +39,40 @@
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.}
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Ontology language, theories, ontology]\\label\{def:ontology\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology language\}, denoted $L_\{\\ont\{O\}\}$, is a formal language characterised by an alphabet $\\Sigma = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c \}$ that consists of atomic symbols $\\Sigma_s$, atomic predicates $\\Sigma_p$, and connectives $\\Sigma_c$, with:}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Ontology language, abstract syntax, theories, ontology]\\label\{def:ontology\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology language\}, denoted $L_\{\\ont\{O\}\}$, is a formal language characterised by an alphabet $\\Sigma_\\ont\{O\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c \}$ that consists of atomic symbols $\\Sigma_s$, atomic predicates $\\Sigma_p$, and connectives $\\Sigma_c$, with:}
 \par\pard\plain \ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
 \par\plain {\f0\fs24\b0\i0   \\Sigma_s \\; &\\subseteq \\; I \\cup V \\cup \\set\{\\emptyset\} \\\\}
 \par\plain {\f0\fs24\b0\i0   \\Sigma_p \\; &\\subseteq \\; C \\cup R \\cup P \\cup T \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma_c \\; &= \\; \\\{ \\sqsubset, \\sqsupset, \\equiv, \\disj, \\ndisjoint, \\sqin, \\sqni, \\neg, \\land, \\lor, \\to, \\leftrightarrow , (, )\\\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}where $C$, $R$, $P$, and $T$ denote the set of classes, relations, properties and data types, respectively; $I$ denotes the set of individuals of classes, relations and properties; $V$ denotes the set of values of type $T$, and $\\Sigma_c$ represents connectives to formulate \\emph\{concept axioms\} and \\emph\{concept expressions\}. }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
+\par\plain {\f0\fs24\b0\i0 where $C$, $R$, $P$, and $T$ denote the set of classes, relations, properties and data types, respectively; $I$ denotes the set of individuals of classes, relations and properties; $V$ denotes the set of values of type $T$, and $\\Sigma_c$ represents connectives to formulate \\emph\{concept axioms\} and \\emph\{concept expressions\}. }
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 The abstract syntax of an ontology is then defined as $S_\\ont\{O\} = \\tuple\{L_\\ont\{O\}, G_\\ont\{O\}\}$, where $G_\\ont\{O\}$ denotes the formal grammar that is applied on $L_\\ont\{O\}$, producing well-formed strings, viz. the \\emph\{theories\} that belong to the language. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The \\emph\{abstract syntax\}, denoted as $S_\\ont\{O\} = \\tuple\{\\Sigma_\\ont\{O\}, G_\\ont\{O\}\}$, produces the ontology language $L_\\ont\{O\}$ over alphabet $\\Sigma_\\ont\{O\}$ by grammar $G_\\ont\{O\}$. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. Then, $L_\{\\ont\{O\}\}$ is a set of well-formed strings, viz. the \\emph\{theories\} that are allowed by ontology $\\ont\{O\}$.   }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 The abstract syntax, together with a Domain of Interpretation (DoI), denoted $\\EuScript\{D\}$, and an interpretation function $\\intn: L_\{\\ont\{O\}\} \\to \\EuScript\{D\}$ from the language and its theories to its DoI \\cite[3.6.1]\{Gamut1991\}, this results in an \\emph\{ontology\}, denoted as $\\ont\{O\} = \\tuple\{S_\\ont\{O\}, \\EuScript\{D\}, \\intn(\\cdot)\}$.    }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[mediation terms]\\label\{def:med-terms\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$. Let $\\Sigma = \\Sigma_\{\\ont\{O\}\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \{\\top\}\}$ denotes the signature of the transcription, and $V$ a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\ter(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$. Let $\\Sigma = \\Sigma_\{\\ont\{O\}\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \{\\top\}\}$ denotes the signature of the transcription, and $V$ a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\hat\{\\ter\}(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\Sigma_s \\cup \\Sigma_s\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\Sigma_c \\cup \\set\{\\top\} \\text\{, denotes the set of atomic constant symbols from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92,\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\Sigma_s \\cup \\Sigma_s\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\Sigma_c \\cup \\set\{\\top\} \\text\{, denotes the set of individuals and connectives from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92,\\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^n    &= \\; \\Sigma_p \\cup \\Sigma_p\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\text\{, denotes the set of $n$-ary predicates from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92, \\text\{ and\}\\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   V           &= \\; \\set\{x_i \\; | \\; 0 \\geq i \\geq n\}, \\text\{ denotes the set of variables $x_i$.\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of mediation terms $\\ter(\\Sigma, V)$ is defined inductively as in \\cref\{eq:ter-vars,eq:ter-symb,eq:ter-func\}.}
-\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of mediation terms $\\hat\{\\ter\}(\\Sigma, V)$ is defined inductively as:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in \\hat\{\\ter\}(\\Sigma, V) \\; \\land \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V)  }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
+\par\pard\plain \ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 INDUCTIE UIT \\cref\{eq:ter-vars,eq:ter-symb,eq:ter-func\} UITBREIDEN MET BEPERKING OP GRAMMAR-PRODUCED VALID TERMS   }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[$\\Sigma$-identity]\\label\{def:transcr-identity\}}
-\par\plain {\f0\fs24\b0\i0 Definitie kan blijven zoals in \\cref\{def:sigma-identity\}, alhoewel het nuttig kan zijn de verbinding met de correspondence $\\mu$ te maken. }
-\par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term identity]\\label\{def:term-identity\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\hat\{ter\}(\\Sigma_\\ont\{O\}, V) \\times \\hat\{ter\}(\\pair\{\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} \\cup \{\\top\}\}, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \\approx t$. }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Mediation rule]\\label\{def:med-rule\}}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   A \\emph\{mediation term rewriting rule\}, or \\emph\{mediation rule\} for short, is a pair of terms $\\pair\{l,r\}$ with:}
