@@ -1,7 +1,7 @@
 \ProvidesPackage{mystyle2015}[2014/06/04 package mystyle2015]	% Adapted from ecis2015 package ECIS 2015 Proceedings Template.
 \RequirePackage[utf8]{inputenc}		% NOT required when using xetex as opposed to pdftex
 \RequirePackage[T1]{fontenc}
-\RequirePackage[english]{babel}
+\RequirePackage[english]{babel}		% <ntheorem>'s [thref] option interferes with the <babel> package, thus in case that <babel> is used, <ntheorem> has to be loaded after <babel>.
 \RequirePackage{csquotes}
 \RequirePackage{mathptmx}
 \RequirePackage{helvet}
@@ -17,8 +17,12 @@
 
 %%%\RequirePackage{pdflscape} %% For use of \begin{landscape}
 \RequirePackage[%
-backend=biber,% ← change to old BibTeX here if you really need it
-style=authoryear-comp,natbib=true,maxnames=2,firstinits=true]{biblatex}
+backend=biber,						% ← change to old BibTeX here if you really need it
+style=authoryear-comp,				%
+natbib=true,						%
+maxnames=2,							%
+ibidtracker=strict,					% This option controls the ‘ibidem’ tracker, with potentially ambiguousreferences are suppressed (strict)
+firstinits=true]{biblatex}
 %\usetikzlibrary{shapes,arrows}
 \RequirePackage[protrusion,expansion]{microtype}
 \RequirePackage[pdftex,pdfborder={0 0 0}]{hyperref}
