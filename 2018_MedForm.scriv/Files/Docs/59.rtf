@@ -48,11 +48,12 @@
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
 \par\plain {\f0\fs24\b0\i0 where $C$, $R$, $P$, and $T$ denote the set of classes, relations, properties and data types, respectively; $I$ denotes the set of individuals of classes, relations and properties; $V$ denotes the set of values of type $T$, and $\\Sigma_c$ represents connectives to formulate \\emph\{concept axioms\} and \\emph\{concept expressions\}. }
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The \\emph\{abstract syntax\}, denoted as $S_\\ont\{O\} = \\tuple\{\\Sigma_\\ont\{O\}, G_\\ont\{O\}\}$, produces the ontology language $L_\\ont\{O\}$ over alphabet $\\Sigma_\\ont\{O\}$ by grammar $G_\\ont\{O\}$. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. Then, $L_\{\\ont\{O\}\}$ is a set of well-formed strings, viz. the \\emph\{theories\} that are allowed by ontology $\\ont\{O\}$.   }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The \\emph\{abstract syntax\}, denoted as $S_\\ont\{O\} = \\tuple\{\\Sigma_\\ont\{O\}, G_\\ont\{O\}\}$, produces the ontology language $L_\\ont\{O\}$ over alphabet $\\Sigma_\\ont\{O\}$ by grammar $G_\\ont\{O\}$. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. Then, $L_\{\\ont\{O\}\}$ is a set of well-formed strings, viz. the \\emph\{theories\} that are admitted by ontology $\\ont\{O\}$.   }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 The abstract syntax, together with a Domain of Interpretation (DoI), denoted $\\EuScript\{D\}$, and an interpretation function $\\intn: L_\{\\ont\{O\}\} \\to \\EuScript\{D\}$ from the language and its theories to its DoI \\cite[3.6.1]\{Gamut1991\}, this results in an \\emph\{ontology\}, denoted as $\\ont\{O\} = \\tuple\{S_\\ont\{O\}, \\EuScript\{D\}, \\intn(\\cdot)\}$.    }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
+\par\plain {\f0\fs24\b0\i0 We apply this definition on ontology and its related terms to adapt the TRS definitions from \\cref\{conditional-term-rewriting-systems\}, where deemed necessary.}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[mediation terms]\\label\{def:med-terms\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$. Let $\\Sigma = \\Sigma_\{\\ont\{O\}\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \{\\top\}\}$ denotes the signature of the transcription, and $V$ a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\hat\{\\ter\}(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
@@ -64,11 +65,11 @@
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in \\hat\{\\ter\}(\\Sigma, V) \\; \\land \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V)  }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
-\par\pard\plain \ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 INDUCTIE UIT \\cref\{eq:ter-vars,eq:ter-symb,eq:ter-func\} UITBREIDEN MET BEPERKING OP GRAMMAR-PRODUCED VALID TERMS   }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; p \\pair\{t_1, \\ldots, t_n\} \\in L_\\ont\{O\} \\sqcup L_\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; \\forall x_i \\in V \\; &: \\; p \\pair\{t_1, \\ldots, t_n\} \\in \\hat\{\\ter\}(\\Sigma, V) \\; \\Rightarrow \\; p(t_1, \\ldots, t_\{i-1\}, x_i, t_\{i+1\} \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V)  }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}     }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between \\cref\{def:med-terms\} and the original \\cref\{def:terms\} is to assure that $\\hat\{\\ter\}(\\Sigma, V)$ does not include terms that are not admitted by one of the ontologies, leaving the variables aside. It follows that $\\hat\{\\ter\}(\\Sigma, V) \\sqsubset \\ter(\\Sigma, V)$   }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term identity]\\label\{def:term-identity\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\hat\{ter\}(\\Sigma_\\ont\{O\}, V) \\times \\hat\{ter\}(\\pair\{\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} \\cup \{\\top\}\}, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \\approx t$. }
