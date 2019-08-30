@@ -54,6 +54,7 @@
 %%				based on <ntheorem> package
 									% Use of new theorems package <ntheorem> makes easier handling of theorem-like environments; refer to ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
 \usepackage{amsmath}				% <amsmath> needs to be loaded before <ntheorem> when the latter's [amsmath] option is used (section 3.2.1, ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf) 
+
 %\usepackage[ntheorem]{empheq}		% The <mathtools> and <empheq> packages should be loaded before <ntheorem>; this loads <amsmath> as well
 
 %\usepackage[thmmarks]{ntheorem}	% DESPITE section 3.2.1 of ntheorem.pdf above, DO NOT USE MORE THAN ONE \usepackage[...]{ntherem} DEFINITION; 
@@ -63,7 +64,7 @@
 									% Option [thref] interferes with the <babel> package, thus in case that <babel> is used, <ntheorem> has to be loaded after <babel>.
 %% End of Theorems
 %%%%%%%%%%%%%%%%
-
+\usepackage{cases}					% To make separate labels in cases: https://tex.stackexchange.com/questions/31951/separate-labels-in-cases. It appears that <cases> needs to be loaded after <amsmath>
 \usepackage{mdframed}
 
 %% Figures and table placement		% Sourced from http://tug.ctan.org/tex-archive/info/epslatex/english/epslatex.pdf page 55
@@ -114,7 +115,7 @@
 
 %% Cross-referencing				% Allow the format of cross-references to be determined automatically according to the “type” of cross-reference (equation, section, etc.) and the context in which the cross-reference is used.
 %\usepackage{varioref}				% sourced from http://texdoc.net/texmf-dist/doc/latex/tools/varioref.pdf
-\usepackage{hyperref}				% If we want to use hyperref, sometime in the future for some reason, it should be defined in between of varioref and cleveref
+%\usepackage{hyperref}				% If we want to use hyperref, sometime in the future for some reason, it should be defined in between of varioref and cleveref
 									% Always load \usepackage{hyperref} before the first use of \newtheorem to obtain correct handling and referencing of counters.
 \usepackage{cleveref}				% sourced from http://tug.ctan.org/macros/latex/contrib/cleveref/cleveref.pdf Makes varioref clever, and reuses its work to improve its own workings. 
 									% The cleveref package must be loaded after all other packages that don’t specifically support it.
@@ -227,7 +228,6 @@
 \crefname{section}{Section}{Sections}
 \crefname{figure}{Figure}{Figures}
 \crefname{table}{Table}{Tables}
-\crefname{equation}{Eq.}{Eqs.}
 
 % Definition of List of Theorems (\listtheorems{<name>})
 \theoremlisttype{opt}

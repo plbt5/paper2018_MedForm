@@ -9,16 +9,17 @@
 % Arrow definitions
 %%%%%%
 
-
-% Reflexive-transitive closure
-\def\tort{%
-  \twoheadrightarrow%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Term Rewriting symbols: A consistent typesetting
+%
+\newcommand{\trsrtc}{\ensuremath{\twoheadrightarrow}}               % reflective-transitive closure relation: ->>
+\newcommand{\ctrsrt}{\ensuremath{\twoheadleftarrow}}                % inverted reflective-transitive closure relation: <<-
+\newcommand{\trssc}{\ensuremath{\leftrightarrow}}              		% symmetric closure relation: <->
+\def\unf#1{%                                                        % Unique normal form
+ \ensuremath{#1\mkern-\medmuskip\downarrow}%
 }
+\newcommand{\trsjnb}[2]{\ensuremath{\unf{#1}#2}}					% #1 and #2 are joinable (Baader, Nipkow, p.9, not.6)	
 
-% symmetric closure
-\def\lra{%
-  \leftrightarrow%
-}
 
 % Specialisation (hollow arrow left)
 \newextarrow{\specln}{{1}{1}{2}{2}}{{\lhd}{\relbar}{\relbar}}

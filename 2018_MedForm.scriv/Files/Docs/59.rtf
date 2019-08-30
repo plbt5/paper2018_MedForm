@@ -1,44 +1,11 @@
 {\rtf1\ansi\ansicpg1252\uc1\deff0
-{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}{\f1\fmodern\fcharset0\fprq2 monospace;}}
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}}
 {\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
 \paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
 \pgnrestart\pgnstarts0
-\pard\plain \ltrch\loch {\f0\fs24\b0\i0 Indeed, being a syntactic replacement of terms and values, we consider a transcription a specific application of a TRS which, after all, provides for a syntactic rewrite of terms over a specific alphabet. The following table shows how the necessary characteristics of a transcription can be turned into sufficient requirements that we set on the TRS in order for its application as a mediator.}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 -------------------------------------------------------------------------------------------------------------------------------------}
-\par\plain {\f0\fs24\b0\i0  Req  Characteristic of a transcription                          Aspect of a TRS}
-\par\plain {\f0\fs24\b0\i0 ----- ---------------------------------------------------------- --------------------------------------------------------------------}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 1     An atomic transcription $T_\{(\\theta)\}(c)$ is defined by    A TRS rewrites terms by application of particular rewrite rules}
-\par\plain {\f0\fs24\b0\i0       a correspondence $\\mu$.                                    as formulated by \\cref\{def:rewrite-rule\}.}
-\par\pard\plain \ltrch\loch \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0                                                                  \\vspace\{-1pt\}\\space}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 2     A transcription transcribes between two distinct           Let $\\Sigma = \\ont\{O\} \\cup \\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \{\\top\}$. Show that each}
-\par\plain {\f0\fs24\b0\i0       alphabets.                                                 normal form for the particular TRS belongs to $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\\cup\{\\top\}$.}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0                                                                  \\vspace\{-5pt\}\\space}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 3     Every transcription should terminate.                      Show that for the particular CTRS the termination property}
-\par\plain {\f0\fs24\b0\i0                                                                  holds.}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0                                                                  \\vspace\{-9pt\}\\space}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 4     Despite the strategy used about which correspondence to    Show that for the particular CTRS the confluence property}
-\par\plain {\f0\fs24\b0\i0       apply first during transcribing a theory, every strategy   holds.}
-\par\plain {\f0\fs24\b0\i0       should yield the same transcription result.}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0                                                                  \\vspace\{1pt\}\\space}
-\par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 5     A transcription should not introduce phantom semantics,    Since the validity of a transcription depends on the context}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       i.e., only valid transcriptions should be allowed for      $\\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ from the transcription}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       correspondences that apply.                                model (\\cref\{fig:gen-class-transc-models\}), any rewrite rule}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0                                                                  that follows from a correspondence}
-\par\plain {\f0\fs24\b0\i0                                                                  $\\mu = \\tuple\{e, e\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta_n\}$ should be guarded by a}
-\par\plain {\f0\fs24\b0\i0                                                                  condition $\\Gamma$ that implements the transcription context.}
-\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0 -------------------------------------------------------------------------------------------------------------------------------------}
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.}
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Indeed, being a syntactic replacement of terms and values, we consider a transcription a specific application of a TRS which, after all, provides for a syntactic rewrite of terms over a specific alphabet. Since a transcription is initiated by its correspondence, the term rewriting that we are looking for is of the pattern $c_n \\theta_n c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\, \\trsrtc \\, c_n \\vldtranscript\{\\ctx_n\}$, with $c_n$, $c_n\u8217\'92$ and $\\theta_n$ specified by some $\\mu$. }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 We first provide for a formal specification of an ontology in a way that suits the term rewriting discipline.}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Ontology language, abstract syntax, theories, ontology]\\label\{def:ontology\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology language\}, denoted $L_\{\\ont\{O\}\}$, is a formal language characterised by an alphabet $\\Sigma_\\ont\{O\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c \}$ that consists of atomic symbols $\\Sigma_s$, atomic predicates $\\Sigma_p$, and connectives $\\Sigma_c$, with:}
 \par\pard\plain \ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
@@ -50,155 +17,56 @@
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The \\emph\{abstract syntax\}, denoted as $S_\\ont\{O\} = \\tuple\{\\Sigma_\\ont\{O\}, G_\\ont\{O\}\}$, produces the ontology language $L_\\ont\{O\}$ over alphabet $\\Sigma_\\ont\{O\}$ by grammar $G_\\ont\{O\}$. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. Then, $L_\{\\ont\{O\}\}$ is a set of well-formed strings, viz. the \\emph\{theories\} that are admitted by ontology $\\ont\{O\}$.   }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 The abstract syntax, together with a Domain of Interpretation (DoI), denoted $\\EuScript\{D\}$, and an interpretation function $\\intn: L_\{\\ont\{O\}\} \\to \\EuScript\{D\}$ from the language and its theories to its DoI \\cite[3.6.1]\{Gamut1991\}, this results in an \\emph\{ontology\}, denoted as $\\ont\{O\} = \\tuple\{S_\\ont\{O\}, \\EuScript\{D\}, \\intn(\\cdot)\}$.    }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology\} collects the abstract syntax together with a Domain of Interpretation (DoI), denoted $\\EuScript\{D\}$, and an interpretation function $\\intn: L_\{\\ont\{O\}\} \\to \\EuScript\{D\}$ from the language and its theories to its DoI \\cite[3.6.1]\{Gamut1991\}, and is denoted as $\\ont\{O\} = \\tuple\{S_\\ont\{O\}, \\EuScript\{D\}, \\intn(\\cdot)\}$.    }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 We apply this definition on ontology and its related terms to adapt the TRS definitions from \\cref\{conditional-term-rewriting-systems\}, where deemed necessary.}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[mediation terms]\\label\{def:med-terms\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$, which share $\\Sigma_c$ (not required but often the case; extending this definition for the opposite case is straightforward). Let $\\Sigma = \\Sigma_\{\\ont\{O\}\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \{\\top\}\}$ denotes the signature of the transcription, and $V$ a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\hat\{\\ter\}(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$, which share $\\Sigma_c$ \\footnote\{Although sharing $\\Sigma_c$ is not required, it is often the case. Still, extending this definition for the opposite case is straightforward\}. Assume the alphabets of each ontology extended with a differently notated but shared verum concept, and let $\\Sigma = \\pair\{\\Sigma_\{\\ont\{O\}\} \\cup \\top\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \\top\u8217\'92\}$ denotes the signature of the transcription. Let $V$ denote a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\mter(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\Sigma_s \\cup \\Sigma_s\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\Sigma_c \\cup \\set\{\\top\} \\text\{, denotes the set of individuals and connectives from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92,\\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^n    &= \\; \\Sigma_p \\cup \\Sigma_p\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\text\{, denotes the set of $n$-ary predicates from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92, \\text\{ and\}\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\set\{\\Sigma_s \\cup \\top\} \\cup \\set\{\\Sigma_s\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\top\u8217\'92\} \\text\{, denotes the set of individuals from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92,\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^n    &= \\; \\Sigma_p \\cup \\Sigma_p\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\Sigma_c \\text\{, denotes the set of $n$-ary predicates and connectives from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92, \\text\{ and\}\\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   V           &= \\; \\set\{x_i \\; | \\; 0 \\geq i \\geq n\}, \\text\{ denotes the set of variables $x_i$.\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of mediation terms $\\hat\{\\ter\}(\\Sigma, V)$ is defined inductively as:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of mediation terms $\\mter(\\Sigma, V)$ is defined inductively as:}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; p \\pair\{t_1, \\ldots, t_n\} \\in L_\\ont\{O\} \\sqcup L_\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V) \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; \\forall x_i \\in V \\; &: \\; p \\pair\{t_1, \\ldots, t_n\} \\in \\hat\{\\ter\}(\\Sigma, V) \\; \\Rightarrow \\; p(t_1, \\ldots, t_\{i-1\}, x_i, t_\{i+1\} \\ldots, t_n) \\in \\hat\{\\ter\}(\\Sigma, V)  }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\mter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\mter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in \\mter(\\Sigma, V) \\; \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\mter(\\Sigma, V)  }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}     }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:med-terms\} and the original \\cref\{def:terms\} is to assure that $\\hat\{\\ter\}(\\Sigma, V)$ does not include terms that are not admitted by one of the ontologies, leaving the variables aside. It follows that $\\hat\{\\ter\}(\\Sigma, V) \\sqsubset \\ter(\\Sigma, V)$   }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:med-terms\} and the original \\cref\{def:terms\} is to assure that $\\mter(\\Sigma, V)$ includes terms that are formulated over the two ontologies, each of them including a differently denoted verum concept. This definition does not enforce that each mediation term is a valid ontological theory because this is irrelevant and even undesirable for mediation terms that occur as intermediate terms in the rewriting sequence. We do need to ensure, though, that the end terms of a term transcription is a valid ontological theory.    }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term identity]\\label\{def:term-identity\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\hat\{\\ter\}(\\Sigma_\\ont\{O\}, V) \\times \\pair\{\\hat\{\\ter\}(\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\}, V) \\cup \{\\top\}\}$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (lhs) and $t$ the right-hand side (rhs) of the identity $s \\approx t$. }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\mter(\\Sigma_\\ont\{O\}, V) \\times \\mter(\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\}, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (LHS) and $t$ the right-hand side (RHS) of the identity $s \\approx t$. }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:term-identity\} and the original \\cref\{def:sigma-identity\} is to assure that the identity represents pairs of semantic equivalent terms, the lhs of which is admitted by the source ontology and the rhs by the target ontology. This is not possible with the more general original definition that considers one language only.  }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:term-identity\} and the original \\cref\{def:sigma-identity\} is to assure that the identity represents pairs of semantic equivalent terms, the LHS of which is admitted by the source ontology and the RHS by the target ontology. This is not possible with the more general original definition that considers one language only.  }
 \par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Mediation rule]\\label\{def:med-rule\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   A \\emph\{mediation term rewriting rule\}, or \\emph\{mediation rule\} for short, is a pair of terms $\\pair\{l,r\}$ with:}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription rule]\\label\{def:transcription-rule\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   A \\emph\{transcription rule\} is a pair of terms $\\pair\{l,r\}$ with:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0     l \\in \\hat\{\\ter\}(\\Sigma_\{\\ont\{O\}\}, V) \\; &\\text\{and \} r \\in \\hat\{\\ter\}(\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\}, V) \\cup \{\\top\}   \\\\    }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0     l, r    &\\in \\mter(\\Sigma, V)  \\\\    }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0     l       &\\not\\in V          \\\\}
 \par\plain {\f0\fs24\b0\i0     \\var(l) &\\supseteq \\var(r)  }
 \par\plain {\f0\fs24\b0\i0   \\end\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   Then, we denote $l \\to r$ to indicate that $l$ can be replaced by $r$. A mediation rule can be given a name, e.g., $\\rho$, and we write $\\rho : l \\to r$. }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   Then, we denote $l \\to r$ to indicate that $l$ can be replaced by $r$. A transcription rule can be given a name, e.g., $\\rho$, and we write $\\rho : l \\to r$. Collectively, the transcription rules are denoted $R$. }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The modification of the original \\cref\{def:rewrite-rule\} into this \\cref\{def:med-rule\} is necessary since the original definition rewrites over one single language only, whereas a transcription requires a rewrite from one language to another. }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 There is no difference between this \\cref\{def:transcription-rule\} and its original \\cref\{def:rewrite-rule\} other than its reference to $\\mter$ as opposed to $\\ter$.}
+\par\plain {\f0\fs24\b0\i0   }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term transcription]\\label\{def:term-transcription\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Consider a set of mediation terms as defined by \\cref\{def:med-terms\}. Assume terms $s, t \\in \\mter(\\Sigma, V)$, both represented as term trees.}
 \par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription term rewriting]\\label\{def:transcr-term-rewriting\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Consider a set of mediation terms and assume terms $s, t$ with $s \\in \\hat\{\\ter\}(\\Sigma_\\ont\{O\}, V)$ and $t \\in \\pair\{\\hat\{\\ter\}(\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\}, V) \\cup \{\\top\}\}$, both represented as term trees.}
-\par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A mediation rule $\\rho : l \\to r$ can be \\emph\{applied\} to a term $s$ iff $\\exists p \\in \\pos(s): s|_p \\equiv \\sigma(l)$:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\emph\{Term transcription\} denotes the application of a transcription rule $\\rho : l \\to r$ to a term $s$ iff $\\exists p \\in \\pos(s): s|_p \\equiv \\sigma(l)$:}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
 \par\plain {\f0\fs24\b0\i0   s|_p         &: \\; \\text\{denotes a subterm of $s$ that starts at position $p$ in $s$\} \\nonumber \\\\}
 \par\plain {\f0\fs24\b0\i0   \\sigma(l)    &: \\; \\text\{denotes the result obtained by applying the variable substitution $\\sigma$ to the term $l$\} \\nonumber }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{The \\emph\{result\} term $t$ of applying a rewrite rule $\\rho$ to a term $s$ is obtained as $t \\equiv s[\\sigma(r)]_p$:\} }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{The result term $t$ of applying a mediation rule $\\rho$ to a term $s$ is obtained as $t \\equiv s[\\sigma(r)]_p$:\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   s[ \\cdot ]_p &: \\; \\text\{denotes a replacement of the subterm of $s$ that starts at position $p$ in $s$\} \\nonumber \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{Then, a \\emph\{one-step rewrite\} from $s$ to $t$ by $\\rho$ is defined as: \}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   s \\to_\\rho t &: \\; s|_p \\equiv \\sigma(l) \\to_\\rho s[\\sigma(r)]_p \\equiv t }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{Then, a \\emph\{one-step transcription\} from $s$ to $t$ by transcription rule $\\rho$, denoted $s \\to_\\rho t$, is defined as: \}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   & \\; s|_p \\equiv \\sigma(l) \\to_\\rho s[\\sigma(r)]_p \\equiv t }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}  }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Again, there is no difference between this Definition on term transcription and its original \\cref\{def:term-rewriting\} other than its reference to $\\mter$ as opposed to $\\ter$. }
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Mediation rewriting system]\\label\{def:mediation-trs\}}
-\par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 ----}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We now proof that every transcription result $T_\{\\ctx\}$ can be formulated as the result of a CTRS. }{\f1\fs24\b0\i0 Following \\cref\{}{\f0\fs24\b0\i0 def:rewrite-rule\} and Req.2 above, we consider:}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{equation\}}
-\par\plain {\f0\fs24\b0\i0 \\Sigma = \\ont\{O\} \\cup \\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \{\\top\}}
-\par\plain {\f0\fs24\b0\i0 \\end\{equation\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We have already formulated, in many tables, the transcription rules to apply in terms of the context $\\ctx_n = \\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ that comes about the inductive transcription model. The purpose of the rewrite relation from \\cref\{def:conditional-rewrite-relation\} is to provide for a transcription between a transcriptum from $\\ont\{O\}$ to a transcribendum from $\\ont\{O\u8217\'92\}$. In other words, the rewrite rule will rewrite according to the specified correspondence $\\mu = \\tuple\{c, c\u8217\'92, \\theta\}$, as follows: }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}\\label\{def:req1\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 T_\{\\ctx\}(c) \\quad &}{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\\ctx: \\, l \\, \\to\\, r \\; \\text\{if \} \\Gamma \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{where\} }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\Gamma &= \\ctx \\, \\land \\, c,T_\{\\ctx\}(c) \\lhd \\token\{C\} \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 r &= T_\{\\ctx\}(c) \\\\}
-\par\plain {\f0\fs24\b0\i0 l &= c    }
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f1\fs24\b0\i0 With $\\rho_\\ctx$ we emphasise that the particular rewrite rule is completely defined by context $\\ctx$. Furthermore, since every rewrite rule implements an atomic transcription we demand that $l \\in \\ont\{O\}$ and $r \\in \\ont\{O\}\loch\af1\hich\af1\dbch\af1\uc1\u8217\'92$. }
-\par\plain \f1\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 The unconditional rewrite relations for any transcription stem from $\\ctx = \\pair\{\\theta\}$, specified as $T_\{(\\theta)\}$ in \\cref\{tab:atomic-class-transcriptions\} and read as follows:}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}\\label\{def:req2\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 T_\{(\\theta)\}(c) \\quad &}{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\{(\\theta)\}: \\, l \\, \\to\\, r \\; \\\\}
-\par\plain {\f0\fs24\b0\i0 \\intertext\{and specifically\} \\nonumber}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignedat\}\{2\}}
-\par\plain {\f0\fs24\b0\i0   \\rho_\{(\\sqsubset)\} &: \\; c &&\\to c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\\\}
-\par\plain {\f0\fs24\b0\i0   \\rho_\{(\\equiv)\}    &: \\; c &&\\to c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{(\\sqsupset)\} &: \\; c &&\\to \\ntsa \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{(\\overlap)\}  &: \\; c &&\\to \\ntsa \\\\}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{(\\disj)\}     &: \\; c &&\\to \\neg c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{alignedat\} }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 Note that these unconditional rewrite rules apply to the most specific classes in ontology $\\ont\{O\}$ only, viz. $\\set\{c | \\forall b, c \\in \\ont\{O\}: b \\sqsubset c \\; \\Rightarrow \\; b \\equiv \\bot\}$. It is clear that these unconditional rewrite rules do not induce phantom semantics.}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 From \\cref\{def:req2\} we define the one-step rewrite for a transcription as follows.}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &s|_p \\equiv \\sigma(l) \\equiv c_n \\\\ }
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &\\sigma(r) \\equiv c_n s[\\sigma(r)]_p \\equiv t \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &\\rho \\text\{ is uniquely defined by \} \\ctx_n \\\\}
-\par\plain {\f0\fs24\b0\i0   &t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\text\{ is ground normal form with respect to the unconditional system, and\} \\\\}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &c_n \\trsrtc t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92}
-\par\plain {\f0\fs24\b0\i0 \\end\{align\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 $\\sigma(c_n) \\, \\to_\\rho \\, \\sigma(t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92)$}
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For the conditional rewrite rules, we will use the example from Case \\ref\{fig:medcxt-sup\}(a). The transcription context $\\pair\{r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}\}$ for this case reads $\\ctx_n = \\pair\{\\equiv, \\theta_n, \\sqsupset, \\ctx_\{n-1\}\}$. Note that in the context of CTRS we will write that $\\to_\{n+1\}$ is expressed in terms of $\\to_n$, as opposed to the transcription context where $\\ctx_n$ is expressed in terms of $\\ctx_\{n-1\}$. }
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignat\}\{5\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,1\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_\{n+1\}\u8217\'92  &\\quad \\text\{if\} \\quad }
-\par\plain {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\label\{eq:transcription-rho1\}\\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,2\} &: \\quad c_\{n+1\} \\equiv c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    &&\\to \\; c_\{n+1\}\u8217\'92  &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\; \\land \\;}
-\par\plain {\f0\fs24\b0\i0     \\theta_n = \\, \\sqsupset  \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,3\} &: \\quad c_\{n+1\} \\overlap c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92  &&\\to \\; \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,4\} &: \\quad c_\{n+1\} \\disj c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92     &&\\to \\; \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,5\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,6\} &: \\quad c_\{n+1\} \\sqsubset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; c_\{n+1\}\u8217\'92 \\sqcap \\neg c_n\u8217\'92 &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\neg c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\land \\;}
-\par\plain {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,7\} &: \\quad c_\{n+1\} \\overlap c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92  &&\\to \\; \\ntsa_\{n+1\} &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{n+1,8\} &: \\quad c_\{n+1\} \\sqsupset c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &&\\to \\; \\ntsa_\{n+1\} &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_n \\,   &\\to_n \\, \\ntsa_n \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}  &= \\, \\equiv \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, \\sqsupset \\label\{eq:transcription-rho8\}  }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{alignat\}}
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We explain equations \\crefrange\{eq:transcription-rho1\}\{eq:transcription-rho8\} collectively with the following generic pattern:}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 1. The (conditional) rewrite rules $\\rho_\{n+1\}$, too, will apply the correspondence $\\mu_\{n+1\} = \\tuple\{c_\{n+1\}, c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta_\{n+1\}\}$. This means that each correspondence will be reflected in a (conditional) rewrite rule; the rule\u8217\'92s LHS will reflect the transcriptum, whilst its RHS will reflect the transcribendum;}
-\par\plain {\f0\fs24\b0\i0 1. Following \\cref\{def:conditional-rewrite-relation\}, the conditional rewrite rules are defined inductively, meaning that the condition $\\Gamma$ should express elements from a lower hierarchy. This demand matches nicely with the inductive definition for the transcription model. The condition $\\Gamma_n$ for the rewrite rule $\\rho_\{n+1\}$ primarily applies the valid transcription from the lower hierarchical level, viz. $\\vldtranscript\{\\ctx_n\}$; }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 1. Finally, as indicated in \\cref\{def:conditions-in-ctrs\}, the condition $\\Gamma$ may also express fixed predicates. For Case \\ref\{fig:medcxt-sup\}(a), its transcription context reads $\\ctx_n = \\pair\{\\equiv, \\theta_n, \\sqsupset, \\ctx_\{n-1\}\}$. The terms $\\theta_n$ and $\\ctx_\{n-1\}$ have already be addressed in the previous two parts of this pattern, leaving terms $r_\{n+1\} = \\equiv$ and $r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 = \\sqsupset$. Although these terms are defined on hierarchical level $n+1$, they are not dependent on any rewriting and can therefore be considered fixed propositions that can be added to the condition.  }
-\par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0 From this explanation it becomes clear that we can define the conditional part of a transcription as follows:}
-\par\plain {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription]\\label\{def:transcription\}}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{alignat\}\{5\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\rho_\{n+1\} &: \\quad \\sigma\\pair\{c_\{n+1\} \\theta_\{n+1\} c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} &&\\to \\; \\sigma(t_\{n+1\}\u8217\'92)  &\\quad \\text\{if\} \\quad }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       \\sigma(c_n) \\,   &\\vldtranscript\{\\ctx_n\} \\, \\sigma(t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92) \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       r_\{n+1\}  &= \\, r  \\; &\\land \\;}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0       r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &= \\, r\u8217\'92 \\; \\land \\;}
-\par\plain {\f0\fs24\b0\i0       \\theta_n = \\, \\theta  }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{alignat\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 where $t_k\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ denotes the transcribendum that follows from the table that specifies the valid transcriptions for transcription context $\\ctx_\{k+1\} = \\pair\{r, \\theta_\{k+1\}, r\u8217\'92, \\ctx_k\}$.}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\plain \f0\fs24\b0\i0}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0}

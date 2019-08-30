@@ -1,34 +1,41 @@
 {\rtf1\ansi\ansicpg1252\uc1\deff0
-{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}}
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}{\f1\fmodern\fcharset0\fprq2 monospace;}}
 {\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
 \paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
 \pgnrestart\pgnstarts0
 \pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We first consider the transcription of case (d) in \\cref\{fig:basic-correspondence\}, the atomic correspondence $\\mu = \\tuple\{ c, c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta \}$, with its atomic transcription context $\\ctx = (\\theta)$. As indicated, the question at hand is which logical combination of $e_n\u8217\'92$, $e_\{n-1\}\u8217\'92$ and $e\u8217\'92$ implies the smallest set that covers $\\intn(e_n)$?}
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 This is straightforward for this case: since no other concepts are present in context $\\ctx$, the transcriptum $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ represents the only potential concept that will take part in the transcription result. Hence the only potential outcomes are $\\set\{c\u8217\'92, \\neg c\u8217\'92, \\top\}$, where $\\top$ represents the top concept, or *verum*, viz. always \\token\{True\}. The choice depends on whether phantom semantics are amongst the results of the transcription for the particular context $\\ctx = (\\theta)$ that is considered. The result of this strategy is shown in \\cref\{tab:atomic-class-transcriptions\}, where each column specifies the possible correspondence relation that applies, and the row specifies the individual transcription results $T_\\sqsubset(c)$, $T_=(c)$, $T_\\sqsupset(c)$, $T_\\overlap(c)$, and $T_\\disj(c)$, collectively denoted as $T_\{(\\theta)\}(c)$.}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 This is straightforward for this case: since no other concepts are present in context $\\ctx$, the transcriptum $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ represents the only potential concept that will take part in the transcription result. Hence the only potential outcomes are $\\set\{c\u8217\'92, \\neg c\u8217\'92\}$, or any logical combination thereof. The choice depends on whether phantom semantics are amongst the results of the transcription for the particular context $\\ctx = (\\theta)$ that is considered. The result of this strategy is shown in \\cref\{tab:atomic-class-transcriptions\}, where each column specifies the possible correspondence relation that applies, and the row specifies the individual transcription results $T_\\sqsubset(c)$, $T_=(c)$, $T_\\sqsupset(c)$, $T_\\overlap(c)$, and $T_\\disj(c)$, collectively denoted as $T_\{(\\theta)\}(c)$.}
 \par\pard\plain \ltrch\loch \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 \\begin\{table\}[h]}
-\par\plain {\f0\fs24\b0\i0   \\centering}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\caption\{Transcription results $T_\{(\\theta)\}(c)$ for the atomic transcription context $\\ctx = (\\theta)$ and correspondences $\\tuple\{c, c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta\}$: atomic class $c$ represents the transcribendum and is transcribed under relation $\\theta$, taking no other concepts into consideration. The transcription result is semantically valid, denoted as $c \\vldtranscript\{(\\theta)\}$, by token of not inducing phantom semantics under this specific context. \}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\label\{tab:atomic-class-transcriptions\}}
-\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0   \\begin\{tabular\}\{cc@\{\\qquad\}ccccc\}}
-\par\plain {\f0\fs24\b0\i0     \\toprule}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\multicolumn\{2\}\{c\}\{$c \\vldtranscript\{(\\theta)\}$\} & \\multicolumn\{5\}\{c\}\{Correspondence relation $\\theta$\} \\\\ \\cmidrule\{3-7\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0      && $\\sqsubset$ }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & $=$}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & $\\sqsupset$}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & $\\overlap$ }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & $\\disj$ \\\\}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0      \\multicolumn\{2\}\{c\}\{Concept $e$\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Sb.png\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Eq.png\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Sp.png\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-nD.png\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Dj.png\} \\\\ \\cmidrule(r)\{1-2\} \\cmidrule\{3-7\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0       & $c$     & $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$        & $c\u8217\'92$     & \\ntsa     & \\ntsa     & $\\neg c\u8217\'92$  \\\\ \\bottomrule}
-\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0   \\end\{tabular\}}
+\par\plain {\f0\fs24\b0\i0  \\centering}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\caption\{Transcription results $T_\{(\\theta)\}(c)$ for the atomic transcription context $\\ctx = (\\theta)$ and correspondences $\\tuple\{c, c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta\}$: atomic class $c$ represents the transcribendum and is transcribed under relation $\\theta$, taking no other concepts into consideration. The transcription result is semantically valid, denoted as $c \\vldtranscript\{(\\theta)\}$, by token of not inducing phantom semantics under this specific context. \}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  \\label\{tab:atomic-class-transcriptions\}}
+\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0  \\begin\{tabular\}\{cc@\{\\qquad\}ccccc\}}
+\par\plain {\f0\fs24\b0\i0  \\toprule}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\multicolumn\{2\}\{c\}\{$c \\vldtranscript\{(\\theta)\}$\} & \\multicolumn\{5\}\{c\}\{Correspondence relation $\\theta$\} \\\\ \\cmidrule\{3-7\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  && $\\sqsubset$ }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & $=$}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & $\\sqsupset$}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & $\\overlap$ }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & $\\disj$ \\\\}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  \\multicolumn\{2\}\{c\}\{Concept $e$\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Sb.png\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Eq.png\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Sp.png\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-nD.png\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & \\includegraphics[width=0.1\\textwidth]\{src/images/VennBC-Dj.png\} \\\\ \\cmidrule(r)\{1-2\} \\cmidrule\{3-7\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  & $c$ & $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ & $c\u8217\'92$ & \\ntsa & \\ntsa & $\\neg c\u8217\'92$ \\\\ \\bottomrule}
+\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0  \\end\{tabular\}}
 \par\plain {\f0\fs24\b0\i0 \\end\{table\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 In conclusion, \\cref\{tab:atomic-class-transcriptions\} specifies all *valid* transcriptions under the one single atomic transcription context for all correspondences, collectively. We therefore denote such transcription table as $\\vldtranscript\{\\ctx\}$, and this particular one as $\\vldtranscript\{(\\theta)\}$.}
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Unfortunately, three transcriptions are rather disappointing in what can be considered valid. For the two columns $\\sqsupset$ and $\\overlap$ neither $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ nor $\\neg c\u8217\'92$ do sufficiently constrain the individuals in $\\ont\{O\}\u8217\'92$ that are implied by $c$. In other words, $T_\{(\\theta \\in \\set\{\\sqsupset, \\overlap\})\}(c) = c\u8217\'92 \\sqcup \\neg c\u8217\'92$ or $\\top$ for short, where $\\intn\u8217\'92(\\top) = \\concept\{D\}\u8217\'92$. The transcription result for column $\\disj$ is not as total as $\\top$ but still as broad as $T_\{(\\disj)\}(c) = \\neg c\u8217\'92$. These particular three correspondences, $\\theta \\in \\set\{\\sqsupset, \\overlap, \\disj\}$, do have a common ground for their \u8220\'93shortcomings\u8221\'94, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 In conclusion, \\cref\{tab:atomic-class-transcriptions\} specifies all *valid* transcriptions under the one single atomic transcription context for all correspondences, collectively. We therefore denote such transcription table as $\\vldtranscript\{\\ctx\}$, and this particular one as $\\vldtranscript\{(\\theta)\}$. This can be summarised as:}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subnumcases\}\{}{\f0\fs24\b0\i0 \\ensuremath\{\\label\{eq:act\}c \\vldtranscript\{(\\theta)\} \\; = \\; \}\} }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92      & : $\\theta \\in \\set\{\\sqsubset, =\}$        \\label\{eq:act-1\}\\\\}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\neg c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 & : $\\theta \\in \\set\{\\disj\}$               \\label\{eq:act-2\}\\\\}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\ntsa   & : $\\theta \\in \\set\{\\sqsupset, \\overlap\}$ \\label\{eq:act-3\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subnumcases\}}
+\par\pard\plain \ltrch\loch \f0\fs24\b0\i0
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Unfortunately, three transcription results, although valid, are rather disappointing. For $\\theta \\in \\set\{\\sqsupset, \\overlap\}$, }{\f1\fs24\b0\i0 eq.~(\\ref}{\f0\fs24\b0\i0 \{eq:act-3\}), neither $c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ nor $\\neg c\u8217\'92$ do sufficiently constrain the individuals in $\\ont\{O\}\u8217\'92$ that are implied by $c$. In other words, the best logical combination of terms from $\\ont\{O\}\u8217\'92$ that we can make that implies the smallest set covering $\\intn(c)$ is $T_\{(\\theta \\in \\set\{\\sqsupset, \\overlap\})\}(c) = c\u8217\'92 \\sqcup \\neg c\u8217\'92$, or $\\top$ for short, denoting *verum*, viz. always \\token\{True\}. A rather useless transcription, but a valid one nonetheless. Moreover, the transcription result for $\\theta \\in \\set\{\\disj\}$, }{\f1\fs24\b0\i0 eq.~(\\ref}{\f0\fs24\b0\i0 \{eq:act-2\}), is not as total as $\\top$ but still as broad as $T_\{(\\disj)\}(c) = \\neg c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$. These particular three correspondences, $\\theta \\in \\set\{\\sqsupset, \\overlap, \\disj\}$, do have a common ground for their \u8220\'93shortcomings\u8221\'94, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.}}

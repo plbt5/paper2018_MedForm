@@ -3,6 +3,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}				% <amsthm> conflicts with <ntheorem> package (section 3.2.2 ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf); 
                                         % Instead, the [amsthm] option is used with <ntheorem> 
+\RequirePackage[ntheorem]{mathtools}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modal logic operators
@@ -95,10 +96,13 @@
 % Math operators
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\rng}{rng}
-\DeclareMathOperator{\sub}{\CMcal{S}ub}
-\DeclareMathOperator{\pos}{\CMcal{P}os}
-\DeclareMathOperator{\var}{\CMcal{V}\mathnormal{ar}}
-\DeclareMathOperator{\ter}{\CMcal{T}}
+\DeclareMathOperator{\sub}{\CMcal{S}ub}						% TRS set of all variabe substitutions
+\DeclareMathOperator{\pos}{\CMcal{P}os}						% TRS position of subterm in term
+\DeclareMathOperator{\var}{\CMcal{V}\mathnormal{ar}}		% TRS Variables in term
+\DeclareMathOperator{\ter}{\CMcal{T}}						% TRS terms
+\DeclareMathOperator{\mter}{\prescript{}{m}{\ter}}			% TRS mediation terms
+%\DeclareMathOperator{\mter}{\CMcal{M}}						% TRS mediation terms
+
  
 % Define the square element-of character, as a superimpose of \sqsubset and - . See: http://tex.stackexchange.com/questions/148051/how-do-you-make-a-square-element-symbol-in-to-show-that-an-element-belongs-t
 % Square element-of (\sqin) character, as a superimpose of \sqsubset and - .
@@ -135,26 +139,39 @@
 }
  
 % Disjoint & complete (\disjointcompl, or, \displete) character, as a superimpose of \bot and = .
-\newcommand{\disjointcompl}{%
-  \mathrel{\vphantom{=}\text{%
-    \mathsurround=0pt%
-    \ooalign{$\bot$\cr\raisebox{-0.89ex}{$=$}\cr}%
-%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
+% From https://tex.stackexchange.com/questions/471050/incomplete-iffalse-in-caption-but-correct-in-regular-text-wheres-the-if
+\DeclareRobustCommand{\disjointcompl}{%
+  \mathrel{\text{%
+    \mathsurround=0pt
+    \vtop{\offinterlineskip
+      \ialign{##\cr
+        $\bot$\cr
+        \noalign{\kern-0.1ex}
+        $=$\cr
+      }
+    }%
   }}%
 }
+%\newcommand{\disjointcompl}{%        This OLD VERSION makes it a fragile command, that has to be prefixed by \protect if used in a moving argument (caption or section title).
+%  \mathrel{\vphantom{=}\text{%
+%    \mathsurround=0pt%
+%    \ooalign{$\bot$\cr\raisebox{-0.89ex}{$=$}\cr}%
+%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
+%  }}%
+%}
 \def\displete{%
  \disjointcompl%
 }
  
 % Not disjoint (\ndisjoint) character, as a superimpose of \bot and / .
-\newcommand{\ndisjoint}{%
+\DeclareRobustCommand{\ndisjoint}{%
   \mathrel{\vphantom{\bot}\text{%
     \mathsurround=0pt%
     \ooalign{$\bot$\cr\hidewidth$/$\hidewidth\cr}%
   }}%
 }
 % Disjoint & incomplete (\disjoinc) character, as a superimpose of \disjointcompl and a small / .
-\newcommand{\disjoinc}{%
+\DeclareRobustCommand{\disjoinc}{%
   \mathrel{\vphantom{=}\text{%
     \mathsurround=0pt%
 %    \ooalign{$\mid$\cr$\neq$\cr}%
@@ -163,7 +180,7 @@
 }
  
 % Overlap & complete (\overlete) character, as a superimpose of \overlap and = .
-\newcommand{\overlete}{%
+\DeclareRobustCommand{\overlete}{%
   \mathrel{\vphantom{=}{%
     \mathsurround=0pt%
 %   \raisebox{-0.9ex}{\ensurestackMath{\stackon[0.1pt]{=}{\small\overlap}}}
@@ -174,7 +191,7 @@
 }
  
 % Overlap & incomplete (\overlinc) character, as a superimpose of \overlete and a small / .
-\newcommand{\overlinc}{%
+\DeclareRobustCommand{\overlinc}{%
   \mathrel{\vphantom{\overlete}\text{%
     \mathsurround=0pt%
 %    \ooalign{$\mid$\cr$\neq$\cr}%
@@ -183,13 +200,6 @@
 }
  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Term Rewriting symbols: A consistent typesetting
-%
-\newcommand{\trsrtc}{\ensuremath{\twoheadrightarrow}}               % reflective-transitive closure relation: ->>
-\def\unf#1{%                                                        % Unique normal form
- \MyMath{#1\downarrow}%
-}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom handy macros
