@@ -87,17 +87,12 @@
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite rule]\\label\{def:crr\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}}{\f0\fs24\b0\i0 \\label\{eq:crr\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{conditional rewrite rule\} is a rewrite rule (\\cref\{def:rewrite-rule\}) of the form}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f3\fs24 \\begin\{equation\}}{\f0\fs24\b0\i0 \\tag\{\\ref\{eq:crr\}\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l &\\to r \\text\{ if \} \\Gamma }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{equation\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{equation\}}{\f0\fs24\b0\i0 \\label\{eq:crrc\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{equation\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence: }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{equation\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{equation\}\\label\{eq:crrv\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma)}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{equation\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f3\fs24 \\begin\{align\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l       &\\to r \\text\{ if \} \\Gamma \\tag\{\\ref\{eq:crr\}\} \\\\ }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma  &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) \\label\{eq:crrc\} \\\\ }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:\} }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma) \\label\{eq:crrv\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{}{\f0\fs24\b0\i0 align}{\f0\fs24\b0\i0 \}}
 \par\pard\plain \tx1899\ri-10862\ql\ltrch\loch {\f0\fs24\b0\i0 The $\\Gamma$-part of the rule is called the \\emph\{condition\}, and it expresses exactly that: zero or more conditions that should all hold. Collectively, a set of conditional rewrite rules is denoted as $R \\subseteq \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$.}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}

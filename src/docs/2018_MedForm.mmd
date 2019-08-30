@@ -571,17 +571,12 @@ A further specialisation of a TRS introduces conditions to the effect that a giv
 \begin{mmdef}[Conditional rewrite rule]\label{def:crr}
 \begin{subequations}\label{eq:crr}
 A \emph{conditional rewrite rule} is a rewrite rule (\cref{def:rewrite-rule}) of the form
-\begin{equation}\tag{\ref{eq:crr}}
-  l &\to r \text{ if } \Gamma 
-\end{equation}
-\begin{equation}\label{eq:crrc}
-  \Gamma &= (s_1 = t_1 \land s_2 = t_2 \land \cdots s_n = t_n) 
-\end{equation}
-A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence: 
-\end{equation}
-\begin{equation}\label{eq:crrv}
-  \var(l) &\supseteq \var(r) \cup \var(\Gamma)
-\end{equation}
+\begin{align}
+  l       &\to r \text{ if } \Gamma \tag{\ref{eq:crr}} \\ 
+  \Gamma  &= (s_1 = t_1 \land s_2 = t_2 \land \cdots s_n = t_n) \label{eq:crrc} \\ 
+\intertext{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:} 
+  \var(l) &\supseteq \var(r) \cup \var(\Gamma) \label{eq:crrv}
+\end{align}
 The $\Gamma$-part of the rule is called the \emph{condition}, and it expresses exactly that: zero or more conditions that should all hold. Collectively, a set of conditional rewrite rules is denoted as $R \subseteq \ter(\Sigma, V) \times \ter(\Sigma, V)$.
 \end{subequations}
 \end{mmdef}
