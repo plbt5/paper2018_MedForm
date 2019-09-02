@@ -80,46 +80,39 @@
 \par\plain {\f0\fs24\b0\i0 * $b$ is *a normal form* of $a$ iff $a \\trsrtc b$ and $b$ is in normal form;}
 \par\plain {\f0\fs24\b0\i0 * $b$ is a *unique normal form* (UNF) of $a$, }{\f1\fs24\b0\i0 denoted as $\\unf\{a\}$,}{\f0\fs24\b0\i0  iff for all normal forms $c_i$ of $a$ it holds that $}{\f1\fs24\b0\i0 b \\equiv c_i$, i.e., $b$ is the only normal form of $a$;}
 \par\plain {\f1\fs24\b0\i0 * $a$ and $b$ are *joinable* iff there exists a $c$ such that $a }{\f0\fs24\b0\i0 \\trsrtc c \\ctrsrt b$, denoted as $\\trsjnb\{a\}\{b\}$. }
-\par\plain {\f0\fs24\b0\i0 * The rewrite relation $\\to$ is *confluent* iff }{\f1\fs24\b0\i0 $b_1 }{\f0\fs24\b0\i0 \\ctrsrt a \\trsrtc b_2 \\; }{\f1\fs24\b0\i0 \\Rightarrow \\; \\trsjnb\{b_1\}\{b_2\}}{\f0\fs24\b0\i0 $, i.e., all rewrite paths that start at $a$ will have one shared end term.  }
+\par\plain {\f0\fs24\b0\i0 * The rewrite relation $\\to$ is *confluent* iff }{\f1\fs24\b0\i0 $b_1 }{\f0\fs24\b0\i0 \\ctrsrt a \\trsrtc b_2 \\; }{\f1\fs24\b0\i0 \\Rightarrow \\; \\trsjnb\{b_1\}\{b_2\}}{\f0\fs24\b0\i0 $, i.e., all rewrite paths that start at $a$ will have one shared end term;}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 * The rewrite relation $\\to$ is *terminating* iff no infinite term sequence $a \\to a_1 \\to a_2 \\to ...$ exists.}
-\par\plain {\f0\fs24\b0\i0    }
+\par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A further specialisation of a TRS introduces conditions to the effect that a given rule can be applied only if its condition, instantiated by the matching substitution, is satisfied. These are called }{\f2\fs24\b0\i1 conditional}{\f0\fs24\b0\i0  TRSs (CTRS), and are based on a set of conditional rewrite rules. Depending on the definition of the conditional rules, their evaluation may become undecidable. The following definition is adapted from [@Kirchner2006 def. 7.23]: }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite rule]\\label\{def:crr\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}}{\f0\fs24\b0\i0 \\label\{eq:crr\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{conditional rewrite rule\} is a rewrite rule (\\cref\{def:rewrite-rule\}) of the form}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f3\fs24 \\begin\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l       &\\to r \\text\{ if \} \\Gamma \\tag\{\\ref\{eq:crr\}\} \\\\ }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma  &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) \\label\{eq:crrc\} \\\\ }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l       &\\to r \\text\{ if \} \\Gamma \\label\{eq:crr-concl\} \\\\ }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma  &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) \\label\{eq:crr-cond\} \\\\ }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:\} }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma) \\label\{eq:crrv\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma) \\label\{eq:crr-v\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{}{\f0\fs24\b0\i0 align}{\f0\fs24\b0\i0 \}}
-\par\pard\plain \tx1899\ri-10862\ql\ltrch\loch {\f0\fs24\b0\i0 The $\\Gamma$-part of the rule is called the \\emph\{condition\}, and it expresses exactly that: zero or more conditions that should all hold. Collectively, a set of conditional rewrite rules is denoted as $R \\subseteq \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$.}
+\par\pard\plain \tx1899\ri-10862\ql\ltrch\loch {\f0\fs24\b0\i0 The $\\Gamma$-part of the rule, \\cref\{eq:crr-cond\}, is called the \\emph\{condition\}, and it expresses exactly that: zero or more conditions that should all hold. The first part of the rule, \\cref\{eq:crr-concl\}, is called the \\emph\{conclusion\} and only applied on a term when the condition is satisfied. Collectively, the set of conditional rewrite rules is called a \\emph\{conditional rewrite system\} and denoted as $R \\subseteq \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$.}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 In order to avoid an infinite recursion and therefore one form of undecidability, an hierarchy on the rules is enforced that demands that for each rule its condition is evaluated at a lower hierarchical level. A hierarchy on the rules emerges when for a CTRS its conditional rewrite relation $\\to_R$ is defined inductively, as follows (adapted from [@Kirchner2006, def. 7.25] and [@Bezem2003, def. 3.4.5]):}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite relation]\\label\{def:conditional-rewrite-relation\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A conditional rewrite relation $\\to_R$ is defined as the collective conditional rewrite rules (\\cref\{def:crr\}) $\\rho_n$ that apply, as follows:}
-\par\plain {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_0     &: \\set\{ l \\to_0 r \\; | \\; (l, r) \\in R_0 \} \\label\{eq:crr-r_0\} \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{i+1\} &: \\left\\\{ \\sigma(l) \\to_\{i+1\} \\sigma(r) \\; | \\; \\Gamma_i: (l, r) \\in \\rho_i \\text\{ and \} \\sigma(\\Gamma_i) \\text\{ holds\} \\right\\\} \\label\{eq:crr-r_i\} \\\\}
-\par\plain {\f0\fs24\b0\i0 \\intertext\{Then, the conditional rewrite relation $\\to_R$ emerges as the collective of the conditional rewrite rules as:\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\to_R      &= \\bigcup_\{i>0\} \\to_i}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\} }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 >An inductive definition requires a starting condition, here defined in \\cref\{eq:crr-r_0\} and specified by $\\rho_0$ as a set of unconditional rewrite rules (\\cref\{def:rewrite-rule\}). The essence on the inductive part of the definition, \\cref\{eq:crr-r_i\}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\\sigma(\\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. }
-\par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 It is not clear yet how the conditions can be defined. We therefore turn to the conditions. The focus of conditional rewriting systems is to find restrictions on the conditional rules, such that a decidable rewriting relation emerges. In both [@Kirchner2006] and [@Bezem2003], three strategies for constraining the rules are given that originate from [@Dershowitz1988], from which we will use only one, viz. normal conditional rewriting. Besides these three strategies, in *generalized* CTRS the conditions are constrained to fixed predicates on terms. We therefore consider conditions of the following types:}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditions in CTRS]\\label\{def:conditions-in-ctrs\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 In a \\emph\{generalised\} CTRS, the conditions $\\Gamma_i$ are of the form ([@Bezem2003, def.3.4.4(i)]): }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 In order to avoid an infinite recursion and its consequential introduction of undecidability, a hierarchy on the rules of the conditional rewrite system $R$ is enforced. Such hierarchy makes that in order for the rule\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92s conclusion to apply on a term, its condition has to be satisfied at a lower hierarchical level. To that end the rewriting relation $\\to_R$ associated to the conditional rewriting system $R$ is defined inductively, as follows ([@Kirchner2006, def. 7.25] and [@Bezem2003, def. 3.5.5]):}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite relation]\\label\{def:crrel\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:crrel\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Consider $R$ a conditional rewrite system as the collective conditional rewrite rules from \\cref\{def:crr\}. The inductive definition of the conditional rewrite system at level $i \\ge 0$, denoted $R_i$, reads as follows:}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma_i     &: \\pair\{P_1^k(t_\{a_1\}, \\ldots, t_\{a_k\}), \\ldots, P_n^l(t_\{b_1\}, \\ldots, t_\{b_l\})\} \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{where $P_m^k$ are any fixed k-ary predicates on terms.\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{In a \\emph\{normal\} CTRS, the conditions $\\Gamma_i$ are of the form (\\cite\{Bezem2003, def.3.4.5(i)\}):\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma_i     &: \\pair\{t_\{j,1\} \\trsrtc_i t_\{j,1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ldots, t_\{j,k\} \\trsrtc_i t_\{j,k\}\u8217\'92\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\} }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 where $t_k\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$ are \\emph\{normal forms\} of $t_k$. Then, for normal CTRS it is demanded that $\\sigma(\\Gamma_i)$ results in $\\sigma(t_i\u8217\'92)$ being the normal form of $\\sigma(t_i)$ for all equivalences in the condition of the rewrite rule definition of \\cref\{eq:crr-r_i\}. }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_0     &: \\set\{ \\rho_0: \\, l \\to r \\; | \\; (l, r) \\in R \} \\label\{eq:crrel-r\} \\\\}
+\par\plain {\f0\fs24\b0\i0   \\begin\{split\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_\{i+1\} &: R_i \\; \\cup \\; \\\{ \\rho_\{i+1\}: \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\to r \\text\{ if \} \\pair\{s_1 = t_1 \\land }{\f0\fs24 \\ldots \\land s_m = t_m}{\f0\fs24\b0\i0 \} \\in R \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0           &\\qquad \\land \\forall j = \\set\{1, \\ldots, m\}: \\sigma(s_j) \\trsrtc_i \\sigma(t_j) \\\} \\label\{eq:crrel-r_i\} }
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{split\}}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{For the \\emph\{conditional rewrite relation\} $\\to_R$ it holds that\}}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   t \\to_R t\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\; &\\text\{ iff \} \\; t \\to_\{R_i\} t\u8217\'92 \\quad \\text\{ for some \} i \\ge 0   \\label\{eq:crrel-rel\} }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 >An inductive definition requires a starting condition, here defined in \\cref\{eq:crrel-r\} and specified by $\\rho_0$ as a set of unconditional rewrite rules (\\cref\{def:rewrite-rule\}). The essence on the inductive part of the definition, \\cref\{eq:crrel-r_i\}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\\sigma(\\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. In both [@Kirchner2006] and [@Bezem2003], three types of conditional rules are given that originate from [@Dershowitz1988] but we will use *normal conditional rewriting* only: \\Cref\{eq:crrel-r_i\} demands that at induction level $i$, $\\sigma(t_j)$ can be shown to be the normal form of $\\sigma(s_j)$ for all terms in the condition of the rewrite rule.   }
+\par\pard\plain \ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0}

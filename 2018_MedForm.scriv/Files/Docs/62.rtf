@@ -42,12 +42,11 @@
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.}
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 The unconditional rewrite relations for any transcription stem from $\\ctx = \\pair\{\\theta\}$, eq. \\cref\{eq:act\}, and read as follows:}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{equation\}\\label\{eq:utr\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\rho_\{(\\theta)\}: \\, l \\, \\to_0 \\, r \\; \\\\}
-\par\plain {\f0\fs24\b0\i0 \\end\{equation\}}
-\par\plain {\f0\fs24\b0\i0 and specifically\\begin\{subequations\}\\label\{eq:utr-all\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 The unconditional rewrite rules for any transcription stem from $\\ctx = \\pair\{\\theta\}$, eq. \\cref\{eq:act\}, and read as follows:}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:utr-all\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignat\}\{2\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{(\\theta)\}   &:\\quad&            l \\, &\\to_0 \\, r    \\label\{eq:utr\}\\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{and specifically\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{_\\sqsubset\} &:\\quad&  c \\sqsubset c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &\\to_0 c\u8217\'92      \\label\{eq:utr-sub\} \\\\}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{_\\equiv\}    &:\\quad&     c \\equiv c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &\\to_0 c\u8217\'92      \\label\{eq:utr-eq\} \\\\}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{_\\sqsupset\} &:\\quad&  c \\sqsupset c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &\\to_0 \\ntsa\u8217\'92  \\label\{eq:utr-sup\} \\\\}
@@ -55,31 +54,26 @@
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{_\\disj\}     &:\\quad&      c \\disj c\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &\\to_0 \\neg c\u8217\'92 \\label\{eq:utr-disj\} \\\\}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{_\\top\}      &:\\quad&          \\ntsa\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 &\\to_0 \\ntsa   \\label\{eq:utr-ntsa\}  }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{alignat\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Collectively, these rules are denoted $R_0 = \\set\{\\rho_\\sqsubset, \\rho_\\equiv, \\rho_\\sqsupset, \\rho_\\overlap, \\rho_\\disj, \\rho_\\top\}$, representing the \\emph\{unconditional transcription rules\} as follows:}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{equation\}\\label\{eq:tc-as-utr\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 c \\vldtranscript\{(\\theta)\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 R_0 \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{equation\}}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Note that these unconditional transcription rules apply to the most specific classes in ontology $\\ont\{O\}$ only, viz. $\\set\{c \\; | \\; \\forall b, c \\in \\ont\{O\}: b \\sqsubset c \\; \\Rightarrow \\; b \\equiv \\bot\}$. It is clear that these unconditional transcription rules do not induce phantom semantics.}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Collectively, these rules represent the \\emph\{unconditional transcription rules\}. Note that these unconditional transcription rules apply to the most specific classes in ontology $\\ont\{O\}$ only, viz. $\\set\{c \\; | \\; \\forall b, c \\in \\ont\{O\}: b \\sqsubset c \\; \\Rightarrow \\; b \\equiv \\bot\}$. }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For conditional transcriptions we need to specify the rules and conditions under which the rules apply. Note that two different inductions dimensions apply: one is about the transcription model, denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For conditional transcriptions we need to specify the conditions under which the rules apply. Note that two different inductions dimensions apply here: one is about the transcription model, depicted in \\cref\{fig:gen-class-transc-models\} and denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional transcription rule]\\label\{def:ctr\} }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{conditional transcription rule\} is a conditional rewrite rule (\\cref\{def:crr\}) }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\begin\{equation\}\\label\{eq:ctr\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\rho_\{k+1,\\ctx_n\}: \\, \\sigma(l) \\, \\to_\{k+1\} \\, \\sigma(r) \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\}   }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\end\{equation\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 where}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0  \\begin\{align\} }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma_\{k,\\ctx_n\} &: \\pair\{l, r\} \\in R_k \\land \\ctx_n \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   r                 &= c_\{n-1\} \\vldtranscript\{(\\theta_n)\} \\sqcap c_\{n-1\} \\vldtranscript\{\\ctx_\{n-1\}\} \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   l                 &= c_\{n-1\} \\, \\theta_\{n-1\} \\, c_\{n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\end\{align\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Collectively, these rules are denoted $R_\{k+1\} = R_k \\cup \\rho_\{k+1,\\ctx_n\}$, representing the \\emph\{conditional transcription rules\} as follows:}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\begin\{equation\}\\label\{eq:tc-as-ctr\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   c_\{n-1\} \\vldtranscript\{\\ctx_n\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\{k+1,\\ctx_n\}: \\, \\sigma(l) \\, \\to_\{k+1\} \\, \\sigma(r) \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\}   }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\end\{equation\}    }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional transcription relation]\\label\{def:ctrel\} }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:ctrel\} }
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  A \\emph\{conditional transcription relation\} is a conditional rewrite relation (\\cref\{def:crrel\}) of the form}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{align\}\\label\{eq:ctrel\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_0     &: \\set\{\\rho_\{_\\sqsubset\}, \\rho_\{_\\equiv\}, \\rho_\{_\\sqsupset\}, \\rho_\{_\\overlap\}, \\rho_\{_\\disj\}, \\rho_\{_\\top\}\}  \\\\}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_\{k+1\} &: R_k \\; \\cup \\; \\set\{ \\rho_\{k+1,\\ctx_n\} : \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\, \\to \\, r \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\} \} \\\\   }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\intertext\{where\} }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\Gamma_\{k,\\ctx_n\} &: \\pair\{l, r\} \\in R_k \\land \\ctx_n \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r                 &= c_\{n-1\} \\vldtranscript\{(\\theta_n)\} \\sqcap c_\{n-1\} \\vldtranscript\{\\ctx_\{n-1\}\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     l                 &= c_\{n-1\} \\, \\theta_\{n-1\} \\, c_\{n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{align\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   Collectively, these rules are denoted $R_\{k+1\} = R_k \\cup \\rho_\{k+1,\\ctx_n\}$, representing the \\emph\{conditional transcription rules\} as follows:}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{equation\}\\label\{eq:tc-as-ctr\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_\{n-1\} \\vldtranscript\{\\ctx_n\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\{k+1,\\ctx_n\}: \\, \\sigma(l) \\, \\to_\{k+1\} \\, \\sigma(r) \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\}   }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{equation\}    }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 With $\\rho_}{\f0\fs24\b0\i0 \{k+1,\\ctx_n\}}{\f1\fs24\b0\i0 $ we emphasise that the particular rewrite rule is completely defined by context $\\ctx_n$.  }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 \\end\{mmdef\}}
@@ -136,7 +130,7 @@
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We explain equations \\crefrange\{eq:transcription-rho1\}\{eq:transcription-rho8\} collectively with the following generic pattern:}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 1. The (conditional) rewrite rules $\\rho_\{n+1\}$, too, will apply the correspondence $\\mu_\{n+1\} = \\tuple\{c_\{n+1\}, c_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta_\{n+1\}\}$. This means that each correspondence will be reflected in a (conditional) rewrite rule; the rule\u8217\'92s LHS will reflect the transcriptum, whilst its RHS will reflect the transcribendum;}
-\par\plain {\f0\fs24\b0\i0 1. Following \\cref\{def:conditional-rewrite-relation\}, the conditional rewrite rules are defined inductively, meaning that the condition $\\Gamma$ should express elements from a lower hierarchy. This demand matches nicely with the inductive definition for the transcription model. The condition $\\Gamma_n$ for the rewrite rule $\\rho_\{n+1\}$ primarily applies the valid transcription from the lower hierarchical level, viz. $\\vldtranscript\{\\ctx_n\}$; }
+\par\plain {\f0\fs24\b0\i0 1. Following \\cref\{def:crrel\}, the conditional rewrite rules are defined inductively, meaning that the condition $\\Gamma$ should express elements from a lower hierarchy. This demand matches nicely with the inductive definition for the transcription model. The condition $\\Gamma_n$ for the rewrite rule $\\rho_\{n+1\}$ primarily applies the valid transcription from the lower hierarchical level, viz. $\\vldtranscript\{\\ctx_n\}$; }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 1. Finally, as indicated in \\cref\{def:conditions-in-ctrs\}, the condition $\\Gamma$ may also express fixed predicates. For Case \\ref\{fig:medcxt-sup\}(a), its transcription context reads $\\ctx_n = \\pair\{\\equiv, \\theta_n, \\sqsupset, \\ctx_\{n-1\}\}$. The terms $\\theta_n$ and $\\ctx_\{n-1\}$ have already be addressed in the previous two parts of this pattern, leaving terms $r_\{n+1\} = \\equiv$ and $r_\{n+1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 = \\sqsupset$. Although these terms are defined on hierarchical level $n+1$, they are not dependent on any rewriting and can therefore be considered fixed propositions that can be added to the condition.  }
 \par\plain \f0\fs24\b0\i0
 \par\plain {\f0\fs24\b0\i0 From this explanation it becomes clear that we can define the conditional part of a transcription as follows:}
@@ -153,8 +147,11 @@
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0  }
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription system]\\label\{def:transcription-trs\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{transcription system\} (TS) is a TRS with $\\EuScript\{R\} = \\pair\{\\Sigma, R\}$, where:}
-\par\plain {\f0\fs24\b0\i0 \\begin\{itemize\}[label=\{--\}]}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $\\Sigma = \\Sigma_\{\\ont\{O\}\} \\cup \\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} \\cup \{\\top\}$, the set of concepts from two ontologies (including $\\top$), denoting a signature according to \\cref\{def:med-terms\}, and }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\item $R$ denotes a set of mediation rules according to \\cref\{def:transcription-rule\}. }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{itemize\}}
+\par\plain {\f0\fs24\b0\i0 \\begin\{subequations\}}
+\par\plain {\f0\fs24\b0\i0  \\begin\{align\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma &= \\Sigma_\{\\ont\{O\}\} \\cup \\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\} \\cup \{\\top\} \\text\{ from \\cref\{def:med-terms\}, and\} \\\\ }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   c \\vldtranscript\{(\\theta)\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 R_0  = \\set\{\\rho_\{_\\sqsubset\}, \\rho_\{_\\equiv\}, \\rho_\{_\\sqsupset\}, \\rho_\{_\\overlap\}, \\rho_\{_\\disj\}, \\rho_\{_\\top\}\} \\label\{eq:tc-as-utr\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   c_\{n-1\} \\vldtranscript\{\\ctx_n\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\{k+1,\\ctx_n\}: \\, \\sigma(l) \\, \\to_\{k+1\} \\, \\sigma(r) \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  \\end\{align\} }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}}

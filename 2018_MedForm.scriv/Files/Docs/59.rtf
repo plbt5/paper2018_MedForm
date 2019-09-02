@@ -42,31 +42,5 @@
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:term-identity\} and the original \\cref\{def:sigma-identity\} is to assure that the identity represents pairs of semantic equivalent terms, the LHS of which is admitted by the source ontology and the RHS by the target ontology. This is not possible with the more general original definition that considers one language only.  }
 \par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Transcription rule]\\label\{def:transcription-rule\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   A \\emph\{transcription rule\} is a pair of terms $\\pair\{l,r\}$ with:}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{align\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0     l, r    &\\in \\mter(\\Sigma, V)  \\\\    }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0     l       &\\not\\in V          \\\\}
-\par\plain {\f0\fs24\b0\i0     \\var(l) &\\supseteq \\var(r)  }
-\par\plain {\f0\fs24\b0\i0   \\end\{align\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0   Then, we denote $l \\to r$ to indicate that $l$ can be replaced by $r$. A transcription rule can be given a name, e.g., $\\rho$, and we write $\\rho : l \\to r$. Collectively, the transcription rules are denoted $R$. }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 There is no difference between this \\cref\{def:transcription-rule\} and its original \\cref\{def:rewrite-rule\} other than its reference to $\\mter$ as opposed to $\\ter$.}
-\par\plain {\f0\fs24\b0\i0   }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term transcription]\\label\{def:term-transcription\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Consider a set of mediation terms as defined by \\cref\{def:med-terms\}. Assume terms $s, t \\in \\mter(\\Sigma, V)$, both represented as term trees.}
-\par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\emph\{Term transcription\} denotes the application of a transcription rule $\\rho : l \\to r$ to a term $s$ iff $\\exists p \\in \\pos(s): s|_p \\equiv \\sigma(l)$:}
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\plain {\f0\fs24\b0\i0   s|_p         &: \\; \\text\{denotes a subterm of $s$ that starts at position $p$ in $s$\} \\nonumber \\\\}
-\par\plain {\f0\fs24\b0\i0   \\sigma(l)    &: \\; \\text\{denotes the result obtained by applying the variable substitution $\\sigma$ to the term $l$\} \\nonumber }
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{The result term $t$ of applying a mediation rule $\\rho$ to a term $s$ is obtained as $t \\equiv s[\\sigma(r)]_p$:\} }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   s[ \\cdot ]_p &: \\; \\text\{denotes a replacement of the subterm of $s$ that starts at position $p$ in $s$\} \\nonumber \\\\}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{Then, a \\emph\{one-step transcription\} from $s$ to $t$ by transcription rule $\\rho$, denoted $s \\to_\\rho t$, is defined as: \}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   & \\; s|_p \\equiv \\sigma(l) \\to_\\rho s[\\sigma(r)]_p \\equiv t }
-\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}  }
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Again, there is no difference between this Definition on term transcription and its original \\cref\{def:term-rewriting\} other than its reference to $\\mter$ as opposed to $\\ter$. }
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Regarding \\cref\{def:rewrite-rule,def:term-rewriting\}, no other modifications are required other than their reference to $\\mter$ as opposed to $\\ter$.}
 \par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0}
