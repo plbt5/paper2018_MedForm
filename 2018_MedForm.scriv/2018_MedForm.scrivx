@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.13.0" Device="PC-17875" Modified="2019-09-04 13:01:19 +0200" ModID="E705A126-FAA8-4DB1-9D57-66A561BE5BBD">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.13.0" Device="PC-17875" Modified="2019-09-09 19:58:36 +0200" ModID="AE70F217-DEE1-4FAD-A1FA-37D35E783119">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 14:06:28 +0200" Modified="2018-08-24 14:06:28 +0200" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -246,7 +246,7 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-09-04 13:01:17 +0200" Type="Text">
+                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-09-09 19:58:34 +0200" Type="Text">
                             <Title>Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
                             <MetaData>
                                 <LabelID>6</LabelID>
@@ -254,11 +254,11 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>14294,0</TextSelection>
+                                <TextSelection Caret="14090">14087,3</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0200" Modified="2019-08-19 11:02:29 +0200" Type="Text">
+                        <BinderItem ID="57" UUID="5E1524B0-9F4B-43F0-8CFF-645EBACEAD0E" Created="2018-12-31 13:46:47 +0200" Modified="2019-09-04 13:58:34 +0200" Type="Text">
                             <Title>Transcribing over an $r, r'\in \set{ \overlete, \overlinc, \displete, \disjoinc }$  class contexts</Title>
                             <MetaData>
                                 <LabelID>5</LabelID>
@@ -266,7 +266,7 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>3232,0</TextSelection>
+                                <TextSelection>2027,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -316,14 +316,14 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="62" UUID="8AF315D0-F831-4EB9-A1DF-C39CEAF4E317" Created="2019-08-12 14:30:27 +0200" Modified="2019-08-30 17:49:49 +0200" Type="Text">
+                        <BinderItem ID="62" UUID="8AF315D0-F831-4EB9-A1DF-C39CEAF4E317" Created="2019-08-12 14:30:27 +0200" Modified="2019-09-04 15:14:03 +0200" Type="Text">
                             <Title>Transcription context as condition</Title>
                             <MetaData>
                                 <LabelID>5</LabelID>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>5233,0</TextSelection>
+                                <TextSelection>6966,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -429,7 +429,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="19" Characters="115" Date="2019-09-04 10:46:30 +0200"/>
+        <PreviousSession Words="98" Characters="426" Date="2019-09-06 17:16:28 +0200"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
@@ -437,7 +437,7 @@
         </Collection>
         <Collection Type="RecentSearch" ID="DEADBEEF-0000-0000-0000-000000000000" Color="0.901961 0.901961 0.980392">
             <Title>Search Results</Title>
-            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">Bezem</SearchSettings>
+            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">c_{n-1} \sqsup</SearchSettings>
         </Collection>
     </Collections>
     <PrintSettings PaperType="A4" LeftMargin="72.0001" RightMargin="72.0001" TopMargin="90.0002" BottomMargin="90.0002" Orientation="Portrait" Collates="No" ReverseOrder="No"/>
