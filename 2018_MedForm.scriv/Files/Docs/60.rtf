@@ -1,5 +1,5 @@
 {\rtf1\ansi\ansicpg1252\uc1\deff0
-{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}{\f1\fmodern\fcharset0\fprq2 monospace;}{\f2\fmodern\fcharset0\fprq2 CourierNewPS-ItalicMT;}{\f3\fmodern\fcharset0\fprq1 Courier New,courier;}}
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}{\f1\fmodern\fcharset0\fprq2 monospace;}{\f2\fmodern\fcharset0\fprq2 CourierNewPS-ItalicMT;}}
 {\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
 \paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
 \pgnrestart\pgnstarts0
@@ -60,7 +60,7 @@
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{The \\emph\{result\} term $t$ of applying a rewrite rule $\\rho$ to a term $s$ is obtained as $t \\equiv s[\\sigma(r)]_p$:\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0   s[ \\cdot ]_p &: \\; \\text\{denotes a replacement of the subterm of $s$ that starts at position $p$ in $s$\} \\nonumber \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{Then, a \\emph\{one-step rewrite\} from $s$ to $t$ by $\\rho$, denoted $s \\to_\\rho t$, is defined as: \}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   & \\; s|_p \\equiv \\sigma(l) \\to_\\rho s[\\sigma(r)]_p \\equiv t }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   & \\; s|_p \\equiv \\sigma(l) \\to_\\rho s[\\sigma(r)]_p \\equiv t \\label\{eq:ctr\} }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
 \par\plain {\f0\fs24\b0\i0 \\end\{mmdef\}}
 \par\plain {\f0\fs24\b0\i0 The result of a one-step rewrite can be considered for another one-step rewrite when a proper rewrite rule is available. A finite or infinite sequence of one-step rewrites is called a *rewrite sequence* or *rewrite path*, denoted $a \\to a_1 \\to ... a_k \\to b$ with $a, a_i, b \\in \\ter$. If we do not want to identify the particular rewrite path we denote $a \\to b$. In either case we say that $a$ *rewrites* to $b$, and $b$ is the *rewrite* of $a$. A rewrite path is finite when the last element of the rewrite path is a term for which no rewrite rules apply. Such term is called an *end term*. The reflexive-transitive closure of $\\to$ is denoted as $\\trsrtc$.  }
@@ -85,14 +85,14 @@
 \par\plain \f0\fs24\b0\i0
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A further specialisation of a TRS introduces conditions to the effect that a given rule can be applied only if its condition, instantiated by the matching substitution, is satisfied. These are called }{\f2\fs24\b0\i1 conditional}{\f0\fs24\b0\i0  TRSs (CTRS), and are based on a set of conditional rewrite rules. Depending on the definition of the conditional rules, their evaluation may become undecidable. The following definition is adapted from [@Kirchner2006 def. 7.23]: }
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional rewrite rule]\\label\{def:crr\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}}{\f0\fs24\b0\i0 \\label\{eq:crr\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:crr\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{conditional rewrite rule\} is a rewrite rule (\\cref\{def:rewrite-rule\}) of the form}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f3\fs24 \\begin\{align\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   l       &\\to r \\text\{ if \} \\Gamma \\label\{eq:crr-concl\} \\\\ }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Gamma  &= (s_1 = t_1 \\land s_2 = t_2 \\land \\cdots s_n = t_n) \\label\{eq:crr-cond\} \\\\ }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{A conditional rewrite rule is equally restricted in the production of variables as a rewrite rule, hence:\} }
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\cup \\var(\\Gamma) \\label\{eq:crr-v\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{}{\f0\fs24\b0\i0 align}{\f0\fs24\b0\i0 \}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align\}}
 \par\pard\plain \tx1899\ri-10862\ql\ltrch\loch {\f0\fs24\b0\i0 The $\\Gamma$-part of the rule, \\cref\{eq:crr-cond\}, is called the \\emph\{condition\}, and it expresses exactly that: zero or more conditions that should all hold. The first part of the rule, \\cref\{eq:crr-concl\}, is called the \\emph\{conclusion\} and only applied on a term when the condition is satisfied. Collectively, the set of conditional rewrite rules is called a \\emph\{conditional rewrite system\} and denoted as $R \\subseteq \\ter(\\Sigma, V) \\times \\ter(\\Sigma, V)$.}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
@@ -104,7 +104,7 @@
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_0     &: \\set\{ \\rho_0: \\, l \\to r \\; | \\; (l, r) \\in R \} \\label\{eq:crrel-r\} \\\\}
 \par\plain {\f0\fs24\b0\i0   \\begin\{split\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_\{i+1\} &: R_i \\; \\cup \\; \\\{ \\rho_\{i+1\}: \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\to r \\text\{ if \} \\pair\{s_1 = t_1 \\land }{\f0\fs24 \\ldots \\land s_m = t_m}{\f0\fs24\b0\i0 \} \\in R \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_\{i+1\} &: R_i \\; \\cup \\; \\\{ \\rho_\{i+1\}: \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\to r \\text\{ if \} \\pair\{s_1 = t_1 \\land }{\f0\fs24\b0\i0 \\ldots \\land s_m = t_m}{\f0\fs24\b0\i0 \} \\in R \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0           &\\qquad \\land \\forall j = \\set\{1, \\ldots, m\}: \\sigma(s_j) \\trsrtc_i \\sigma(t_j) \\\} \\label\{eq:crrel-r_i\} }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{split\}}
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{For the \\emph\{conditional rewrite relation\} $\\to_R$ it holds that\}}

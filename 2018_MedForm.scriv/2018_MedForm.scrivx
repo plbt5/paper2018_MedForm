@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.13.0" Device="PC-17875" Modified="2019-09-09 19:58:36 +0200" ModID="AE70F217-DEE1-4FAD-A1FA-37D35E783119">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.14.0" Device="PC-17875" Modified="2019-09-30 12:03:10 +0200" ModID="4F424250-E8F0-4617-A6F3-35E772FD4875">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 14:06:28 +0200" Modified="2018-08-24 14:06:28 +0200" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -246,7 +246,7 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-09-09 19:58:34 +0200" Type="Text">
+                        <BinderItem ID="56" UUID="376CF81D-7D11-45A2-9341-3118C66A3F9C" Created="2018-12-27 15:43:21 +0200" Modified="2019-09-09 20:04:15 +0200" Type="Text">
                             <Title>Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
                             <MetaData>
                                 <LabelID>6</LabelID>
@@ -254,7 +254,7 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection Caret="14090">14087,3</TextSelection>
+                                <TextSelection Caret="9781">9765,16</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -282,14 +282,14 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="60" UUID="168EDA41-EB5E-477A-B80B-7B52134B2C02" Created="2019-01-17 09:00:36 +0200" Modified="2019-08-30 18:57:21 +0200" Type="Text">
+                        <BinderItem ID="60" UUID="168EDA41-EB5E-477A-B80B-7B52134B2C02" Created="2019-01-17 09:00:36 +0200" Modified="2019-09-30 09:30:45 +0200" Type="Text">
                             <Title>(conditional) Term Rewriting Systems</Title>
                             <MetaData>
                                 <LabelID>6</LabelID>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>8284,0</TextSelection>
+                                <TextSelection Caret="9283">9271,12</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -304,7 +304,7 @@
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="59" UUID="D24C1CF4-EAF2-41B3-AD74-D3BBE939767E" Created="2019-01-17 08:50:11 +0200" Modified="2019-08-30 16:26:24 +0200" Type="Text">
+                        <BinderItem ID="59" UUID="D24C1CF4-EAF2-41B3-AD74-D3BBE939767E" Created="2019-01-17 08:50:11 +0200" Modified="2019-09-30 09:17:19 +0200" Type="Text">
                             <Title>Transcription as cTRS</Title>
                             <MetaData>
                                 <LabelID>6</LabelID>
@@ -312,18 +312,18 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>5722,0</TextSelection>
+                                <TextSelection>4436,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem ID="62" UUID="8AF315D0-F831-4EB9-A1DF-C39CEAF4E317" Created="2019-08-12 14:30:27 +0200" Modified="2019-09-04 15:14:03 +0200" Type="Text">
-                            <Title>Transcription context as condition</Title>
+                        <BinderItem ID="62" UUID="8AF315D0-F831-4EB9-A1DF-C39CEAF4E317" Created="2019-08-12 14:30:27 +0200" Modified="2019-09-30 12:03:08 +0200" Type="Text">
+                            <Title>Conditional transcription rules</Title>
                             <MetaData>
                                 <LabelID>5</LabelID>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>6966,0</TextSelection>
+                                <TextSelection>5305,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -429,7 +429,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="98" Characters="426" Date="2019-09-06 17:16:28 +0200"/>
+        <PreviousSession Words="473" Characters="2881" Date="2019-09-30 09:05:51 +0200"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">

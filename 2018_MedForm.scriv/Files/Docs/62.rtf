@@ -40,9 +40,9 @@
 \par\pard\plain \ltrch\loch {\f0\fs24\b0\i0       should yield the same transcription result.}
 \par\plain {\f0\fs24\b0\i0 --------------------------------------------------------------------------------------------------------------------------------------}
 \par\plain \f0\fs24\b0\i0
-\par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.}
+\par\plain {\f0\fs24\b0\i0    : Requirements for implementing transcriptions as conditional term rewriting systems.\\label\{tab:reqs\}}
 \par\plain \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 The unconditional rewrite rules for any transcription stem from $\\ctx = \\pair\{\\theta\}$, eq. \\cref\{eq:act\}, and read as follows:}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 The unconditional rewrite rules for any transcription stem from $\\ctx = \\pair\{\\theta\}$, eq. \\ref\{eq:act\}, and read as follows:}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:utr-all\}}
 \par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{alignat\}\{2\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\rho_\{(\\theta)\}   &:\\quad&            l \\, &\\to_0 \\, r    \\label\{eq:utr\}\\\\}
@@ -57,30 +57,51 @@
 \par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Collectively, these rules represent the \\emph\{unconditional transcription rules\}. Note that these unconditional transcription rules apply to the most specific classes in ontology $\\ont\{O\}$ only, viz. $\\set\{c \\; | \\; \\forall b, c \\in \\ont\{O\}: b \\sqsubset c \\; \\Rightarrow \\; b \\equiv \\bot\}$. }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For conditional transcriptions we need to specify the conditions under which the rules apply. Note that two different inductions dimensions apply here: one is about the transcription model, depicted in \\cref\{fig:gen-class-transc-models\} and denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. }
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 For conditional transcriptions we need to specify the conditions under which the rules apply. Note that two different inductions dimensions apply here: one is about the transcription model, depicted in \\cref\{fig:gen-class-transc-models\} and denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. The reason for this is laid in a conflict between the inductive formulations of the class transcription model in \\cref\{valid-transcriptions\} and a cTRS, \\cref\{eq:crrel-r_i\}. Where in the latter $c_\{n-1\} \\vldtranscript\{\\ctx_n\}$ depends on the higher level context $\\ctx_n$, e.g., \\cref\{eq:cn-1_ctxn_sup\}, the former explicitly demands that the condition that applies at level $k+1$ can be satisfied by rules that can be resolved at a lower hierarchy, \\cref\{eq:crrel-r_i\}.     }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Conditional transcription relation]\\label\{def:ctrel\} }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{subequations\}\\label\{eq:ctrel\} }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0  A \\emph\{conditional transcription relation\} is a conditional rewrite relation (\\cref\{def:crrel\}) of the form}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{align\}\\label\{eq:ctrel\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_0     &: \\set\{\\rho_\{_\\sqsubset\}, \\rho_\{_\\equiv\}, \\rho_\{_\\sqsupset\}, \\rho_\{_\\overlap\}, \\rho_\{_\\disj\}, \\rho_\{_\\top\}\}  \\\\}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_\{k+1\} &: R_k \\; \\cup \\; \\set\{ \\rho_\{k+1,\\ctx_n\} : \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\, \\to \\, r \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\} \} \\\\   }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\intertext\{where\} }
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\Gamma_\{k,\\ctx_n\} &: \\pair\{l, r\} \\in R_k \\land \\ctx_n \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     r                 &= c_\{n-1\} \\vldtranscript\{(\\theta_n)\} \\sqcap c_\{n-1\} \\vldtranscript\{\\ctx_\{n-1\}\} \\\\}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     l                 &= c_\{n-1\} \\, \\theta_\{n-1\} \\, c_\{n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92    }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{align\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_0     &: \\set\{\\rho_\{_\\sqsubset\}, \\rho_\{_\\equiv\}, \\rho_\{_\\sqsupset\}, \\rho_\{_\\overlap\}, \\rho_\{_\\disj\}, \\rho_\{_\\top\}\}  \\label\{eq:ctrel-a\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     R_\{k+1\} &: R_k \\; \\cup \\; \\set\{ \\rho_\{k+1,\\ctx_n\} : \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\, \\to \\, r \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\} \} \\label\{eq:ctrel-b\} \\\\   }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\intertext\{where $\\Gamma_\{k,\\ctx_n\}$ consists of $m$ conditions, each of them ($\\forall_\{0 < j \\leq m\}$) specified as:\}  }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\ctx_n      &\\land \\pair\{s_j, t_j\} \\in R_k  \\label\{eq:ctrel-c\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     s_j         &= c_\{j,n-1\} \\, \\theta_\{j,n-1\} \\, c_\{j,n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\label\{eq:ctrel-d\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     t_j         &= c_\{j,n-1\} \\vldtranscript\{(\\theta_\{j,n\})\} \\sqcap c_\{j,n-1\} \\vldtranscript\{\\ctx_\{j,n-1\}\}  \\label\{eq:ctrel-e\} \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     \\sigma(s_j) &\\trsrtc_k \\sigma(t_j) \\label\{eq:ctrel-f\}      }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{align\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   Collectively, these rules are denoted $R_\{k+1\} = R_k \\cup \\rho_\{k+1,\\ctx_n\}$, representing the \\emph\{conditional transcription rules\} as follows:}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\begin\{equation\}\\label\{eq:tc-as-ctr\}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0     c_\{n-1\} \\vldtranscript\{\\ctx_n\} \\quad }{\f1\fs24\b0\i0 \\Longleftrightarrow \\quad }{\f0\fs24\b0\i0 \\rho_\{k+1,\\ctx_n\}: \\, \\sigma(l) \\, \\to_\{k+1\} \\, \\sigma(r) \\; \\text\{if \} \\Gamma_\{k,\\ctx_n\}   }
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{equation\}    }
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 With $\\rho_}{\f0\fs24\b0\i0 \{k+1,\\ctx_n\}}{\f1\fs24\b0\i0 $ we emphasise that the particular rewrite rule is completely defined by context $\\ctx_n$.  }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{subequations\}}{\f1\fs24\b0\i0   }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 \\end\{mmdef\}}
-\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 From \\cref\{eq:ctr\} we define the one-step rewrite for a transcription as follows.}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 With $\\rho_}{\f0\fs24\b0\i0 \{k+1,\\ctx_n\}}{\f1\fs24\b0\i0 $ we emphasise that the particular rewrite rule is completely defined by context $\\ctx_n$. Furthermore, the definitions for \\cref\{}{\f0\fs24\b0\i0 eq:ctrel-a,eq:ctrel-b,eq:ctrel-c}{\f1\fs24\b0\i0 \} follow directly from \\cref\{}{\f0\fs24\b0\i0 def:crr,def:crrel}{\f1\fs24\b0\i0 \}, with \\cref\{}{\f0\fs24\b0\i0 eq:ctrel-c\} additionally demanding the existence of the particular transcription context}{\f1\fs24\b0\i0 . \\Cref\{}{\f0\fs24\b0\i0 eq:ctrel-d\} and \\}{\f1\fs24\b0\i0 cref\{}{\f0\fs24\b0\i0 eq:ctrel-e\} }{\f1\fs24\b0\i0 implement Req.1 respectively}{\f0\fs24\b0\i0  Req.2}{\f1\fs24\b0\i0  from \\cref\{tab:reqs\}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f1\fs24\b0\i0
+\par\plain \f1\fs24\b0\i0
+\par\plain \f1\fs24\b0\i0
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 ----}
+\par\plain \f1\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 Ik ben er niet zeker van dat \\cref}{\f0\fs24\b0\i0 \{def:ctrel\}}{\f1\fs24\b0\i0  de waterdichte oplossing is van het hierboven genoemde conflict tussen het inductieve transcriptiemodel en het inductieve cTRS model. Inderdaad heb ik de beide inductiedimensies losgekoppeld, want}
+\par\plain {\f1\fs24\b0\i0  }
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 * het transcriptie inductiemodel uit }{\f0\fs24\b0\i0 \\cref\{fig:gen-class-transc-models\} legt geen voorwaarde op aangaande de wijze waarop we door de inductie heen moeten lopen. Het stelt alleen dat een context $\\ctx_n$ bestaat uit *een* combinatie van $r, \\theta_n, r\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\ctx_\{n-1\}$ en dat zegt niks over hoe de context $\\ctx_\{n-1\}$ op een lager inductienivo er uitziet;}
+\par\plain {\f0\fs24\b0\i0 * het cTRS inductiemodel legt geen voorwaarde op over de inhoud van de rewrite rules en alleen over het feit dat de conditie op een lager inductienivo moet kunnen worden geevalueerd. Dat betekent dat ik voor een specifieke correspondence $\\pair\{e, e\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92, \\theta\}$ een specifieke inrichting zou kunnen maken van de andere correspondences, zodanig dat aan de cTRS inductie-eis kan worden voldaan.}
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f1\fs24\b0\i0 Toch lijkt er nog steeds een vorm van afhankelijkheid te bestaan, want dit zou betekenen dat ik voor elke specifieke correspondence een specifieke volgordelijkheid van de rewrite rules, dus de correspondences en bijbehorende transcriptiemodellen, moet maken. En ik zie niet hoe ik dat op een generieke wijze kan invullen. Derhalve lijkt het formaliseren van een transcriptie als cTRS op deze wijze niet mogelijk te zijn.  }
+\par\plain \f1\fs24\b0\i0
+\par\plain {\f1\fs24\b0\i0 Klopt deze gedachtengang?  }
+\par\plain \f1\fs24\b0\i0
+\par\plain {\f1\fs24\b0\i0 ----}
+\par\plain \f1\fs24\b0\i0
+\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch \f1\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 We define the one-step rewrite for a transcription as follows.}
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &s|_p \\equiv \\sigma(l) \\equiv c_n \\\\ }
-\par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &\\sigma(r) \\equiv c_n s[\\sigma(r)]_p \\equiv t \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   s|_p &\\equiv \\sigma(l) \\equiv \\sigma(c_\{n-1\} \\, \\theta_\{n-1\} \\, c_\{n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92) \\\\}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\sigma(r) &\\equiv \\sigma(c_\{n-1\} \\vldtranscript\{(\\theta_n)\} \\sqcap c_\{n-1\} \\vldtranscript\{\\ctx_\{n-1\}\}) \\\\ }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\intertext\{Using these equivalences in \\cref\{eq:ctr\}, we arrive at: \}}
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   s|_p \\equiv \\sigma(c_\{n-1\} \\, \\theta_\{n-1\} \\, c_\{n-1\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92) &\\to_\\rho s[\\sigma(c_\{n-1\} \\vldtranscript\{(\\theta_n)\} \\sqcap c_\{n-1\} \\vldtranscript\{\\ctx_\{n-1\}\})]_p \\equiv t \\\\}
+\par\plain {\f0\fs24\b0\i0   \\intertext\{where \}}
 \par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &\\rho \\text\{ is uniquely defined by \} \\ctx_n \\\\}
 \par\plain {\f0\fs24\b0\i0   &t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\text\{ is ground normal form with respect to the unconditional system, and\} \\\\}
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   &c_n \\trsrtc t_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92}

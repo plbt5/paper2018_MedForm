@@ -791,7 +791,7 @@ c_{n-1}\vldtranscript{( \sqsupset, \theta_n, =, \ctx_{n-1})} \; = \; c_{n-1}\vld
 \end{equation} 
 As example for a logical contradiction we explain rows 3 &amp; 4 for $\theta_n \in \{ \sqsubset, = \}$ as follows. $\theta_{n-1} \in \set{\sqsupset, \overlap} \iff \exists \iota \in \concept{D}: \iota \in c_{n-1} \land \iota \not\in c_{n-1}’$, whereas $\theta_n \in \set{\sqsubset, =} \iff \forall \iota \concept{D}: \iota \in c_{n-1} \to \iota \in c_{n-1}’$. The consequence of this contradiction is that contexts $\pair{\sqsupset, \sqsubset \text{ or } =, =, \sqsupset \text{ or } \overlap }$ cannot exist. Similar logical contradictions can be derived for the other `-` results.  
 
-Finally, the transcription \cref{tab:transcr_cn-1_ctxn_sub} presents the transcription of $c_{n-1}$ for case (c), viz. $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$, in reference to the atomic case from \cref{tab:atomic-class-transcriptions}. 
+Finally, the transcription \cref{tab:transcr_cn-1_ctxn_sub} presents $T_{\ctx_n}(c_{n-1})$ for case (c), viz. $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$, in reference to the atomic case from \cref{tab:atomic-class-transcriptions}. 
 \begin{table}[h]
   \centering
   \caption{Valid transcription for $T_{\ctx_n}(c_{n-1})$ for case \ref{fig:medcxt-e_p-p_e-b_e} (c), i.e., under context $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$. }
@@ -800,13 +800,13 @@ Finally, the transcription \cref{tab:transcr_cn-1_ctxn_sub} presents the transcr
     \toprule
     $c_{n-1} \vldtranscript{(\sqsubset, \theta_n, =, \ctx_{n-1})}$ &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9}
     &amp; \multicolumn{1}{c}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{$\theta_{n-1}$}
-                                            &amp; &amp; $\sqsubset$ &amp; $=$        &amp; $\sqsupset$     &amp; $\overlap$      &amp; $\disj$  \\ 
+                                            &amp; &amp; $\sqsubset$ &amp; $=$        &amp; $\sqsupset$ &amp; $\overlap$      &amp; $\disj$  \\ 
                                                                                                \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule{5-9}
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$       &amp; &amp; $??$        &amp; $??$       &amp; $??$            &amp; $??$     &amp; - \\ 
-    2 &amp; $c_{n-1}’$      &amp; $=$               &amp; &amp; -           &amp; -          &amp; $etc$           &amp; -        &amp; - \\ 
-    3 &amp; $\ntsa$         &amp; $\sqsupset$       &amp; &amp; -           &amp; -          &amp; $etc$           &amp; -        &amp; - \\ 
-    4 &amp; $\ntsa$         &amp; $\overlap$        &amp; &amp; -           &amp; -          &amp;                 &amp; etc      &amp; - \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$           &amp; &amp; -           &amp; -          &amp; etc             &amp; etc      &amp; - \\ \bottomrule
+    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$       &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -        &amp; -               \\ 
+    2 &amp; $c_{n-1}’$      &amp; $=$               &amp; &amp; $c_{n-1}’$  &amp; -          &amp; -           &amp; -        &amp; -               \\ 
+    3 &amp; $\ntsa$         &amp; $\sqsupset$       &amp; &amp; $\ntsa$     &amp; $\ntsa$    &amp; $\ntsa$     &amp; $\ntsa$  &amp; -               \\ 
+    4 &amp; $\ntsa$         &amp; $\overlap$        &amp; &amp; $\ntsa$     &amp; -          &amp; -           &amp; $\ntsa$  &amp; -               \\ 
+    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$           &amp; &amp; -           &amp; -          &amp; -           &amp; -        &amp; $\neg c_{n-1}’$ \\ \bottomrule
   \end{tabular}
 \end{table}
 This case is a bit different than the previous ones. Because $r=\sqsubset$ and hence $c_n \sqsubset c_{n-1}$, class $c_n$ does not constrain class $c_{n-1}$ in any way. Consequently, despite that:
@@ -817,14 +817,12 @@ still holds logically, practically $c_n\vldtranscript{\theta_n}$ does not constr
 \begin{equation}\label{eq:cn-1_ctxn_sub}
   c_{n-1}\vldtranscript{( \sqsubset, \theta_n, =, \ctx_{n-1})} \; = \; c_{n-1}\vldtranscript{\ctx_{n-1}} 
 \end{equation}
-\begin{subequations}
-In other words, the information added by this case does not add anything to the transcription that was already available in the original atomic case as specified in \cref{tab:atomic-class-transcriptions}, providing a consistent context of course.  
+In other words, the information added by this case does not add anything to the transcription that was already available in the original atomic case as specified in \cref{tab:atomic-class-transcriptions}, on condition that the context remains logically consistent.  
 
 Now that we have addressed the transcriptions for class $c_{n-1}$, let’s turn our attention to the transcription for class $c_n$. Consider case \ref{fig:medcxt-e_p-p_e-b_e} (a), viz. context $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$. Since the intra-ontological relation $r$ specifies that $c_n = c_{n-1}$, it follows that:
 \begin{equation}\label{eq:transcr_cn_ctxn_eq}
 c_n\vldtranscript{( =, \theta_n, \sqsupset, \ctx_{n-1})} = c_{n-1}\vldtranscript{( =, \theta_n, \sqsupset, \ctx_{n-1})}
 \end{equation}
-As we already concluded for \cref{tab:transcr_cn-1_ctxn_eq}, we again gain 50% improvement over the atomic class context.
 
 On considering cases \ref{fig:medcxt-e_p-p_e-b_e} (b) and (c), viz. contexts $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$ and $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$, the transcription results for class $c_n$, $T_{(\sqsupset, \theta_n, =, \ctx_{n-1})}(c_n)$ and $T_{(\sqsubset, \theta_n, =, \ctx_{n-1})}(c_n)$, are summarised in \cref{tab:transcr_cn_ctxn_sup,tab:transcr_cn_ctxn_sub}, respectively.
 
@@ -837,11 +835,11 @@ On considering cases \ref{fig:medcxt-e_p-p_e-b_e} (b) and (c), viz. contexts $\c
     $c_n \vldtranscript{(\sqsupset, \theta_n, =, \ctx_{n-1})}$ &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9}
     &amp; \multicolumn{1}{c}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{$\theta_{n-1}$}
                                            &amp; &amp; $\sqsubset$ &amp; $=$        &amp; $\sqsupset$ &amp; $\overlap$ &amp; $\disj$  \\ \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule{5-9} 
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_n’$      &amp; $c_n’$     &amp; $\ntsa$CMe  &amp; $\ntsa$CMe &amp; -CMe            \\ 
-    2 &amp; $c_{n-1}’$      &amp; $=$              &amp; &amp; $c_n’$      &amp; -CheckMe   &amp; $\ntsa$CMe  &amp; -CheckMe   &amp; -CMe            \\ 
-    3 &amp; $\ntsa$         &amp; $\sqsupset$      &amp; &amp; -CheckMe    &amp; -CheckMe   &amp; $\ntsa$CMe  &amp; -CheckMe   &amp; -CMe            \\ 
-    4 &amp; $\ntsa$         &amp; $\overlap$       &amp; &amp; -CheckMe    &amp; -CheckMe   &amp; $\ntsa$CMe  &amp; $\ntsa$CMe &amp; -CMe            \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -CheckMe    &amp; -CheckMe   &amp; $\ntsa$CMe  &amp; $\ntsa$CMe &amp; $\neg c_{n-1}’$ \\ \bottomrule
+    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_n’$      &amp; $c_n’$     &amp; $\ntsa$     &amp; $\ntsa$    &amp; -               \\ 
+    2 &amp; $c_{n-1}’$      &amp; $=$              &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; -          &amp; -               \\ 
+    3 &amp; $\ntsa$         &amp; $\sqsupset$      &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; -          &amp; -               \\ 
+    4 &amp; $\ntsa$         &amp; $\overlap$       &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; $\ntsa$    &amp; -               \\ 
+    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; $\ntsa$    &amp; $\neg c_{n-1}’$ \\ \bottomrule
   \end{tabular}
 \end{table}
 \begin{table}[h]
@@ -852,26 +850,30 @@ On considering cases \ref{fig:medcxt-e_p-p_e-b_e} (b) and (c), viz. contexts $\c
     \toprule
     $c_n \vldtranscript{(\sqsubset, \theta_n, =, \ctx_{n-1})}$ &amp; \multicolumn{2}{c}{Context $\ctx_{n-1}$} &amp; &amp; \multicolumn{5}{c}{$\theta_n$} \\ \cmidrule(r){2-3} \cmidrule{5-9}
     &amp; \multicolumn{1}{c}{$c_{n-1} \vldtranscript{\ctx_{n-1}}$} &amp; \multicolumn{1}{c}{$\theta_{n-1}$}
-                                           &amp; &amp; $\sqsubset$ &amp; $=$        &amp; $\sqsupset$ &amp; $\overlap$ &amp; $\disj$  \\ \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule{5-9} 
-    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_{n-1}’$  &amp; $c_{n-1}’$ &amp; $\ntsa$     &amp; $\ntsa$    &amp; -               \\ 
-    2 &amp; $c_{n-1}’$      &amp; $=$              &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; -          &amp; -               \\ 
-    3 &amp; $\ntsa$         &amp; $\sqsupset$      &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; -          &amp; -               \\ 
-    4 &amp; $\ntsa$         &amp; $\overlap$       &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; $\ntsa$    &amp; -               \\ 
-    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -           &amp; -          &amp; $\ntsa$     &amp; $\ntsa$    &amp; $\neg c_{n-1}’$ \\ \bottomrule
+                                           &amp; &amp; $\sqsubset$ &amp; $=$ &amp; $\sqsupset$ &amp; $\overlap$ &amp; $\disj$  \\ \cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule{5-9} 
+    1 &amp; $c_{n-1}’$      &amp; $\sqsubset$      &amp; &amp; $c_n’$  &amp; -       &amp; -           &amp; -          &amp; -           \\ 
+    2 &amp; $c_{n-1}’$      &amp; $=$              &amp; &amp; $c_n’$  &amp; -       &amp; -           &amp; -          &amp; -           \\ 
+    3 &amp; $\ntsa$         &amp; $\sqsupset$      &amp; &amp; $c_n’$  &amp; $c_n’$  &amp; $\ntsa$     &amp; $\ntsa$    &amp; $\neg c_n’$ \\  
+    4 &amp; $\ntsa$         &amp; $\overlap$       &amp; &amp; $c_n’$  &amp; -       &amp; -           &amp; $\ntsa$    &amp; $\neg c_n’$ \\ 
+    5 &amp; $\neg c_{n-1}’$ &amp; $\disj$          &amp; &amp; -       &amp; -       &amp; -           &amp; -          &amp; $\neg c_n’$ \\ \bottomrule
   \end{tabular}
 \end{table}
-The transcription \cref{tab:transcr_cn_ctxn_sup} is summarized inductively in \ref{eq:cn_ctxn_sup}, as follows:
-\begin{subnumcases}{\ensuremath{c_n \vldtranscript{(\sqsupset, \theta_n, =, \ctx_{n-1})} \; = \; }\label{eq:cn_ctxn_sup}}
-  \ensuremath{c_{n-1}’                            } &amp; : $\theta_{n-1} \equiv \, \sqsubset \land \theta_n \in \set{\sqsubset, =}$ \\
-  \ensuremath{\ntsa                               } &amp; : $\theta_{n-1} \in \set{\sqsubset, =, \sqsupset, \overlap, \disj} \land \theta_n \equiv \, \sqsupset$ \\
-  \ensuremath{\ntsa                               } &amp; : $\theta_{n-1} \in \set{\sqsubset, \overlap, \disj} \land \theta_n \equiv \, \overlap$ \\
-  \ensuremath{\neg c_{n-1}’                       } &amp; : $\theta_{n-1} \equiv \, \disj \land \theta_n \equiv \, \disj$ \\
-    -                                               &amp; : otherwise.  
-\end{subnumcases}
-For this case there is no substantial difference in $T_{( \sqsupset, \theta_n, =, \ctx_{n-1})}(c_n)$ whether context $\ctx_n$ is taken into account (\cref{tab:transcr_cn_ctxn_sup}) or not (\cref{tab:atomic-class-transcriptions}): For the columns where the original shortcomings occurred, i.e., $\theta_n \in \{\sqsupset, \overlap \}$, a more specific transcription can not be generated. This is not surprising since the information that has been added into context $\ctx_n$, i.e., $c_n \sqsupset c_{n-1}$, does not constrain in any way correspondence $\mu = \tuple{c_n, c_n’, \theta_n}$. In fact, we can only expect a more specific transcription for level $n$ when taking context $\ctx_{n+1}$ into consideration, viz. on the next higher induction level $n+1$.   
+For case \ref{fig:medcxt-e_p-p_e-b_e} (b) there is no substantial difference in $T_{( \sqsupset, \theta_n, =, \ctx_{n-1})}(c_n)$ whether context $\ctx_n$ is taken into account (\cref{tab:transcr_cn_ctxn_sup}) or not (\cref{tab:atomic-class-transcriptions}): For the columns where the original shortcomings occurred, i.e., $\theta_n \in \{\sqsupset, \overlap \}$, a more specific transcription can not be generated. This is not surprising since the information that has been added into context $\ctx_n$, i.e., $c_n \sqsupset c_{n-1}$, does not constrain in any way correspondence $\mu = \tuple{c_n, c_n’, \theta_n}$. In conclusion:
+\begin{equation}\label{eq:cn_ctxn_sup}
+  c_n\vldtranscript{( \sqsupset, \theta_n, =, \ctx_{n-1})} \; = \; c \vldtranscript{\theta} 
+\end{equation}
+Contrarily, for \cref{tab:transcr_cn_ctxn_sub} (case (c)), $c_{n-1} \sqsupset c_n$ enforces that the transcription of $c_{n-1}$ constrains the transcription of $c_n$; however, this additional constraint is cancelled out by the equivalence that holds between $c_n’$ and $c_{n-1}’$. Indeed this latter would not be the case for contexts where $r’ \neq =$, not shown here. In conclusion:
+\begin{equation}\label{eq:cn_ctxn_sub}
+  c_n\vldtranscript{( \sqsubset, \theta_n, =, \ctx_{n-1})} \; = \; c \vldtranscript{\theta} 
+\end{equation}
 
-In conclusion, introducing new information brings about subcases that *do* generate more specificity in the transcription for $c_{n-1}$ where, originally, a valid transcription was not possible. Not for *all* subcases, unfortunately. Indeed, the information added by case \ref{fig:medcxt-e_p-p_e-b_e} (a) renders insufficient knowledge to provide for an alternative transcription for the problematic rows 3 and 4, as is shown in \cref{tab:transcr_cn-1_ctxn_eq}, columns $\theta_n \in \{ \sqsupset, \overlap \}$. Contrarily, columns $\theta_n \in \set{\sqsubset, =}$ do provide for alternative transcriptions, so by introducing more (context) information we have gained a 50% improvement over the atomic class context. When we look at case (b) in \cref{tab:transcr_cn-1_ctxn_sup}, a potential transcription for the hard case $\theta_n = \sqsupset$ is available as well for rows 3 and 4, as explained in \cref{rmk:anc}; an improvement of 66% over the atomic case. Moreover, for rows 1, 2, and 5, both cases (a) and (b) provide for a transcription for $\theta_n \in \{ \sqsupset, \overlap \}$ for all points where the context is logically consistent. Finally, both cases (a) and (b) provide for a more accurate transcription for $\theta_{n-1} = \disj$. 
- 
+We can summarise the conclusions as follows:
+
+1. The logical consistency of the transcription is defined by the transcription context, i.e., $T_{\ctx_n}(c_n) = T_{\ctx_n}(c_{n-1}) = -$ for logically inconsistent contexts;
+2. The resulting transcription for $c_{n-1}$ in transcription context $\ctx_n$ is the intersection of the transcription at context level $n$ and those at the lower levels;   
+    1. Introducing new information brings about subcases that *do* generate more specificity in the transcription for $c_{n-1}$ where, originally, a valid transcription was not possible. Case (a) provides for alternative transcriptions, i.e., columns $\theta_n \in \set{\sqsubset, =}$ in \cref{tab:transcr_cn-1_ctxn_sup}, so by introducing more (context) information we have gained a 50% improvement over the atomic class context. When we look at case (b) in \cref{tab:transcr_cn-1_ctxn_sup}, a potential transcription for the hard case $\theta_n = \sqsupset$ is available as well for rows 3 and 4, as explained in \cref{rmk:anc}; an improvement of 66% over the atomic case. Moreover, for rows 1, 2, and 5, both cases (a) and (b) provide for a transcription for $\theta_n \in \{ \sqsupset, \overlap \}$ for all points where the context is logically consistent. Both cases (a) and (b) provide for a more accurate transcription for $\theta_{n-1} = \disj$;
+    2. Subcases exist that do not generate a more specific context. Indeed, the information added by case \ref{fig:medcxt-e_p-p_e-b_e} (a) renders insufficient knowledge to provide for an alternative transcription for the problematic rows 3 and 4, as is shown in \cref{tab:transcr_cn-1_ctxn_eq}, columns $\theta_n \in \{ \sqsupset, \overlap \}$.
+3. The resulting transcription for $c_n$ in transcription context $\ctx_n$ is not different than that of the original atomic case, except when an intra-ontological equivalence holds between $c_n$ and $c_{n-1}$. In fact, we can only expect a more specific transcription for level $n$ when taking context $\ctx_{n+1}$ into consideration, viz. on the next higher induction level $n+1$. This holds also for those subcases from the previous conclusion 2.2 above.  
 
 So far we only have used examples from the transcription model \ref{fig:gen-class-transc-models}(a). We show in the next section the reasoning that applies for part (b) of the transcription model.
 
@@ -879,7 +881,7 @@ So far we only have used examples from the transcription model \ref{fig:gen-clas
 [def:MedcxtSup]: src\images\MedCxt-eq_sup-sup_eq-sub_eq.png {#fig:medcxt-e_p-p_e-b_e width=90%}
 
 </Text>
-            <Comments>brandtp, 4-9-2019 Controleer cases b en c voor $T_n(c_n)$ </Comments>
+            <Comments>brandtp, 9-9-2019 Misschien nuttiger om in case c geen intra-ontologische equivalentie toe te passen om meer positieve resltaten te behalen.</Comments>
         </Document>
         <Document ID="57">
             <Title>Transcribing over an $r, r'\in \set{ \overlete, \overlinc, \displete, \disjoinc }$  class contexts</Title>
