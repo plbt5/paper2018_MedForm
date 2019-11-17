@@ -1196,7 +1196,7 @@ Then, the set of mediation terms $\mter(\Sigma, V)$ is defined inductively as:
   \forall p \in \Sigma^n \; &amp;: \; t_1, \ldots, t_n \in \mter(\Sigma, V) \; \Rightarrow \; p(t_1, \ldots, t_n) \in \mter(\Sigma, V)  
 \end{align*}     
 \end{mmdef}
-The difference between this \cref{def:med-terms} and the original \cref{def:terms} is to assure that $\mter(\Sigma, V)$ includes terms that are formulated over the two ontologies, each of them including a differently denoted verum concept. This definition does not enforce that each mediation term is a valid ontological theory because this is irrelevant and even undesirable for mediation terms that occur as intermediate terms in the rewriting sequence. We do need to ensure, though, that the end terms of a term transcription is a valid ontological theory.    
+The difference between this \cref{def:med-terms} and the original \cref{def:terms} is to assure that $\mter(\Sigma, V)$ includes terms that are formulated over the two ontologies, and furthermore, each of them including a differently denoted verum concept. This definition does not enforce that each mediation term is a valid ontological theory because this is irrelevant and even undesirable for mediation terms that occur as intermediate terms in the rewriting sequence. We do need to ensure, though, that the end terms of a term transcription is a valid ontological theory.    
 
 \begin{mmdef}[Term identity]\label{def:term-identity}
 A \emph{term identity}, or simply an \emph{identity}, is a pair of terms $\pair{s, t} \in \mter(\Sigma_\ont{O}, V) \times \mter(\Sigma_{\ont{O}’}, V)$, denoted as $s \approx t$, expressing an \emph{a priori} equality between both terms. We call $s$ the left-hand side (LHS) and $t$ the right-hand side (RHS) of the identity $s \approx t$. 
@@ -1270,7 +1270,7 @@ A rewrite rule $\rho : l \to r$ can be \emph{applied} to a term $s$ iff $\exists
 \intertext{The \emph{result} term $t$ of applying a rewrite rule $\rho$ to a term $s$ is obtained as $t \equiv s[\sigma(r)]_p$:} 
   s[ \cdot ]_p &amp;: \; \text{denotes a replacement of the subterm of $s$ that starts at position $p$ in $s$} \nonumber \\
 \intertext{Then, a \emph{one-step rewrite} from $s$ to $t$ by $\rho$, denoted $s \to_\rho t$, is defined as: }
-  &amp; \; s|_p \equiv \sigma(l) \to_\rho s[\sigma(r)]_p \equiv t 
+  &amp; \; s|_p \equiv \sigma(l) \to_\rho s[\sigma(r)]_p \equiv t \label{eq:ctr} 
 \end{align}
 \end{mmdef}
 The result of a one-step rewrite can be considered for another one-step rewrite when a proper rewrite rule is available. A finite or infinite sequence of one-step rewrites is called a *rewrite sequence* or *rewrite path*, denoted $a \to a_1 \to ... a_k \to b$ with $a, a_i, b \in \ter$. If we do not want to identify the particular rewrite path we denote $a \to b$. In either case we say that $a$ *rewrites* to $b$, and $b$ is the *rewrite* of $a$. A rewrite path is finite when the last element of the rewrite path is a term for which no rewrite rules apply. Such term is called an *end term*. The reflexive-transitive closure of $\to$ is denoted as $\trsrtc$.  
@@ -1337,7 +1337,7 @@ Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where t
             <Title>table in table test</Title>
         </Document>
         <Document ID="62">
-            <Title>Transcription context as condition</Title>
+            <Title>Conditional transcription rules</Title>
             <Text>Based on the previous sections we now can specify the conditional term rewriting system that implements a generic mediator. The following table shows how the necessary characteristics of a transcription can be turned into sufficient requirements that we set on the CTRS in order for its application as a mediator.
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -1375,9 +1375,9 @@ Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where t
       should yield the same transcription result.
 --------------------------------------------------------------------------------------------------------------------------------------
 
-   : Requirements for implementing transcriptions as conditional term rewriting systems.
+   : Requirements for implementing transcriptions as conditional term rewriting systems.\label{tab:reqs}
 
-The unconditional rewrite rules for any transcription stem from $\ctx = \pair{\theta}$, eq. \cref{eq:act}, and read as follows:
+The unconditional rewrite rules for any transcription stem from $\ctx = \pair{\theta}$, eq. \ref{eq:act}, and read as follows:
 \begin{subequations}\label{eq:utr-all}
 \begin{alignat}{2}
   \rho_{(\theta)}   &amp;:\quad&amp;            l \, &amp;\to_0 \, r    \label{eq:utr}\\
@@ -1392,30 +1392,51 @@ The unconditional rewrite rules for any transcription stem from $\ctx = \pair{\t
 \end{subequations}
 Collectively, these rules represent the \emph{unconditional transcription rules}. Note that these unconditional transcription rules apply to the most specific classes in ontology $\ont{O}$ only, viz. $\set{c \; | \; \forall b, c \in \ont{O}: b \sqsubset c \; \Rightarrow \; b \equiv \bot}$. 
 
-For conditional transcriptions we need to specify the conditions under which the rules apply. Note that two different inductions dimensions apply here: one is about the transcription model, depicted in \cref{fig:gen-class-transc-models} and denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. 
+For conditional transcriptions we need to specify the conditions under which the rules apply. Note that two different inductions dimensions apply here: one is about the transcription model, depicted in \cref{fig:gen-class-transc-models} and denoted with index $n$, whereas the other is about the cTRS that is being designed, denoted with index $k$. Furthermore, in the transcription model the induction is taking place over levels $n-1$ and its adjacent higher level of $n$, whereas in the cTRS model it takes place over levels $k$ and $k+1$. These induction dimensions apply independently from each other. The reason for this is laid in a conflict between the inductive formulations of the class transcription model in \cref{valid-transcriptions} and a cTRS, \cref{eq:crrel-r_i}. Where in the latter $c_{n-1} \vldtranscript{\ctx_n}$ depends on the higher level context $\ctx_n$, e.g., \cref{eq:cn-1_ctxn_sup}, the former explicitly demands that the condition that applies at level $k+1$ can be satisfied by rules that can be resolved at a lower hierarchy, \cref{eq:crrel-r_i}.     
 
 \begin{mmdef}[Conditional transcription relation]\label{def:ctrel} 
 \begin{subequations}\label{eq:ctrel} 
  A \emph{conditional transcription relation} is a conditional rewrite relation (\cref{def:crrel}) of the form
-  \begin{align}\label{eq:ctrel}
-    R_0     &amp;: \set{\rho_{_\sqsubset}, \rho_{_\equiv}, \rho_{_\sqsupset}, \rho_{_\overlap}, \rho_{_\disj}, \rho_{_\top}}  \\
-    R_{k+1} &amp;: R_k \; \cup \; \set{ \rho_{k+1,\ctx_n} : \, \sigma(l) \to \sigma(r) \; | \; l \, \to \, r \; \text{if } \Gamma_{k,\ctx_n} } \\   
-    \intertext{where} 
-    \Gamma_{k,\ctx_n} &amp;: \pair{l, r} \in R_k \land \ctx_n \\
-    r                 &amp;= c_{n-1} \vldtranscript{(\theta_n)} \sqcap c_{n-1} \vldtranscript{\ctx_{n-1}} \\
-    l                 &amp;= c_{n-1} \, \theta_{n-1} \, c_{n-1}’    
+  \begin{align}
+    R_0     &amp;: \set{\rho_{_\sqsubset}, \rho_{_\equiv}, \rho_{_\sqsupset}, \rho_{_\overlap}, \rho_{_\disj}, \rho_{_\top}}  \label{eq:ctrel-a} \\
+    R_{k+1} &amp;: R_k \; \cup \; \set{ \rho_{k+1,\ctx_n} : \, \sigma(l) \to \sigma(r) \; | \; l \, \to \, r \; \text{if } \Gamma_{k,\ctx_n} } \label{eq:ctrel-b} \\   
+    \intertext{where $\Gamma_{k,\ctx_n}$ consists of $m$ conditions, each of them ($\forall_{0 &lt; j \leq m}$) specified as:}  
+    \ctx_n      &amp;\land \pair{s_j, t_j} \in R_k  \label{eq:ctrel-c} \\
+    s_j         &amp;= c_{j,n-1} \, \theta_{j,n-1} \, c_{j,n-1}’ \label{eq:ctrel-d} \\
+    t_j         &amp;= c_{j,n-1} \vldtranscript{(\theta_{j,n})} \sqcap c_{j,n-1} \vldtranscript{\ctx_{j,n-1}}  \label{eq:ctrel-e} \\
+    \sigma(s_j) &amp;\trsrtc_k \sigma(t_j) \label{eq:ctrel-f}      
   \end{align}
   Collectively, these rules are denoted $R_{k+1} = R_k \cup \rho_{k+1,\ctx_n}$, representing the \emph{conditional transcription rules} as follows:
   \begin{equation}\label{eq:tc-as-ctr}
     c_{n-1} \vldtranscript{\ctx_n} \quad \Longleftrightarrow \quad \rho_{k+1,\ctx_n}: \, \sigma(l) \, \to_{k+1} \, \sigma(r) \; \text{if } \Gamma_{k,\ctx_n}   
   \end{equation}    
-\end{subequations}
-With $\rho_{k+1,\ctx_n}$ we emphasise that the particular rewrite rule is completely defined by context $\ctx_n$.  
+\end{subequations}  
 \end{mmdef}
-From \cref{eq:ctr} we define the one-step rewrite for a transcription as follows.
+With $\rho_{k+1,\ctx_n}$ we emphasise that the particular rewrite rule is completely defined by context $\ctx_n$. Furthermore, the definitions for \cref{eq:ctrel-a,eq:ctrel-b,eq:ctrel-c} follow directly from \cref{def:crr,def:crrel}, with \cref{eq:ctrel-c} additionally demanding the existence of the particular transcription context. \Cref{eq:ctrel-d} and \cref{eq:ctrel-e} implement Req.1 respectively Req.2 from \cref{tab:reqs}
+
+
+
+----
+
+Ik ben er niet zeker van dat \cref{def:ctrel} de waterdichte oplossing is van het hierboven genoemde conflict tussen het inductieve transcriptiemodel en het inductieve cTRS model. Inderdaad heb ik de beide inductiedimensies losgekoppeld, want
+ 
+* het transcriptie inductiemodel uit \cref{fig:gen-class-transc-models} legt geen voorwaarde op aangaande de wijze waarop we door de inductie heen moeten lopen. Het stelt alleen dat een context $\ctx_n$ bestaat uit *een* combinatie van $r, \theta_n, r’, \ctx_{n-1}$ en dat zegt niks over hoe de context $\ctx_{n-1}$ op een lager inductienivo er uitziet;
+* het cTRS inductiemodel legt geen voorwaarde op over de inhoud van de rewrite rules en alleen over het feit dat de conditie op een lager inductienivo moet kunnen worden geevalueerd. Dat betekent dat ik voor een specifieke correspondence $\pair{e, e’, \theta}$ een specifieke inrichting zou kunnen maken van de andere correspondences, zodanig dat aan de cTRS inductie-eis kan worden voldaan.
+
+Toch lijkt er nog steeds een vorm van afhankelijkheid te bestaan, want dit zou betekenen dat ik voor elke specifieke correspondence een specifieke volgordelijkheid van de rewrite rules, dus de correspondences en bijbehorende transcriptiemodellen, moet maken. En ik zie niet hoe ik dat op een generieke wijze kan invullen. Derhalve lijkt het formaliseren van een transcriptie als cTRS op deze wijze niet mogelijk te zijn.  
+
+Klopt deze gedachtengang?  
+
+----
+
+
+We define the one-step rewrite for a transcription as follows.
 \begin{align}
-  &amp;s|_p \equiv \sigma(l) \equiv c_n \\ 
-  &amp;\sigma(r) \equiv c_n s[\sigma(r)]_p \equiv t \\
+  s|_p &amp;\equiv \sigma(l) \equiv \sigma(c_{n-1} \, \theta_{n-1} \, c_{n-1}’) \\
+  \sigma(r) &amp;\equiv \sigma(c_{n-1} \vldtranscript{(\theta_n)} \sqcap c_{n-1} \vldtranscript{\ctx_{n-1}}) \\ 
+  \intertext{Using these equivalences in \cref{eq:ctr}, we arrive at: }
+  s|_p \equiv \sigma(c_{n-1} \, \theta_{n-1} \, c_{n-1}’) &amp;\to_\rho s[\sigma(c_{n-1} \vldtranscript{(\theta_n)} \sqcap c_{n-1} \vldtranscript{\ctx_{n-1}})]_p \equiv t \\
+  \intertext{where }
   &amp;\rho \text{ is uniquely defined by } \ctx_n \\
   &amp;t_n’ \text{ is ground normal form with respect to the unconditional system, and} \\
   &amp;c_n \trsrtc t_n’
