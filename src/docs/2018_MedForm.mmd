@@ -97,8 +97,8 @@ where:
 
 * $r, r’ \in \set{\sqsubset, =, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, denoting the seven logical relationships that can apply intra-ontologically between pair of concepts, depicted in \cref{fig:key2-r-symbols} for $r \in \ont{O}$, with:
     * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively;
-    * $\sqsubset, =, \sqsupset$ denote *subsumption of*, *semantic equivalence*, and *subsumes*, e.g., $m \sqsupset b$ as ‘a mug subsumes a beaker’, and
-    * $\displete, \disjoinc$ denote *disjoint* ($e_1 \sqcap e_2 = \emptyset$) *but complete* ($e = e_1 \sqcup e_2$) or *incomplete* ($e \sqsupset e_1 \sqcup e_2$), respectively, e.g. $b \disjoinc d$ denoting ‘beaker and demitasse are a disjoint but incomplete set of cups’; 
+    * $\sqsubset, =, \sqsupset$ denote *subsumption of*, *semantic equivalence*, and *subsumes*, e.g., $m \sqsupset b$ as ‘a coffee holder subsumes a beaker’, and
+    * $\displete, \disjoinc$ denote *disjoint* ($e_1 \sqcap e_2 = \emptyset$) *but complete* ($e = e_1 \sqcup e_2$) or *incomplete* ($e \sqsupset e_1 \sqcup e_2$), respectively, e.g. $m \sqsupset b \disjoinc d$ denoting ‘beaker and demitasse are a disjoint but incomplete set of coffee holders’; 
     * $\overlete, \overlinc$ denote *not disjoint* ($e_1 \sqcap e_2 \neq \emptyset$) *but complete* and *not disjoint and incomplete*, respectively;
     * Note the we do not consider the correspondence relation that might or might not have been specified between $r$ and $r’$, otherwise we would investigate correspondence (b) from \cref{fig:basic-correspondence}; 
 * $\theta_n \in \Theta$, the correspondence relation from \cref{eq:correspondence} that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
@@ -111,7 +111,7 @@ We can depict the inductive transcription context as follows. We first consider 
 
 ![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’\in \set{\overlete, \overlinc, \displete, \disjoinc}$, category (b), classes $c$ and $c'$ are implicit.][def:GenClassTranscModels]
 
-On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} but are not shown in \cref{fig:gen-class-transc-models}, are (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) vice versa.  
+On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} but are not shown in \cref{fig:gen-class-transc-models}, are (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) $r$ and $r’$ specified vice versa.  
 
 In the remainder of this paper we refer to a specific context that specify both intra-ontological relations, $r$ and $r’$, and the inter-ontological correspondence $\theta_n$ over another induction ($\ctx_{n-1}$) as a particular *case. *Clearly, categories \ref{fig:gen-class-transc-models}(a)-(d) are complementary to each other, depending on the particular choice for $r$ or $r’$. Together they represent the generic, inductive transcription context with which each and every correspondence in every context that might apply can be described. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next section. 
 
@@ -119,9 +119,9 @@ In the remainder of this paper we refer to a specific context that specify both 
 
 
 <!-- Page definitions -->
-[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=80%}
-[def:Key2rSymbols]: src\images\Key2rSymbols.png {#fig:key2-r-symbols width=90%}
-[def:GenClassTranscModels]: src\images\GenClassTranscrModelAAndB.png {#fig:gen-class-transc-models width=80%}
+[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=70%}
+[def:Key2rSymbols]: src\images\Key2rSymbols.png {#fig:key2-r-symbols width=100%}
+[def:GenClassTranscModels]: src\images\GenClassTranscrModelAAndB.png {#fig:gen-class-transc-models width=70%}
 # Valid transcriptions #
 The main demand for the mediation is to guarantee that it produces a semantic valid transcription. We formulate a naive transcription and a valid transcription as follows.
 
