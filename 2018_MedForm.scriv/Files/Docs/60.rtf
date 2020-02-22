@@ -41,8 +41,8 @@
 \par\plain {\f0\fs24\b0\i0 A \\emph\{term rewriting rule\} is a pair of terms $l, r \\in \\ter(\\Sigma, V)$, such that:}
 \par\plain {\f0\fs24\b0\i0 \\begin\{subequations\}}
 \par\plain {\f0\fs24\b0\i0   \\begin\{align\}}
-\par\plain {\f0\fs24\b0\i0   l       &\\not\\in V         \\label\{eq:distinctness\} \\\\}
-\par\plain {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r) \\label\{eq:novarintro\} }
+\par\plain {\f0\fs24\b0\i0   l       &\\not\\in V          \\\\}
+\par\plain {\f0\fs24\b0\i0   \\var(l) &\\supseteq \\var(r)  }
 \par\plain {\f0\fs24\b0\i0   \\end\{align\}}
 \par\plain {\f0\fs24\b0\i0 \\end\{subequations\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, we denote $l \\to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\\rho$, and we write $\\rho : l \\to r$.}
@@ -104,7 +104,7 @@
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align\}}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_0     &: \\set\{ \\rho_0: \\, l \\to r \\; | \\; (l, r) \\in R \} \\label\{eq:crrel-r\} \\\\}
 \par\plain {\f0\fs24\b0\i0   \\begin\{split\}}
-\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_\{i+1\} &: R_i \\; \\cup \\; \\\{ \\rho_\{i+1\}: \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\to r \\text\{ if \} \\pair\{s_1 = t_1 \\land }{\f0\fs24\b0\i0 \\ldots \\land s_m = t_m}{\f0\fs24\b0\i0 \} \\in R \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   R_\{i+1\} &: R_i \\; \\cup \\; \\\{ \\rho_\{i+1\}: \\, \\sigma(l) \\to \\sigma(r) \\; | \\; l \\to r \\text\{ if \} \\pair\{s_1 = t_1 \\land \\ldots \\land s_m = t_m\} \\in R \\\\}
 \par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0           &\\qquad \\land \\forall j = \\set\{1, \\ldots, m\}: \\sigma(s_j) \\trsrtc_i \\sigma(t_j) \\\} \\label\{eq:crrel-r_i\} }
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0   \\end\{split\}}
 \par\pard\plain \tx1899\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 \\intertext\{For the \\emph\{conditional rewrite relation\} $\\to_R$ it holds that\}}

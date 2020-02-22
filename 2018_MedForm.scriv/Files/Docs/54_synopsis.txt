@@ -1,1 +1,3 @@
 Only possible if I have time to produce an implementation (specification) in either Pure or Maude (TRS-facilitating platforms)
+
+\end{synopsis}

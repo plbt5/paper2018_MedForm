@@ -1,9 +1,9 @@
-\ProvidesPackage{mySpecialTokens}[2020/02/10 package mySpecialTokens]	% Tokens for modal logic, formal semantics and term rewriting
+\ProvidesPackage{mySpecialTokens}[2019/02/15 package mySpecialTokens]	% Tokens for modal logic, formal semantics and term rewriting
 \RequirePackage[utf8]{inputenc}		% NOT required when using xetex as opposed to pdftex
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}				% <amsthm> conflicts with <ntheorem> package (section 3.2.2 ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf); 
                                         % Instead, the [amsthm] option is used with <ntheorem> 
-\RequirePackage{stackengine}
+\RequirePackage[ntheorem]{mathtools}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modal logic operators
@@ -20,7 +20,7 @@
 \def\domB{%
   \mathbb{B}
 }
-
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Charactersfor FormalSemantics.
 % Method is by superimposing two other characters, see: http://tex.stackexchange.com/questions/148051/how-do-you-make-a-square-element-symbol-in-to-show-that-an-element-belongs-t
@@ -39,10 +39,9 @@
 \newcommand*{\MyTMode}[1]{%
   \ifmmode{\text{#1}}\else{#1}\fi%
 }
- 
-% equivalen by definition, i.e., Delta over Equiv
-%\usepackage{stackengine}
-%\def\eqdef{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptscriptstyle\Delta}}}}
+  
+\usepackage{stackengine}
+\def\eqdef{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptscriptstyle\Delta}}}}
 
  
 % Interpretation: A consistent character for the Interpretation function I
@@ -95,18 +94,15 @@
 }
  
 % Math operators
-\DeclareMathOperator{\dom}{\mathnormal{dom}}			% domain
-\DeclareMathOperator{\rng}{\mathnormal{rng}}				% range
-
-% TRS operators
-\DeclareMathOperator{\sub}{\mathnormal{Sub}}				% TRS set of all variabe substitutions
-\DeclareMathOperator{\pos}{\mathnormal{Pos}}				% TRS position of subterm in term
-\DeclareMathOperator{\var}{\mathnormal{Var}}				% TRS Variables in term
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator{\sub}{\CMcal{S}ub}						% TRS set of all variabe substitutions
+\DeclareMathOperator{\pos}{\CMcal{P}os}						% TRS position of subterm in term
+\DeclareMathOperator{\var}{\CMcal{V}\mathnormal{ar}}		% TRS Variables in term
 \DeclareMathOperator{\ter}{\CMcal{T}}						% TRS terms
-\DeclareMathOperator{\mter}{\prescript{}{m}{\ter}}		% TRS mediation terms
-%\DeclareMathOperator{\sub}{\CMcal{S}ub}
-%\DeclareMathOperator{\pos}{\CMcal{P}os}
-%\DeclareMathOperator{\var}{\CMcal{V}ar}
+\DeclareMathOperator{\mter}{\prescript{}{m}{\ter}}			% TRS mediation terms
+%\DeclareMathOperator{\mter}{\CMcal{M}}						% TRS mediation terms
+
  
 % Define the square element-of character, as a superimpose of \sqsubset and - . See: http://tex.stackexchange.com/questions/148051/how-do-you-make-a-square-element-symbol-in-to-show-that-an-element-belongs-t
 % Square element-of (\sqin) character, as a superimpose of \sqsubset and - .
@@ -143,26 +139,39 @@
 }
  
 % Disjoint & complete (\disjointcompl, or, \displete) character, as a superimpose of \bot and = .
-\newcommand{\disjointcompl}{%
-  \mathrel{\vphantom{=}\text{%
-    \mathsurround=0pt%
-    \ooalign{$\bot$\cr\raisebox{-0.89ex}{$=$}\cr}%
-%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
+% From https://tex.stackexchange.com/questions/471050/incomplete-iffalse-in-caption-but-correct-in-regular-text-wheres-the-if
+\DeclareRobustCommand{\disjointcompl}{%
+  \mathrel{\text{%
+    \mathsurround=0pt
+    \vtop{\offinterlineskip
+      \ialign{##\cr
+        $\bot$\cr
+        \noalign{\kern-0.1ex}
+        $=$\cr
+      }
+    }%
   }}%
 }
+%\newcommand{\disjointcompl}{%        This OLD VERSION makes it a fragile command, that has to be prefixed by \protect if used in a moving argument (caption or section title).
+%  \mathrel{\vphantom{=}\text{%
+%    \mathsurround=0pt%
+%    \ooalign{$\bot$\cr\raisebox{-0.89ex}{$=$}\cr}%
+%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
+%  }}%
+%}
 \def\displete{%
  \disjointcompl%
 }
  
 % Not disjoint (\ndisjoint) character, as a superimpose of \bot and / .
-\newcommand{\ndisjoint}{%
+\DeclareRobustCommand{\ndisjoint}{%
   \mathrel{\vphantom{\bot}\text{%
     \mathsurround=0pt%
     \ooalign{$\bot$\cr\hidewidth$/$\hidewidth\cr}%
   }}%
 }
 % Disjoint & incomplete (\disjoinc) character, as a superimpose of \disjointcompl and a small / .
-\newcommand{\disjoinc}{%
+\DeclareRobustCommand{\disjoinc}{%
   \mathrel{\vphantom{=}\text{%
     \mathsurround=0pt%
 %    \ooalign{$\mid$\cr$\neq$\cr}%
@@ -170,31 +179,27 @@
   }}%
 }
  
-%% Overlap & complete (\overlete) character, as a superimpose of \overlap and = .
-%\newcommand{\overlete}{%
-%  \mathrel{\vphantom{=}{%
-%    \mathsurround=0pt%
-%%   \raisebox{-0.9ex}{\ensurestackMath{\stackon[0.1pt]{=}{\small\overlap}}}
-%    \raisebox{-0.9ex}{\ensurestackMath{\stackon[0.1pt]{=}{\scalebox{.7}{$\overlap$}}}}
-%%    \ooalign{\hidewidth\small\raisebox{0.1ex}{$\overlap$}\hidewidth\cr\raisebox{-0.89ex}{$=$}\cr}%
-%%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
-%  }}%
-%}
-
 % Overlap & complete (\overlete) character, as a superimpose of \overlap and = .
-\newcommand{\overlete}{%
-%   \raisebox{-0.9ex}{\stackon[0.1pt]{=}{\scalebox{.7}{$\overlap$}}}
-    \raisebox{-0.9ex}{\stackon[0.1pt]{=}{\scalebox{.7}{$\overlap$}}}
+\DeclareRobustCommand{\overlete}{%
+  \mathrel{\vphantom{=}{%
+    \mathsurround=0pt%
+%   \raisebox{-0.9ex}{\ensurestackMath{\stackon[0.1pt]{=}{\small\overlap}}}
+    \raisebox{-0.9ex}{\ensurestackMath{\stackon[0.1pt]{=}{\scalebox{.7}{$\overlap$}}}}
+%    \ooalign{\hidewidth\small\raisebox{0.1ex}{$\overlap$}\hidewidth\cr\raisebox{-0.89ex}{$=$}\cr}%
+%    \ooalign{$\bot$\cr{\small\raisebox{0.1ex}{c}}\cr}%
+  }}%
 }
-
+ 
 % Overlap & incomplete (\overlinc) character, as a superimpose of \overlete and a small / .
-\newcommand{\overlinc}{%
+\DeclareRobustCommand{\overlinc}{%
   \mathrel{\vphantom{\overlete}\text{%
     \mathsurround=0pt%
 %    \ooalign{$\mid$\cr$\neq$\cr}%
     \ooalign{$\overlete$\cr\hidewidth{\tiny\raisebox{-0.9ex}{$\diagup$}}\hidewidth\cr}%
   }}%
 }
+ 
+
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom handy macros
@@ -207,8 +212,6 @@
 %  Arg 1 (Optional) - How high to raise the rule
 %  Arg 2            - Thickness of the rule
 \newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
-
-
 % Phantom semantics (\myPh) character, mimicing uppercase Ħ as a superimpose of H and \raisedrule .
 \def\myPh{{%
     \setbox0\hbox{\textsf{\textup{H}}}%

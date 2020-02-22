@@ -44,7 +44,24 @@ The main idea of the paper is to identify, for (i) all logical contexts that ori
 1. An investigation into the *confluence property* of the inductive model, to assure that the mediator is properly terminating and its transcription results are independent of the order in which the terms are transcribed (\cref{the-confluence-property-of-the-mediator});
 1. (Finally\todo{ brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.} , an *evaluation* of the mediator by providing an implementation that is based on a generic rewriting logic framework, the Maude 2.0 System [@Clavel2003a], (\cref{validation})). 
 
-Before turning to the first of these sections, we introduce some terminology, as follows.
+Before turning to the first of these sections, we present a motivating example.
+## Motivating example ##
+When considering food, whether it is categorised as fruit or vegetable depends on assuming a botanical or culinary perspective. The botanical classification is based on the structure and function of the part of the plant in question, whereas the culinary classification takes flavour and structure as its primary characteristics for classification. As a result tomatoes, cucumber and green beans are considered vegetables by a cook whilst these are considered fruits according to botanical discipline. Assume two ontologies B(otany) and C(ulinary), each specifying the semantics ascribed to their particular data as depicted in \cref{fig:alignment-a}    
+
+![Two ontologies, a culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) one, defining a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables, and a $p$lant anatomy that subsumes $f’$ruits, respectively. Both ontologies are subsumed by the *verum* concept ($\top$, “everything”) and subsume the *falsum* concept ($\bot$, “nothing”). The alignment specifies two correspondences, $\mu_1$ and $\mu_2$][def:AlignA]
+
+Clearly, the culinary vegetarian $i$ngredients can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1$. The second correspondence, depicted as $\mu_2$, state that the culinary $v$egetables concept overlap with the botanic $f$ruit concept; this due to the different categorisation of tomatoes, cucumbers and green beans in relation to, e.g., apples (considered $f$ruit to both disciplines) and asparagus (considered $v$egetables to both disciplines). 
+
+Turning our attention to the transcription of data, assume a mediation process that is presented data from the culinary ontology: the vegetarian ingredients on the menu consist of asparagus, carrots and tomatoes. Assume further that the mediator is aware of both ontologies and the two correspondences. Clearly, stating the fact that they serve “3 different vegetarian ingredients” can be transcribed into “3 different plant parts”. No surprises here since everything that is considered a vegetarian ingredient is considered a part of a plant as well. This changes with a transcription of “the number of vegetables is 3”: simply replacing the culinary term “vegetables” with the botanic term “fruit” results in an invalid categorisation on behalf of the asparagus and carrots. In order to correct this it is necessary to take the particular correspondence relation into account. Indeed, $\mu_2$ specifies a valid logic notion on how the two categories relate to each other. However, the particular relation implies that a transcription into the target term is invalid, and that it is necessary to take the context of both ontologies and the other correspondence into consideration. Based on this implication we can derive that a valid transcription of “the number of vegetables is 3” reads “the number of plant parts is 3”. Although this transcription result is more generic than its original fact, it remains valid and does not induce incorrect categorisations.     
+
+This implies that the idea of transcribing source terms to their target terms simply because a valid correspondence exists between them, can be considered naive. Worse, invalid semantics are induced by it. Its resolution necessitates to take the actual correspondence in its particular ontological context into consideration and deduce the valid transcription from it. As a result, the transcriptions might be less specific, but are guaranteed to remain semantically valid.      
+
+
+<!-- Page definitions -->
+[def:AlignA]: src\images\AlignmentA.png {#fig:alignment-a width=35%}
+
+## Terminology ##
+We introduce some terminology, as follows.
 
 A *correspondence* denotes a single particular inter-ontological relation, prescribed, and assumed to represent a semantically valid relation between both concepts. The correspondence is denoted as
 \begin{equation}\label{eq:correspondence}
@@ -105,11 +122,10 @@ where:
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level;
 * $\ctx_0 = \pair{\theta}$, viz. the basic correspondence that holds between classes $c \in \ont{O}$ and $c’ \in \ont{O}’$ (see \cref{tab:atomic-class-transcriptions} in \cref{transcribing-over-atomic-class-context}).   
 
-![Key to symbols of all ontological relations $r$ between concepts $e, e_1, e_2$ as used throughout this paper. Note that (in)completeness and (non-)disjointness always occur together.][def:Key2rSymbols]
 
 We can depict the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
 
-![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’\in \set{\overlete, \overlinc, \displete, \disjoinc}$, category (b), classes $c$ and $c'$ are implicit.][def:GenClassTranscModels]
+![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’ \in \set{ \protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc }$, category (b), classes $c$ and $c'$ are implicit.][def:GenClassTranscModels]
 
 On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} but are not shown in \cref{fig:gen-class-transc-models}, are (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) $r$ and $r’$ specified vice versa.  
 
@@ -158,7 +174,7 @@ Indeed, the best transcription would be one for which $\intn’(T_{\ctx_n}(e_n))
 
 Since the transcription context provides for all potential logical contexts that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of atomic concepts $e_n’$ and $e_{n-1}’$, or $e_n’$, $e_{n-1}’$ and $e’$ for all cases that are addressed by \cref{fig:gen-class-transc-models}(a), resp. (b). Our task is then to traverse the 4-dimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn’(T_{\ctx_n}(e_n)) \supseteq \intn(e_n)$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that includes $\intn(e_n)$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.
 
-----
+
 
 Noot: \cref{def:valid-transcription} IS FEITELIJK ONJUIST, omdat $\intn: \ont{O} \to \concept{D}$ en $\intn’: \ont{O}’ \to \concept{D}’$ en derhalve niet hetzelfde co-domain hebben, en daardoor de subset relatie niet bepaald kan worden. Het is juist de bedoeling dat de alignment $e_n \theta_n e_n’$ het verschil in conceptualisaties overbrugt; dat neem ik ook als uitgangspunt. Want: Het maken van een alignment is niet mogelijk zonder een extern orakel die beide afzonderlijke conceptualisaties tot elkaar weet te verhouden. Dat orakel, de mens, is wat ik in \cref{def:valid-transcription} als gezamenlijk co-domain impliceer, op basis waarvan de subset relatie wordt bepaald. Maar ja, hoe schrijf je dat op, mathematisch; door de semiotische “abstractie” relatie met de werkelijkheid te leggen? Maar leg je dan eigenlijk niet heel exact vast dat je te weinig expliciet kan maken om vast te stellen wanneer de transcriptie semantisch valide is?
 
@@ -193,7 +209,7 @@ This is straightforward for this case: since no other concepts are present in co
 
 In conclusion, \cref{tab:atomic-class-transcriptions} specifies all *valid* transcriptions under the one single atomic transcription context for all correspondences, collectively. We therefore denote such transcription table as $\vldtranscript{\ctx}$, and this particular one as $\vldtranscript{(\theta)}$. This can be summarised as:
 
-\begin{subnumcases}{\ensuremath{\label{eq:act}c \vldtranscript{(\theta)} \; = \; }} 
+\begin{subnumcases}{\label{eq:act}\ensuremath{c \vldtranscript{(\theta)} \; = \; }} 
   c’      & : $\theta \in \set{\sqsubset, =}$        \label{eq:act-1}\\
   \neg c’ & : $\theta \in \set{\disj}$               \label{eq:act-2}\\
   \ntsa   & : $\theta \in \set{\sqsupset, \overlap}$ \label{eq:act-3}
@@ -202,13 +218,23 @@ In conclusion, \cref{tab:atomic-class-transcriptions} specifies all *valid* tran
 
 Unfortunately, three transcription results, although valid, are rather disappointing. For $\theta \in \set{\sqsupset, \overlap}$, eq.~(\ref{eq:act-3}), neither $c’$ nor $\neg c’$ do sufficiently constrain the individuals in $\ont{O}’$ that are implied by $c$. In other words, the best logical combination of terms from $\ont{O}’$ that we can make that implies the smallest set covering $\intn(c)$ is $T_{(\theta \in \set{\sqsupset, \overlap})}(c) = c’ \sqcup \neg c’$, or $\top$ for short, denoting *verum*, viz. always \token{True}. A rather useless transcription, but a valid one nonetheless. Moreover, the transcription result for $\theta \in \set{\disj}$, eq.~(\ref{eq:act-2}), is not as total as $\top$ but still as broad as $T_{(\disj)}(c) = \neg c’$. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.
 ## Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context ##
-The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new class that is subsumed by the existing class: $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-e_p-p_e-b_e} case (a), and case (b) introduces the same class subsumption but now into $\ont{O}$. 
+The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new classes in both $\ont{O}$ and $\ont{O’}$ with a subsumption or equivalence relation with the existing class: $c_n = c_{n-1}$ into $\ont{O}$ and $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-e_p-p_e-b_e} case (a), case (b) introduces the same relations but vice versa, and for case (c) we flip the direction of the subsumption relation from case (b). This has been depicted in \cref{fig:medcxt-e_p-p_e-b_e}.  
 
-![Three correspondences: Case (a): class $c_n$ is equivalent to class $c_{n-1}$. Case (b): class $c_n$ subsumes class $c_{n-1}$. Case (c): class $c_n$ is subsumed by class $c_{n-1}$. All cases extend and build upon the valid transcription under context $\ctx_{n-1} = \pair{\theta_{n-1}}$, as specified in \cref{tab:atomic-class-transcriptions}. The current context, $\ctx_n$, specifies case (a) as $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$, case (b) as $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$, and case (c) as $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$][def:MedcxtSup]
+![Introducing intra-ontological relations $r, r'\in \set{\sqsubset, =, \sqsupset}$: Case (a): class $c_n$ is equivalent to class $c_{n-1}$. Case (b): class $c_n$ subsumes class $c_{n-1}$. Case (c): class $c_n$ is subsumed by class $c_{n-1}$. All cases extend and build upon the valid transcription under context $\ctx_{n-1} = \pair{\theta_{n-1}}$, as specified in \cref{tab:atomic-class-transcriptions}. The current context, $\ctx_n$, specifies case (a) as $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$, case (b) as $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$, and case (c) as $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$][def:MedcxtSup]
 
-All three cases are founded on case \ref{tab:atomic-class-transcriptions} since the transcription of the latter (specified in \cref{tab:atomic-class-transcriptions}) has been incorporated inductively as the underlying transcription, i.e., $T_{(\theta)}(c)$. Since this is a valid transcription (as we have seen in the previous section) we can denote this as $c_{n-1}\vldtranscript{\ctx_{n-1}}$, where context $\ctx_{n-1}$ is fully defined by correlation relation $\theta_{n-1}$, i.e., $\ctx_{n-1} = \pair{\theta_{n-1}}$. In contrast, the current context $\ctx_n$ for case \ref{fig:medcxt-e_p-p_e-b_e}(a) is defined by (i) the ontological relationship between $c_n$ and $c_{n-1}$, i.e., equivalence, (ii) the correlation relation $\theta_n$ between $c_n$ and $c_n’$, (iii) the ontological relationship between $c_n’$ and $c_{n-1}’$, viz. subsumption, and finally (iv) the previous context $\ctx_{n-1}$. Hence, $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$. The contexts for cases (b) and (c) are denoted similarly, $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$ and $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$, respectively\todo{ brandtp, 9-9-2019 Misschien nuttiger om in case c geen intra-ontologische equivalentie toe te passen om meer positieve resltaten te behalen.} .
+All three cases are founded on case \ref{tab:atomic-class-transcriptions} since the transcription of the latter (specified in \cref{tab:atomic-class-transcriptions}) has been incorporated inductively as the underlying transcription, i.e., $T_{(\theta)}(c)$. Since this is a valid transcription (as we have seen in the previous section) we can denote this as $c_{n-1}\vldtranscript{\ctx_{n-1}}$, where context $\ctx_{n-1}$ is fully defined by correlation relation $\theta_{n-1}$, i.e., $\ctx_{n-1} = \pair{\theta_{n-1}}$. In contrast, the current context $\ctx_n$ for case \ref{fig:medcxt-e_p-p_e-b_e}(a) is defined by (i) the logical relationship between $c_n$ and $c_{n-1}$, i.e., equivalence, (ii) the correlation relation $\theta_n$ between $c_n$ and $c_n’$, (iii) the logical relationship between $c_n’$ and $c_{n-1}’$, viz. subsumption, and finally (iv) the previous context $\ctx_{n-1}$. Hence, $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$. The contexts for cases (b) and (c) are denoted similarly, $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$ and $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$, respectively\todo{ brandtp, 9-9-2019 Misschien nuttiger om in case c geen intra-ontologische equivalentie toe te passen om meer positieve resltaten te behalen.} .
 
-One way to establish $T_{\ctx_n}(c_{n-1})$ is to draw the Venn-diagrams for $c_n$, $c_{n-1}$, $c_n’$ and $c_{n-1}’$ conform each instance of context $\ctx_n$, viz. each point in the table, and investigate how $c_{n-1}$ can be transcribed best. ‘Best’ here refers to the as small as possible subset, represented by a logical combination of $c_n’$ and $c_{n-1}’$, that fully encompasses $c_{n-1}$. Another way is to apply first order logic to derive the best transcription. Either way, the results are either (i) a valid transcription result, (ii) non-existent since the context represents a logical contradiction and is therefore not applicable, denoted by `-`, or (iii) a valid context but without sufficient concepts from $\ont{O’}$ at our disposal to formulate a valid transcription (each of $c_n’$ and $c_{n-1}’$ would be a naive transcription with phantom semantics as consequence); the best valid transcription here is therefore the *verum* concept, denoted as $\ntsa_n$.      
+One way to establish $T_{\ctx_n}(c_{n-1})$ is to draw the Venn-diagrams for $c_n$, $c_{n-1}$, $c_n’$ and $c_{n-1}’$ conform each instance of context $\ctx_n$, viz. each point in the table, and investigate how $c_{n-1}$ can be transcribed best. Another way is to apply first order logic to derive the best transcription. Either way, ‘best’ means to refer to (a) at least all individuals denoted by $c_{n-1}$ and (b) preferably not more than those, by applying a logical combination of terms from \ont{O’}. We can best explain this by introducing the following example.
+
+\begin{mmexmp}[A correspondence]
+ \begin{align}
+  \ont{O}  &= \set{ \token{car, bike} }  \\
+  \ont{O}’ &= \set{ \token{vehicle} }  \\
+  \ont{A}  &= \set{ \pair{\token{car} \sqcup \token{bike} \quad \sqsubset \quad \token{vehicle}}} 
+ \end{align}    
+\end{mmexmp} 
+
+ the results are either (i) a valid transcription result, (ii) non-existent since the context represents a logical contradiction and is therefore not applicable, denoted by `-`, or (iii) the *verum* concept, denoted as $\ntsa_n$. We explain the last result: since the context is valid, the result must be the smallest set of individuals in $\ont{O’}$ that can be represented with logical combinations of concepts that are present in the context in $\ont{O’}$.  at our disposal to formulate a valid transcription (each of $c_n’$ and $c_{n-1}’$ would be a naive transcription with phantom semantics as consequence); the best valid transcription here is therefore .      
 
 Since context $\ctx_n$ is constructed from classes $c_n$ and $c_{n-1}$ that both entail a correspondence, both transcriptions $T_{\ctx_n}(c_n)$ and $T_{\ctx_n}(c_{n-1})$ are to be considered per case. 
 
@@ -232,9 +258,9 @@ We start with the transcriptions for class $c_{n-1}$, shown in \cref{tab:transcr
                                                                                              & $\neg c_{n-1}’$ \\ \bottomrule
   \end{tabular}
 \end{table}
-We explain the transcription of $c_{n-1}$ for case (a) in \cref{tab:transcr_cn-1_ctxn_eq} for column $\theta_n = \sqsubset$; the other columns are left as an exercise to the reader. Solely based on correspondence relation on level $n$, viz. $\theta_n$, the valid transcription $c_{n-1} \vldtranscript{\sqsubset} c_n’$ applies for each row 1-5. However, by token of the underlying context $\ctx_{n-1}$ a valid transcription for $c_{n-1}$ had already been established for level $n-1$ by \cref{tab:atomic-class-transcriptions}, viz. rows 1&2: $c_{n-1} \vldtranscript{\ctx_{n-1}} c_{n-1}’$, rows 3&4: $c_{n-1} \vldtranscript{\ctx_{n-1}} \ntsa$, row 5: $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c_{n-1}’$. Both transcriptions are equally valid and shall be applied together, rendering a double constraint as set intersection, viz. $\set{c_n’ \sqcap c_{n-1}’, c_n’ \sqcap c_{n-1}’, c_n’ \sqcap \ntsa, c_n’ \sqcap \ntsa, c_n’ \sqcap \neg c_{n-1}’}$ for rows 1-5, respectively. In the context of this case $r’= \sqsupset$ applies and hence, $c_n’ \sqcap c_{n-1}’ \, = \, c_{n-1}’$ and $c_n’ \sqcap \ntsa \, = \, c_n’$, providing the transcription results for the particular column in the table. We can thus conclude that:
+We explain the transcription of $T_{( =, \theta_n, \sqsupset, \ctx_{n-1})}(c_{n-1})$, i.e., for case (a) in \cref{tab:transcr_cn-1_ctxn_eq}, for column $\theta_n = \sqsubset$; the other columns are left as an exercise to the reader. Solely based on correspondence relation on level $n$, viz. $\theta_n$, the valid transcription $c_{n-1} \vldtranscript{\sqsubset} c_n’$ applies for each row 1-5. However, by token of the underlying context $\ctx_{n-1}$ a valid transcription for $c_{n-1}$ had already been established for level $n-1$ by \cref{tab:atomic-class-transcriptions}, viz. rows 1&2: $c_{n-1} \vldtranscript{\ctx_{n-1}} c_{n-1}’$, rows 3&4: $c_{n-1} \vldtranscript{\ctx_{n-1}} \ntsa$, row 5: $c_{n-1} \vldtranscript{\ctx_{n-1}} \neg c_{n-1}’$. Both transcriptions are equally valid and shall be applied together, rendering a double constraint as set intersection, viz. $\set{c_n’ \sqcap c_{n-1}’, c_n’ \sqcap c_{n-1}’, c_n’ \sqcap \ntsa, c_n’ \sqcap \ntsa, c_n’ \sqcap \neg c_{n-1}’}$ for rows 1-5, respectively. In the context of this case $r’= \sqsupset$ applies and hence, $c_n’ \sqcap c_{n-1}’ \, = \, c_{n-1}’$ and $c_n’ \sqcap \ntsa \, = \, c_n’$, providing the transcription results for the particular column in the table. We can thus conclude that:
 \begin{equation}\label{eq:cn-1.ctxn.eq}
-c_{n-1}\vldtranscript{( =, \theta_n, \sqsupset, \ctx_{n-1})} \; = \; c_{n-1}\vldtranscript{\ctx_{n-1}} \, \sqcap \, c_n\vldtranscript{\theta_n}
+T_{\ctx_n}(c_{n-1}) \; = \; T_{\ctx_{n-1}}(c_{n-1}) \, \sqcap \, c_{n-1}\vldtranscript{\theta_n} \qquad \text{for } \ctx_n \, = \, ( =, \theta_n, \sqsupset, \ctx_{n-1})
 \end{equation}
 
 Similarly, the transcription \cref{tab:transcr_cn-1_ctxn_sup} presents the transcription of $c_{n-1}$ for case (b), viz. $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$, in reference to the atomic case from \cref{tab:atomic-class-transcriptions}. 
@@ -255,9 +281,9 @@ Similarly, the transcription \cref{tab:transcr_cn-1_ctxn_sup} presents the trans
     5 & $\neg c_{n-1}’$ & $\disj$           & & -           & -          & $\neg c_{n-1}’$ & $\neg c_{n-1}’$ & $\neg c_{n-1}’$ \\ \bottomrule
   \end{tabular}
 \end{table}
-We explain the above transcription of $c_{n-1}$ for column $\theta_n = \sqsupset$. For rows 1-5, solely based on correspondence relation $\theta_n$, the transcription result $c_{n-1} \vldtranscript{(\sqsupset)} \ntsa$ applies, i.e., the atomic class transcription from \cref{eq:act-3}. However, as in the previous case, the transcription from column $c_{n-1} \vldtranscript{\ctx_{n-1}}$ applies as well, rendering the double constrained as intersection $\ntsa \sqcap c_{n-1}’ \, = \, c_{n-1}’$ for rows 1 & 2 and $\ntsa \sqcap \neg c_{n-1}’ \, = \, \neg c_{n-1}’$ for row 5, leaving $\ntsa$ for rows 3 & 4. We can thus conclude that:
+We explain the above transcription $T_{\ctx_n}(c_{n-1})$ for column $\theta_n = \sqsupset$. For rows 1-5, solely based on correspondence relation $\theta_n$, the transcription result $c_{n-1} \vldtranscript{(\sqsupset)} \ntsa$ applies, i.e., the atomic class transcription from \cref{eq:act-3}. However, as in the previous case, the transcription from column $c_{n-1} \vldtranscript{\ctx_{n-1}}$ applies as well, rendering the double constrained as intersection $\ntsa \sqcap c_{n-1}’ \, = \, c_{n-1}’$ for rows 1 & 2 and $\ntsa \sqcap \neg c_{n-1}’ \, = \, \neg c_{n-1}’$ for row 5, leaving $\ntsa$ for rows 3 & 4. We can thus conclude that:
 \begin{equation}\label{eq:cn-1_ctxn_sup}
-c_{n-1}\vldtranscript{( \sqsupset, \theta_n, =, \ctx_{n-1})} \; = \; c_{n-1}\vldtranscript{\ctx_{n-1}} \, \sqcap \, c_n\vldtranscript{\theta_n}
+T_{\ctx_n}(c_{n-1}) \; = \; T_{\ctx_{n-1}}(c_{n-1}) \, \sqcap \, c_{n-1}\vldtranscript{\theta_n} \qquad \text{for } \ctx_n \, = \, ( \sqsupset, \theta_n, =, \ctx_{n-1})
 \end{equation} 
 As example for a logical contradiction we explain rows 3 & 4 for $\theta_n \in \{ \sqsubset, = \}$ as follows. $\theta_{n-1} \in \set{\sqsupset, \overlap} \iff \exists \iota \in \concept{D}: \iota \in c_{n-1} \land \iota \not\in c_{n-1}’$, whereas $\theta_n \in \set{\sqsubset, =} \iff \forall \iota \concept{D}: \iota \in c_{n-1} \to \iota \in c_{n-1}’$. The consequence of this contradiction is that contexts $\pair{\sqsupset, \sqsubset \text{ or } =, =, \sqsupset \text{ or } \overlap }$ cannot exist. Similar logical contradictions can be derived for the other `-` results.  
 
@@ -279,13 +305,9 @@ Finally, the transcription \cref{tab:transcr_cn-1_ctxn_sub} presents $T_{\ctx_n}
     5 & $\neg c_{n-1}’$ & $\disj$           & & -           & -          & -           & -        & $\neg c_{n-1}’$ \\ \bottomrule
   \end{tabular}
 \end{table}
-This case is a bit different than the previous ones. Because $r=\sqsubset$ and hence $c_n \sqsubset c_{n-1}$, class $c_n$ does not constrain class $c_{n-1}$ in any way. Consequently, despite that:
-\begin{equation*}
-  c_{n-1}\vldtranscript{( \sqsubset, \theta_n, =, \ctx_{n-1})} \; = \; c_{n-1}\vldtranscript{\ctx_{n-1}} \, \sqcap \, c_n\vldtranscript{\theta_n}
-\end{equation*}
-still holds logically, practically $c_n\vldtranscript{\theta_n}$ does not constrain $c_{n-1}\vldtranscript{\ctx_{n-1}}$. Hence:
+This case is a bit different than the previous ones. Because $r=\sqsubset$ and hence $c_n \sqsubset c_{n-1}$, class $c_n$ does not constrain class $c_{n-1}$ in any way. Consequently, despite that a valid transcription for $c_{n-1}$ had already been established for level $n-1$ and, hence, still holds logically, practically $c_{n-1}\vldtranscript{(\theta_n)}$ does not constrain $T_{\ctx_{n-1}}(c_{n-1})$. We conclude:
 \begin{equation}\label{eq:cn-1_ctxn_sub}
-  c_{n-1}\vldtranscript{( \sqsubset, \theta_n, =, \ctx_{n-1})} \; = \; c_{n-1}\vldtranscript{\ctx_{n-1}} 
+  T_{\ctx_n}(c_{n-1}) \; = \; T_{\ctx_{n-1}}(c_{n-1}) \qquad \text{for } \ctx_n \, = \, ( \sqsubset, \theta_n, =, \ctx_{n-1}) 
 \end{equation}
 In other words, the information added by this case does not add anything to the transcription that was already available in the original atomic case as specified in \cref{tab:atomic-class-transcriptions}, on condition that the context remains logically consistent.  
 
@@ -351,7 +373,7 @@ So far we only have used examples from the transcription model \ref{fig:gen-clas
 [def:MedcxtSup]: src\images\MedCxt-eq_sup-sup_eq-sub_eq.png {#fig:medcxt-e_p-p_e-b_e width=90%}
 
 
-## Transcribing over an $r, r'\in \set{ \overlete, \overlinc, \displete, \disjoinc }$  class contexts ##
+## Transcribing over an  $r, r'\in \set{\protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc}$  class contexts ##
 In this Section we consider the contexts that emerges from the transition model that is in between \cref{fig:gen-class-transc-models} (a) and (b). This transition model emerges by the introduction of $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, viz. conform \cref{fig:gen-class-transc-models} (b), while continuing $r \in \set{\sqsubset, =, \sqsupset}$, viz. conform \cref{fig:gen-class-transc-models} (a). Consequently, to provide reference for the (in)completeness aspect of the intra-ontological relation $r’$ the subsuming class $c’$ emerges. This has been depicted in \cref{fig:medcxt-r}, representing 3 cases, (a)-(c), one for each intra-ontological relationship $r \in \set{\sqsubset, =, \sqsupset}$, respectively. In other words, case (a) considers context $\ctx_n = \pair{\sqsubset, \theta_n, r’, \ctx_{n-1}}$, case (b) represents $\ctx_n = \pair{=, \theta_n, r’, \ctx_{n-1}}$, and case (c) represents $\ctx_n = \pair{\sqsupset, \theta_n, r’, \ctx_{n-1}}$.
 
 ![A correspondence over an \emph{implied class context}, conforming to the model in between \cref{fig:gen-class-transc-models} (a) and (b). Class $c’$ subsumes both classes $c_{n-1}’$ and $c_n’$ and forms the reference for the (in)completeness relation $r’$. Case (a): $r = \sqsubset$, case (b): $r = `=’$, case (c): $r = \sqsupset$. All cases (a)-(c) build upon the valid transcription under context $\ctx_{n-1}$, whilst their current context $\ctx_n = \pair{r, \theta_n, r’, \ctx_{n-1}}$ only vary in $r$ and $r’$.][def:MedcxtR]
@@ -517,12 +539,6 @@ In conclusion, and similar to the results of the previous section, given the occ
 # A cTRS as mediator #
 Before we show how a transcription can be formulated as a conditional Term Rewriting System (cTRS), we will first provide for a small summary on term rewriting systems.
 ## (conditional) Term Rewriting Systems ##
-\begin{synopsis}Provide for a short primer on term rewriting; be sure to include references to the basic literature.
-
-Keep it short. This is not about explaining but about showing the terminology that we are to use.
-
-\end{synopsis}
-
 We will first define some terminology that is used in the definition on a term rewriting system (TRS). This is basic material taken from [@Baader1998; and @Bezem2003]. We finish this section with a notion on the use of context $\ctx_n$ in a conditional term rewriting system (cTRS).
 
 \begin{mmdef}[Terms]\label{def:terms}
@@ -561,8 +577,8 @@ A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\p
 A \emph{term rewriting rule} is a pair of terms $l, r \in \ter(\Sigma, V)$, such that:
 \begin{subequations}
   \begin{align}
-  l       &\not\in V         \label{eq:distinctness} \\
-  \var(l) &\supseteq \var(r) \label{eq:novarintro} 
+  l       &\not\in V          \\
+  \var(l) &\supseteq \var(r)  
   \end{align}
 \end{subequations}
 Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\rho$, and we write $\rho : l \to r$.
@@ -637,12 +653,6 @@ Consider $R$ a conditional rewrite system as the collective conditional rewrite 
 
 
 ## Transcription as cTRS ##
-\begin{synopsis}Show how the characteristics of a transcription map to the characteristics of a cTRS.
-
-Define a trancription in terms of a cTRS.
-
-\end{synopsis}
-
 Indeed, being a syntactic replacement of terms and values, we consider a transcription a specific application of a TRS which, after all, provides for a syntactic rewrite of terms over a specific alphabet. Since a transcription is initiated by its correspondence, the term rewriting that we are looking for is of the pattern $c_n \theta_n c_n’ \, \trsrtc \, c_n \vldtranscript{\ctx_n}$, with $c_n$, $c_n’$ and $\theta_n$ specified by some $\mu$. 
 
 We first provide for a formal specification of an ontology in a way that suits the term rewriting discipline.
@@ -763,7 +773,7 @@ With $\rho_{k+1,\ctx_n}$ we emphasise that the particular rewrite rule is comple
 
 
 
-----
+Discussion
 
 Ik ben er niet zeker van dat \cref{def:ctrel} de waterdichte oplossing is van het hierboven genoemde conflict tussen het inductieve transcriptiemodel en het inductieve cTRS model. Inderdaad heb ik de beide inductiedimensies losgekoppeld, want
  
@@ -774,7 +784,7 @@ Toch lijkt er nog steeds een vorm van afhankelijkheid te bestaan, want dit zou b
 
 Klopt deze gedachtengang?  
 
-----
+
 
 
 We define the one-step rewrite for a transcription as follows.
@@ -858,23 +868,8 @@ A \emph{transcription system} (TS) is a TRS with $\EuScript{R} = \pair{\Sigma, R
  \end{align} 
 \end{subequations}
 \end{mmdef}
+## Discussion ##
 # The confluence property of the mediator #
-\begin{synopsis}Confluence draagt ervoor zorg dat de cTRS termineert, onafhankelijk van het pad dat de rewriting uiteindelijk volgt. Confluence is voor transcripties eenvoudig te bewijzen:
-
-\begin{itemize}
-\item Op het laagste inductienivo, het atomische nivo, bestaat er óf wel, óf geen vertaling. Dat termineert dus altijd
-\item op inductienivo n zijn voor alle contexten een vertaling gegeven, óf op basis van het eigen nivo n, óf op basis van nivo n-1. Daaruit kan worden geconcludeerd dat de vertaling op nivo n termineert als voor elke context geldt dat:
- \begin{itemize}
-  \item er op nivo n een vertaling is gespecificeerd zonder gebruik te maken van nivo n-1;
-  \item er op nivo n een vertaling is gespecificeerd gebruik makend van de vertaling nivo n-1, én de vertaling op nivo n-1 termineert;
-  \item er op nivo n een verbod bestaat voor vertaling in deze context.
- \end{itemize}
- \item De eerste en derde conditie zijn hetzelfde als op het atomaire nivo, en termineren. 
- \item De tweede conditie termineert omdat er geen andere contexten en nivo's bestaan dan hier geschetst die niet termineren.
-\end{itemize}
-
-\end{synopsis}
-
 The following provides for a list of the more relevant properties of an ARS:
 
 1. **Termination**: If it is always the case that after applying a finite number of rewriting steps some object is reached for which no more rules apply, the ARS is called *terminating*.
@@ -884,14 +879,13 @@ The following provides for a list of the more relevant properties of an ARS:
 
 It is clear that the unconditional transcription rules from \cref{eq:tc-as-utr} do not induce phantom semantics.
 # Validation #
-\begin{synopsis}Only possible if I have time to produce an implementation (specification) in either Pure or Maude (TRS-facilitating platforms)
 # Related work #
-\begin{synopsis}1-2 pages
-10 readers
+To discuss:
 
-\end{synopsis}
+1. Barnickel, N., Böttcher, J., & Paschke, A. (2010). Semantic mediation of information flow in cross-organizational business process modeling. CEUR Workshop Proceedings, 682, 21–28.
+1. Mascardi, V., Locoro, A., Rosso, P.: Automatic ontology matching via upper ontologies: A systematic evaluation. IEEE Transact. Knowl. Data Eng. 22(5), 609–623 (2010)
+1. Arp, R., Smith, B., Spear, A.D.: Building Ontologies with Basic Formal Ontology. MIT Press, Cambridge, Massachusetts, USA (2015)
+1. Berto, F., Plebani, M.: Ontology and Metaontology. Bloomsbury, London, UK (2015)
+1. Euzenat, J., Shvaiko, P.: Ontology Matching, 2nd edn. Springer, Heidelberg, Germany (2013)
 # Conclusions and further work #
-\begin{synopsis}1/2 page
-
-\end{synopsis}
 # References {-} 

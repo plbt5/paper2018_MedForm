@@ -13,10 +13,11 @@
 \usepackage{xfrac}					% tbv slanted fractions: \sfrac{}{}
 \usepackage{pifont}
 
-\usepackage[utf8]{inputenc}			% NOT required when using xetex as opposed to pdftex
+\RequirePackage[utf8]{inputenc}		% NOT required when using xetex as opposed to pdftex
 
 \usepackage[T1]{fontenc}
 
+\usepackage{amsmath}				% <amsmath> needs to be loaded before ntheorem (section 3.2.1, ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf) 
 \usepackage[mathcal]{euscript}		% tbv de gecalligrafeerde mathcal{O} en W(orld) en (M)odel etc. Refer to http://texdoc.net/texmf-dist/doc/fonts/amsfonts/euscript.pdf
 									% Note that, in fact, eucal and euscript are identical, except that they use different commands (\mathcal and \mathscr). By using euscript 
 									% we only provide \mathscr{} and leave \mathcal{} from amsmath unchanged
@@ -49,25 +50,19 @@
 \usepackage[xindy,toc]{glossaries}	%%%% The glossaries environment. Refer to: http://en.wikibooks.org/wiki/LaTeX/Glossary
 %%%\usepackage{pst-plot}				%%%% The ps trick environment. Zie ook: http://tug.org/PSTricks/main.cgi?file=examples REQUIRES --latex-engine=xelatex
 
-%%%%%%%%%%%%%%%
 %% Theorems
-%%				based on <ntheorem> package
-									% Use of new theorems package <ntheorem> makes easier handling of theorem-like environments; refer to ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
-\usepackage{amsmath}				% <amsmath> needs to be loaded before <ntheorem> when the latter's [amsmath] option is used (section 3.2.1, ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf) 
+\usepackage[ntheorem]{empheq}
+\usepackage[thmmarks]{ntheorem}		% Easier handling of theorem-like environments. refer to ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
 
-%\usepackage[ntheorem]{empheq}		% The <mathtools> and <empheq> packages should be loaded before <ntheorem>; this loads <amsmath> as well
 
-%\usepackage[thmmarks]{ntheorem}	% DESPITE section 3.2.1 of ntheorem.pdf above, DO NOT USE MORE THAN ONE \usepackage[...]{ntherem} DEFINITION; 
-%\usepackage[amsmath,thmmarks]{ntheorem}	% this will result in ! LaTeX Error: Option clash for package ntheorem.
-\usepackage[amsmath,amsthm,thmmarks]{ntheorem}		% option [amsthm] has to be used instead of \usepackage{amsthm}
-%\usepackage[thref]{ntheorem}		% There is no good reason to use Option [thref] when using <cleveref> (see below), since the [thref] option is superseded by <cleveref>.
-									% Option [thref] interferes with the <babel> package, thus in case that <babel> is used, <ntheorem> has to be loaded after <babel>.
-%% End of Theorems
-%%%%%%%%%%%%%%%%
-\usepackage{cases}					% To make separate labels in cases: https://tex.stackexchange.com/questions/31951/separate-labels-in-cases. It appears that <cases> needs to be loaded after <amsmath>
+\usepackage{cases}                  % To make separate labels in cases: https://tex.stackexchange.com/questions/31951/separate-labels-in-cases. It appears that <cases> needs to be loaded after <amsmath>
+ 
 \usepackage{mdframed}
 
-%% Figures and table placement		% Sourced from http://tug.ctan.org/tex-archive/info/epslatex/english/epslatex.pdf page 55
+%% Figures and table placement		
+\usepackage{subcaption}
+
+								% Sourced from http://tug.ctan.org/tex-archive/info/epslatex/english/epslatex.pdf page 55
 \usepackage{flafter}				% Ensure that the figures/tables appear after its figure/table environment definition in the text
 
 \makeatletter						% Change the default figure / table placement from [tbp] to [htbp]; this is useful since mmd prevents us to insert the placement parameters ourselves
@@ -108,20 +103,19 @@
 %% ToDo's							% Creating proper todo bubbles adjacent to text. Refer to http://ctan.triasinformatica.nl/macros/latex/contrib/todonotes/todonotes.pdf
 \usepackage[textsize=tiny,colorinlistoftodos]{todonotes}	
 
-%% Table stuff						% sourced from: https://tex.stackexchange.com/questions/33510/how-do-i-create-the-headings-for-this-multirow-multicolum-table
-\usepackage{graphicx}
-\usepackage{multirow}
-\usepackage{booktabs}
-
 %% Cross-referencing				% Allow the format of cross-references to be determined automatically according to the “type” of cross-reference (equation, section, etc.) and the context in which the cross-reference is used.
 %\usepackage{varioref}				% sourced from http://texdoc.net/texmf-dist/doc/latex/tools/varioref.pdf
-%\usepackage{hyperref}				% If we want to use hyperref, sometime in the future for some reason, it should be defined in between of varioref and cleveref
-									% Always load \usepackage{hyperref} before the first use of \newtheorem to obtain correct handling and referencing of counters.
+\usepackage{hyperref}				% If we want to use hyperref, sometime in the future for some reason, it should be defined in between of varioref and cleveref
 \usepackage{cleveref}				% sourced from http://tug.ctan.org/macros/latex/contrib/cleveref/cleveref.pdf Makes varioref clever, and reuses its work to improve its own workings. 
 									% The cleveref package must be loaded after all other packages that don’t specifically support it.
-									% Therefore, to be safe, ***we declare it AS LAST PACKAGE in the document's preamble***.
+									% Therefore, to be safe, we declare it as last in the document's preamble.
 									% Also note that all \newtheorem definitions must be placed after the cleveref package is loaded.
 
+%% Table stuff						% sourced from: https://tex.stackexchange.com/questions/33510/how-do-i-create-the-headings-for-this-multirow-multicolum-table
+\usepackage{graphicx}
+%\graphicspath{{src/images}} %Setting the graphicspath; only necessary for manual TexWorks processing
+\usepackage{multirow}
+\usepackage{booktabs}
 
 %%% About this LaTeX template: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -152,12 +146,10 @@
 %%% ------- mijn configs: --------- %%%
 %
 %% shortcuts and abbrevs
-%
 
 \def\bc#1{\multicolumn{2}{c}{#1}}		% shorter, hence easier to fit the table
 \def\br#1{\multirow{2}{*}{#1}}			% shorter, hence easier to fit the table
-
-
+	
 %% test stuff
 
 % Redefining the paragraph level into a case - see https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
@@ -172,6 +164,7 @@
 %%
 %% Defining new theorem and -styles
 % Its documentation can be found at ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
+%\RequirePackage[thref, thmmarks, amsmath]{ntheorem}		% Use new theorems package as opposed to amsth, include <amsmath>-emulation by including it as an option
 
 % Allow to repeat a theorem number to, e.g., continue with a theorem such as an example, or to add something to an existing theorem
 % THIS UNFORTUNATELY DOES NOT WORK, producing a <Undefined control sequence \n <argument> \rep@title \n l.38 \newtheorem*{rep@theorem}{\rep@title}>-error
@@ -228,6 +221,7 @@
 \crefname{section}{Section}{Sections}
 \crefname{figure}{Figure}{Figures}
 \crefname{table}{Table}{Tables}
+\crefname{equation}{eq.}{eqs.}
 
 % Definition of List of Theorems (\listtheorems{<name>})
 \theoremlisttype{opt}
@@ -244,8 +238,7 @@
 
 % some more mnemonic terms 
 \newcommand*\OK{\ding{51}}		% for the check-marks
-%\newcommand*\ntsa{\ensuremath{\varnothing}}	% no transcription allowed: empty set
-\newcommand*\ntsa{\ensuremath{\top}}	% no transcription allowed: verum
+\newcommand*\ntsa{\ensuremath{\varnothing}}	% no transcription allowed
 
 % Create a typical column header, the content of which is rotated
 \newcolumntype{R}[2]{%
