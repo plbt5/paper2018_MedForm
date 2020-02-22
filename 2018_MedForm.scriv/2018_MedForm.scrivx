@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-17875" Modified="2020-02-22 18:25:48 +0100" ModID="01A9FED6-0885-4B07-B0F4-35CDC694905B">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-17875" Modified="2020-02-22 19:04:48 +0100" ModID="A4439490-337F-4745-8A16-1677BACC4928">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 14:06:28 +0100" Modified="2018-08-24 14:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -211,7 +211,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 09:45:12 +0100" Modified="2020-02-22 18:25:46 +0100" Type="Text">
+                        <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 09:45:12 +0100" Modified="2020-02-22 19:04:46 +0100" Type="Text">
                             <Title>Motivating example</Title>
                             <MetaData>
                                 <LabelID>3</LabelID>
@@ -219,7 +219,7 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>3527,0</TextSelection>
+                                <TextSelection>3929,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -465,7 +465,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="281" Characters="1738" Date="2020-01-27 10:40:03 +0100"/>
+        <PreviousSession Words="300" Characters="1842" Date="2020-01-27 10:40:03 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
