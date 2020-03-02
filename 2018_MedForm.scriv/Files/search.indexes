@@ -172,11 +172,11 @@ where:
 * $\theta_n \in \Theta$, the correspondence relation from \cref{eq:correspondence} that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level;
 * $\ctx_0 = \pair{\theta}$, viz. the basic correspondence that holds between classes $c \in \ont{O}$ and $c’ \in \ont{O}’$ (see \cref{tab:atomic-class-transcriptions} in \cref{transcribing-over-atomic-class-context}).   
-	
+
 
 We can depict the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
 
-![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’\in \set{\overlete, \overlinc, \displete, \disjoinc}$, category (b), classes $c$ and $c'$ are implicit.][def:GenClassTranscModels]
+![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’ \in \set{ \protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc }$, category (b), classes $c$ and $c'$ are implicit.][def:GenClassTranscModels]
 
 On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} but are not shown in \cref{fig:gen-class-transc-models}, are (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) $r$ and $r’$ specified vice versa.  
 
@@ -229,7 +229,7 @@ Indeed, the best transcription would be one for which $\intn’(T_{\ctx_n}(e_n))
 
 Since the transcription context provides for all potential logical contexts that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of atomic concepts $e_n’$ and $e_{n-1}’$, or $e_n’$, $e_{n-1}’$ and $e’$ for all cases that are addressed by \cref{fig:gen-class-transc-models}(a), resp. (b). Our task is then to traverse the 4-dimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn’(T_{\ctx_n}(e_n)) \supseteq \intn(e_n)$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that includes $\intn(e_n)$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.
 
-----
+
 
 Noot: \cref{def:valid-transcription} IS FEITELIJK ONJUIST, omdat $\intn: \ont{O} \to \concept{D}$ en $\intn’: \ont{O}’ \to \concept{D}’$ en derhalve niet hetzelfde co-domain hebben, en daardoor de subset relatie niet bepaald kan worden. Het is juist de bedoeling dat de alignment $e_n \theta_n e_n’$ het verschil in conceptualisaties overbrugt; dat neem ik ook als uitgangspunt. Want: Het maken van een alignment is niet mogelijk zonder een extern orakel die beide afzonderlijke conceptualisaties tot elkaar weet te verhouden. Dat orakel, de mens, is wat ik in \cref{def:valid-transcription} als gezamenlijk co-domain impliceer, op basis waarvan de subset relatie wordt bepaald. Maar ja, hoe schrijf je dat op, mathematisch; door de semiotische “abstractie” relatie met de werkelijkheid te leggen? Maar leg je dan eigenlijk niet heel exact vast dat je te weinig expliciet kan maken om vast te stellen wanneer de transcriptie semantisch valide is?
 
@@ -724,7 +724,7 @@ This is straightforward for this case: since no other concepts are present in co
 
 In conclusion, \cref{tab:atomic-class-transcriptions} specifies all *valid* transcriptions under the one single atomic transcription context for all correspondences, collectively. We therefore denote such transcription table as $\vldtranscript{\ctx}$, and this particular one as $\vldtranscript{(\theta)}$. This can be summarised as:
 
-\begin{subnumcases}{\ensuremath{\label{eq:act}c \vldtranscript{(\theta)} \; = \; }} 
+\begin{subnumcases}{\label{eq:act}\ensuremath{c \vldtranscript{(\theta)} \; = \; }} 
   c’      &amp; : $\theta \in \set{\sqsubset, =}$        \label{eq:act-1}\\
   \neg c’ &amp; : $\theta \in \set{\disj}$               \label{eq:act-2}\\
   \ntsa   &amp; : $\theta \in \set{\sqsupset, \overlap}$ \label{eq:act-3}
@@ -745,11 +745,11 @@ All three cases are founded on case \ref{tab:atomic-class-transcriptions} since 
 
 One way to establish $T_{\ctx_n}(c_{n-1})$ is to draw the Venn-diagrams for $c_n$, $c_{n-1}$, $c_n’$ and $c_{n-1}’$ conform each instance of context $\ctx_n$, viz. each point in the table, and investigate how $c_{n-1}$ can be transcribed best. Another way is to apply first order logic to derive the best transcription. Either way, ‘best’ means to refer to (a) at least all individuals denoted by $c_{n-1}$ and (b) preferably not more than those, by applying a logical combination of terms from \ont{O’}. We can best explain this by introducing the following example.
 
-\begin{mmexmp}[A correspondence]\label{ex:corr}
+\begin{mmexmp}[A correspondence]
  \begin{align}
-  \ont{O}  &amp;= \set{ \token{car, bike} } \label{eq:crrel-r} \\
-  \ont{O}’ &amp;= \set{ \token{vehicle} } \label{eq:crrel-r} \\
-  \ont{A}  &amp;= \set{ \pair{\token{car} \sqcup \token{bike} \quad \sqsubset \quad \token{vehicle}}} \label{eq:crrel-r}
+  \ont{O}  &amp;= \set{ \token{car, bike} }  \\
+  \ont{O}’ &amp;= \set{ \token{vehicle} }  \\
+  \ont{A}  &amp;= \set{ \pair{\token{car} \sqcup \token{bike} \quad \sqsubset \quad \token{vehicle}}} 
  \end{align}    
 \end{mmexmp} 
 
@@ -895,7 +895,7 @@ So far we only have used examples from the transcription model \ref{fig:gen-clas
             <Comments>brandtp, 9-9-2019 Misschien nuttiger om in case c geen intra-ontologische equivalentie toe te passen om meer positieve resltaten te behalen.</Comments>
         </Document>
         <Document ID="57">
-            <Title>Transcribing over an $r, r'\in \set{ \overlete, \overlinc, \displete, \disjoinc }$  class contexts</Title>
+            <Title>Transcribing over an  $r, r'\in \set{\protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc}$  class contexts</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
             <Text>In this Section we consider the contexts that emerges from the transition model that is in between \cref{fig:gen-class-transc-models} (a) and (b). This transition model emerges by the introduction of $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, viz. conform \cref{fig:gen-class-transc-models} (b), while continuing $r \in \set{\sqsubset, =, \sqsupset}$, viz. conform \cref{fig:gen-class-transc-models} (a). Consequently, to provide reference for the (in)completeness aspect of the intra-ontological relation $r’$ the subsuming class $c’$ emerges. This has been depicted in \cref{fig:medcxt-r}, representing 3 cases, (a)-(c), one for each intra-ontological relationship $r \in \set{\sqsubset, =, \sqsupset}$, respectively. In other words, case (a) considers context $\ctx_n = \pair{\sqsubset, \theta_n, r’, \ctx_{n-1}}$, case (b) represents $\ctx_n = \pair{=, \theta_n, r’, \ctx_{n-1}}$, and case (c) represents $\ctx_n = \pair{\sqsupset, \theta_n, r’, \ctx_{n-1}}$.
@@ -1264,8 +1264,8 @@ A \emph{$\Sigma$-identity}, or simply an \emph{identity}, is a pair of terms $\p
 A \emph{term rewriting rule} is a pair of terms $l, r \in \ter(\Sigma, V)$, such that:
 \begin{subequations}
   \begin{align}
-  l       &amp;\not\in V         \label{eq:distinctness} \\
-  \var(l) &amp;\supseteq \var(r) \label{eq:novarintro} 
+  l       &amp;\not\in V          \\
+  \var(l) &amp;\supseteq \var(r)  
   \end{align}
 \end{subequations}
 Then, we denote $l \to r$ to indicate that $l$ can be replaced by $r$. A rewrite rule can be given a name, e.g., $\rho$, and we write $\rho : l \to r$.
@@ -1427,9 +1427,11 @@ For conditional transcriptions we need to specify the conditions under which the
   \end{equation}    
 \end{subequations}  
 \end{mmdef}
-With $\rho_{k+1,\ctx_n}$ we emphasise that the particular rewrite rule is completely defined by context $\ctx_n$. Furthermore, the definitions for \cref{eq:ctrel-a,eq:ctrel-b,eq:ctrel-c} follow directly from \cref{def:crr,def:crrel}, with \cref{eq:ctrel-c} additionally demanding the existence of the particular transcription context. \Cref{eq:ctrel-d} and \cref{eq:ctrel-e} implement Req.1 respectively Req.2 from \cref{tab:reqs}Discussion
+With $\rho_{k+1,\ctx_n}$ we emphasise that the particular rewrite rule is completely defined by context $\ctx_n$. Furthermore, the definitions for \cref{eq:ctrel-a,eq:ctrel-b,eq:ctrel-c} follow directly from \cref{def:crr,def:crrel}, with \cref{eq:ctrel-c} additionally demanding the existence of the particular transcription context. \Cref{eq:ctrel-d} and \cref{eq:ctrel-e} implement Req.1 respectively Req.2 from \cref{tab:reqs}
 
-----
+
+
+Discussion
 
 Ik ben er niet zeker van dat \cref{def:ctrel} de waterdichte oplossing is van het hierboven genoemde conflict tussen het inductieve transcriptiemodel en het inductieve cTRS model. Inderdaad heb ik de beide inductiedimensies losgekoppeld, want
  
@@ -1440,7 +1442,7 @@ Toch lijkt er nog steeds een vorm van afhankelijkheid te bestaan, want dit zou b
 
 Klopt deze gedachtengang?  
 
-----
+
 
 
 We define the one-step rewrite for a transcription as follows.
@@ -1543,28 +1545,21 @@ A \emph{transcription system} (TS) is a TRS with $\EuScript{R} = \pair{\Sigma, R
 - confluence
 
 Twee snippets,dan deze relatie / naieve vertaling gaat fout, en met de mediatie gaat het goed.</Synopsis>
-            <Text>In order to achieve semantic interoperability (sIOP), it is necessary to address the different artifacts as depicted in \cref{fig:semantic-concerns}. Two ontologies A and B, each specifying the semantics as ascribed to one of the data sources; reconciling the differences between the ontologies upfront, resulting in an alignment which contains inter-ontological correspondence relations between concepts in A and B; and, a data mediation process to replace the native term from data source A into the native term from data source B, employing both ontologies and their alignment. Unfortunately, replacing one term for another necessarily implies a semantic equivalence to hold between them, ignoring the specified inter-ontological correspondence relation. Through such a naive mediation the semantics as intended by A will be modified to the interpretation as intended by B, resulting in mediated data for B that carries phantom semantics.  
+            <Text>When considering food, whether it is categorised as fruit or vegetable depends on assuming a botanical or culinary perspective. The botanical classification is based on the structure and function of the part of the plant in question, whereas the culinary classification takes flavour and structure as its primary characteristics for classification. As a result tomatoes, cucumber and green beans are considered vegetables by a cook whilst these are considered fruits according to botanical discipline. Assume two ontologies B(otany) and C(ulinary), each specifying the semantics ascribed to their particular data as depicted in \cref{fig:alignment-a}    
 
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{.75\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{src/images/3SemanticConcerns.png}
-    \caption{}
-    \label{fig:concernsa}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{.15\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{src/images/3ConcernsLegend.png}
-    \caption{}
-    \label{fig:concernsb}
-  \end{subfigure}
-  \caption{Creating semantic interoperability between two data sources A and B about a shared application domain. Each data source is specified by its own ontology. The differences between the ontological representations are reconciled by an alignment specification upfront. During deployment, data in terms of the native representation from A are transcribed into the native representations from B.}
-  \label{fig:semantic-concerns}
-\end{figure}
+![Two ontologies, a culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) one, defining a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables, and a $p$lant anatomy that subsumes $f’$ruits, respectively. Both ontologies are subsumed by the *verum* concept ($\top$, “everything”) and subsume the *falsum* concept ($\bot$, “nothing”). The alignment specifies two correspondences, $\mu_1$ and $\mu_2$][def:AlignA]
+
+The culinary ontology $\ont{O}_c$ defines a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables. The botanic ontology $\ont{O}_b$ defines a $p$lant anatomy that subsumes, amongst others, $f’$ruits. Both ontologies are subsumed by the *verum* concept ($\top$, “everything”) and subsume the *falsum* concept ($\bot$, “nothing”). Clearly, the culinary vegetarian $i$ngredients can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1$. The second correspondence, depicted as $\mu_2$, state that the culinary $v$egetables concept overlap with the botanic $f$ruit concept; this due to the different categorisation of tomatoes, cucumbers and green beans in relation to, e.g., apples (considered $f$ruit to both disciplines) and asparagus (considered $v$egetables to both disciplines). 
+
+Turning our attention to the transcription of data, consider data from the culinary ontology: the vegetarian ingredients on the menu consist of asparagus, carrots and tomatoes. Assume further that the transcription is aware of both ontologies and the two correspondences. Clearly, stating the fact about “3 different vegetarian ingredients” can be transcribed into “3 different plant parts”; a one to one replacement of terms suffices since everything that is considered a vegetarian ingredient is, according to $\mu_1$, considered a part of a plant as well. Now consider the transcription for “the number of vegetables is 3”: simply replacing the culinary term “vegetables” with the botanic term “fruit” results in wrongly categorising the asparagus and carrots as botanic fruits. Hence, a valid logic notion on how the two categories relate to each other (by $\mu_2$) might be a necessary condition, however, it is naive to consider it a sufficient condition to replace the related terms one by one. In fact, the particular relation here, overlap, implies that a one to one transcription is invalid. The only valid transcription of “the number of vegetables is 3” reads “the number of plant parts is 3”[^1]. To allow for such transcription it is necessary to also take the essence of the correspondence relation in consideration, as well as both ontologies and any other available correspondences, here $\mu_1$. And although the transcription result might become more generic than its original fact, its semantic validity remains and does not induce incorrect categorisations.     
+
+
+&lt;!-- Page definitions --&gt;
+[def:AlignA]: src\images\AlignmentA.png {#fig:alignment-a width=20%}
+[^1]: We here only take concept transcriptions into account and do not consider the adaption of the data value, yet.
 
 </Text>
+            <Notes>Assume a culinary application that uses concepts about vegetables, fruits, nuts, herbs and more. In order to maintain an accurate description on the individual elements, it makes use of information from a botanic data source. The latter discerns the various parts of the plant as depicted in \cref{fig:plant-parts}. Unfortunately, the perspectives on what exactly is meant with fruits and vegetables is quite different between botanics and the culinary disciplines. Botanics define fruit as a seed-bearing structure that develops from the ovary of a flowering plant, whereas the culinary perspective simply refers to fruit as a sweet, juicy, edible part of the plant. Moreover, although botanics discern the different parts of a plant, such as roots, bulbs, tubers, leaves, stems and more, “vegetables” do not exist in botanical terminology; at best it can be considered to refer to all other parts of a plant that are not fruits. From a culinary perspective, “Vegetable took on its current sense just a few centuries ago and essentially means a plant material that is neither fruit nor seed” [@McGee2004;p.247]. We summarise the clash between botanic and culinary terminology in \cref{fig:bot-cul-venns}.</Notes>
         </Document>
         <Document ID="65">
             <Title>Terminology</Title>

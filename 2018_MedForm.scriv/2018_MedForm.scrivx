@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-17875" Modified="2020-02-22 19:04:48 +0100" ModID="A4439490-337F-4745-8A16-1677BACC4928">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-17875" Modified="2020-03-02 15:56:44 +0100" ModID="46564F90-839F-48EC-9D29-D471465A37D1">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 14:06:28 +0100" Modified="2018-08-24 14:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -199,7 +199,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 12:23:05 +0100" Modified="2020-01-10 09:45:12 +0100" Type="Text">
+                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 12:23:05 +0100" Modified="2020-03-02 13:25:02 +0100" Type="Text">
                     <Title>Introduction</Title>
                     <MetaData>
                         <LabelID>6</LabelID>
@@ -211,7 +211,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
-                        <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 09:45:12 +0100" Modified="2020-02-22 19:04:46 +0100" Type="Text">
+                        <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 09:45:12 +0100" Modified="2020-03-02 15:56:42 +0100" Type="Text">
                             <Title>Motivating example</Title>
                             <MetaData>
                                 <LabelID>3</LabelID>
@@ -219,7 +219,7 @@
                                 <FileExtension>rtf</FileExtension>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>3929,0</TextSelection>
+                                <TextSelection>750,0</TextSelection>
                                 <Target Type="Words">0</Target>
                             </TextSettings>
                         </BinderItem>
@@ -465,7 +465,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="300" Characters="1842" Date="2020-01-27 10:40:03 +0100"/>
+        <PreviousSession Words="293" Characters="2198" Date="2020-02-24 10:12:25 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
@@ -473,7 +473,7 @@
         </Collection>
         <Collection Type="RecentSearch" ID="DEADBEEF-0000-0000-0000-000000000000" Color="0.901961 0.901961 0.980392">
             <Title>Search Results</Title>
-            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">naive</SearchSettings>
+            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">sqsub</SearchSettings>
         </Collection>
     </Collections>
     <PrintSettings PaperType="A4" LeftMargin="72.0001" RightMargin="72.0001" TopMargin="90.0002" BottomMargin="90.0002" Orientation="Portrait" Collates="No" ReverseOrder="No"/>

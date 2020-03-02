@@ -46,18 +46,50 @@ The main idea of the paper is to identify, for (i) all logical contexts that ori
 
 Before turning to the first of these sections, we present a motivating example.
 ## Motivating example ##
-When considering food, whether it is categorised as fruit or vegetable depends on assuming a botanical or culinary perspective. The botanical classification is based on the structure and function of the part of the plant in question, whereas the culinary classification takes flavour and structure as its primary characteristics for classification. As a result tomatoes, cucumber and green beans are considered vegetables by a cook whilst these are considered fruits according to botanical discipline. Assume two ontologies B(otany) and C(ulinary), each specifying the semantics ascribed to their particular data as depicted in \cref{fig:alignment-a}    
+When considering food, whether it is categorised as fruit or vegetable depends on assuming a botanical or culinary perspective. The botanical classification is based on the structure and function of the part of the plant in question, whereas the culinary classification takes flavour and structure as its primary characteristics for classification. As a result tomatoes, cucumber and green beans are considered vegetables by a cook whilst these are considered fruits according to botanical discipline, see \cref{fig:bot-venn} versus \cref{fig:cul-venn}. Now assume two applications, a botanic and culinary one, with their own ontology as their underlying knowledge base, i.e., $\ont{O}_b$ and $\ont{O}_c$, respectively. Each ontology ascribes semantics to their particular data from their different (but equally legitimate) application perspective, depicted in \cref{fig:alignment-a}. Assume further that both application are to exchange data and, hence, must be semantic interoperable. 
 
-![Two ontologies, a culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) one, defining a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables, and a $p$lant anatomy that subsumes $f’$ruits, respectively. Both ontologies are subsumed by the *verum* concept ($\top$, “everything”) and subsume the *falsum* concept ($\bot$, “nothing”). The alignment specifies two correspondences, $\mu_1$ and $\mu_2$][def:AlignA]
 
-The culinary ontology $\ont{O}_c$ defines a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables. The botanic ontology $\ont{O}_b$ defines a $p$lant anatomy that subsumes, amongst others, $f’$ruits. Both ontologies are subsumed by the *verum* concept ($\top$, “everything”) and subsume the *falsum* concept ($\bot$, “nothing”). Clearly, the culinary vegetarian $i$ngredients can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1$. The second correspondence, depicted as $\mu_2$, state that the culinary $v$egetables concept overlap with the botanic $f$ruit concept; this due to the different categorisation of tomatoes, cucumbers and green beans in relation to, e.g., apples (considered $f$ruit to both disciplines) and asparagus (considered $v$egetables to both disciplines). 
+\begin{figure}
+ \centering
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/CulinaryVenn.png}
+ \caption{The culinary categorisation of fruits and vegetables.}
+ \label{fig:cul-venn}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/AlignmentA.png}
+ \caption{A culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) ontology with different semantics.}
+ \label{fig:alignment-a}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/BotanicVenn.png}
+ \caption{The botanic categorisation on fruits and non-fruits.}
+ \label{fig:bot-venn}
+ \end{subfigure}
+ \caption{Two perspectives on fruit and vegetables, their ontologies and alignment between them.}
+ \label{fig:mot-example}
+\end{figure}
 
-Turning our attention to the transcription of data, consider data from the culinary ontology: the vegetarian ingredients on the menu consist of asparagus, carrots and tomatoes. Assume further that the transcription is aware of both ontologies and the two correspondences. Clearly, stating the fact about “3 different vegetarian ingredients” can be transcribed into “3 different plant parts”; a one to one replacement of terms suffices since everything that is considered a vegetarian ingredient is, according to $\mu_1$, considered a part of a plant as well. Now consider the transcription for “the number of vegetables is 3”: simply replacing the culinary term “vegetables” with the botanic term “fruit” results in wrongly categorising the asparagus and carrots as botanic fruits. Hence, a valid logic notion on how the two categories relate to each other (by $\mu_2$) might be a necessary condition, however, it is naive to consider it a sufficient condition to replace the related terms one by one. In fact, the particular relation here, overlap, implies that a one to one transcription is invalid. The only valid transcription of “the number of vegetables is 3” reads “the number of plant parts is 3”[^1]. To allow for such transcription it is necessary to also take the essence of the correspondence relation in consideration, as well as both ontologies and any other available correspondences, here $\mu_1$. And although the transcription result might become more generic than its original fact, its semantic validity remains and does not induce incorrect categorisations.     
+
+The culinary ontology $\ont{O}_c$ defines a vegetarian $i$ngredients concept that subsumes, amongst others (the dotted open line), $v$egetables. The botanic ontology $\ont{O}_b$ defines a $p$lant anatomy that subsumes, amongst others, $f’$ruits. Clearly, the culinary vegetarian $i$ngredients can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1: i \sqsubset p$. The second correspondence, depicted as $\mu_2: v \overlap f’$, state that the culinary $v$egetables concept overlaps with the botanic $f’$ruit concept: both concepts have common individuals, e.g., tomatoes, cucumbers and green beans, but also individuals that do not belong to the other concept, e.g., apples as botanic fruit but not as culinary vegetables, and asparagus vice versa. Clearly, both correspondences are semantically valid. 
+
+Turning our attention to the mediation of data, consider data from the culinary ontology: the vegetarian ingredients on the menu consist of asparagus, carrots and tomatoes. Assume further that the mediator is aware of both ontologies and the two correspondences. Clearly, stating the culinary fact that “asparagus, carrots and tomatoes are vegetarian ingredients” can be transcribed into the botanic fact that “asparagus, carrots and tomatoes are plant parts”; a one-to-one replacement of terms suffices since everything that is considered a vegetarian ingredient is, according to $\mu_1$, considered a part of a plant as well, and semantic interoperability has been achieved. Now consider the transcription for the culinary statement “asparagus, carrots and tomatoes are vegetables”. Simply replacing the culinary term “vegetables” with the botanic term “fruit” in the transferred data *because* a valid correspondence exists between the two terms, here $\mu_2$, now results in *phantom semantics*: inducing a erroneous categorisation of individuals, here asparagus and carrots as botanic fruits. Since an ontology embodies the knowledge-base for an application, this phantom semantics will introduce erroneous or conflicting knowledge to the botanic application; semantic interoperability has failed. In conclusion, we consider a valid logic notion on how the two categories relate to each other a necessary condition for transcription. However, simply replacing the related terms one-to-one is insufficient to always achieve faithful semantic interoperability between applications.
+
+Consider that the only valid transcription of “asparagus, carrots and tomatoes are vegetables” reads “asparagus, carrots and tomatoes are plant parts”. To allow for such transcription it is necessary to take into consideration more information than the correspondence relation $\mu_2$ and its two related concepts only. In fact, to achieve a valid transcription, in this case the total logical context that applies to the two related concepts should be taken into consideration. We call this the *transcription context*, which includes the essence of the correspondence relation, plus fragments of both ontologies as well as other correspondences between those fragments. Based on the transcription context as depicted in \cref{fig:alignment-a}, the only *valid transcription*, viz. one that is logically sound and remains closest to the individuals that are denoted by the term under transcription, here “vegetables”, is the botanic term “plant parts”. And although the transcription result might be more generic than its original fact, no phantom semantics occur. As a result, semantic interoperability will be achieved and the botanic application can process external data without the risk to show more erroneous behaviour than with its internal data only. 
+
+We note that the transcription context can be considered agnostic to the particular ontologies and alignments since it only depends on the underlying formal logic: the intra-ontological relations and inter-ontological correspondences. A mediator, thus, only needs to consider the transcription context in order to produce valid transcriptions. 
 
 
 <!-- Page definitions -->
-[def:AlignA]: src\images\AlignmentA.png {#fig:alignment-a width=25%}
-[^1]: We here only take concept transcriptions into account and do not consider the adaption of the data value, yet. 
+
+
+
 ## Terminology ##
 We introduce some terminology, as follows.
 
