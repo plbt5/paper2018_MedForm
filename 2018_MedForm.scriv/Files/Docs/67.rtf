@@ -1,0 +1,28 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}{\f1\fmodern\fcharset0\fprq2 CourierNewPS-ItalicMT;}{\f2\fmodern\fcharset0\fprq2 Calibri,Arial,Helvetica,sans-serif;}}
+{\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\listtable
+{\list\listtemplateid1\listhybrid
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\f2\fs24\cf1\fi-360\li720\lin720}{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
+\pgnrestart\pgnstarts0
+\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two collaborating software agents, exchanging data about their common interest. Each agent addresses a part of reality, here denoted the agent\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92s }{\f1\fs24\b0\i1 Domain of Application}{\f0\fs24\b0\i0  (DoA), denoted \\concept\{R\}. Collaboration implies that the agents\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 application domains overlap. In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based }{\f1\fs24\b0\i1 Domain of Interpretation}{\f0\fs24\b0\i0  (DoI), denoted \\concept\{D\}. Furthermore, a conceptualisation is represented in tokens which, together, form an ontology, denoted \\ont\{O\}. An interpretation function $\\intn: \\ont\{O\} \\to \\concept\{D\}$ exists from the ontology to the conceptualisation. We assume that each agent decides on its own conceptualisation and its own ontological representation, the latter being built from a unique alphabet $\\Sigma$.}
+\par\pard\plain \ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Since each agent decides on its own conceptualisation, two DoI\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92s with two unique ontologies emerge: $\\intn: \\ont\{O\} \\to \\concept\{D\}$, and $\\intn\u8217\'92: \\ont\{O\}\u8217\'92 \\to \\concept\{D\}\u8217\'92$, where $\\Sigma_\{\\ont\{O\}\} \\cap \\Sigma_\{\\ont\{O\}\u8217\'92\} = \\varnothing$ whereas, since the DoA\u8217\'92s overlap, $\\concept\{D\} \\cap \\concept\{D\}\u8217\'92 \\neq \\varnothing$. We assume the existence of (inter-ontological) alignment correspondences that hold between source and target ontological concepts, such as subsumption, disjointness or overlap. We make no assumptions on how the alignment correspondences are established but we do assume their semantic validity. Besides data exchange, collaboration thus demands for data transcription between both ontologies. }
+\par\pard\plain \ltrch\loch \f0\fs24\b0\i0
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1 Consider two ontologies, $\\ontO and O', each representing the identical part of reality. }{\f2\fs24\cf1\cb2\highlight2 Each ontology can be represented as a directed cyclic graph.\~}{\f2\fs24\cf1 Assume an alignment A between them, representing how (constructs of) concepts correspond to each other. Each alignment A is a collection of specified correspondences $\\alpha = $ \line }
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1 The purpose of the rewriting is to transcribe data from its original representation of one ontology into the representation of the other.\~}
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1 We have formulated an inductive transcription model to describe (i) the intra-ontologically relations that hold between concepts in the first graph, (i}{\f2\fs24\cf1\cb2\highlight2 i) the intra-ontologically relations that hold between concepts in the second graph, and (iii) the inter-ontological relations that hold according to the alignments. Due to semantic considerations it is not possible to follow the specified alignment directly, i.e., replacing the\~(construct of) concept(s) from the source directly into the\~(construct of) concept(s) from the target The purpose of the transcription model is to formulate rules that specify how to transcribe the concepts from the first to the second ontological representation under the condition of a particular context (using (i), (ii) and (iii)).\~}
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1\cb2\highlight2 It is our objective to reformulate our inductive model as a cTRS since this proofs that it is possible to produce an operational implementation of our transcription model, and with that a generic semantic transcription engine.}
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1 We have made an attempt to do exactly that: reformulate our inductive model as a cTRS. However, we are uncertain whether we have fully understood the mechanics of a cTRS, and we came to the conclusion that such reformulation is not possible.\~}
+\par\plain \f2\fs24\cf1
+\par\plain {\f2\fs24\cf1 Our questions to you is:}
+\par\pard\plain \li720\fi-360\sb240\ltrch\loch \ls1\ilvl0{\listtext\f2\fs24\cf1	1.	}{\f2\fs24\cf1 Is our conclusion correct that our reformulation of the transcription model into a cTRS is incorrect?}
+\par\pard\plain \li720\fi-360\sa240\ltrch\loch \ls1\ilvl0{\listtext\f2\fs24\cf1	2.	}{\f2\fs24\cf1 Could you indicate an approach with which we can reformulate our transcription model into a correct cTRS, or do you have an indication that this is not possible at all?}
+\par\pard\plain \ltrch\loch \f2\fs24\cf1}

@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}}
+{\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
+\paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
+\pgnrestart\pgnstarts0
+\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 We apply \\cref\{def:ontology\} on ontology and its related terms to adapt the TRS definitions from [@Baader1998; and @Bezem2003].}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[mediation terms]\\label\{def:med-terms\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Assume two ontologies, $\\ont\{O\}$ and $\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92$, with alphabet $\\Sigma_\{\\ont\{O\}\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c\}$ and $\\Sigma_\{\\ont\{O\}\u8217\'92\} = \\tuple\{\\Sigma_s\u8217\'92, \\Sigma_p\u8217\'92, \\Sigma_c\}$, which share $\\Sigma_c$ \\footnote\{Although sharing $\\Sigma_c$ is not required, it is often the case. Still, extending this definition for the opposite case is straightforward\}. Assume the alphabets of each ontology extended with a differently notated but shared verum concept, and let $\\Sigma = \\pair\{\\Sigma_\{\\ont\{O\}\} \\cup \\top\} \\cup \\pair\{\\Sigma_\{\\ont\{O\}\u8217\'92\} \\cup \\top\u8217\'92\}$ denotes the signature of the transcription. Let $V$ denote a countable, possible infinite set of variables with $V \\cap \\Sigma = \\; \\emptyset$. The set of \\emph\{mediation terms\} over $\\Sigma$, denoted as $\\mter(\\Sigma, V)$, contains strings over $\\Sigma \\cup V$. More specifically:}
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^0    &= \\; \\set\{\\Sigma_s \\cup \\top\} \\cup \\set\{\\Sigma_s\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\top\u8217\'92\} \\text\{, denotes the set of individuals from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92,\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma^n    &= \\; \\Sigma_p \\cup \\Sigma_p\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\cup \\Sigma_c \\text\{, denotes the set of $n$-ary predicates and connectives from \} \\ont\{O\} \\text\{ and \} \\ont\{O\}\u8217\'92, \\text\{ and\}\\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   V           &= \\; \\set\{x_i \\; | \\; 0 \\geq i \\geq n\}, \\text\{ denotes the set of variables $x_i$.\} }
+\par\pard\plain \ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 Then, the set of mediation terms $\\mter(\\Sigma, V)$ is defined inductively as:}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall x_i \\in V      \\; &: \\; x_i \\in \\mter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall a \\in \\Sigma^0 \\; &: \\; a \\in \\mter(\\Sigma, V) \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\forall p \\in \\Sigma^n \\; &: \\; t_1, \\ldots, t_n \\in \\mter(\\Sigma, V) \\; \\Rightarrow \\; p(t_1, \\ldots, t_n) \\in \\mter(\\Sigma, V)  }
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}     }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:med-terms\} on mediation terms, $\\mter(\\Sigma, V)$, and the original Definition 3.1.2 from [@Baader1998] on $\\Sigma-$Terms, $\\ter(\\Sigma, V)$, is to assure that $\\mter(\\Sigma, V)$ includes terms that are formulated over the two ontologies, and furthermore, each of them include a differently denoted verum concept. This definition does not enforce that each mediation term is a valid ontological theory because this is irrelevant and even undesirable for mediation terms that occur as intermediate terms in the rewriting sequence. We do need to ensure, though, that the end terms of a term transcription is a valid ontological theory, and prepare this by inserting a verum concept for semantically invalid (intermediate) rewriting results.    }
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Term identity]\\label\{def:term-identity\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 A \\emph\{term identity\}, or simply an \\emph\{identity\}, is a pair of terms $\\pair\{s, t\} \\in \\mter(\\Sigma_\\ont\{O\}, V) \\times \\mter(\\Sigma_\{\\ont\{O\}\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92\}, V)$, denoted as $s \\approx t$, expressing an \\emph\{a priori\} equality between both terms. We call $s$ the left-hand side (LHS) and $t$ the right-hand side (RHS) of the identity $s \\approx t$. }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 The difference between this \\cref\{def:term-identity\} and the original Definition 3.1.7 from [@Baader1998] is to assure that the identity represents pairs of semantic equivalent terms, the LHS of which is admitted by the source ontology and the RHS by the target ontology. This is not possible with the more general original definition that considers one language only.  }
+\par\pard\plain \tx1899\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 Regarding a *rewrite rule*, Definition 2.2.1 from [@Baader1998] or Definition 4.2.1 from [@Bezem2003], and *term rewriting*, Definition ... from [@Baader1998] or Definition ... from [@Bezem2003], no other modifications are required other than their reference to $\\mter$ as opposed to $\\ter$.}
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0}

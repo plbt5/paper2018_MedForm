@@ -1,0 +1,23 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0
+{\fonttbl{\f0\fmodern\fcharset0\fprq2 CourierNewPSMT;}}
+{\colortbl;\red0\green0\blue0;\red255\green255\blue255;}
+\paperw12240\paperh15840\margl1800\margr1800\margt1440\margb1440\fet2\ftnbj\aenddoc
+\pgnrestart\pgnstarts0
+\pard\plain \tx720\ri-16872\ql\ltrch\loch {\f0\fs24\b0\i0 Indeed, being a syntactic replacement of terms and values, we consider a transcription a specific application of a TRS which, after all, provides for a syntactic rewrite of terms over a specific alphabet. Since a transcription is initiated by its correspondence, the term rewriting that we are looking for is of the pattern $c_n \\theta_n c_n\loch\af0\hich\af0\dbch\af0\uc1\u8217\'92 \\, \\trsrtc \\, c_n \\vldtranscript\{\\ctx_n\}$, with $c_n$, $c_n\u8217\'92$ and $\\theta_n$ specified by some $\\mu$. }
+\par\pard\plain \tx720\ri-16872\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 We first provide for a formal specification of an ontology in a way that suits the term rewriting discipline.}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\begin\{mmdef\}[Ontology language, abstract syntax, theories, ontology]\\label\{def:ontology\}}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology language\}, denoted $L_\{\\ont\{O\}\}$, is a formal language characterised by an alphabet $\\Sigma_\\ont\{O\} = \\tuple\{\\Sigma_s, \\Sigma_p, \\Sigma_c \}$ that consists of atomic symbols $\\Sigma_s$, atomic predicates $\\Sigma_p$, and connectives $\\Sigma_c$, with:}
+\par\pard\plain \ltrch\loch {\f0\fs24\b0\i0 \\begin\{align*\}}
+\par\plain {\f0\fs24\b0\i0   \\Sigma_s \\; &\\subseteq \\; I \\cup V \\cup \\set\{\\emptyset\} \\\\}
+\par\plain {\f0\fs24\b0\i0   \\Sigma_p \\; &\\subseteq \\; C \\cup R \\cup P \\cup T \\\\}
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0   \\Sigma_c \\; &= \\; \\\{ \\sqsubset, \\sqsupset, \\equiv, \\disj, \\ndisjoint, \\sqin, \\sqni, \\neg, \\land, \\lor, \\to, \\leftrightarrow , (, )\\\}}
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{align*\}}
+\par\plain {\f0\fs24\b0\i0 where $C$, $R$, $P$, and $T$ denote the set of classes, relations, properties and data types, respectively; $I$ denotes the set of individuals of classes, relations and properties; $V$ denotes the set of values of type $T$, and $\\Sigma_c$ represents connectives to formulate \\emph\{concept axioms\} and \\emph\{concept expressions\}. }
+\par\plain \f0\fs24\b0\i0
+\par\pard\plain \tx1899\ql\ltrch\loch {\f0\fs24\b0\i0 The \\emph\{abstract syntax\}, denoted as $S_\\ont\{O\} = \\tuple\{\\Sigma_\\ont\{O\}, G_\\ont\{O\}\}$, produces the ontology language $L_\\ont\{O\}$ over alphabet $\\Sigma_\\ont\{O\}$ by grammar $G_\\ont\{O\}$. Specifically, $G_\\ont\{O\}$ represents the formal grammar for the propositional language, also known as sentential logic or truth-functional logic \\cite[35]\{Gamut1991\}. Then, $L_\{\\ont\{O\}\}$ is a set of well-formed strings, viz. the \\emph\{theories\} that are admitted by ontology $\\ont\{O\}$.   }
+\par\pard\plain \tx720\ql\ltrch\loch \f0\fs24\b0\i0
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 An \\emph\{ontology\} collects the abstract syntax together with a Domain of Interpretation (DoI), denoted $\\EuScript\{D\}$, and an interpretation function $\\intn: L_\{\\ont\{O\}\} \\to \\EuScript\{D\}$ from the language and its theories to its DoI \\cite[3.6.1]\{Gamut1991\}, and is denoted as $\\ont\{O\} = \\tuple\{S_\\ont\{O\}, \\EuScript\{D\}, \\intn(\\cdot)\}$.    }
+\par\pard\plain \tx720\ql\ltrch\loch {\f0\fs24\b0\i0 \\end\{mmdef\}}
+\par\plain \f0\fs24\b0\i0
+\par\plain \f0\fs24\b0\i0}
