@@ -1,0 +1,41 @@
+\ProvidesPackage{scriv2tex}[2020/10/26 packagescriv2tex]	% Necessary to convert scriv (mmd) commands to tex commands
+
+\RequirePackage{graphicx}
+
+%%%%%%%%%%%%
+% My Scrivener specific tags
+%%%%%%%%%%%%
+
+\newcommand{\scrivForceNL}{~\\\newline}				% Enforce a newline
+
+\newenvironment{synopsis}{%						% Create a -synopsis- environment format
+\par
+\noindent
+\fontfamily{qcr}\small\selectfont
+\textbf{Synopsis: }
+\noindent}
+{}
+
+\newenvironment{notes}{%						% Create a -note- environment format
+\par
+\noindent
+\fontfamily{qcr}\small\selectfont
+\textbf{Note: }
+\noindent}
+{}
+
+
+%%%%%%%%%%%
+% Graphics peculiars
+%%%%%%%%%%%
+% Because of the inclusion of a {width=#} statement in the mmd file for each image, 
+% the fallback option below to set the width of graphics to the textwidth, is not necessary anymore.
+%
+%\let\oldincludegraphics\includegraphics
+%\renewcommand{\includegraphics}[1]{\oldincludegraphics[width=\textwidth]{#1}}
+%
+% However, the keepaspectratio apparently is default set to false, resulting in vertically stretched images. 
+% The statement below toggles it to true 
+% See also the CTAN documentation for graphicx, section 4.6 "Global setting of keys"
+\setkeys{Gin}{keepaspectratio=true}
+

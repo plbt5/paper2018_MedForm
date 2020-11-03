@@ -1,19 +1,24 @@
 \documentclass[a4paper,11pt,oneside,oldfontcommands]{memoir}
-\usepackage{templates/mystyle2015}			% Indeed, my project styles
-\usepackage{templates/mySpecialTokens}		% Definition of tokens used in modal logic, formal semantics and term rewriting
-\usepackage{templates/myarrows}				% Some few specific arrow symbols used throughout the document, based on extpfeil
+\usepackage{../templates/mystyle2015}			% Indeed, my project styles
+\usepackage{../templates/mySpecialTokens}		% Definition of tokens used in modal logic, formal semantics and term rewriting
+\usepackage{../templates/myarrows}				% Some few specific arrow symbols used throughout the document, based on extpfeil
+\usepackage{../templates/scriv2tex}			% Some few specific arrow symbols used throughout the document, based on extpfeil
 \usepackage[en-GB,datesep={-}]{datetime2}
 \usepackage{longtable}
 
 %\usepackage{amssymb, setspace, rotating, titlesec, adjustbox, array, threeparttable}
 \usepackage{amssymb, setspace, rotating, titlesec, adjustbox, array, threeparttable}
 									% is all of this necessary?? 
+									
+%\usepackage{showkeys}				% For TESTING only: referentiewoorden van de labels verschijnen in het pdf-document i.p.v. de nummers. 
+									
 %%%%%%%%%%%%%%%%%									
 %% Fonts, fonts, fonts, notably for math
 \usepackage{xfrac}					% tbv slanted fractions: \sfrac{}{}
 \usepackage{pifont}
 
 \RequirePackage[utf8]{inputenc}		% NOT required when using xetex as opposed to pdftex
+
 
 \usepackage[T1]{fontenc}
 
@@ -34,7 +39,6 @@
 
 
 \usepackage[normalem]{ulem}			% tbv strikout text: \sout{deze tekst is strikeout}
-\usepackage{siunitx}				% Necessary??
 
 %\usepackage{fourier} 				% Assuming that you are using venturis for text, Hirwen Harendal, who designed the collection, advises that the best choice for mathematics is
 									%	fourier and the second best is mathdesign. Fourier sets text and math fonts.
@@ -49,10 +53,6 @@
 %%\usepackage{MnSymbol}				% Levert foutmelding: Too many math alphabets used in version normal. 
 \usepackage[xindy,toc]{glossaries}	%%%% The glossaries environment. Refer to: http://en.wikibooks.org/wiki/LaTeX/Glossary
 %%%\usepackage{pst-plot}				%%%% The ps trick environment. Zie ook: http://tug.org/PSTricks/main.cgi?file=examples REQUIRES --latex-engine=xelatex
-
-%% Theorems
-\usepackage[ntheorem]{empheq}
-\usepackage[thmmarks]{ntheorem}		% Easier handling of theorem-like environments. refer to ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
 
 
 \usepackage{cases}                  % To make separate labels in cases: https://tex.stackexchange.com/questions/31951/separate-labels-in-cases. It appears that <cases> needs to be loaded after <amsmath>
@@ -104,8 +104,9 @@
 %% ToDo's							% Creating proper todo bubbles adjacent to text. Refer to http://ctan.triasinformatica.nl/macros/latex/contrib/todonotes/todonotes.pdf
 \usepackage[textsize=tiny,colorinlistoftodos]{todonotes}	
 
-%% Cross-referencing				% Allow the format of cross-references to be determined automatically according to the “type” of cross-reference (equation, section, etc.) and the context in which the cross-reference is used.
-%\usepackage{varioref}				% sourced from http://texdoc.net/texmf-dist/doc/latex/tools/varioref.pdf
+%% Cross-referencing				% Allow the format of cross-references to be determined automatically according to the “type” of cross-reference (equation, section, etc.)
+									% and the context in which the cross-reference is used.
+									
 \usepackage{hyperref}				% If we want to use hyperref, sometime in the future for some reason, it should be defined in between of varioref and cleveref
 \usepackage{cleveref}				% sourced from http://tug.ctan.org/macros/latex/contrib/cleveref/cleveref.pdf Makes varioref clever, and reuses its work to improve its own workings. 
 									% The cleveref package must be loaded after all other packages that don’t specifically support it.
@@ -118,30 +119,11 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 
-%%% About this LaTeX template: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This template should work with any (reasonably recent) full
-% installation of TeXLive or MikTeX. The "ecis2015" package loads a
-% number of other packages, so if some package is missing, please
-% install it using the package manager of your TeX distribution. In
-% particular, if the "tikz" package is missing, you may have to install
-% "pgf" or simply remove our example graphics (see figure example
-% below).
-%
-% The file "ecis2015.sty" should be placed somewhere in your TeX Path
-% (or simply in the same folder as your document).
-%
-% Please use PDFLaTeX to compile your document.
-%
-% You need not escape special characters or Umlauts like é ä ö ü ß (in 
-% fact, you shouldn't), as this source is inputenc'd in UTF-8.
-%
-% Note for BibTeX users: We use BibLaTeX for formatting, so we use Biber
-% as a sorting backend (default). 
-% If you still need to use the old BibTeX program, please change the 
-% BibLaTeX backend in the package file ("ecis2015.sty").
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Theorems 
+\usepackage[ntheorem]{empheq}	
+\usepackage[amsmath,thmmarks]{ntheorem}		% Use new theorems package as opposed to amsth, and include <amsmath>-emulation by including it as an option; without it, the equation references do not work anymore.
+											% Easier handling of theorem-like environments. refer to ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
+
 
 
 %%% ------- mijn configs: --------- %%%
@@ -162,10 +144,10 @@
 %% end test stuff
 
 
+%%%%%%%
+%% Theorems Definitions 
 %%
-%% Defining new theorem and -styles
-% Its documentation can be found at ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
-%\RequirePackage[thref, thmmarks, amsmath]{ntheorem}		% Use new theorems package as opposed to amsth, include <amsmath>-emulation by including it as an option
+%% Defining new theorem and -styles. Its documentation can be found at ftp://ftp.dante.de/pub/tex/macros/latex/contrib/ntheorem/ntheorem.pdf
 
 % Allow to repeat a theorem number to, e.g., continue with a theorem such as an example, or to add something to an existing theorem
 % THIS UNFORTUNATELY DOES NOT WORK, producing a <Undefined control sequence \n <argument> \rep@title \n l.38 \newtheorem*{rep@theorem}{\rep@title}>-error
@@ -178,7 +160,6 @@
 % {\end{rep@theorem}}}
 %\makeatother
 	
-%%%%% Theorems Definitions %%%%%%
 \theoremstyle{definition}
 \theoremstyle{break}		% The header for all theorems are followed by a newline
 % Examples 					-- are numbered by chapter, and carry an asterisk as closing symbol
@@ -218,7 +199,7 @@
 \crefname{mmdp}{Design Principle}{Design Principles}
 \crefname{mmasmptn}{Assumption}{Assumptions}
 \crefname{mmrmk}{Remark}{Remarks}
-% \crefname{chapter}{Chapter}{Chapters}   Geen onderscheid maken tussen hoofdstuk en secties in een paper
+\crefname{chapter}{Chapter}{Chapters}   
 \crefname{chapter}{Section}{Sections}
 \crefname{section}{Section}{Sections}
 \crefname{figure}{Figure}{Figures}

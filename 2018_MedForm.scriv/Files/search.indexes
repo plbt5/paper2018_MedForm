@@ -28,57 +28,58 @@ bibliography: src/bib/CitedByMe-2018_MedForm.bib
 csl: templates/my-basic-reference-style.csl  
 abstract: |  
   
-  *Background:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+  *Background:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. Semantic mediation results in *transcriptions*: replacing a native term from one agent for a native term from the other agent. Essentially, such replacement implies semantic equivalence to hold between the two concepts, which can be in contrast with the specified inter-ontological concept correspondence and, hence, their semantic relationship. 
  
-  *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
+  *Motivation:* Without solving this semantic discrepancy between the alignment correspondences that are *specified*, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment-based mediation will often fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic transcription engine that adheres to the correspondences as specified by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
 
-  *Objective:* To investigate the contexts under which the applied transcription, despite its clear discrepancy with the intended correspondence, *does* represent a faithful semantic mediation between software agents. Furthermore, we investigate how term rewriting can be applied as mathematical footing for such generic semantic mediation capability.
+  *Objective:* First, to investigate the contexts under which the applied transcription, despite its discrepancy with the intended correspondence, *does* represent a faithful semantic transcription between software agents. Second, to investigate how term rewriting can be applied as mathematical footing for such generic semantic transcription capability.
 
-  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept(s) and (ii) the aligned target concept(s), and (iii) the specified inter-ontological correspondence between these concepts. For each context we investigate whether the suggested target concept(s) represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic mediator, addressing its termination, normalisation, confluence and convergence properties.  
+  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept(s) and (ii) the aligned target concept(s), and (iii) the specified inter-ontological correspondence between these concepts. For each context, we investigate whether the suggested target concept(s) represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic transcription model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic transcription engine, addressing its termination, normalisation, confluence and convergence properties.  
 
-  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, our method provides the most accurate valid data transcription possible given the specified alignment, or an indication that none is available. In this way the semantic difference between the specified correspondence relation and the implemented equivalence relation can be overcome, and data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. Being agnostic on the particular ontologies and their alignment, the mediator with its convergent rewriting property provides for a strong mathematical foundation towards infrastructural semantic standards and services, such that sIOP can be achieved by specification as opposed to implementation.
+  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, our method provides the most accurate data transcription possible given the specified alignment. In this way the semantic difference between the specified correspondence relation and the implemented equivalence relation can be overcome, and data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for an important improvement in software flexibility, consistency and reuse of data, and a significant reduction in time-to-market. Being agnostic on the particular ontologies and their alignment, the transcription engine with its convergent rewriting property provides for a strong mathematical foundation towards infrastructural semantic standards and services, such that sIOP can be achieved by specification as opposed to implementation.
+
 
   
 ...</Text>
-            <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
         <Document ID="4">
             <Title>Introduction</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>Assume two collaborating software agents, exchanging data about their common interest. Each agent addresses a part of reality, here denoted the agent’s application domain. Collaboration implies that the agents’ application domains overlap. In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based Domain of Interpretation (DoI), denoted \concept{D}. Furthermore, a conceptualisation is represented in tokens which, together, form an ontology, denoted \ont{O}. Finally, an interpretation function $\intn$ exists from the ontology to the conceptualisation. We assume that each agent decides on its own conceptualisation and its own ontological representation, the latter being built from a unique alphabet $\Sigma$. For example, consider ...
+            <Text>Assume two collaborating software agents, a culinary and a botany one, exchanging data about their common interest, e.g., fruits and vegetables. Each agent addresses a part of reality, here denoted the agent’s application domain. Collaboration implies that the agents’ application domains overlap, hence consider they both look at a basket carrying 2 apples, and 4 tomatoes. For the culinary agent, the basket contains 2 fruit and 4 vegetables, however, the botany agent counts 6 fruit only. This is a matter of ontology, however, when collaboration is involved it is also a matter of semantic relations between ontologies and of data transcriptions. Where for the first two a significant body of literature exists, getting from semantic relations to data transcriptions remains ad-hoc and collaboration-dependent. This can be considered an impediment to achieve semantic interoperability, and in this paper we suggest a generic approach to its realisation.     
 
-Since each agent decides on its own conceptualisation, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$^[Even worse, it can be the case that both ontologies share identical tokens which refer to different concepts in each conceptualisation. It is easy to see how identical tokens can still become unique, hence we take the unique name assumption to apply for the rest of the paper.] whereas, since the DoI’s overlap, $\concept{D} \cap \concept{D}’ \neq \varnothing$. We assume the existence of (inter-ontological) alignment correspondences that hold between source and target ontological concepts, such as subsumption, disjointness or overlap. We make no assumptions on how the alignment correspondences are established but we do assume their semantic validity. Besides data exchange, collaboration thus demands for data transcription between both ontologies. Now consider that a transcription essentially implements a replacement of term $e \in \ont{O}$ to $e’ \in \ont{O}’$. From a semantic perspective, however, term replacement enforces an equivalence to hold between both terms, which is in clear contrast with the prescribed correspondence relations (except for an equivalence correspondence). Consequently, the result of the transcription will induce a difference between how it is actually being interpreted by the target agent and how it was intended to be interpreted according to its correspondence relation. Clearly, this difference might very well result in invalid semantics, with dramatic consequences for the agents’ collaboration. With invalid semantics we refer to a valuation of a theory that contradicts the state of affairs in the domain of interest. Invalid semantics that are induced by the transcription will be denoted as phantom semantics. Due to the open world assumption this includes unfaithful valuations that remain open because conclusive data (or data that sources their entailment) have vaporised by the transcription, and vice versa, those that became closed because definitive data (or source data for their derivation) have transpired. In short, phantom semantics are semantics that are transcription-induced and contradict the state of affairs in the domain of interest. 
+In terms of formal semantics, an application domain is abstracted into a conceptualisation as a set-based Domain of Interpretation (DoI), denoted \concept{D}. Furthermore, a conceptualisation is represented in tokens which, together, form an ontology, denoted \ont{O}. An interpretation function $\intn$ exists from the ontology to the conceptualisation. We assume that each agent decides on its own conceptualisation and its own ontological representation, the latter being built from a unique alphabet $\Sigma$. 
 
-Our first objective towards semantic interoperability (sIOP) is to facilitate for any pair of collaborating agents a generic semantic mediation: a syntactic replacement between theories from two distinct alphabets, which does not induce phantom semantics, despite the difference between the stated correspondence relation and the actual transcription. Our second objective is to provide for an implementation of such generic semantic mediation, which is always terminating, and remains independent of the order with which the terms are replaced.
+Since each agent decides on its own conceptualisation, two DoI’s with two unique ontologies emerge: $\intn: \ont{O} \to \concept{D}$, and $\intn’: \ont{O}’ \to \concept{D}’$, where $\Sigma_{\ont{O}} \cap \Sigma_{\ont{O}’} = \varnothing$^[Even worse, it can be the case that both ontologies share identical tokens which refer to different concepts in each conceptualisation. It is easy to see how identical tokens can still become unique, hence we take the unique name assumption to apply for the rest of the paper.] whereas, since the DoI’s overlap, $\concept{D} \cap \concept{D}’ \neq \varnothing$, e.g., 2 apples and 4 tomatoes. We assume the existence of (inter-ontological) alignment correspondences that hold between source and target ontological concepts, such as subsumption, disjointness or overlap. We make no assumptions on how the alignment correspondences are established but we do assume their semantic validity. Besides data exchange, collaboration thus demands for data transcription between both ontologies. Now consider that a transcription essentially implements a replacement of term $e \in \ont{O}$ to $e’ \in \ont{O}’$. From a semantic perspective, however, term replacement enforces an equivalence to hold between both terms, which is in clear contrast with the prescribed correspondence relations (except for an equivalence correspondence). Consequently, the result of the transcription will induce a difference between how it is actually being interpreted by the target agent and how it was intended to be interpreted according to its correspondence relation. Clearly, this difference might very well result in invalid semantics, with dramatic consequences for the agents’ collaboration. With invalid semantics we refer to a valuation of a theory that contradicts the state of affairs in the domain of interest. With *phantom semantics* we refer to invalid semantics that are induced by the data transcription. Due to the open world assumption this includes unfaithful valuations that remain open because conclusive data (or data that sources their entailment) have vaporised by the transcription, and vice versa, those that became closed because definitive data (or source data for their derivation) have transpired. In short, phantom semantics are semantics that are transcription-induced and contradict the state of affairs in the domain of interest. 
 
-The main idea of the paper is to identify, for (i) all logical contexts that originate from the source and target ontological concepts, (ii) including their (intra-ontological) relations, and (iii) all (inter-ontological) alignment correspondences that are possible between source and target ontological concepts, the most accurate valid transcription possible or an indication that none is available. We call aspects (i)-(iii) the transcription contexts, and these are introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a generic semantic mediator. Our contributions to the semantic mediation process are then:
+Our first objective towards semantic interoperability (sIOP) is to facilitate for any pair of collaborating agents a generic semantic transcription: a syntactic replacement between theories from two distinct alphabets, which does not induce phantom semantics, despite the difference between the stated correspondence relation and the actual transcription. Our second objective is to provide for an implementation of such generic semantic transcription, which is always terminating, and remains independent of the order with which the terms are replaced.
+
+The main idea of the paper is to identify, for (i) all logical contexts that originate from the source and target ontological concepts, (ii) including their (intra-ontological) relations, and (iii) all (inter-ontological) alignment correspondences that are possible between source and target ontological concepts, the most accurate transcription possible or an indication that none is available. We call aspects (i)-(iii) the transcription context, and these are introduced as constraints for an abstract rewriting system, resulting in a conditional term rewriting system (cTRS) as the core engine for a generic semantic transcription component. Our contributions to the semantic mediation process are then as follows:
 
 1. An inductive model of the transcription context, describing any logical context that might occur between collaborating agents, in terms of classes, relationships and correspondences (\cref{an-inductive-transcription-model});
 1. A set of valid transcriptions for each transcription context that has been investigated and resolved. Due to space limitations we only present a few examples here -- the full set of valid transcriptions are available at [some web address | a “data” set] (\cref{valid-transcriptions});
-1. A mathematical specification of a mediator, founded on a conditional term rewriting system (\cref{a-ctrs-as-mediator});
-1. An investigation into the confluence property of the inductive model, to assure that the mediator is properly terminating and its transcription results are independent of the order in which the terms are transcribed (\cref{the-confluence-property-of-the-mediator});
-1. (Finally, an evaluation of the mediator by providing an implementation that is based on a generic rewriting logic framework, the Maude 2.0 System [@Clavel2003a], (\cref{validation})). 
+1. A mathematical specification of a semantic transcription engine, founded on a conditional term rewriting system (\cref{a-ctrs-as-mediator});
+1. An investigation into the confluence property of the inductive model, to assure that the transcription engine is properly terminating and its transcription results are independent of the order in which the terms are transcribed (\cref{the-confluence-property-of-the-mediator});
+1. (Finally, an evaluation of the transcription engine by providing an implementation that is based on a generic rewriting logic framework, the Maude 2.0 System [@Clavel2003a], (\cref{validation})). 
 
 Before turning to the first of these sections, we present a motivating example.</Text>
-            <Comments>brandtp, 12-11-2018 Voorbeeld toevoegen
-brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.</Comments>
+            <Comments>brandtp, 9/17/2018 Alleen als ik daar tijdruimte voor vinden kan.</Comments>
         </Document>
         <Document ID="30">
             <Title>Abstract</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>  *Background:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. This is in clear contrast with semantic mediation which, by transcribing the data expressed in the native language of one agent into the native language of the other agent, essentially implies an equivalence relation to hold between aligned concepts. 
+            <Text>  *Background:* Ontologies are considered a means to represent the semantics of a software agent. Semantic reconciliation, and the resulting ontology alignment, has shown instrumental for achieving semantic interoperability (sIOP) between software agents. An ontology alignment expresses inter-ontological concept correspondences, which basically denote set relationships to hold between a pair of concepts, e.g., *subset*, *superset*, *overlap*, and more. Semantic mediation results in *transcriptions*: replacing a native term from one agent for a native term from the other agent. Essentially, such replacement implies semantic equivalence to hold between the two concepts, which can be in contrast with the specified inter-ontological concept correspondence and, hence, their semantic relationship. 
  
-  *Motivation:* Without solving this semantic discrepancy between the *intended* alignment correspondences that are specified, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment based mediation will always fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic mediation component that adheres to the correspondences as intended by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
+  *Motivation:* Without solving this semantic discrepancy between the alignment correspondences that are *specified*, e.g., subset, superset, disjointness, and the transcription that is *applied*, i.e., equivalence, alignment-based mediation will often fail to achieve its purpose, viz. translating concepts between ontologies without introducing phantom semantics. The implementation of a generic transcription engine that adheres to the correspondences as specified by the alignment, would be key to an automated sIOP bridge between collaborating agents.  
 
-  *Objective:* To investigate the contexts under which the applied transcription, despite its clear discrepancy with the intended correspondence, *does* represent a faithful semantic mediation between software agents. Furthermore, we investigate how term rewriting can be applied as mathematical footing for such generic semantic mediation capability.
+  *Objective:* First, to investigate the contexts under which the applied transcription, despite its discrepancy with the intended correspondence, *does* represent a faithful semantic transcription between software agents. Second, to investigate how term rewriting can be applied as mathematical footing for such generic semantic transcription capability.
 
-  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept(s) and (ii) the aligned target concept(s), and (iii) the specified inter-ontological correspondence between these concepts. For each context we investigate whether the suggested target concept(s) represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic mediation model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic mediator, addressing its termination, normalisation, confluence and convergence properties.  
+  *Method:* We consider contexts that emerge from the intra-ontological relations that exist with (i) the source concept(s) and (ii) the aligned target concept(s), and (iii) the specified inter-ontological correspondence between these concepts. For each context, we investigate whether the suggested target concept(s) represents a faithful semantic transcription, or not. On formulating these contexts in formal logics, they collectively describe the foundation for a faithful semantic transcription model that is generic with respect to the applied pair of ontologies and their inter-ontological alignment. We then investigate the applicability of a conditional term rewriting system as implementation for a generic semantic transcription engine, addressing its termination, normalisation, confluence and convergence properties.  
 
-  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, our method provides the most accurate valid data transcription possible given the specified alignment, or an indication that none is available. In this way the semantic difference between the specified correspondence relation and the implemented equivalence relation can be overcome, and data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for a huge improvement in flexibility, consistency and reuse of data, and a significant reduction in time-to-market. Being agnostic on the particular ontologies and their alignment, the mediator with its convergent rewriting property provides for a strong mathematical foundation towards infrastructural semantic standards and services, such that sIOP can be achieved by specification as opposed to implementation.
+  *Results &amp; Consequences:* Independently from their underlying syntax, and irrespective the case-specific ontologies and alignments, our method provides the most accurate data transcription possible given the specified alignment. In this way the semantic difference between the specified correspondence relation and the implemented equivalence relation can be overcome, and data can be transcribed and exchanged between software agents without introducing phantom semantics. Thus sIOP can now be *specified* by inter-ontological alignments, as opposed to *implemented* by specific data wrappers case-by-case, providing for an important improvement in software flexibility, consistency and reuse of data, and a significant reduction in time-to-market. Being agnostic on the particular ontologies and their alignment, the transcription engine with its convergent rewriting property provides for a strong mathematical foundation towards infrastructural semantic standards and services, such that sIOP can be achieved by specification as opposed to implementation.
+
 </Text>
-            <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
         <Document ID="31">
             <Title>Readme</Title>
@@ -144,20 +145,49 @@ Be 100% explicit: “The main idea of the paper is ....”</Text>
 \end{equation}
 where:
 
-* \token{C} denotes the Class concept type. The interpretation of, e.g., the class $m$ of all coffee holders, results in a set $\intn(m) = \concept{M}$ of all individual mugs, cups, beakers, demitasses and what have you. Hence, $m \lhd \token{C}: \concept{M} \subseteq \concept{C}$ states that because the concept $m$ is type-of ($\lhd$) the Class type (\token{C}), its interpretation results in a set $\concept{M}$ that is a subset of the set \concept{C} of all class instances. On its turn, set \concept{C} is a subset of the set of all instances that we consider in the domain of interpretation: $\concept{C} \subseteq \concept{D}$;
-* \token{R}, \token{P}, \token{T} and \token{I} denote the Relation concept type, the Property concept type, the value type concept type, and the Instance concept type, respectively, each with their own interpretation in \concept{D}. For reason of space limitation, in this paper we need to constrain ourselves to alignments over classes; however, our approach towards semantic mediation applies to other concept types as well. We refer the interested reader to, e.g, [@Baader:2007tt] for an in-depth treatise on description logics.   
+* \token{C} denotes the Class concept type. The interpretation of, e.g., the class $f$ of all fruit, results in a set $\intn(f) = \concept{F}$ of all individual apples, pears, bananas and what have you. Now, $f \lhd \token{C} \Leftrightarrow \concept{F} \subseteq \concept{C}$ states that (i) the concept $f$ is type-of ($\lhd$) the Class type (\token{C}), (ii) its interpretation/representation $\Leftrightarrow$ results in a set $\concept{F}$ of all individual pieces of fruit, which (iii) is a subset of the set \concept{C} of all class instances. On its turn, set \concept{C} is a subset of the set of all instances that we consider in the domain of interpretation: $\concept{C} \subseteq \concept{D}$;
+* \token{R}, \token{P}, \token{T} and \token{I} denote the Relation concept type, the Property concept type, the value Type concept type, and the Instance concept type, respectively, each with their own interpretation in \concept{D}. For reason of space limitation, we constrain ourselves to alignments over classes; however, our approach towards semantic transcription applies to other concept types as well. We refer the interested reader to, e.g, [@Baader:2007tt] for an in-depth treatise on description logics.   
 
-Whenever the type of the concept or its atomicity is irrelevant, we denote the concept as $e$, whereas $c, p, r, t$ and $\iota$ denote a particular, intra-ontological atomic concept of type class, property, relation, value type or instance. In our example we can write that $m \sqsubset c$ because $\intn(m \sqsubset c) = \intn(m) \intn(\sqsubset) \intn(c) = \concept{M} \subseteq \concept{C}$. The homogeneous, non-atomic correspondence relation from \cref{eq:correspondence} is depicted in \cref{fig:basic-correspondence} (a). The patterns that emerge for each homogeneous and atomic correspondence are depicted in \cref{fig:basic-correspondence} (b) to (f). 
+We consider atomic concepts only, i.e., a single concept without considering any (logical or ontological) relation with another concept from its own ontology. Whenever the type of the concept or its atomicity is irrelevant, we denote the concept as $e$, whereas $c$ denotes a particular atomic concept of type Class. In our example, we can write that $f \sqsubset c$ because $\intn(f \sqsubset c) = \intn(f) \intn(\sqsubset) \intn(c) = \concept{F} \subseteq \concept{C}$. 
 
-![Atomic homogeneous correspondences, i.e., two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \lhd \varepsilon$ with correspondence relation $\theta \in \Theta$ that specifies how transcribendum $e$ corresponds with its peer transcriptum $e’$. Note that $\theta$ is a directional relation. Correspondence (a) collectively represents the atomic correspondence for classes, types and individuals, depicted by correspondences (d), (e) and (f), respectively. Correspondences (b) and (c) represent the generic atomic correspondences for object relations and property relations, respectively.][def:BasicCorrespondence]
+A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different types are denoted as heterogeneous. We assume homogeneous correspondences only, and we similarly assume ontologies that are based on the same logic. The homogeneous, type-agnostic correspondence relation from \cref{eq:correspondence} is depicted in \cref{fig:basic-correspondence-e}, whereas \labelcref{fig:basic-correspondence-e} depicts an inter-ontological Class correspondence. The pattern from \cref{fig:basic-correspondence-p} emerges when we consider an inter-ontological correspondence that addresses an intra-ontological relationships such as a Property. We don’t elaborate on the latter correspondences. 
 
-\Cref{fig:basic-correspondence} (b) to (f) represent all potential atomic correspondences: two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e$, with $e \lhd \varepsilon$, and one correspondence relation $\theta \in \Theta$ to relate transcribendum $e$ with its peer transcriptum $e’$. In correspondence (a), however, concept $e$ can only be one of type \token{C}, \token{I} or \token{T}: when considering concepts that express relations, i.e., correspondence (b) on object relations and correspondence (c) on property relations, a class concept $c_d$ becomes a necessary part of the pattern to represent the domain of the relations; similarly, a range concept $c_r$ is necessarily included to the pattern as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic correspondence as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_{c_d}$ and $\theta_{c_r}$ from correspondences (b) and $\theta_c$ and $\theta_t$ from (c) it becomes clear that these are, in fact, the atomic correspondences from (d) and (e), respectively. From this it follows that:
+\begin{figure}
+ \centering
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/BasicCorrespondenceE.png}
+ \caption{The atomic correspondence between classes, value types and individuals, collectively.}
+ \label{fig:basic-correspondence-e}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/BasicCorrespondenceC.png}
+ \caption{The atomic correspondence between classes.}
+ \label{fig:basic-correspondence-c}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{.3\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/BasicCorrespondenceP.png}
+ \caption{The atomic correspondences between property relations.}
+ \label{fig:basic-correspondence-p}
+ \end{subfigure}
+ \caption{Atomic homogeneous correspondences, i.e., two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \lhd \varepsilon$ with correspondence relation $\theta \in \Theta$ that specifies how the transcribendum corresponds with its peer transcriptum. Note that $\theta$ is a directional relation.}
+ \label{fig:basic-correspondence}
+\end{figure}
 
-1. indeed correspondence (a) represents the generic atomic correspondence but only for classes, $\tuple{ c, c’, \theta_c}$ as depicted in correspondence (d) and exemplified as $\tuple{ m, m’, =}$ with $m=\text{‘mug’}$ and $m’=\text{‘mok’}$^[‘mok’ is Dutch for ‘mug’]; value types $\tuple{t, t’, \theta_t}$ as depicted in correspondence (e); and individuals $\tuple{\iota, c’, \in}$ as depicted in correspondence (f), indicating, e.g., that my favourite cup is called ‘kopje’ in Dutch;
-1. correspondences (b) and (c) represent the generic atomic correspondences for relations, since apart from the primary atomic correspondence also two secondary atomic correspondences are involved, i.e., three atomic correspondences in total;
-1. the generic atomic correspondence of a relation can only be addressed once the transcriptions for the atomic correspondences (d) and (e) are resolved. 
+When considering concepts that express relations, i.e., \cref{fig:basic-correspondence-c} on property relations, a class concept $c_d$ becomes a necessary part of the pattern to represent the domain of the relations; similarly, a value Type as range concept, $t$, is necessarily included to the pattern as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic correspondence as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_{c_d}$ and $\theta_{c_t}$, it becomes clear that these are, in fact, the atomic correspondences between class concepts (\cref{fig:basic-correspondence-c}) and between value Type concepts (not depicted). From this it follows that:
 
-In this paper, we only investigate the mediation for correspondence (d): $\tuple{ c, c’, \theta_c}$. To that end, we introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the transcription context $\ctx$, collectively denoted as $X$. The transcription context identifies the context that applies for correspondence (d), i.e., the classes $c$ and $c’$ and the classes they have a direct intra-ontological relationship $r$ and $r’$ with as depicted in \cref{fig:gen-class-transc-models}(a); note that this looks similar but is different from the correspondence (b). We define this transcription context inductively over the intra-ontological relations $r$ and $r’$, as follows:
+1. indeed correspondence \labelcref{fig:basic-correspondence-e} represents the generic atomic correspondence but only for classes, $\tuple{ c, c’, \theta_c}$ as depicted in \labelcref{fig:basic-correspondence-c}, value types $\tuple{t, t’, \theta_t}$ and individuals (both not depicted);
+1. correspondences \labelcref{fig:basic-correspondence-p} represent the generic atomic correspondences for Property relations, demanding aside to the primary atomic correspondence also two secondary atomic correspondences, i.e., three atomic correspondences in total. A similar pattern can be established for Object relations;
+1. the generic atomic correspondence between ontological relations can only be addressed once the transcriptions for the atomic correspondences between non-relational concepts \labelcref{fig:basic-correspondence-e} are resolved. 
+
+![The seven intra-ontological relationships that can apply between pair of classes.][def:Key2rSymbols]
+
+In this paper, we only investigate the transcription for correspondence \labelcref{fig:basic-correspondence-c}: $\tuple{ c, c’, \theta_c}$. To that end, we introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the transcription context $\ctx$, collectively denoted as $X$. The transcription context specifies the classes $c \in \ont{O}$ and $c’\in \ont{O’}$ with their inter-ontological correspondence relations, and one of the classes they have a direct intra-ontological relationship $r$ and $r’$ with, both depicted in \cref{fig:gen-class-transc-models}(a). We define this transcription context inductively over the intra-ontological relations $r$ and $r’$, as follows:
 \begin{equation}
   \ctx_n = \pair{ r, \theta_n, r', \ctx_{n-1} }    \label{eq:transcription-context}
 \end{equation}
@@ -165,14 +195,13 @@ where:
 
 * $r, r’ \in \set{\sqsubset, =, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, denoting the seven logical relationships that can apply intra-ontologically between pair of concepts, depicted in \cref{fig:key2-r-symbols} for $r \in \ont{O}$, with:
     * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively;
-    * $\sqsubset, =, \sqsupset$ denote subsumption of, semantic equivalence, and subsumes, e.g., $m \sqsupset b$ as ‘a coffee holder subsumes a beaker’, and
-    * $\displete, \disjoinc$ denote *disjoint* ($e_1 \sqcap e_2 = \emptyset$) *but complete* ($e = e_1 \sqcup e_2$) or *incomplete* ($e \sqsupset e_1 \sqcup e_2$), respectively, e.g. $m \sqsupset b \disjoinc d$ denoting ‘beaker and demitasse are a disjoint but incomplete set of coffee holders’; 
+    * $\sqsubset, =, \sqsupset$ denote subsumption of, semantic equivalence, and subsumes, e.g., $p \sqsupset f$ as ‘plant parts subsumes fruit’, and
+    * $\displete, \disjoinc$ denote *disjoint* ($e_1 \sqcap e_2 = \emptyset$) *but complete* ($e = (e_1 \sqcup e_2)$) or *incomplete* ($e \sqsupset (e_1 \sqcup e_2)$), respectively, e.g. $p \sqsupset (f \disjoinc l)$ denoting ‘fruit and leaves are a disjoint but incomplete set of plant parts’; 
     * $\overlete, \overlinc$ denote *not disjoint* ($e_1 \sqcap e_2 \neq \emptyset$) *but complete* and not disjoint and incomplete, respectively;
-    * Note the we do not consider the correspondence relation that might or might not have been specified between $r$ and $r’$, otherwise we would investigate correspondence (b) from \cref{fig:basic-correspondence}; 
+    * Note the we do not consider the correspondence relation that might or might not have been specified between $r$ and $r’$, otherwise we would investigate correspondence \labelcref{fig:basic-correspondence}; 
 * $\theta_n \in \Theta$, the correspondence relation from \cref{eq:correspondence} that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level;
 * $\ctx_0 = \pair{\theta}$, viz. the basic correspondence that holds between classes $c \in \ont{O}$ and $c’ \in \ont{O}’$ (see \cref{tab:atomic-class-transcriptions} in \cref{transcribing-over-atomic-class-context}).   
-
 
 We can depict the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
 
@@ -186,7 +215,6 @@ In the remainder of this paper we refer to a specific context that specify both 
 
 
 &lt;!-- Page definitions --&gt;
-[def:BasicCorrespondence]: src\images\BasicCorrespondence.png {#fig:basic-correspondence width=70%}
 [def:Key2rSymbols]: src\images\Key2rSymbols.png {#fig:key2-r-symbols width=100%}
 [def:GenClassTranscModels]: src\images\GenClassTranscrModelAAndB.png {#fig:gen-class-transc-models width=70%}</Text>
         </Document>
@@ -194,7 +222,7 @@ In the remainder of this paper we refer to a specific context that specify both 
             <Title>Valid transcriptions</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>The main demand for the mediation is to guarantee that it produces a semantic valid transcription. We formulate a naive transcription and a valid transcription as follows.
+            <Text>The main demand for the transcription engine is to guarantee that it produces a semantic valid transcription. We formulate a naive transcription and a valid transcription as follows.
 
 \begin{mmdef}[Transcription]\label{def:transcription}
 A \emph{transcription} is a function $T_{\ctx} : \ont{O} \to \ont{O}’$ that is primarily specified by the correspondence $\mu = \tuple{ e, e’, \theta }$ between transcribendum $e \in \ont{O}$ and transcriptum $e’ \in \ont{O}’$. We denote $T_{\ctx}(e)$ the \emph{transcription result} of concept $e$ under context $\ctx$. 
@@ -205,7 +233,7 @@ A transcription is called \emph{naive} when it produces the transcriptum from th
 \end{mmdef}
 An example of a naive transcription can be found in [@Makris2010a;@ISI:000273452000034].
 \begin{mmdef}[Valid transcription (under transcription context $\ctx$)]\label{def:valid-transcription}
-Consider a transcription function $T_{\ctx} : \ont{O} \to \ont{O}’$ with correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$. Such transcription is called \emph{valid under transcription context} $\ctx$, or simply \emph{valid}, denoted $\vldtranscript{\ctx}$ iff:\[
+Consider a transcription function $T_{\ctx_n} : \ont{O} \to \ont{O}’$ with correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$. Such transcription is called \emph{valid under transcription context} $\ctx_n$, or simply \emph{valid}, denoted $\vldtranscript{\ctx_n}$ iff:\[
 \intn’(T_{\ctx_n}(e_n)) \supseteq \intn(e_n)
 \]
 where:
@@ -213,19 +241,19 @@ where:
   e_n             &amp;\in \ont{O}        \\
   T_{\ctx_n}(e_n) &amp;\in \ont{O}’       \\
   \ctx_n          &amp;= \pair{r, \theta_n, r', \ctx_{n-1}}   \\
-  e_{n-1}         &amp;\vldtranscript{\ctx_{n-1}}    \\
+  \ctx_0          &amp;= \pair{\theta}    \\
   \intn(\cdot)    &amp;: \ont{O}  \to \concept{D}  \text{, see \cref{def:ontology}}       \\
   \intn’(\cdot)   &amp;: \ont{O}’ \to \concept{D}’ \text{, see \cref{def:ontology}} 
-\end{align*}
-For a valid transcription $\vldtranscript{\ctx}$, it holds that $\vldtranscript{\ctx} \subset T_{\ctx}$. 
+\end{align*} 
 \end{mmdef}
 
-The above definitions assume the following two constraints are met:
+The above definitions assume the following constraints are met:
 
 1. Firstly, the correspondence $\mu_n = \tuple{ e_n, e_n’, \theta_n }$ is prescribed and assumed to represent a semantic valid correspondence, that is, $e_n \theta_n e_n’$ holds;
-1. Secondly, since the transcription result $T_{\ctx_n}(e_n)$ represents a new theory that is added to $\ont{O}’$, the validity of the transcription holds from the moment that this new theory and its logical consequences have been inferred, and not sooner.  
+1. Secondly, since the transcription result $T_{\ctx_n}(e_n)$ represents a new theory that is added to $\ont{O}’$, the validity of the transcription holds from the moment that the logical consequences of this new theory have been inferred, and not sooner;
+1. Thirdly, the start case, or baseline transcription, $T_{(\theta)}(e_0)$ is valid, i.e., $e_0 \vldtranscript{\ctx_0}$ holds.  
 
-Indeed, the best transcription would be one for which $\intn’(T_{\ctx_n}(e_n)) \, = \, \intn(e_n)$ holds. However, since we are more concerned with preventing the emergence of phantom semantics, we demand the former weaker constraint. If it can be guaranteed that transcription $T_{\ctx}$ is valid, the transcribendum $e \in \ont{O}$ can be replaced by concept $T_{\ctx}(e) \in \ont{O}’$ without inducing phantom semantics. Assume that $T_{\ctx}(e) = e’$ is valid for some atomic or non-atomic $e’ \in \ont{O}’$, we denote $\pair{e, e’} \in \vldtranscript{\ctx}$ or $e \vldtranscript{\ctx} e’$. When the transcription context is reduced to $\ctx_0$, i.e., the correspondence relation $\theta$ only, we write $T_{(\theta)}$ with its valid counterpart $\vldtranscript{(\theta)}$. 
+It can be shown that $\vldtranscript{\ctx} \subseteq T_{\ctx}$. If it can be guaranteed that transcription $T_{\ctx}$ is valid, the transcribendum $e \in \ont{O}$ can be replaced by concept $T_{\ctx}(e) \in \ont{O}’$ without inducing phantom semantics. Assume that $T_{\ctx}(e) = e’$ is valid for some atomic or non-atomic $e’ \in \ont{O}’$, we denote $\pair{e, e’} \in \vldtranscript{\ctx}$ or $e \vldtranscript{\ctx} e’$. When the transcription context is reduced to $\ctx_0$, i.e., the correspondence relation $\theta$ only, we write $T_{(\theta)}$ with its valid counterpart $\vldtranscript{(\theta)}$. 
 
 Since the transcription context provides for all potential logical contexts that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of atomic concepts $e_n’$ and $e_{n-1}’$, or $e_n’$, $e_{n-1}’$ and $e’$ for all cases that are addressed by \cref{fig:gen-class-transc-models}(a), resp. (b). Our task is then to traverse the 4-dimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn’(T_{\ctx_n}(e_n)) \supseteq \intn(e_n)$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that includes $\intn(e_n)$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.
 
@@ -698,7 +726,7 @@ It is clear that the unconditional transcription rules from \cref{eq:tc-as-utr} 
             <Title>Transcribing over atomic class context</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>We first consider the transcription of case (d) in \cref{fig:basic-correspondence}, the atomic correspondence $\mu = \tuple{ c, c’, \theta }$, with its atomic transcription context $\ctx = (\theta)$. As indicated, the question at hand is which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that covers $\intn(e_n)$?
+            <Text>We first consider the transcription of case (b) in \cref{fig:basic-correspondence}, the atomic correspondence $\mu = \tuple{ c, c’, \theta }$, with its atomic transcription context $\ctx = (\theta)$. The question at hand is: which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that covers $\intn(e_n)$?
 
 This is straightforward for this case: since no other concepts are present in context $\ctx$, the transcriptum $c’$ represents the only potential concept that will take part in the transcription result. Hence the only potential outcomes are $\set{c’, \neg c’}$, or any logical combination thereof. The choice depends on whether phantom semantics are amongst the results of the transcription for the particular context $\ctx = (\theta)$ that is considered. The result of this strategy is shown in \cref{tab:atomic-class-transcriptions}, where each column specifies the possible correspondence relation that applies, and the row specifies the individual transcription results $T_\sqsubset(c)$, $T_=(c)$, $T_\sqsupset(c)$, $T_\overlap(c)$, and $T_\disj(c)$, collectively denoted as $T_{(\theta)}(c)$.
 
@@ -720,7 +748,7 @@ This is straightforward for this case: since no other concepts are present in co
  &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Sp.png}
  &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-nD.png}
  &amp; \includegraphics[width=0.1\textwidth]{src/images/VennBC-Dj.png} \\ \cmidrule(r){1-2} \cmidrule{3-7}
- &amp; $c$ &amp; $c’$ &amp; $c’$ &amp; \ntsa &amp; \ntsa &amp; $\neg c’$ \\ \bottomrule
+ &amp; $c$ &amp; $c’$ &amp; $c’$ &amp; $\top$ &amp; $\top$ &amp; $\neg c’$ \\ \bottomrule
  \end{tabular}
 \end{table}
 
@@ -729,17 +757,17 @@ In conclusion, \cref{tab:atomic-class-transcriptions} specifies all *valid* tran
 \begin{subnumcases}{\label{eq:act}\ensuremath{c \vldtranscript{(\theta)} \; = \; }} 
   c’      &amp; : $\theta \in \set{\sqsubset, =}$        \label{eq:act-1}\\
   \neg c’ &amp; : $\theta \in \set{\disj}$               \label{eq:act-2}\\
-  \ntsa   &amp; : $\theta \in \set{\sqsupset, \overlap}$ \label{eq:act-3}
+  \top    &amp; : $\theta \in \set{\sqsupset, \overlap}$ \label{eq:act-3}
 \end{subnumcases}
 
 
-Unfortunately, three transcription results, although valid, are rather disappointing. For $\theta \in \set{\sqsupset, \overlap}$, eq.~(\ref{eq:act-3}), neither $c’$ nor $\neg c’$ do sufficiently constrain the individuals in $\ont{O}’$ that are implied by $c$. In other words, the best logical combination of terms from $\ont{O}’$ that we can make that implies the smallest set covering $\intn(c)$ is $T_{(\theta \in \set{\sqsupset, \overlap})}(c) = c’ \sqcup \neg c’$, or $\top$ for short, denoting *verum*, viz. always \token{True}. A rather useless transcription, but a valid one nonetheless. Moreover, the transcription result for $\theta \in \set{\disj}$, eq.~(\ref{eq:act-2}), is not as total as $\top$ but still as broad as $T_{(\disj)}(c) = \neg c’$. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.</Text>
+Unfortunately, three transcription results, although valid, are rather disappointing: For $\theta \in \set{\sqsupset, \overlap}$, eq.~(\ref{eq:act-3}), neither $c’$ nor $\neg c’$ do sufficiently constrain the individuals in $\ont{O}’$ that are implied by $c$. In other words, the best logical combination of terms from $\ont{O}’$ that we can make that implies the smallest set covering $\intn(c)$ is $T_{(\theta \in \set{\sqsupset, \overlap})}(c) = c’ \sqcup \neg c’$, or $\top$ for short, denoting *verum*, viz. always \token{True}. A rather useless transcription, but a valid one nonetheless. Moreover, the transcription result for $\theta \in \set{\disj}$, eq.~(\ref{eq:act-2}), is not as total as $\top$ but still as broad as $T_{(\disj)}(c) = \neg c’$. These particular three correspondences, $\theta \in \set{\sqsupset, \overlap, \disj}$, do have a common ground for their “shortcomings”, being lack of knowledge. Therefore, we extend the atomic context of the transcription to the full transcription context in order to gain more information with the purpose to resolve the shortcomings of the atomic case.</Text>
         </Document>
         <Document ID="56">
             <Title>Transcribing over an $r, r'\in \set{\sqsubset, =, \sqsupset}$ class context</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new classes in both $\ont{O}$ and $\ont{O’}$ with a subsumption or equivalence relation with the existing class: $c_n = c_{n-1}$ into $\ont{O}$ and $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-e_p-p_e-b_e} case (a), case (b) introduces the same relations but vice versa, and for case (c) we flip the direction of the subsumption relation from case (b). This has been depicted in \cref{fig:medcxt-e_p-p_e-b_e}.  
+            <Text>The following two cases are a minimal extension of the original atomic class transcription from the previous section. We introduce a new classes in both $\ont{O}$ and $\ont{O’}$ with a subsumption, equivalence or supersumption relation with the existing class: $c_n = c_{n-1}$ into $\ont{O}$ and $c_n’ \sqsupset c_{n-1}’$ into $\ont{O’}$ is depicted in \cref{fig:medcxt-e_p-p_e-b_e} case (a), case (b) introduces the same relations but vice versa, and for case (c) we flip the direction of the subsumption relation from case (b). This has been depicted in \cref{fig:medcxt-e_p-p_e-b_e}.  
 
 ![Introducing intra-ontological relations $r, r'\in \set{\sqsubset, =, \sqsupset}$: Case (a): class $c_n$ is equivalent to class $c_{n-1}$. Case (b): class $c_n$ subsumes class $c_{n-1}$. Case (c): class $c_n$ is subsumed by class $c_{n-1}$. All cases extend and build upon the valid transcription under context $\ctx_{n-1} = \pair{\theta_{n-1}}$, as specified in \cref{tab:atomic-class-transcriptions}. The current context, $\ctx_n$, specifies case (a) as $\ctx_n = \pair{=, \theta_n, \sqsupset, \ctx_{n-1}}$, case (b) as $\ctx_n = \pair{\sqsupset, \theta_n, =, \ctx_{n-1}}$, and case (c) as $\ctx_n = \pair{\sqsubset, \theta_n, =, \ctx_{n-1}}$][def:MedcxtSup]
 
@@ -1058,7 +1086,7 @@ Finally, consider the transcription for $c_n$ for case \ref{fig:fig:medcxt-r}(b)
   \end{tabular}
 \end{table}
 
-In conclusion, and similar to the results of the previous section, given the occurrence of several $\ntsa_n$ results in the tables, we cannot guarantee all correspondences to result in valid transcriptions. However, we have shown that taking the context of the transcription into account, many correspondences *do* provide for valid transcriptions, despite the semantic difference between a formal correspondence and the pragmatic transcription. Additionally, by returning a $\ntsa_n$ result, an *invalid* transcription and, hence, the emergence of phantom semantics, have been prevented. Finally, since the transcription results are independent on the particular ontologies and their alignment, this method shows that a genuine generic mediation process exists. What is left to do is to provide for a generic implementation of this mediation process, which is the subject of the next section. 
+In conclusion, and similar to the results of the previous section, given the occurrence of several $\ntsa_n$ results in the tables, we cannot guarantee all correspondences to result in valid transcriptions. However, we have shown that taking the context of the transcription into account, many correspondences *do* provide for valid transcriptions, despite the semantic difference between a formal correspondence and the pragmatic transcription. Additionally, by returning a $\ntsa_n$ result, an *invalid* transcription and, hence, the emergence of phantom semantics, have been prevented. Finally, since the transcription results are independent on the particular ontologies and their alignment, this method shows that a genuine generic transcription process exists. What is left to do is to provide for a generic implementation of this transcription process, which is the subject of the next section. 
 
 &lt;!-- Page definitions --&gt;
 [def:MedcxtR]: src\images\MedCxt-r-theta-cprime_sup_cpn_rp_cpn-1-chi.png {#fig:medcxt-r width=35%}</Text>
@@ -1338,7 +1366,14 @@ Consider $R$ a conditional rewrite system as the collective conditional rewrite 
 \end{subequations} 
 \end{mmdef}
 
-&gt;An inductive definition requires a starting condition, here defined in \cref{eq:crrel-r} and specified by $\rho_0$ as a set of unconditional rewrite rules (\cref{def:rewrite-rule}). The essence on the inductive part of the definition, \cref{eq:crrel-r_i}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\sigma(\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. In both [@Kirchner2006] and [@Bezem2003], three types of conditional rules are given that originate from [@Dershowitz1988] but we will use *normal conditional rewriting* only: \Cref{eq:crrel-r_i} demands that at induction level $i$, $\sigma(t_j)$ can be shown to be the normal form of $\sigma(s_j)$ for all terms in the condition of the rewrite rule.   
+&gt;An inductive definition requires a starting condition, here defined in \cref{eq:crrel-r} and specified by $\rho_0$ as a set of unconditional rewrite rules (\cref{def:rewrite-rule}). The essence on the inductive part of the definition, \cref{eq:crrel-r_i}, is to only consider conditional rewrite rules for which their condition, instantiated by the matching substitution $\sigma(\cdot)$, can be satisfied by rules that have already been defined at a lower hierarchy. In both [@Kirchner2006] and [@Bezem2003], three types of conditional rules are given that originate from [@Dershowitz1988] but we will use *normal conditional rewriting* only: \Cref{eq:crrel-r_i} demands that at induction level $i$, $\sigma(t_j)$ can be shown to be the normal form of $\sigma(s_j)$ for all terms in the condition of the rewrite rule.
+
+Finally, some notation to distinguish various forms of equivalences:
+\begin{align*}
+  \equiv \;  &amp;\text{: denotes \emph{syntactical identity}} \\
+  = \;       &amp;\text{: denotes the \emph{semantic equivalence} that is (to be) established} \\
+  \approx \; &amp;\text{: a semantic equivalence that holds \emph{a priori}, called a ($\Sigma$-)\emph{identity}}
+\end{align*}   
 
 </Text>
             <Notes>
@@ -1355,7 +1390,7 @@ Consider a term $C$ over an extended signature $\Sigma \cup \set{\Box}$, where t
             <Title>Conditional transcription rules</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>Based on the previous sections we now can specify the conditional term rewriting system that implements a generic mediator. The following table shows how the necessary characteristics of a transcription can be turned into sufficient requirements that we set on the CTRS in order for its application as a mediator.
+            <Text>Based on the previous sections we now can specify the conditional term rewriting system that implements a generic transcription engine. The following table shows how the necessary characteristics of a transcription can be turned into sufficient requirements that we set on the CTRS.
 
 --------------------------------------------------------------------------------------------------------------------------------------
  Req  Characteristic of a transcription                          Requirement on the specified CTRS
@@ -1531,8 +1566,12 @@ A \emph{transcription system} (TS) is a TRS with $\EuScript{R} = \pair{\Sigma, R
         </Document>
         <Document ID="63">
             <Title>Discussion</Title>
-            <Synopsis>
+            <Synopsis>Includeer Jurriaan's protocol met leervermogen.
+
 \end{synopsis}</Synopsis>
+            <Text>Most accurate transcription is nu gebaseerd op gebruik van logische combinatie van terminologie uit O'. Als we uitgaan van een valide correspondence, leveren we daarmee een valide transcriptie. Als de correspondence ook de best mogelijke correspondence is, leveren we de best mogelijke transcriptie. Maar als we het uitgangspunt laten vallen dat we alleen gebruik mogen maken van de terminologie uit O' en dat we Agent O' terminologie uit O mogen leren, conform Jurriaan, dan kunnen we uiteraard betere transcripties realiseren. Maar elk voordeel heb z'n nadeel, hier: Agent O' heeft geen *code* om terminologie uit O te verwerken! Hiermee wordt het voordeel direct geneutraliseerd. Als er echter sprake kan zijn van reguliere upgrades van pragmatics van de ASM, dán kan dit aanloop zijn naar een extra semantische service in de infra, te weten: considerUpgradeASMWith(term_uit_O).
+
+ </Text>
         </Document>
         <Document ID="64">
             <Title>Motivating example</Title>
@@ -1553,21 +1592,21 @@ Twee snippets,dan deze relatie / naieve vertaling gaat fout, en met de mediatie 
 \begin{figure}
  \centering
  \hfill
- \begin{subfigure}[b]{.3\textwidth}
+ \begin{subfigure}[b]{.35\textwidth}
  \centering
  \includegraphics[width=\textwidth]{src/images/CulinaryVenn.png}
  \caption{The culinary categorisation of fruits and vegetables.}
  \label{fig:cul-venn}
  \end{subfigure}
  \hfill
- \begin{subfigure}[b]{.3\textwidth}
+ \begin{subfigure}[b]{.2\textwidth}
  \centering
  \includegraphics[width=\textwidth]{src/images/AlignmentA.png}
- \caption{A culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) ontology with different semantics.}
+ \caption{Aligning the culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) ontologies.}
  \label{fig:alignment-a}
  \end{subfigure}
  \hfill
- \begin{subfigure}[b]{.3\textwidth}
+ \begin{subfigure}[b]{.35\textwidth}
  \centering
  \includegraphics[width=\textwidth]{src/images/BotanicVenn.png}
  \caption{The botanic categorisation of fruits and non-fruits.}
@@ -1577,14 +1616,38 @@ Twee snippets,dan deze relatie / naieve vertaling gaat fout, en met de mediatie 
  \label{fig:mot-example}
 \end{figure}
 
+Both ontologies are semantically related through means of a correspondence: a single particular inter-ontological relation, prescribed, and assumed to represent a semantically valid relation between both concepts, see $\mu_1$ and $\mu_2$ in \cref{fig:alignment-a}. The correspondence is denoted as
+\begin{equation} \label{eq:mu}
+  \mu = \tuple{ e, e’, \theta }
+\end{equation}
+often denoted as $\mu = e \theta e’$ and with $\theta \in \Theta$ specifying the correspondence relation that holds between source concept $e \in \ont{O}$, denoted the transcribendum, and the target concept $e’ \in \ont{O}’$, denoted the transcriptum. The correspondence relations $\Theta$ that we consider are:
+\begin{equation}
+  \label{eq:corr-relations}
+  \Theta = \{=, \sqsubset, \sqsupset, \disj, \overlap \}
+\end{equation}
+denoting $=$: semantic equality, $\sqsubset$: subsumption of, $\sqsupset$: subsumes, $\disj$: disjointness, and $\overlap$: overlap. Despite the fact that we have limited ourselves to these particular relations, the method that we propose can be extended to other correspondence relations as well. 
 
-The culinary ontology $\ont{O}_c$ defines a vegetarian $i$ngredients concept that subsumes, amongst others (the dotted open line), $v$egetables. The botanic ontology $\ont{O}_b$ defines a $p$lant anatomy that subsumes, amongst others, $f$ruits. Clearly, the culinary vegetarian $i$ngredients can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1: i \sqsubset p$. The second correspondence, depicted as $\mu_2: v \overlap f$, states that the culinary $v$egetables concept overlaps with the botanic $f$ruit concept: both concepts have common individuals, e.g., tomatoes, cucumbers and green beans, but none is more general than the other in addressing individuals that do not belong to the other concept, e.g., apples as botanic fruit but not as culinary vegetables, and asparagus vice versa. Clearly, both correspondences are semantically valid. 
+***TESTTEST BEGIN***
 
-Turning our attention to the mediation of data, consider data from the culinary ontology: the vegetarian ingredients on the menu consist of asparagus, carrots and tomatoes. Assume further that the mediator is aware of both ontologies and the two correspondences. Clearly, stating the culinary fact that “asparagus, carrots and tomatoes are vegetarian ingredients” can be transcribed into the botanic fact that “asparagus, carrots and tomatoes are plant parts”; a one-to-one replacement of terms suffices since everything that is considered a vegetarian ingredient is, according to $\mu_1$, considered a part of a plant as well, and semantic interoperability has been achieved. Now consider the transcription for the culinary statement “asparagus, carrots and tomatoes are vegetables”. Simply replacing the culinary term “vegetables” with the botanic term “fruit” in the transferred data *because* a valid correspondence exists between the two terms, here $\mu_2$, now results in *phantom semantics*: inducing an erroneous categorisation of individuals, here asparagus and carrots as botanic fruits. Since an ontology embodies the knowledge-base for an application, this phantom semantics will introduce erroneous or conflicting knowledge to the botanic application; semantic interoperability has failed. In conclusion, we consider a valid logic notion on how the two categories relate to each other a necessary but not sufficient condition for transcription: Simply replacing the related terms one-to-one doesn’t achieve faithful semantic interoperability between applications always.
+ref: \ref{eq:mu} with \ref{eq:corr-relations} op pagina \pageref{eq:corr-relations}
 
-Based on the transcription context as depicted in \cref{fig:alignment-a}, the only *valid transcription* of “asparagus, carrots and tomatoes are vegetables”, viz. one that is logically sound and remains closest to the individuals that are denoted by the term under transcription, here “vegetables”, is the botanic term “plant parts”. To allow for such transcription it is necessary to take into consideration more information than the correspondence relation $\mu_2$ and its two related concepts only. In fact, to achieve a valid transcription, in this case the total logical context that applies to the two related concepts should be taken into consideration. We call this the *transcription context*, which includes the essence of the correspondence relation, plus fragments of both ontologies as well as other correspondences between those fragments. Although the valid transcription might be more generic than its original fact, no phantom semantics occur. As a result, semantic interoperability will be achieved and the botanic application can process external data without the risk to show more erroneous behaviour than with its internal data only. 
+eqref: \eqref{eq:mu} with \eqref{eq:corr-relations}
 
-We note that the transcription context can be considered agnostic to the particular ontologies and alignments since it only depends on the underlying formal logic: the intra-ontological relations and inter-ontological correspondences. A mediator, thus, only needs to consider the transcription context in order to produce valid transcriptions. 
+cref: \cref{eq:mu} with \cref{eq:corr-relations}
+
+En als figuurreferentie:
+
+cref: culinary \cref{fig:cul-venn}, alignment \cref{fig:alignment-a}, botanic \cref{fig:bot-venn}, Totaal \cref{fig:mot-example} 
+
+***TESTTEST END***
+
+The culinary ontology $\ont{O}_c$ defines a $e$dible plants concept that subsumes, amongst others (the dotted open line), $v$egetables. The botanic ontology $\ont{O}_b$ defines a $p$lant anatomy that subsumes, amongst others, $f$ruits. Clearly by excluding poisonous plants such as deadly hemlock and foxglove (digitalis), the culinary $e$dible plants can be considered a subclass of the botanic $p$lant parts, depicted as correspondence $\mu_1: e \sqsubset p$. The second correspondence, depicted as $\mu_2: v \overlap f$, states that the culinary $v$egetables concept overlaps with the botanic $f$ruit concept: both concepts have common individuals, e.g., tomatoes, cucumbers and green beans, but none is more general than the other in addressing individuals that do not belong to the other concept, e.g., apples as botanic fruit but not as culinary vegetables, and asparagus vice versa. Clearly, both correspondences are semantically valid. 
+
+Turning our attention to the transcription of data, consider data from the culinary ontology: the edible plants on the menu consist of asparagus, carrots and tomatoes. Assume further that the transcription engine is aware of both ontologies and the two correspondences. Clearly, stating the culinary fact that “asparagus, carrots and tomatoes are edible plants” can be transcribed into the botanic fact that “asparagus, carrots and tomatoes are plant parts”; a one-to-one replacement of terms suffices since everything that is considered an edible plant is, according to $\mu_1$, considered a part of a plant as well, and semantic interoperability has been achieved. Now consider the transcription for the culinary statement “asparagus, carrots and tomatoes are vegetables”. Simply replacing the culinary term “vegetables” with the botanic term “fruit” in the transferred data because a valid correspondence *exists* between the two terms, here $\mu_2$, now results in *phantom semantics*: inducing an erroneous categorisation of individuals, here asparagus and carrots as botanic fruits. Since an ontology embodies the knowledge-base for an application, this phantom semantics will introduce erroneous or conflicting knowledge to the botanic application; semantic interoperability has failed. In conclusion, we consider a valid logic notion on how the two categories relate to each other a necessary but not sufficient condition for transcription: Simply replacing the related terms one-to-one doesn’t always achieve faithful semantic interoperability between applications.
+
+Based on the transcription context as depicted in \cref{fig:alignment-a}, the only *valid transcription* of “asparagus, carrots and tomatoes are vegetables”, viz. one that is logically sound and remains closest to the individuals that are denoted by the term under transcription, here “vegetables”, is the botanic term “plant parts”. To allow for such transcription it is necessary to take into consideration more information than the correspondence relation $\mu_2$ and its two related concepts only. In fact, to achieve a valid transcription, the total logical context that applies to the two related concepts should be taken into consideration. We call this the *transcription context*, which includes the essence of the correspondence relation, plus fragments of both ontologies as well as other correspondences between those fragments. Although the valid transcription might be more generic than its original fact, no phantom semantics occur. As a result, semantic interoperability will be achieved and the botanic application can process external data without the risk to show more erroneous behaviour than with its internal data only. 
+
+We note that the transcription context can be considered agnostic to the particular ontologies and alignments since it only depends on the underlying formal logic: the intra-ontological relations and inter-ontological correspondences. A transcription engine, thus, only needs to consider the transcription context in order to produce valid transcriptions. 
 
 
 &lt;!-- Page definitions --&gt;
@@ -1593,35 +1656,20 @@ We note that the transcription context can be considered agnostic to the particu
 </Text>
             <Notes>Assume a culinary application that uses concepts about vegetables, fruits, nuts, herbs and more. In order to maintain an accurate description on the individual elements, it makes use of information from a botanic data source. The latter discerns the various parts of the plant as depicted in \cref{fig:plant-parts}. Unfortunately, the perspectives on what exactly is meant with fruits and vegetables is quite different between botanics and the culinary disciplines. Botanics define fruit as a seed-bearing structure that develops from the ovary of a flowering plant, whereas the culinary perspective simply refers to fruit as a sweet, juicy, edible part of the plant. Moreover, although botanics discern the different parts of a plant, such as roots, bulbs, tubers, leaves, stems and more, “vegetables” do not exist in botanical terminology; at best it can be considered to refer to all other parts of a plant that are not fruits. From a culinary perspective, “Vegetable took on its current sense just a few centuries ago and essentially means a plant material that is neither fruit nor seed” [@McGee2004;p.247]. We summarise the clash between botanic and culinary terminology in \cref{fig:bot-cul-venns}.
 
-\caption{Two ontologies, a culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) one, defining a vegetarian $i$ngredients concept that subsumes, amongst others, $v$egetables, and a $p$lant anatomy that subsumes $f’$ruits, respectively. The alignment specifies two correspondence relations, a subclass relation $\mu_1$ and an overlapping class relation $\mu_2$.}
+\caption{Two ontologies, a culinary ($\ont{O}_c$) and botanic ($\ont{O}_b$) one, defining a vegetational $i$ngredients concept that subsumes, amongst others, $v$egetables, and a $p$lant anatomy that subsumes $f’$ruits, respectively. The alignment specifies two correspondence relations, a subclass relation $\mu_1$ and an overlapping class relation $\mu_2$.}
 </Notes>
         </Document>
         <Document ID="65">
             <Title>Terminology</Title>
             <Text>We introduce some terminology, as follows.
 
-A correspondence denotes a single particular inter-ontological relation, prescribed, and assumed to represent a semantically valid relation between both concepts, see $\mu_1$ and $\mu_2$ in \cref{fig:alignment-a}. The correspondence is denoted as
-\begin{equation}\label{eq:correspondence}
-\mu = \tuple{ e, e’, \theta }
-\end{equation}
-with $\theta \in \Theta$ specifying the correspondence relation that holds between source concept $e \in \ont{O}$, denoted the transcribendum, and the target concept $e’ \in \ont{O}’$, denoted the transcriptum. The correspondence relations $\Theta$ that we consider are:
-\begin{equation*}
-  \Theta = \{=, \sqsubset, \sqsupset, \disj, \overlap \}
-\end{equation*}
-denoting $=$: semantic equality, $\sqsubset$: subsumption of, $\sqsupset$: subsumes, $\disj$: disjointness, and $\overlap$: overlap. Despite the fact that we have limited ourselves to these particular relations, the method that we propose copes with other correspondence relations as well. 
 
-The concepts in the ontologies are the elements that apply in the ontology. These are of certain type, dependent on the type of logic that is used to formulate the ontology. Although we limit ourselves to description logic, and, for sake of simplicity and available space, to only the classes therein, the principles that we present here are applicable to the other types of elements in description logic, i.e., relations, properties and instances, as well as other types of logic.   
+The concepts in the ontologies are the elements that apply in the ontology. These are of a certain type, dependent on the type of logic that is used to formulate the ontology. Although we limit ourselves to description logic, and, for sake of simplicity and available space, to only the classes therein, the principles that we present here are applicable to the other types of elements in description logic, i.e., relations, properties and instances, as well as other types of logic.   
 
 We denote as atomic correspondence a correspondence where $e$ and $e’$ are atomic concepts, i.e., a single concept without considering any (logical or ontological) relation with another concept from its own ontology. 
 
 A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different types are denoted as heterogeneous. We assume homogeneous correspondences only, and we similarly assume ontologies that are based on the same logic.  
 
-Finally, some notation to distinguish various forms of equivalences:
-\begin{align*}
-  \equiv \;  &amp;\text{: denotes \emph{syntactical identity}} \\
-  = \;       &amp;\text{: denotes \emph{semantic equivalence} that is (to be) established} \\
-  \approx \; &amp;\text{: a semantic equivalence that holds \emph{a priori}, called a ($\Sigma$-)\emph{identity}}
-\end{align*}
 </Text>
         </Document>
         <Document ID="66">
@@ -2039,7 +2087,6 @@ abstract: |
 
   
 ...</Text>
-            <Comments>brandtp, 9/17/2018 The term “fake” might be clearer?</Comments>
         </Document>
     </Documents>
 </SearchIndexes>
