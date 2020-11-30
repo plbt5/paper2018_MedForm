@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-21202" Modified="2020-11-03 10:34:02 +0100" ModID="D4AC8465-3B51-4A4E-A11D-D9E157A17871">
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="PC-21202" Modified="2020-11-30 13:22:55 +0100" ModID="47116B41-BC38-4361-B726-5FE2FE497A09">
     <Binder>
         <BinderItem ID="37" UUID="0C30F64E-88F5-44FC-9892-ABE4A9B94700" Created="2018-08-24 15:06:28 +0100" Modified="2018-08-24 15:06:28 +0100" Type="Text">
             <Title>MMD cheat sheet</Title>
@@ -199,7 +199,7 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 11:23:05 +0100" Modified="2020-10-19 13:11:52 +0100" Type="Text">
+                <BinderItem ID="4" UUID="D1B1F11F-646F-4B47-9C11-9FEFCBFD8870" Created="2016-12-28 11:23:05 +0100" Modified="2020-11-30 11:06:23 +0100" Type="Text">
                     <Title>Introduction</Title>
                     <MetaData>
                         <LabelID>7</LabelID>
@@ -207,11 +207,11 @@
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>6356,0</TextSelection>
+                        <TextSelection>127,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 08:45:12 +0100" Modified="2020-11-02 13:57:05 +0100" Type="Text">
+                <BinderItem ID="64" UUID="254F65BF-36FC-4C62-8240-7BCCDDA9E4E4" Created="2020-01-10 08:45:12 +0100" Modified="2020-11-30 11:07:07 +0100" Type="Text">
                     <Title>Motivating example</Title>
                     <MetaData>
                         <LabelID>7</LabelID>
@@ -219,7 +219,7 @@
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>1255,0</TextSelection>
+                        <TextSelection>976,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
@@ -236,7 +236,7 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 14:00:45 +0100" Modified="2020-11-03 10:34:00 +0100" Type="Text">
+                <BinderItem ID="32" UUID="161E2B1C-F684-40B0-819D-5FE0BB359D3D" Created="2018-05-20 14:00:45 +0100" Modified="2020-11-30 13:22:53 +0100" Type="Text">
                     <Title>An inductive transcription model</Title>
                     <MetaData>
                         <LabelID>6</LabelID>
@@ -244,7 +244,6 @@
                         <FileExtension>rtf</FileExtension>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>7407,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
@@ -260,6 +259,17 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                     <Children>
+                        <BinderItem ID="76" UUID="A00B562D-2519-46DD-8750-4698ABA9F98C" Created="2020-11-30 11:53:38 +0100" Modified="2020-11-30 11:57:20 +0100" Type="Text">
+                            <Title>Atomic concepts and their types</Title>
+                            <MetaData>
+                                <LabelID>1</LabelID>
+                                <FileExtension>rtf</FileExtension>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>1127,0</TextSelection>
+                                <Target Type="Words">0</Target>
+                            </TextSettings>
+                        </BinderItem>
                         <BinderItem ID="55" UUID="C8B817CB-0F6F-4B74-9026-BC4C06C7DA16" Created="2018-12-27 13:41:45 +0100" Modified="2020-11-02 15:33:35 +0100" Type="Text">
                             <Title>Transcribing over atomic class context</Title>
                             <MetaData>
@@ -389,14 +399,14 @@
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem ID="35" UUID="9CFDCFBB-FB19-48EC-9041-030F78C4777F" Created="2018-05-20 14:01:22 +0100" Modified="2020-05-15 13:46:17 +0100" Type="Text">
+                <BinderItem ID="35" UUID="9CFDCFBB-FB19-48EC-9041-030F78C4777F" Created="2018-05-20 14:01:22 +0100" Modified="2020-11-30 11:35:13 +0100" Type="Text">
                     <Title>Related work</Title>
                     <MetaData>
                         <LabelID>3</LabelID>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>82,0</TextSelection>
+                        <TextSelection>798,0</TextSelection>
                         <Target Type="Words">0</Target>
                     </TextSettings>
                 </BinderItem>
@@ -578,7 +588,7 @@
     <ProjectTargets>
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2012-04-24 00:00:00 +0000" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="0" Characters="0" Date="2020-11-02 10:47:37 +0100"/>
+        <PreviousSession Words="0" Characters="0" Date="2020-11-30 11:47:51 +0100"/>
     </ProjectTargets>
     <Collections>
         <Collection Type="Binder" ID="CAFEBABE-0000-0000-0000-000000000000" Color="0.901961 0.917647 0.933333">
@@ -586,7 +596,7 @@
         </Collection>
         <Collection Type="RecentSearch" ID="DEADBEEF-0000-0000-0000-000000000000" Color="0.901961 0.901961 0.980392">
             <Title>Search Results</Title>
-            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">basic-correspondence-a</SearchSettings>
+            <SearchSettings Operator="Exact" Type="Text" Scope="All" CompileSetting="All" CaseSensitive="No">fruits</SearchSettings>
         </Collection>
         <Collection Type="Arbitrary" ID="A7AA6068-705C-410D-A3F5-ABC1FD1F19D4" Color="0.982574 0.841505 0.990005">
             <Title>Request for support</Title>
