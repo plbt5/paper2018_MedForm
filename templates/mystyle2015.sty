@@ -45,6 +45,14 @@ firstinits=true]{biblatex}
 % Defining configuration for the mdframed package 
 \RequirePackage{mdframed}
 
+\newenvironment{callouttip}[1]{
+    \begin{mdframed}[style=titlecallout,
+        linecolor=burlywood, backgroundcolor=cosmiclatte,
+        frametitle={#1}]
+}{
+    \end{mdframed}
+}
+
 \newmdenv[%
     backgroundcolor=blue!10,
     linecolor=blue,
@@ -57,6 +65,8 @@ firstinits=true]{biblatex}
     font=\small
 	]{sidebox}
 \definecolor{skyblue}{rgb}{246,246,246}
+\definecolor{cosmiclatte}{rgb}{1.0, 0.97, 0.91}
+\definecolor{burlywood}{rgb}{0.87, 0.72, 0.53}
 
 %%%%%%%%%%%
 
