@@ -139,28 +139,10 @@ Be 100% explicit: “The main idea of the paper is ....”</Text>
             <Title>An inductive transcription model</Title>
             <Synopsis>
 \end{synopsis}</Synopsis>
-            <Text>Atomic concepts are of certain *type*, denoted $\varepsilon$. This type is dependent on the underlying logic, and since we consider ontologies that are based on description logics the following types apply:
-\begin{equation}\label{eq:concept-type}
-\varepsilon \; ::= \; \token{C} \; | \; \token{R} \; | \; \token{P} \; | \; \token{T} \; | \; \token{I}
-\end{equation}
-where:
-
-* \token{C} denotes the Class concept type. The interpretation of, e.g., the class $f$ of all fruit, results in a set $\intn(f) = \concept{F}$ of all individual apples, pears, bananas and what have you. Now, $f \lhd \token{C} \Leftrightarrow \concept{F} \subseteq \concept{C}$ states that (i) the concept $f$ is type-of ($\lhd$) the Class type (\token{C}), (ii) its interpretation/representation $\Leftrightarrow$ results in a set $\concept{F}$ of all individual pieces of fruit, which (iii) is a subset of the set \concept{C} of all class instances. On its turn, set \concept{C} is a subset of the set of all instances that we consider in the domain of interpretation: $\concept{C} \subseteq \concept{D}$;
-* \token{R}, \token{P}, \token{T} and \token{I} denote the Relation concept type, the Property concept type, the value Type concept type, and the Instance concept type, respectively, each with their own interpretation in \concept{D}. For reason of space limitation, we constrain ourselves to alignments over classes; however, our approach towards semantic transcription applies to other concept types as well. We refer the interested reader to, e.g, [@Baader:2007tt] for an in-depth treatise on description logics.   
-
-We consider atomic concepts only, i.e., a single concept without considering any logical relation with another concept from its own ontology. Whenever the type of the concept or its atomicity is irrelevant, we denote the concept as $e$, whereas $c$ denotes a particular atomic concept of type Class. In our example, we can write that $f \sqsubset c$ because $\intn(f \sqsubset c) = \intn(f) \intn(\sqsubset) \intn(c) = \concept{F} \subseteq \concept{C}$. 
-
-A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different types are denoted as heterogeneous. We assume homogeneous correspondences only, and we similarly assume ontologies that are based on the same logic. \Cref{fig:basic-correspondence-c} depicts an inter-ontological homogeneous class correspondence relation from \cref{eq:corr-relations}. The pattern from \cref{fig:basic-correspondence-p} emerges when we consider an inter-ontological correspondence that addresses an intra-ontological relationships such as a Property.  
+            <Text>A correspondence is homogeneous when it relates concepts that are of the same type, whereas correspondences between concepts of different types are denoted as heterogeneous. We assume homogeneous correspondences only, and we similarly assume ontologies that are based on the same logic. \Cref{fig:basic-correspondence-c} depicts an inter-ontological homogeneous class correspondence relation from \cref{eq:corr-relations}. The pattern from \cref{fig:basic-correspondence-p} emerges when we consider an inter-ontological correspondence that addresses an intra-ontological relationships such as a Property.  
 
 \begin{figure}
  \centering
- \hfill
- \begin{subfigure}[b]{.27\textwidth}
- \centering
- \includegraphics[width=\textwidth]{src/images/BasicCorrespondenceE.png}
- \caption{The correspondence between atomic concepts.}
- \label{fig:basic-correspondence-e}
- \end{subfigure}
  \hfill
  \begin{subfigure}[b]{.26\textwidth}
  \centering
@@ -175,41 +157,47 @@ A correspondence is homogeneous when it relates concepts that are of the same ty
  \caption{The correspondences between atomic property relations.}
  \label{fig:basic-correspondence-p}
  \end{subfigure}
- \caption{Atomic homogeneous correspondences. Excerpts from two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept $e \lhd \varepsilon$, viz. a class and property, with correspondence relation $\theta \in \Theta$ that specifies how the transcribendum corresponds with its peer transcriptum. Note that $\theta$ is a directional relation.}
+ \hfill
+ \begin{subfigure}[b]{.28\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{src/images/BasicCorrespondenceE.png}
+ \caption{The generic atomic correspondence for non-relational concepts.}
+ \label{fig:basic-correspondence-e}
+ \end{subfigure}
+ \caption{Atomic homogeneous correspondences. Excerpts from two ontologies, $\ont{O}$ and $\ont{O’}$, each containing only one atomic concept, viz. a class and property, with correspondence relation $\theta \in \Theta$ that specifies how the transcribendum corresponds with its peer transcriptum. Note that $\theta$ is a directional relation.}
  \label{fig:basic-correspondence}
 \end{figure}
 
-When considering concepts that express relations, i.e., \cref{fig:basic-correspondence-p} on property relations, a class concept $c_d$ becomes a necessary part of the pattern to represent the domain of the relations; similarly, a value type as range concept, $t$, is necessarily included to the pattern as well. Furthermore, by including these secondary (domain and range) concepts, secondary correspondence relations are necessary to include in the atomic correspondence as well in order to clarify how the secondary concepts of the source $\ont{O}$ relate with those of the target ontology $\ont{O’}$. When one considers these secondary correspondence relations, i.e., $\theta_c$ and $\theta_t$, it becomes clear that these are, in fact, the atomic correspondences between class concepts (\cref{fig:basic-correspondence-c}) and between value Type concepts (not depicted). From this it follows that:
+Concepts that express relationships, e.g., \cref{fig:basic-correspondence-p} on property relations, do not stand on themselves. A class concept $c_d$ represents the domain of the relations, just as their range concept is - for property relations - expressed by a value type concept, $t$. Both domain and range form an implicit part of the relationship and we therefore include them as secondary concepts to the relation pattern as well. But, by their inclusion, secondary correspondence relations are relevant to include in the atomic relation pattern as well. When one considers these secondary correspondence relations, i.e., $\theta_c$ and $\theta_t$, it becomes clear that these are, in fact, the atomic correspondences between class concepts (\cref{fig:basic-correspondence-c}) and between value type concepts (not depicted). From this it follows that:
 
-1. indeed correspondence \labelcref{fig:basic-correspondence-e} represents the generic atomic correspondence but only for non-relational concepts: classes, $\tuple{ c, c’, \theta_c}$ as depicted in \labelcref{fig:basic-correspondence-c}, value types and individuals (latter two not depicted);
+1. indeed correspondence \labelcref{fig:basic-correspondence-e} represents the generic atomic correspondence but only for non-relational concepts: classes, $\tuple{ c, c’, \theta_c}$ as depicted in \labelcref{fig:basic-correspondence-c}; value types, $\tuple{ t, t’, \theta_t}$; and individuals, $\tuple{ i, \set{i’,c’}, \theta_{\set{i’,c’}}}$. Latter two not depicted;
 1. correspondences \labelcref{fig:basic-correspondence-p} represent the generic atomic correspondences for Property relations, demanding aside to the primary atomic correspondence also two secondary atomic correspondences, i.e., three atomic correspondences in total. A similar pattern can be established for Object relations;
-1. the generic atomic correspondence between relational concepts can only be addressed once the transcriptions for the atomic correspondences between their non-relational concepts \labelcref{fig:basic-correspondence-e} have been resolved. 
+1. the generic atomic correspondence between relational concepts can only be addressed once the transcriptions for the atomic correspondences between their non-relational concepts have been resolved. 
 
 ![The seven intra-ontological relationships that can apply between pair of classes.][def:Key2rSymbols]
 
-In this paper, we only investigate the transcription for correspondence \labelcref{fig:basic-correspondence-c}: $\tuple{ c, c’, \theta_c}$. To that end, we introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the transcription context $\ctx$, collectively denoted as $X$. The transcription context specifies the classes $c \in \ont{O}$ and $c’\in \ont{O’}$ with their inter-ontological correspondence relations, and one of the classes they have a direct intra-ontological relationship $r$ and $r’$ with, both depicted in \cref{fig:gen-class-transc-models}(a). We define this transcription context inductively over the intra-ontological relations $r$ and $r’$, as follows:
+In this paper, we only investigate the transcription for correspondence \labelcref{fig:basic-correspondence-c}: $\tuple{ c, c’, \theta_c}$. To that end, we introduce the local contexts of the transcriptum and transcribendum in their particular ontologies $\ont{O}$ and $\ont{O}’$. Together, we denote this as the transcription context $\ctx$, collectively denoted as $X$. The transcription context specifies (i) the classes $c \in \ont{O}$ and $c’\in \ont{O’}$, with (ii) one of the seven possible intra-ontological relationship $r$ and $r’$ (\cref{fig:key2-r-symbols}), and (iii) their inter-ontological correspondence relation, $\theta$. We define this transcription context inductively, as follows:
 \begin{equation}
   \ctx_n = \pair{ r, \theta_n, r', \ctx_{n-1} }    \label{eq:transcription-context}
 \end{equation}
 where:
 
-* $r, r’ \in \set{\sqsubset, =, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, denoting the seven logical relationships that can apply intra-ontologically between pair of concepts, depicted in \cref{fig:key2-r-symbols} for $r \in \ont{O}$, with:
+* $r, r’ \in \set{\sqsubset, =, \sqsupset, \overlete, \overlinc, \displete, \disjoinc}$, denoting the seven logical relationships that can apply intra-ontologically between pairs of concepts, depicted in \cref{fig:key2-r-symbols} for $r \in \ont{O}$, with:
     * $r$ and $r’$ part of $\ont{O}$ and $\ont{O}’$, respectively;
     * $\sqsubset, =, \sqsupset$ denote subsumption of, semantic equivalence, and subsumes, e.g., $p \sqsupset f$ as ‘plant parts subsumes fruit’, and
     * $\displete, \disjoinc$ denote *disjoint* ($e_1 \sqcap e_2 = \emptyset$) *but complete* ($e = (e_1 \sqcup e_2)$) or *incomplete* ($e \sqsupset (e_1 \sqcup e_2)$), respectively, e.g. $p \sqsupset (f \disjoinc l)$ denoting ‘fruit and leaves are a disjoint but incomplete set of plant parts’; 
-    * $\overlete, \overlinc$ denote *not disjoint* ($e_1 \sqcap e_2 \neq \emptyset$) *but complete* and not disjoint and incomplete, respectively;
-    * Note the we do not consider the correspondence relation that might or might not have been specified between $r$ and $r’$, otherwise we would investigate correspondence \labelcref{fig:basic-correspondence}; 
-* $\theta_n \in \Theta$, the correspondence relation from \cref{eq:corr-relations} that is assumed to hold between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
+    * $\overlete, \overlinc$ denote *not disjoint* ($e_1 \sqcap e_2 \neq \emptyset$) *but complete* and not disjoint and incomplete, respectively; 
+* $\theta_n \in \Theta$, the correspondence relation from \cref{eq:corr-relations} that holds between classes $c_n \in \ont{O}$ and $c_n’ \in \ont{O}’$;
 * $\ctx_{n-1} = \pair{r, \theta_{n-1}, r’, \ctx_{n-2}}$, viz. the transcription context at the previous induction level;
 * $\ctx_0 = \pair{\theta}$, viz. the basic correspondence that holds between classes $c \in \ont{O}$ and $c’ \in \ont{O}’$ (see \cref{tab:atomic-class-transcriptions} in \cref{transcribing-over-atomic-class-context}).   
 
-We can depict the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This model has been depicted in \cref{fig:gen-class-transc-models}(a). 
+\Cref{fig:gen-class-transc-models} depicts the inductive transcription context as follows. We first consider the intra-ontological relationships $r, r’ \in \set{\sqsubset, =, \sqsupset}$. The context $\ctx_n$ is then fully described by the concepts $c_n, c_{n-1} \in \ont{O}$ and $c_n’, c_{n-1}’ \in \ont{O’}$ and their intra-ontological relationships $r, r’$, the inter-ontological correspondence relation $\theta_n$ and the transcription context $\ctx_{n-1}$. This is depicted in \cref{fig:gen-class-transc-models}(a). 
 
-![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’ \in \set{ \protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc }$, category (b), classes $c$ and $c'$ are implicit. Not shown are categories (c) and (d) as described in the text.][def:GenClassTranscModels]
+![The class transcription models that support all seven ontological relations, where $\theta_n$ denotes the correspondence relation that applies for the context $\ctx_n = \pair{r, \theta_n, r', \ctx_{n-1}}$, and $\vldtranscript{\ctx_{n-1}}$ denotes the valid transcription under context $\ctx_{n-1}$. Category (a) represents $r, r’ \in \set{\sqsubset, =, \sqsupset}$. For $r, r’ \in \set{ \protect\overlete, \protect\overlinc, \protect\displete, \protect\disjoinc }$, category (b), classes $c$ and $c'$ are implicit. Not depicted but specified in the text are the mixed categories (c) and (d).][def:GenClassTranscModels]
 
-On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model has been depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} but are not shown in \cref{fig:gen-class-transc-models}, are (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) $r$ and $r’$ specified vice versa.  
+On considering $r, r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, the completeness aspect of the relations demands a subsuming class concept that can act as reference for (in)completeness. This model is depicted in \cref{fig:gen-class-transc-models}(b), introducing the reference concepts $c$, resp. $c’$, which subsume $c_n \, r \, c_{n-1}$ and $c_n’ \, r’ \, c_{n-1}’$, respectively. Two other categories that are allowed by the inductive model from \cref{eq:transcription-context} are mixtures of (a) and (b), viz. (c) with $r \in \set{\sqsubset, =, \sqsupset}$ and $r’ \in \set{\overlete, \overlinc, \displete, \disjoinc}$, and (d) $r$ and $r’$ specified vice versa (not shown in \cref{fig:gen-class-transc-models}).  
 
-In the remainder of this paper we refer to a specific context that specify both intra-ontological relations, $r$ and $r’$, and the inter-ontological correspondence $\theta_n$ over another induction ($\ctx_{n-1}$) as a particular case. Clearly, categories \ref{fig:gen-class-transc-models}(a)-(d) are complementary to each other, depending on the particular choice for $r$ or $r’$. Together they represent the generic, inductive transcription context with which each and every correspondence in every context that might apply can be described. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next section. 
+Clearly, categories \ref{fig:gen-class-transc-models}(a)-(d) are complementary to each other, depending on the particular choice for $r$ or $r’$. Together they represent the generic, inductive transcription context with which each and every correspondence in every context that might apply can be described. In the remainder of this paper we refer to such specific instantiated context as a particular *(transcription) case*. How this can be used to produce transcriptions that are valid and, therefore, do not produce phantom semantics, is presented in the next section. 
 
 
 
@@ -253,16 +241,18 @@ The above definitions assume the following constraints are met:
 1. Secondly, since the transcription result $T_{\ctx_n}(e_n)$ represents a new theory that is added to $\ont{O}’$, the validity of the transcription holds from the moment that the logical consequences of this new theory have been inferred, and not sooner;
 1. Thirdly, the start case, or baseline transcription, $T_{(\theta)}(e_0)$ is valid, i.e., $e_0 \vldtranscript{\ctx_0}$ holds.  
 
-It can be shown that $\vldtranscript{\ctx} \subseteq T_{\ctx}$. If it can be guaranteed that transcription $T_{\ctx}$ is valid, the transcribendum $e \in \ont{O}$ can be replaced by concept $T_{\ctx}(e) \in \ont{O}’$ without inducing phantom semantics. Assume that $T_{\ctx}(e) = e’$ is valid for some atomic or non-atomic $e’ \in \ont{O}’$, we denote $\pair{e, e’} \in \vldtranscript{\ctx}$ or $e \vldtranscript{\ctx} e’$. When the transcription context is reduced to $\ctx_0$, i.e., the correspondence relation $\theta$ only, we write $T_{(\theta)}$ with its valid counterpart $\vldtranscript{(\theta)}$. 
+It can be shown that $\vldtranscript{\ctx} \subseteq T_{\ctx}$. If it can be guaranteed that transcription $T_{\ctx}$ is valid, the transcribendum $e \in \ont{O}$ can be replaced by $T_{\ctx}(e) \in \ont{O}’$ without inducing phantom semantics. Assume that $T_{\ctx}(e) = e’$ is valid for some $e’ \in \ont{O}’$, we denote $\pair{e, e’} \in \; \vldtranscript{\ctx}$ or $e \vldtranscript{\ctx} e’$. When the transcription context is reduced to $\ctx_0$, i.e., the correspondence relation $\theta$ only, we write $T_{(\theta)}$ with its valid counterpart $\vldtranscript{(\theta)}$. 
 
 Since the transcription context provides for all potential logical contexts that can occur, we can resolve the question whether or not a transcription is valid generically and independently from the particular ontologies and alignments that are applied by the software agents. The question at hand then becomes how to establish $T_{\ctx_n}(e_n)$? Clearly, the transcription result can be represented inductively as a logical combination of atomic concepts $e_n’$ and $e_{n-1}’$, or $e_n’$, $e_{n-1}’$ and $e’$ for all cases that are addressed by \cref{fig:gen-class-transc-models}(a), resp. (b). Our task is then to traverse the 4-dimensional space that is spanned by the transcription context, and for each point in that space consider when $\intn’(T_{\ctx_n}(e_n)) \supseteq \intn(e_n)$ holds, viz. which logical combination of $e_n’$, $e_{n-1}’$ and $e’$ implies the smallest set that includes $\intn(e_n)$. We first consider transcriptions for atomic correspondences, and in the subsequent subsections we extend it to cover several example cases of the full transcription context.
 
 
+\begin{callouttip}{Onjuiste definitie}
 
-Noot: \cref{def:valid-transcription} IS FEITELIJK ONJUIST, omdat $\intn: \ont{O} \to \concept{D}$ en $\intn’: \ont{O}’ \to \concept{D}’$ en derhalve niet hetzelfde co-domain hebben, en daardoor de subset relatie niet bepaald kan worden. Het is juist de bedoeling dat de alignment $e_n \theta_n e_n’$ het verschil in conceptualisaties overbrugt; dat neem ik ook als uitgangspunt. Want: Het maken van een alignment is niet mogelijk zonder een extern orakel die beide afzonderlijke conceptualisaties tot elkaar weet te verhouden. Dat orakel, de mens, is wat ik in \cref{def:valid-transcription} als gezamenlijk co-domain impliceer, op basis waarvan de subset relatie wordt bepaald. Maar ja, hoe schrijf je dat op, mathematisch; door de semiotische “abstractie” relatie met de werkelijkheid te leggen? Maar leg je dan eigenlijk niet heel exact vast dat je te weinig expliciet kan maken om vast te stellen wanneer de transcriptie semantisch valide is?
+\cref{def:valid-transcription} IS FEITELIJK ONJUIST, omdat $\intn: \ont{O} \to \concept{D}$ en $\intn’: \ont{O}’ \to \concept{D}’$ en derhalve niet hetzelfde co-domain hebben, en daardoor de subset relatie niet bepaald kan worden. Het is juist de bedoeling dat de alignment $e_n \theta_n e_n’$ het verschil in conceptualisaties overbrugt; dat neem ik ook als uitgangspunt. Want: Het maken van een alignment is niet mogelijk zonder een extern orakel die beide afzonderlijke conceptualisaties tot elkaar weet te verhouden. Dat orakel, de mens, is wat ik in \cref{def:valid-transcription} als gezamenlijk co-domain impliceer, op basis waarvan de subset relatie wordt bepaald. Maar ja, hoe schrijf je dat op, mathematisch? Optie 1: door de semiotische “abstractie” relatie met de werkelijkheid te leggen? Maar leg je dan eigenlijk niet heel exact vast dat je te weinig expliciet kan maken om vast te stellen wanneer de transcriptie semantisch valide is? Optie 2: Gebruik modal logic, waarbij het intentionele aspect de verschillende perspectieven van elke agent specificeert, en dan de relaties tussen potentiele werelden afhankelijk laten zijn van de alignment relatie? Chique, maar best wel ingewikkeld denk ik.  
 
-Hoe dan ook, het is niet noodzakelijk voor de rest van het verhaal om \cref{def:valid-transcription} sluitend te krijgen, gelukkig; het overbrengen van de intuitie van wat ik als valide semantiek bedoel, volstaat. 
-  </Text>
+Maar, het mathematisch sluitend krijgen van \cref{def:valid-transcription} is niet noodzakelijk voor de rest van het verhaal, noch om de intuitie van wat ik als valide semantiek bedoel, over het voetlicht te krijgen. Maar dan moet ik eigenlijk ook niet willen proberen dit mathematisch te beschrijven, en het verschil tussen valide transcriptie en naive transcriptie op een andere manier duidelijk maken.    
+
+\end{callouttip}  </Text>
         </Document>
         <Document ID="34">
             <Title>A cTRS as mediator</Title>
@@ -2082,6 +2072,20 @@ abstract: |
 
   
 ...</Text>
+        </Document>
+        <Document ID="76">
+            <Title>Atomic concepts and their types</Title>
+            <Text>Atomic concepts are of certain *type*, denoted $\varepsilon$. This type is dependent on the underlying logic, and since we consider ontologies that are based on description logics the following types apply:
+\begin{equation}\label{eq:concept-type}
+\varepsilon \; ::= \; \token{c} \; | \; \token{r} \; | \; \token{p} \; | \; \token{t} \; | \; \token{i}
+\end{equation}
+where:
+
+* \token{c} denotes the Class concept type. The interpretation of, e.g., the class $f$ of all fruit, results in a set $\intn(f) = \concept{F}$ of all individual apples, pears, bananas and what have you. Now, $f \lhd \token{c} \Leftrightarrow \concept{F} \subseteq \concept{C}$ states that (i) the concept $f$ is type-of ($\lhd$) the Class type (\token{c}), (ii) its interpretation/representation $\Leftrightarrow$ results in a set $\concept{F}$ of all individual pieces of fruit, which (iii) is a subset of the set \concept{C} of all class instances. On its turn, set \concept{C} is a subset of the set of all instances that we consider in the domain of interpretation: $\concept{C} \subseteq \concept{D}$;
+* \token{r}, \token{p}, \token{t} and \token{i} denote the Relation concept type, the Property concept type, the value Type concept type, and the Instance concept type, respectively, each with their own interpretation in \concept{D}. For reason of space limitation, we constrain ourselves to alignments over classes; however, our approach towards semantic transcription applies to other concept types as well. We refer the interested reader to, e.g, [@Baader:2007tt] for an in-depth treatise on description logics.   
+
+We consider atomic concepts only, i.e., a single concept without considering any logical relation with another concept from its own ontology. Whenever the type of the concept or its atomicity is irrelevant, we denote the concept as $e$, whereas $c$ denotes a particular atomic concept of type Class. In our example, we can write that $f \sqsubset c$ because $\intn(f \sqsubset c) = \intn(f) \intn(\sqsubset) \intn(c) = \concept{F} \subseteq \concept{C}$. 
+</Text>
         </Document>
     </Documents>
 </SearchIndexes>
